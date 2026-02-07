@@ -665,50 +665,50 @@ const App = () => {
 
   const renderHome = () => (
     <>
-      <header className="hero" style={{ textAlign: 'center', alignItems: 'center', paddingTop: '8rem' }}>
+      <header className="hero">
         <div className="container" style={{ position: 'relative' }}>
           <div className="reveal">
             <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '2rem' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', padding: '0.5rem 1rem', background: 'rgba(16, 185, 129, 0.1)', border: '1px solid rgba(16, 185, 129, 0.3)', borderRadius: '20px' }}>
+              <div className="hero-badge">
                 <CheckCircle2 size={14} color="var(--accent-green)" />
-                <span style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--accent-green)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Official 2026 Verified Portal</span>
+                <span>Official 2026 Verified Portal</span>
               </div>
             </div>
 
-            <p style={{ color: 'white', fontSize: '1.25rem', maxWidth: '750px', lineHeight: '1.7', marginBottom: '2rem', marginInline: 'auto' }}>
+            <p className="hero-description">
               India's most comprehensive platform for government exam aspirants. Access verified eligibility criteria, 3000-word expert guides, and instant qualification checkers for 2026 recruitments.
             </p>
 
             {/* Trust Stats Counter */}
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))', gap: '1.5rem', marginBottom: '2.5rem', maxWidth: '700px' }}>
-              <div style={{ textAlign: 'center', padding: '1.5rem 1rem', background: 'rgba(255, 255, 255, 0.03)', borderRadius: '12px', border: '1px solid rgba(255, 255, 255, 0.1)' }}>
-                <div style={{ fontSize: '2.2rem', fontWeight: 800, color: 'var(--secondary)', fontFamily: 'var(--font-heading)' }}>5L+</div>
-                <div style={{ fontSize: '0.85rem', color: 'white', marginTop: '0.5rem', opacity: 0.9 }}>Active Aspirants</div>
+            <div className="hero-stats">
+              <div className="stats-card">
+                <div className="stats-number" style={{ color: 'var(--secondary)' }}>5L+</div>
+                <div className="stats-label">Active Aspirants</div>
               </div>
-              <div style={{ textAlign: 'center', padding: '1.5rem 1rem', background: 'rgba(255, 255, 255, 0.03)', borderRadius: '12px', border: '1px solid rgba(255, 255, 255, 0.1)' }}>
-                <div style={{ fontSize: '2.2rem', fontWeight: 800, color: '#10B981', fontFamily: 'var(--font-heading)' }}>50+</div>
-                <div style={{ fontSize: '0.85rem', color: 'white', marginTop: '0.5rem', opacity: 0.9 }}>Exam Bodies</div>
+              <div className="stats-card">
+                <div className="stats-number" style={{ color: '#10B981' }}>50+</div>
+                <div className="stats-label">Exam Bodies</div>
               </div>
-              <div style={{ textAlign: 'center', padding: '1.5rem 1rem', background: 'rgba(255, 255, 255, 0.03)', borderRadius: '12px', border: '1px solid rgba(255, 255, 255, 0.1)' }}>
-                <div style={{ fontSize: '2.2rem', fontWeight: 800, color: '#8B5CF6', fontFamily: 'var(--font-heading)' }}>100%</div>
-                <div style={{ fontSize: '0.85rem', color: 'white', marginTop: '0.5rem', opacity: 0.9 }}>Official Data</div>
+              <div className="stats-card">
+                <div className="stats-number" style={{ color: '#8B5CF6' }}>100%</div>
+                <div className="stats-label">Official Data</div>
               </div>
             </div>
 
             {/* Trust Icons */}
             <div style={{ marginBottom: '2rem' }}>
               <div style={{ fontSize: '0.8rem', color: 'rgba(255, 255, 255, 0.6)', marginBottom: '1rem', fontWeight: 600, letterSpacing: '0.05em' }}>TRUSTED SOURCE FOR:</div>
-              <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', alignItems: 'center' }}>
-                <div style={{ padding: '0.6rem 1.2rem', background: 'rgba(255, 255, 255, 0.05)', borderRadius: '8px', border: '1px solid rgba(255, 255, 255, 0.1)', fontSize: '0.85rem', fontWeight: 600, color: 'white' }}>UPSC</div>
-                <div style={{ padding: '0.6rem 1.2rem', background: 'rgba(255, 255, 255, 0.05)', borderRadius: '8px', border: '1px solid rgba(255, 255, 255, 0.1)', fontSize: '0.85rem', fontWeight: 600, color: 'white' }}>SSC</div>
-                <div style={{ padding: '0.6rem 1.2rem', background: 'rgba(255, 255, 255, 0.05)', borderRadius: '8px', border: '1px solid rgba(255, 255, 255, 0.1)', fontSize: '0.85rem', fontWeight: 600, color: 'white' }}>IBPS</div>
-                <div style={{ padding: '0.6rem 1.2rem', background: 'rgba(255, 255, 255, 0.05)', borderRadius: '8px', border: '1px solid rgba(255, 255, 255, 0.1)', fontSize: '0.85rem', fontWeight: 600, color: 'white' }}>RRB</div>
-                <div style={{ padding: '0.6rem 1.2rem', background: 'rgba(255, 255, 255, 0.05)', borderRadius: '8px', border: '1px solid rgba(255, 255, 255, 0.1)', fontSize: '0.85rem', fontWeight: 600, color: 'white' }}>State PSC</div>
-                <div style={{ padding: '0.6rem 1.2rem', background: 'rgba(255, 255, 255, 0.05)', borderRadius: '8px', border: '1px solid rgba(255, 255, 255, 0.1)', fontSize: '0.85rem', fontWeight: 600, color: 'white' }}>Banking</div>
+              <div className="trust-tags">
+                <div className="trust-tag">UPSC</div>
+                <div className="trust-tag">SSC</div>
+                <div className="trust-tag">IBPS</div>
+                <div className="trust-tag">RRB</div>
+                <div className="trust-tag">State PSC</div>
+                <div className="trust-tag">Banking</div>
               </div>
             </div>
 
-            <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', marginBottom: '2rem' }}>
+            <div className="hero-cta-group">
               <a href="#hub" className="btn btn-primary">
                 Document Hub <ChevronRight size={18} />
               </a>

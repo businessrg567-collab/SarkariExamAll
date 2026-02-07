@@ -755,3 +755,127 @@ h4 {
     padding: 0.9rem 1.2rem;
   }
 }
+
+/* Hero Section Responsive Classes */
+.hero-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  border-radius: 20px;
+}
+
+.hero-badge span {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--accent-green);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+}
+
+.hero-description {
+  color: white;
+  font-size: 1.25rem;
+  max-width: 750px;
+  line-height: 1.7;
+  margin-bottom: 2rem;
+  margin-inline: auto;
+}
+
+.hero-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+  max-width: 700px;
+  width: 100%;
+}
+
+.stats-card {
+  text-align: center;
+  padding: 1.5rem 1rem;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.stats-number {
+  font-size: 2.2rem;
+  font-weight: 800;
+  font-family: var(--font-heading);
+}
+
+.stats-label {
+  font-size: 0.85rem;
+  color: white;
+  margin-top: 0.5rem;
+  opacity: 0.9;
+}
+
+.trust-tags {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.trust-tag {
+  padding: 0.6rem 1.2rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: white;
+}
+
+.hero-cta-group {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+  justify-content: center;
+}
+
+/* Mobile Overrides (Max Width 480px) */
+@media (max-width: 480px) {
+  .hero-stats {
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    /* Allow smaller cards */
+    gap: 1rem;
+  }
+
+  .stats-number {
+    font-size: 1.8rem;
+  }
+
+  .hero-description {
+    font-size: 1rem;
+    /* Smaller text on mobile */
+    padding: 0 0.5rem;
+  }
+
+  .trust-tags {
+    gap: 0.5rem;
+  }
+
+  .trust-tag {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.75rem;
+  }
+
+  .hero-cta-group {
+    flex-direction: column;
+    width: 100%;
+    padding: 0 1rem;
+  }
+
+  .hero-cta-group .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
