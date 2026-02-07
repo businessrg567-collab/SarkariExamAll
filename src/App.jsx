@@ -12,6 +12,7 @@ import EligibilityCheckerPage from './components/EligibilityCheckerPage';
 import DocumentGuidePage from './components/DocumentGuidePage';
 import PreparationGuidesPage from './components/PreparationGuidesPage';
 import LocationGuidesPage from './components/LocationGuidesPage';
+import ExamRequirementsPage from './components/ExamRequirementsPage';
 import { blogs } from './data/articles';
 import { locations } from './data/locations';
 
@@ -853,7 +854,8 @@ const App = () => {
       {activeTab === 'Locations' && <LocationsHub onSelectLocation={(loc) => { setSelectedLocation(loc); setActiveTab('Location'); }} onBack={() => setActiveTab('Home')} />}
       {activeTab === 'Location' && selectedLocation && <LocationPage location={selectedLocation} onBack={() => setActiveTab('Locations')} />}
       {activeTab === 'EligibilityChecker' && <EligibilityCheckerPage onBack={() => setActiveTab('Home')} />}
-      {activeTab === 'DocumentGuide' && <DocumentGuidePage onBack={() => setActiveTab('Home')} />}
+      {activeTab === 'DocumentGuide' && <DocumentGuidePage onBack={() => setActiveTab('Home')} onNavigateToExamRequirements={() => setActiveTab('ExamRequirements')} />}
+      {activeTab === 'ExamRequirements' && <ExamRequirementsPage onBack={() => setActiveTab('Home')} />}
       {activeTab === 'PreparationGuides' && <PreparationGuidesPage onSelectBlog={(blog) => { setSelectedBlog(blog); setActiveTab('Detail'); }} onBack={() => setActiveTab('Home')} />}
       {activeTab === 'LocationGuides' && <LocationGuidesPage onSelectLocation={(loc) => { setSelectedLocation(loc); setActiveTab('Location'); }} onBack={() => setActiveTab('Home')} />}
 
