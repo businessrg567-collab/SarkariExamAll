@@ -668,15 +668,18 @@ const App = () => {
       <header className="hero">
         <div className="container" style={{ position: 'relative' }}>
           <div className="reveal">
-            <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '2rem' }}>
+            <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '1.5rem' }}>
               <div className="hero-badge">
                 <CheckCircle2 size={14} color="var(--accent-green)" />
                 <span>Official 2026 Verified Portal</span>
               </div>
             </div>
 
+            <h1 className="hero-brand-title">SarkariExamAll</h1>
+            <h2 className="hero-tagline">India’s Verified Government Exam Intelligence Platform</h2>
+
             <p className="hero-description">
-              India's most comprehensive platform for government exam aspirants. Access verified eligibility criteria, 3000-word expert guides, and instant qualification checkers for 2026 recruitments.
+              Access verified eligibility criteria, 3000-word expert guides, and instant qualification checkers for 2026 recruitments.
             </p>
 
             {/* Trust Stats Counter */}

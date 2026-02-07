@@ -841,12 +841,83 @@ h4 {
   justify-content: center;
 }
 
+
+/* Hero Branding */
+.hero-brand-title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 0.5rem;
+  background: linear-gradient(to right, white, var(--secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-tagline {
+  font-size: 1.25rem;
+  color: var(--text-dim);
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+  max-width: 800px;
+  margin-inline: auto;
+}
+
 /* Mobile Overrides (Max Width 480px) */
 @media (max-width: 480px) {
+
+  /* Header Redesign */
+  .navbar {
+    padding: 1rem 0;
+    /* Breathable header */
+    height: auto;
+    min-height: 60px;
+  }
+
+  .nav-brand {
+    font-size: 1.4rem;
+    /* Readable logo */
+  }
+
+  /* Typography */
+  .hero-brand-title {
+    font-size: 2.5rem;
+    /* Mobile title size */
+  }
+
+  .hero-tagline {
+    font-size: 1rem;
+    /* Smaller text on mobile */
+    padding: 0 1rem;
+    line-height: 1.4;
+  }
+
+  /* Horizontal Scroll - Stats Cards */
   .hero-stats {
-    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
-    /* Allow smaller cards */
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
     gap: 1rem;
+    padding-bottom: 1rem;
+    /* Space for scrollbar if any */
+    margin-bottom: 2rem;
+    width: 100%;
+    /* Hide scrollbar for cleaner look */
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    padding-right: 2rem;
+    /* Peek effect */
+    box-sizing: border-box;
+  }
+
+  .hero-stats::-webkit-scrollbar {
+    display: none;
+  }
+
+  .stats-card {
+    min-width: 60%;
+    /* Show partial next card */
+    scroll-snap-align: center;
+    flex-shrink: 0;
   }
 
   .stats-number {
@@ -859,19 +930,37 @@ h4 {
     padding: 0 0.5rem;
   }
 
+  /* Horizontal Scroll - Trust Tags */
   .trust-tags {
-    gap: 0.5rem;
+    flex-wrap: nowrap;
+    /* Disable wrap */
+    overflow-x: auto;
+    justify-content: flex-start;
+    padding-bottom: 0.5rem;
+    width: 100%;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    padding-left: 1rem;
+    /* Partial hint alignment */
+  }
+
+  .trust-tags::-webkit-scrollbar {
+    display: none;
   }
 
   .trust-tag {
-    padding: 0.4rem 0.8rem;
-    font-size: 0.75rem;
+    flex-shrink: 0;
+    scroll-snap-align: start;
+    white-space: nowrap;
   }
 
+  /* Prevent content cutting */
   .hero-cta-group {
     flex-direction: column;
     width: 100%;
     padding: 0 1rem;
+    padding-bottom: 2rem;
+    /* Safe bottom padding */
   }
 
   .hero-cta-group .btn {
