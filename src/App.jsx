@@ -26,14 +26,6 @@ const handleImageError = (e) => {
   e.target.src = 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=400&q=60';
 };
 
-const Ticker = () => (
-  <div className="ticker-wrap">
-    <div className="ticker">
-      🔥 SSC CGL Tier-II Results Declared • UPSC 2026 Prelims Notification Out on Feb 15 • IBPS Clerk Registration Closing Soon • SarkariExamAll: Your Trusted Career Partner • Stay Updated with Regular Notifications • 🔥 NEW: 2026 Exam Result Bot Beta Released • 🔥
-    </div>
-  </div>
-);
-
 const FAQItem = ({ question, answer }) => {
   const [isOpen, setIsOpen] = useState(false);
   return (
@@ -937,8 +929,6 @@ const App = () => {
           </div>
         </div>
       </nav>
-
-      {activeTab === 'Home' && <Ticker />}
 
       {activeTab === 'Home' && renderHome()}
       {activeTab === 'Blog' && renderBlog()}

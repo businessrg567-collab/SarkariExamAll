@@ -78,39 +78,6 @@ h4 {
   padding: 0 1.5rem;
 }
 
-.ticker-wrap {
-  position: fixed;
-  top: 70px;
-  width: 100%;
-  overflow: hidden;
-  height: 40px;
-  background-color: var(--trust-blue);
-  color: var(--secondary);
-  display: flex;
-  align-items: center;
-  z-index: 999;
-  border-bottom: 1px solid var(--glass-border);
-}
-
-.ticker {
-  display: inline-block;
-  white-space: nowrap;
-  padding-right: 100%;
-  animation: ticker 30s linear infinite;
-  font-size: 0.85rem;
-  font-weight: 600;
-}
-
-@keyframes ticker {
-  0% {
-    transform: translate3d(100%, 0, 0);
-  }
-
-  100% {
-    transform: translate3d(-100%, 0, 0);
-  }
-}
-
 .navbar {
   position: fixed;
   top: 0;
@@ -580,6 +547,150 @@ h4 {
   .grid-2 {
     grid-template-columns: 1fr;
   }
+  
+  .navbar {
+    padding: 0.8rem 0;
+  }
+  
+  .nav-brand {
+    font-size: 1.4rem;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --section-padding: 3rem;
+  }
+  
+  .container {
+    padding: 0 1rem;
+  }
+  
+  /* Navbar mobile optimization */
+  .navbar {
+    padding: 0.6rem 0;
+  }
+  
+  .nav-brand {
+    font-size: 1.3rem;
+  }
+  
+  /* Hero section mobile */
+  .hero {
+    min-height: 70vh;
+    padding-top: 5rem;
+    padding-bottom: 2rem;
+  }
+  
+  .hero h1 {
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .hero p {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  /* Glass cards mobile */
+  .glass-card {
+    padding: 1.5rem;
+  }
+  
+  .premium-checker-card {
+    padding: 2rem 1.5rem;
+    margin: 2rem auto;
+  }
+  
+  /* Buttons mobile - larger touch targets */
+  .btn {
+    padding: 1rem 1.5rem;
+    font-size: 0.95rem;
+    width: 100%;
+    justify-content: center;
+  }
+  
+  /* Form inputs mobile */
+  .form-input {
+    padding: 0.9rem;
+    font-size: 16px; /* Prevents zoom on iOS */
+  }
+  
+  .checker-input {
+    padding: 1rem !important;
+    font-size: 16px !important;
+  }
+  
+  /* Grid mobile */
+  .grid {
+    gap: 1.5rem;
+  }
+  
+  .grid-2,
+  .grid-3 {
+    grid-template-columns: 1fr;
+  }
+  
+  /* Blog grid mobile */
+  .blog-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  /* Footer mobile */
+  .footer {
+    padding: 3rem 0 1.5rem;
+  }
+  
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  /* Article content mobile */
+  .article-content h1 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .article-content h2 {
+    font-size: 1.5rem;
+    margin-top: 2.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .article-content h3 {
+    font-size: 1.3rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .article-content h4 {
+    font-size: 1.1rem;
+    margin-top: 1.5rem;
+  }
+  
+  .article-content p,
+  .article-content li {
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+  
+  .article-content ul,
+  .article-content ol {
+    padding-left: 1.5rem;
+  }
+  
+  /* Badge mobile */
+  .badge-trust {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.7rem;
+  }
+  
+  /* Section titles mobile */
+  .section-title h2 {
+    font-size: 1.8rem;
+  }
 }
 
 @media (max-width: 600px) {
@@ -588,10 +699,35 @@ h4 {
   }
 
   .hero h1 {
-    font-size: 2.5rem;
+    font-size: 2rem;
   }
 
   .blog-grid {
     grid-template-columns: 1fr;
+  }
+  
+  /* Extra small mobile optimizations */
+  .navbar {
+    padding: 0.5rem 0;
+  }
+  
+  .nav-brand {
+    font-size: 1.2rem;
+  }
+  
+  .hero {
+    padding-top: 4rem;
+  }
+  
+  .glass-card {
+    padding: 1.2rem;
+  }
+  
+  .premium-checker-card {
+    padding: 1.5rem 1rem;
+  }
+  
+  .btn {
+    padding: 0.9rem 1.2rem;
   }
 }
