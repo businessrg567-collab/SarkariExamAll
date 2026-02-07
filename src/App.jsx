@@ -15,6 +15,8 @@ import PreparationGuidesPage from './components/PreparationGuidesPage';
 import LocationGuidesPage from './components/LocationGuidesPage';
 import ExamRequirementsPage from './components/ExamRequirementsPage';
 import NotFoundPage from './components/NotFoundPage';
+import PrivacyPolicyPage from './components/PrivacyPolicyPage';
+import TermsOfServicePage from './components/TermsOfServicePage';
 import { blogs } from './data/articles';
 import { locations } from './data/locations';
 
@@ -587,13 +589,16 @@ const App = () => {
       '/exam-requirements': 'ExamRequirements',
       '/preparation-guides': 'PreparationGuides',
       '/location-guides': 'LocationGuides',
+      '/privacy-policy': 'PrivacyPolicy',
+      '/terms-of-service': 'TermsOfService',
     };
 
     // Check for dynamic routes
     if (pathname.startsWith('/blog/')) return 'Detail';
     if (pathname.startsWith('/locations/')) return 'Location';
 
-    return pathMap[pathname] || 'Home';
+    // Return NotFound for invalid URLs
+    return pathMap[pathname] || 'NotFound';
   };
 
   // activeTab to URL path mapping
@@ -614,6 +619,8 @@ const App = () => {
       'ExamRequirements': '/exam-requirements',
       'PreparationGuides': '/preparation-guides',
       'LocationGuides': '/location-guides',
+      'PrivacyPolicy': '/privacy-policy',
+      'TermsOfService': '/terms-of-service',
     };
     return tabMap[tab] || '/';
   };
@@ -948,6 +955,8 @@ const App = () => {
       {activeTab === 'ExamRequirements' && <ExamRequirementsPage onBack={() => navigateToTab('Home')} />}
       {activeTab === 'PreparationGuides' && <PreparationGuidesPage onSelectBlog={(blog) => navigateToTab('Detail', blog)} onBack={() => navigateToTab('Home')} />}
       {activeTab === 'LocationGuides' && <LocationGuidesPage onSelectLocation={(loc) => navigateToTab('Location', loc)} onBack={() => navigateToTab('Home')} />}
+      {activeTab === 'PrivacyPolicy' && <PrivacyPolicyPage onBack={() => navigateToTab('Home')} />}
+      {activeTab === 'TermsOfService' && <TermsOfServicePage onBack={() => navigateToTab('Home')} />}
       {activeTab === 'NotFound' && <NotFoundPage />}
 
       <footer id="footer" className="footer">
@@ -995,6 +1004,8 @@ const App = () => {
                 <li><a href="#" onClick={(e) => { e.preventDefault(); navigateToTab('Contact'); }}>Contact Us</a></li>
                 <li><a href="#" onClick={(e) => { e.preventDefault(); navigateToTab('Contact'); }}>Advertise With Us</a></li>
                 <li><a href="#" onClick={(e) => { e.preventDefault(); navigateToTab('Partner'); }}>Partner With Us</a></li>
+                <li><a href="#" onClick={(e) => { e.preventDefault(); navigateToTab('PrivacyPolicy'); }}>Privacy Policy</a></li>
+                <li><a href="#" onClick={(e) => { e.preventDefault(); navigateToTab('TermsOfService'); }}>Terms of Service</a></li>
               </ul>
             </div>
 
