@@ -147,8 +147,8 @@ const SuccessStoriesPage = ({ onBack }) => {
               <div>
                 <h3 style={{ color: 'var(--secondary)', fontSize: '1.8rem', marginBottom: '0.5rem' }}>{story.name}</h3>
                 <div style={{ display: 'flex', gap: '1rem', marginBottom: '1.5rem', flexWrap: 'wrap' }}>
-                  <span style={{ padding: '0.4rem 1rem', background: 'rgba(245, 158, 11, 0.1)', border: '1px solid var(--secondary)', borderRadius: '20px', fontSize: '0.85rem', color: 'var(--secondary)', fontWeight: 600 }}>{story.exam}</span>
-                  <span style={{ padding: '0.4rem 1rem', background: 'rgba(16, 185, 129, 0.1)', border: '1px solid #10B981', borderRadius: '20px', fontSize: '0.85rem', color: '#10B981', fontWeight: 600 }}>{story.rank}</span>
+                  <span style={{ padding: '0.4rem 1rem', background: 'var(--glass)', border: '1px solid var(--secondary)', borderRadius: '20px', fontSize: '0.85rem', color: 'var(--secondary)', fontWeight: 600 }}>{story.exam}</span>
+                  <span style={{ padding: '0.4rem 1rem', background: 'var(--glass-light-green)', border: '1px solid var(--accent-green)', borderRadius: '20px', fontSize: '0.85rem', color: 'var(--accent-green)', fontWeight: 600 }}>{story.rank}</span>
                 </div>
                 <p style={{ color: 'white', fontSize: '1.1rem', lineHeight: '1.9', fontStyle: 'italic' }}>"{story.story}"</p>
               </div>
@@ -156,7 +156,7 @@ const SuccessStoriesPage = ({ onBack }) => {
           ))}
         </div>
 
-        <div className="glass-card" style={{ padding: '3rem', marginTop: '4rem', textAlign: 'center', background: 'rgba(245, 158, 11, 0.05)', border: '2px solid var(--secondary)' }}>
+        <div className="glass-card" style={{ padding: '3rem', marginTop: '4rem', textAlign: 'center', background: 'var(--glass)', border: '2px solid var(--secondary)' }}>
           <h2 style={{ color: 'var(--secondary)', fontSize: '2rem', marginBottom: '1rem' }}>Your Success Story Awaits</h2>
           <p style={{ color: 'white', fontSize: '1.1rem', marginBottom: '2rem', lineHeight: '1.8' }}>
             Join 5 lakh+ aspirants who trust SarkariExamAll for their government exam preparation. Start your journey today with our comprehensive guides, eligibility checkers, and expert resources.
@@ -189,7 +189,7 @@ const CareerCounselingPage = ({ onBack }) => {
 
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '3rem', marginBottom: '4rem' }}>
           <div className="glass-card" style={{ padding: '3rem' }}>
-            <div style={{ width: '60px', height: '60px', background: 'rgba(245, 158, 11, 0.1)', borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1.5rem' }}>
+            <div style={{ width: '60px', height: '60px', background: 'var(--glass)', borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1.5rem' }}>
               <GraduationCap size={32} color="var(--secondary)" />
             </div>
             <h3 style={{ color: 'var(--secondary)', fontSize: '1.6rem', marginBottom: '1rem' }}>Personalized Exam Roadmap</h3>
@@ -199,27 +199,27 @@ const CareerCounselingPage = ({ onBack }) => {
           </div>
 
           <div className="glass-card" style={{ padding: '3rem' }}>
-            <div style={{ width: '60px', height: '60px', background: 'rgba(16, 185, 129, 0.1)', borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1.5rem' }}>
-              <Target size={32} color="#10B981" />
+            <div style={{ width: '60px', height: '60px', background: 'var(--glass-light-green)', borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1.5rem' }}>
+              <Target size={32} color="var(--accent-green)" />
             </div>
-            <h3 style={{ color: '#10B981', fontSize: '1.6rem', marginBottom: '1rem' }}>Strategy & Time Management</h3>
+            <h3 style={{ color: 'var(--accent-green)', fontSize: '1.6rem', marginBottom: '1rem' }}>Strategy & Time Management</h3>
             <p style={{ color: 'white', fontSize: '1.05rem', lineHeight: '1.8' }}>
               Learn proven strategies from successful candidates. We provide detailed study plans, time management techniques, and preparation timelines for each exam. Our 3000-word guides cover every aspect from basics to advanced preparation.
             </p>
           </div>
 
           <div className="glass-card" style={{ padding: '3rem' }}>
-            <div style={{ width: '60px', height: '60px', background: 'rgba(139, 92, 246, 0.1)', borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1.5rem' }}>
-              <FileText size={32} color="#8B5CF6" />
+            <div style={{ width: '60px', height: '60px', background: 'var(--glass)', borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1.5rem' }}>
+              <FileText size={32} color="var(--secondary)" />
             </div>
-            <h3 style={{ color: '#8B5CF6', fontSize: '1.6rem', marginBottom: '1rem' }}>Document & Eligibility Guidance</h3>
+            <h3 style={{ color: 'var(--secondary)', fontSize: '1.6rem', marginBottom: '1rem' }}>Document & Eligibility Guidance</h3>
             <p style={{ color: 'white', fontSize: '1.05rem', lineHeight: '1.8' }}>
               Confused about eligibility criteria or required documents? Our experts clarify all doubts regarding age limits, educational qualifications, reservation policies, and document requirements for 50+ government exams.
             </p>
           </div>
 
           <div className="glass-card" style={{ padding: '3rem' }}>
-            <div style={{ width: '60px', height: '60px', background: 'rgba(245, 158, 11, 0.1)', borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1.5rem' }}>
+            <div style={{ width: '60px', height: '60px', background: 'var(--glass)', borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1.5rem' }}>
               <Users size={32} color="var(--secondary)" />
             </div>
             <h3 style={{ color: 'var(--secondary)', fontSize: '1.6rem', marginBottom: '1rem' }}>Ongoing Mentorship</h3>
@@ -282,35 +282,35 @@ const PartnerPage = ({ onBack }) => {
             </ul>
           </div>
 
-          <div className="glass-card" style={{ padding: '3rem', background: 'rgba(16, 185, 129, 0.05)' }}>
-            <h2 style={{ color: '#10B981', fontSize: '2rem', marginBottom: '2rem', display: 'flex', alignItems: 'center', gap: '1rem' }}>
+          <div className="glass-card" style={{ padding: '3rem', background: 'linear-gradient(135deg, var(--glass-light-green) 0%, var(--glass-dark-green) 100%)' }}>
+            <h2 style={{ color: 'var(--accent-green)', fontSize: '2rem', marginBottom: '2rem', display: 'flex', alignItems: 'center', gap: '1rem' }}>
               <Globe size={32} /> Content Creator Collaboration
             </h2>
             <p style={{ color: 'white', fontSize: '1.1rem', lineHeight: '1.9', marginBottom: '2rem' }}>
               Are you an educator, blogger, or YouTuber creating government exam content? Collaborate with us to monetize your expertise:
             </p>
             <ul style={{ color: 'white', fontSize: '1.05rem', lineHeight: '2', listStyle: 'none' }}>
-              <li style={{ display: 'flex', gap: '0.5rem', marginBottom: '0.8rem' }}><CheckCircle2 size={20} color="#10B981" /> Publish your articles on our platform (3000+ word guides preferred)</li>
-              <li style={{ display: 'flex', gap: '0.5rem', marginBottom: '0.8rem' }}><CheckCircle2 size={20} color="#10B981" /> Revenue sharing on premium content and courses</li>
-              <li style={{ display: 'flex', gap: '0.5rem', marginBottom: '0.8rem' }}><CheckCircle2 size={20} color="#10B981" /> Author profile with social media links and credentials</li>
-              <li style={{ display: 'flex', gap: '0.5rem', marginBottom: '0.8rem' }}><CheckCircle2 size={20} color="#10B981" /> Cross-promotion on our social channels (100K+ followers)</li>
-              <li style={{ display: 'flex', gap: '0.5rem', marginBottom: '0.8rem' }}><CheckCircle2 size={20} color="#10B981" /> Performance-based bonuses and recognition</li>
+              <li style={{ display: 'flex', gap: '0.5rem', marginBottom: '0.8rem' }}><CheckCircle2 size={20} color="var(--accent-green)" /> Publish your articles on our platform (3000+ word guides preferred)</li>
+              <li style={{ display: 'flex', gap: '0.5rem', marginBottom: '0.8rem' }}><CheckCircle2 size={20} color="var(--accent-green)" /> Revenue sharing on premium content and courses</li>
+              <li style={{ display: 'flex', gap: '0.5rem', marginBottom: '0.8rem' }}><CheckCircle2 size={20} color="var(--accent-green)" /> Author profile with social media links and credentials</li>
+              <li style={{ display: 'flex', gap: '0.5rem', marginBottom: '0.8rem' }}><CheckCircle2 size={20} color="var(--accent-green)" /> Cross-promotion on our social channels (100K+ followers)</li>
+              <li style={{ display: 'flex', gap: '0.5rem', marginBottom: '0.8rem' }}><CheckCircle2 size={20} color="var(--accent-green)" /> Performance-based bonuses and recognition</li>
             </ul>
           </div>
 
           <div className="glass-card" style={{ padding: '3rem' }}>
-            <h2 style={{ color: '#8B5CF6', fontSize: '2rem', marginBottom: '2rem', display: 'flex', alignItems: 'center', gap: '1rem' }}>
+            <h2 style={{ color: 'var(--secondary)', fontSize: '2rem', marginBottom: '2rem', display: 'flex', alignItems: 'center', gap: '1rem' }}>
               <Briefcase size={32} /> Corporate & Advertising Partnership
             </h2>
             <p style={{ color: 'white', fontSize: '1.1rem', lineHeight: '1.9', marginBottom: '2rem' }}>
               Reach a highly engaged audience of government job aspirants. Our advertising solutions include:
             </p>
             <ul style={{ color: 'white', fontSize: '1.05rem', lineHeight: '2', listStyle: 'none' }}>
-              <li style={{ display: 'flex', gap: '0.5rem', marginBottom: '0.8rem' }}><CheckCircle2 size={20} color="#8B5CF6" /> Banner ads on high-traffic pages (1M+ monthly visitors)</li>
-              <li style={{ display: 'flex', gap: '0.5rem', marginBottom: '0.8rem' }}><CheckCircle2 size={20} color="#8B5CF6" /> Sponsored content and native advertising</li>
-              <li style={{ display: 'flex', gap: '0.5rem', marginBottom: '0.8rem' }}><CheckCircle2 size={20} color="#8B5CF6" /> Email marketing to our subscriber base (500K+ emails)</li>
-              <li style={{ display: 'flex', gap: '0.5rem', marginBottom: '0.8rem' }}><CheckCircle2 size={20} color="#8B5CF6" /> Exam-specific targeting and demographic filters</li>
-              <li style={{ display: 'flex', gap: '0.5rem', marginBottom: '0.8rem' }}><CheckCircle2 size={20} color="#8B5CF6" /> Detailed analytics and ROI tracking</li>
+              <li style={{ display: 'flex', gap: '0.5rem', marginBottom: '0.8rem' }}><CheckCircle2 size={20} color="var(--secondary)" /> Banner ads on high-traffic pages (1M+ monthly visitors)</li>
+              <li style={{ display: 'flex', gap: '0.5rem', marginBottom: '0.8rem' }}><CheckCircle2 size={20} color="var(--secondary)" /> Sponsored content and native advertising</li>
+              <li style={{ display: 'flex', gap: '0.5rem', marginBottom: '0.8rem' }}><CheckCircle2 size={20} color="var(--secondary)" /> Email marketing to our subscriber base (500K+ emails)</li>
+              <li style={{ display: 'flex', gap: '0.5rem', marginBottom: '0.8rem' }}><CheckCircle2 size={20} color="var(--secondary)" /> Exam-specific targeting and demographic filters</li>
+              <li style={{ display: 'flex', gap: '0.5rem', marginBottom: '0.8rem' }}><CheckCircle2 size={20} color="var(--secondary)" /> Detailed analytics and ROI tracking</li>
             </ul>
           </div>
         </div>
@@ -409,7 +409,7 @@ const ContactPage = ({ onBack }) => {
                 <Send size={18} /> Send Message
               </button>
               {submitted && (
-                <div style={{ padding: '1rem', background: 'rgba(34, 197, 94, 0.1)', border: '2px solid rgb(34, 197, 94)', borderRadius: '10px', color: 'rgb(34, 197, 94)' }}>
+                <div style={{ padding: '1rem', background: 'var(--glass-light-green)', border: '2px solid var(--accent-green)', borderRadius: '10px', color: 'var(--accent-green)' }}>
                   ✓ Message sent successfully! We'll get back to you within 24 hours.
                 </div>
               )}
@@ -665,20 +665,17 @@ const App = () => {
 
   const renderHome = () => (
     <>
-      <header className="hero">
+      <header className="hero" style={{ textAlign: 'center', alignItems: 'center', paddingTop: '8rem' }}>
         <div className="container" style={{ position: 'relative' }}>
           <div className="reveal">
-            <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1.5rem', flexWrap: 'wrap' }}>
-              <div className="badge-trust" style={{ background: 'rgba(245, 158, 11, 0.1)', color: 'var(--secondary)', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                <ShieldCheck size={14} /> OFFICIAL 2026 AUTHORITY PORTAL
-              </div>
+            <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '2rem' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', padding: '0.5rem 1rem', background: 'rgba(16, 185, 129, 0.1)', border: '1px solid rgba(16, 185, 129, 0.3)', borderRadius: '20px' }}>
-                <CheckCircle2 size={14} color="#10B981" />
-                <span style={{ fontSize: '0.75rem', fontWeight: 700, color: '#10B981', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Verified Portal</span>
+                <CheckCircle2 size={14} color="var(--accent-green)" />
+                <span style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--accent-green)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Official 2026 Verified Portal</span>
               </div>
             </div>
-            <h1 className="gradient-text-gold">SarkariExamAll</h1>
-            <p style={{ color: 'white', fontSize: '1.25rem', maxWidth: '750px', lineHeight: '1.7', marginBottom: '2rem' }}>
+
+            <p style={{ color: 'white', fontSize: '1.25rem', maxWidth: '750px', lineHeight: '1.7', marginBottom: '2rem', marginInline: 'auto' }}>
               India's most comprehensive platform for government exam aspirants. Access verified eligibility criteria, 3000-word expert guides, and instant qualification checkers for 2026 recruitments.
             </p>
 
@@ -883,36 +880,74 @@ const App = () => {
     </>
   );
 
-  const renderBlog = () => (
-    <div style={{ paddingTop: '10rem', paddingBottom: '6rem' }}>
-      <div className="container">
-        <div className="section-title reveal" style={{ textAlign: 'center' }}>
-          <h1 className="gradient-text-teal">Expert Knowledge Blog</h1>
-          <p style={{ color: 'white', marginTop: '1rem' }}>30+ comprehensive guides covering every aspect of government exam preparation for 2026</p>
-          <div className="divider"></div>
-        </div>
-        <div className="blog-grid" style={{ marginTop: '4rem' }}>
-          {blogs.map((blog) => (
-            <div key={blog.id} className="blog-card reveal" onClick={() => { setSelectedBlog(blog); setActiveTab('Detail'); }}>
-              <div style={{ height: '220px', overflow: 'hidden', background: '#1E293B' }}>
-                <img
-                  src={blog.image}
-                  alt={blog.title}
-                  style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                  onError={handleImageError}
-                />
+  const renderBlog = () => {
+    const [searchQuery, setSearchQuery] = useState('');
+
+    // Filter blogs based on search
+    const filteredBlogs = blogs.filter(blog =>
+      blog.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      blog.category.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+
+    return (
+      <div style={{ paddingTop: '10rem', paddingBottom: '6rem' }}>
+        <div className="container">
+          <div className="section-title reveal" style={{ textAlign: 'center' }}>
+            <h1 className="gradient-text-teal">Expert Knowledge Blog</h1>
+            <p style={{ color: 'white', marginTop: '1rem' }}>30+ comprehensive guides covering every aspect of government exam preparation for 2026</p>
+            <div className="divider"></div>
+          </div>
+
+          {/* Search Bar */}
+          <div style={{ maxWidth: '600px', margin: '3rem auto 0', position: 'relative' }}>
+            <input
+              type="text"
+              placeholder="Search articles... (e.g., UPSC, Banking, Strategy)"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              style={{
+                width: '100%',
+                padding: '1rem 1.5rem',
+                paddingRight: '3rem',
+                background: 'var(--glass)',
+                border: '1px solid var(--glass-border)',
+                borderRadius: '50px',
+                color: 'white',
+                fontSize: '1rem'
+              }}
+            />
+            <Search size={20} color="var(--secondary)" style={{ position: 'absolute', right: '1.5rem', top: '50%', transform: 'translateY(-50%)' }} />
+          </div>
+
+          <div className="blog-grid" style={{ marginTop: '4rem' }}>
+            {filteredBlogs.length > 0 ? (
+              filteredBlogs.map((blog) => (
+                <div key={blog.id} className="blog-card reveal" onClick={() => { setSelectedBlog(blog); setActiveTab('Detail'); }}>
+                  <div style={{ height: '220px', overflow: 'hidden', background: '#1E293B' }}>
+                    <img
+                      src={blog.image}
+                      alt={blog.title}
+                      style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                      onError={handleImageError}
+                    />
+                  </div>
+                  <div className="blog-content">
+                    <span className="blog-cat">{blog.category}</span>
+                    <h3 className="blog-title" style={{ color: 'white' }}>{blog.title}</h3>
+                    <p style={{ fontSize: '0.9rem', color: 'white' }}>{blog.excerpt}</p>
+                  </div>
+                </div>
+              ))
+            ) : (
+              <div style={{ gridColumn: '1 / -1', textAlign: 'center', padding: '3rem', color: 'var(--text-dim)' }}>
+                <p>No articles found matching "{searchQuery}". Try different keywords.</p>
               </div>
-              <div className="blog-content">
-                <span className="blog-cat">{blog.category}</span>
-                <h3 className="blog-title" style={{ color: 'white' }}>{blog.title}</h3>
-                <p style={{ fontSize: '0.9rem', color: 'white' }}>{blog.excerpt}</p>
-              </div>
-            </div>
-          ))}
+            )}
+          </div>
         </div>
       </div>
-    </div>
-  );
+    );
+  };
 
   return (
     <div style={{ background: 'var(--primary)', color: 'white', minHeight: '100vh' }}>
