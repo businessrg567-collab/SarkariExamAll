@@ -8,6 +8,10 @@ import {
 } from 'lucide-react';
 import EligibilityChecker from './components/EligibilityChecker';
 import ExamHub from './components/ExamHub';
+import EligibilityCheckerPage from './components/EligibilityCheckerPage';
+import DocumentGuidePage from './components/DocumentGuidePage';
+import PreparationGuidesPage from './components/PreparationGuidesPage';
+import LocationGuidesPage from './components/LocationGuidesPage';
 import { blogs } from './data/articles';
 import { locations } from './data/locations';
 
@@ -848,6 +852,10 @@ const App = () => {
       {activeTab === 'Contact' && <ContactPage onBack={() => setActiveTab('Home')} />}
       {activeTab === 'Locations' && <LocationsHub onSelectLocation={(loc) => { setSelectedLocation(loc); setActiveTab('Location'); }} onBack={() => setActiveTab('Home')} />}
       {activeTab === 'Location' && selectedLocation && <LocationPage location={selectedLocation} onBack={() => setActiveTab('Locations')} />}
+      {activeTab === 'EligibilityChecker' && <EligibilityCheckerPage onBack={() => setActiveTab('Home')} />}
+      {activeTab === 'DocumentGuide' && <DocumentGuidePage onBack={() => setActiveTab('Home')} />}
+      {activeTab === 'PreparationGuides' && <PreparationGuidesPage onSelectBlog={(blog) => { setSelectedBlog(blog); setActiveTab('Detail'); }} onBack={() => setActiveTab('Home')} />}
+      {activeTab === 'LocationGuides' && <LocationGuidesPage onSelectLocation={(loc) => { setSelectedLocation(loc); setActiveTab('Location'); }} onBack={() => setActiveTab('Home')} />}
 
       <footer id="footer" className="footer">
         <div className="container">
@@ -876,10 +884,10 @@ const App = () => {
             <div className="footer-col">
               <h4 style={{ color: 'var(--secondary)', fontSize: '1.1rem', fontWeight: 700 }}>Student Resources</h4>
               <ul>
-                <li><a href="#checker">Eligibility Checker</a></li>
-                <li><a href="#hub">Document Guide 2026</a></li>
-                <li><a href="#" onClick={() => setActiveTab('Blog')}>Preparation Guides</a></li>
-                <li><a href="#" onClick={() => setActiveTab('Locations')}>Location Guides</a></li>
+                <li><a href="#" onClick={() => setActiveTab('EligibilityChecker')}>Eligibility Checker</a></li>
+                <li><a href="#" onClick={() => setActiveTab('DocumentGuide')}>Document Guide 2026</a></li>
+                <li><a href="#" onClick={() => setActiveTab('PreparationGuides')}>Preparation Guides</a></li>
+                <li><a href="#" onClick={() => setActiveTab('LocationGuides')}>Location Guides</a></li>
                 <li><a href="#" onClick={() => setActiveTab('Counseling')}>Career Counseling</a></li>
                 <li><a href="#" onClick={() => setActiveTab('Contact')}>Get Support</a></li>
               </ul>
