@@ -5,7 +5,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import {
   ShieldCheck, TrendingUp, ChevronRight, CheckCircle2, FileText, Briefcase, BookOpen, Mail, Instagram, Twitter,
   ArrowRight, Globe, Award, Users, ChevronDown, ChevronUp, Calendar, Bell, Send, Download, ExternalLink, Cpu, Search, Zap, Home,
-  MapPin, Phone, MessageCircle, Building2, GraduationCap, Target, FileCheck
+  MapPin, Phone, MessageCircle, Building2, GraduationCap, Target, FileCheck, Menu, X
 } from 'lucide-react';
 import EligibilityChecker from './components/EligibilityChecker';
 import ExamHub from './components/ExamHub';
@@ -949,21 +949,56 @@ const App = () => {
     );
   };
 
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   return (
     <div style={{ background: 'var(--primary)', color: 'white', minHeight: '100vh' }}>
       <nav className="navbar">
         <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-          <a href="#" onClick={(e) => { e.preventDefault(); setSelectedBlog(null); setSelectedLocation(null); navigateToTab('Home'); }} className="nav-brand">
+          <a href="#" onClick={(e) => { e.preventDefault(); setSelectedBlog(null); setSelectedLocation(null); navigateToTab('Home'); setIsMenuOpen(false); }} className="nav-brand">
             SarkariExam<span>All</span>
           </a>
-          <div style={{ display: 'flex', gap: '2rem', alignItems: 'center' }}>
+
+          {/* Desktop Menu */}
+          <div className="desktop-menu" style={{ display: 'flex', gap: '2rem', alignItems: 'center' }}>
             <a href="#hub" onClick={(e) => { e.preventDefault(); setSelectedBlog(null); setSelectedLocation(null); navigateToTab('Home'); }} style={{ color: 'white', textDecoration: 'none', fontWeight: 600, fontSize: '0.95rem' }}>Exam Hub</a>
             <a href="#" onClick={(e) => { e.preventDefault(); setSelectedBlog(null); setSelectedLocation(null); navigateToTab('Blog'); }} style={{ color: activeTab === 'Blog' ? 'var(--secondary)' : 'white', textDecoration: 'none', fontWeight: 600, fontSize: '0.95rem' }}>Blog</a>
             <a href="#" onClick={(e) => { e.preventDefault(); setSelectedBlog(null); setSelectedLocation(null); navigateToTab('Locations'); }} style={{ color: activeTab === 'Locations' ? 'var(--secondary)' : 'white', textDecoration: 'none', fontWeight: 600, fontSize: '0.95rem' }}>Top Cities</a>
             <a href="#" onClick={(e) => { e.preventDefault(); navigateToTab('Contact'); }} className="btn btn-secondary" style={{ padding: '0.5rem 1rem', fontSize: '0.85rem' }}>Get In Touch</a>
           </div>
+
+          {/* Mobile Menu Toggle */}
+          <div className="mobile-menu-toggle" style={{ display: 'none' }}>
+            <button onClick={() => setIsMenuOpen(!isMenuOpen)} style={{ background: 'none', border: 'none', color: 'white', cursor: 'pointer' }}>
+              {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
+            </button>
+          </div>
         </div>
+
+        {/* Mobile Menu Overlay */}
+        {isMenuOpen && (
+          <div style={{
+            position: 'absolute',
+            top: '100%',
+            left: 0,
+            width: '100%',
+            background: 'rgba(15, 23, 42, 0.98)',
+            backdropFilter: 'blur(20px)',
+            borderBottom: '1px solid var(--glass-border)',
+            padding: '2rem',
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '1.5rem',
+            zIndex: 1000
+          }}>
+            <a href="#hub" onClick={(e) => { e.preventDefault(); navigateToTab('Home'); setIsMenuOpen(false); }} style={{ color: 'white', textDecoration: 'none', fontSize: '1.2rem', fontWeight: 600 }}>Exam Hub</a>
+            <a href="#" onClick={(e) => { e.preventDefault(); navigateToTab('Blog'); setIsMenuOpen(false); }} style={{ color: 'white', textDecoration: 'none', fontSize: '1.2rem', fontWeight: 600 }}>Expert Blog</a>
+            <a href="#" onClick={(e) => { e.preventDefault(); navigateToTab('Locations'); setIsMenuOpen(false); }} style={{ color: 'white', textDecoration: 'none', fontSize: '1.2rem', fontWeight: 600 }}>Top Cities</a>
+            <a href="#" onClick={(e) => { e.preventDefault(); navigateToTab('Contact'); setIsMenuOpen(false); }} className="btn btn-primary" style={{ justifyContent: 'center' }}>Get In Touch</a>
+          </div>
+        )}
       </nav>
+
 
       {activeTab === 'Home' && renderHome()}
       {activeTab === 'Blog' && renderBlog()}
@@ -1076,7 +1111,7 @@ const App = () => {
           </div>
         </div>
       </footer>
-    </div>
+    </div >
   );
 };
 
