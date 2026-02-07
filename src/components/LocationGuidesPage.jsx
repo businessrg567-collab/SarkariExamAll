@@ -124,7 +124,7 @@ const LocationGuidesPage = ({ onSelectLocation, onBack }) => {
         <div style={{
             paddingTop: '10rem',
             paddingBottom: '6rem',
-            background: 'linear-gradient(135deg, #164E63 0%, #0E7490 50%, #164E63 100%)',
+            background: 'var(--primary)',
             minHeight: '100vh'
         }}>
             <div className="container">

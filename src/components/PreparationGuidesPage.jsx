@@ -104,7 +104,7 @@ const PreparationGuidesPage = ({ onSelectBlog, onBack }) => {
         <div style={{
             paddingTop: '10rem',
             paddingBottom: '6rem',
-            background: 'linear-gradient(135deg, #7C2D12 0%, #EA580C 50%, #7C2D12 100%)',
+            background: 'var(--primary)',
             minHeight: '100vh'
         }}>
             <div className="container">

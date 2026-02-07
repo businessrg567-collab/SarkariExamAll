@@ -206,7 +206,7 @@ const DocumentGuidePage = ({ onBack }) => {
         <div style={{
             paddingTop: '10rem',
             paddingBottom: '6rem',
-            background: 'linear-gradient(135deg, #064E3B 0%, #047857 50%, #064E3B 100%)',
+            background: 'var(--primary)',
             minHeight: '100vh'
         }}>
             <div className="container">

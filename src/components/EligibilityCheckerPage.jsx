@@ -131,7 +131,7 @@ const EligibilityCheckerPage = ({ onBack }) => {
         <div style={{
             paddingTop: '10rem',
             paddingBottom: '6rem',
-            background: 'linear-gradient(135deg, #1E1B4B 0%, #312E81 50%, #1E1B4B 100%)',
+            background: 'var(--primary)',
             minHeight: '100vh'
         }}>
             <div className="container">
