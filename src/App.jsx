@@ -620,6 +620,7 @@ const App = () => {
   const [activeTab, setActiveTab] = useState(getActiveTabFromPath(location.pathname));
   const [selectedBlog, setSelectedBlog] = useState(null);
   const [selectedLocation, setSelectedLocation] = useState(null);
+  const [searchQuery, setSearchQuery] = useState(''); // For blog search
 
   // Sync activeTab with URL changes
   useEffect(() => {
@@ -675,7 +676,7 @@ const App = () => {
               </div>
             </div>
 
-            <h1 className="hero-brand-title">SarkariExamAll – India's Trusted Government Exam Platform</h1>
+            <h1 className="hero-brand-title">India's Trusted Exam Platform</h1>
             <h2 className="hero-tagline">India’s Verified Government Exam Intelligence Platform</h2>
 
             <p className="hero-description">
@@ -720,11 +721,6 @@ const App = () => {
               </a>
             </div>
 
-            {/* Official Data Note */}
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', padding: '0.8rem 1.2rem', background: 'rgba(245, 158, 11, 0.05)', border: '1px solid rgba(245, 158, 11, 0.2)', borderRadius: '8px', maxWidth: 'fit-content' }}>
-              <FileCheck size={16} color="var(--secondary)" />
-              <span style={{ fontSize: '0.85rem', color: 'white', opacity: 0.9 }}>All data sourced from official government notifications and gazettes</span>
-            </div>
           </div>
         </div>
       </header>
@@ -884,9 +880,7 @@ const App = () => {
   );
 
   const renderBlog = () => {
-    const [searchQuery, setSearchQuery] = useState('');
-
-    // Filter blogs based on search
+    // Filter blogs based on search (uses component-level searchQuery state)
     const filteredBlogs = blogs.filter(blog =>
       blog.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
       blog.category.toLowerCase().includes(searchQuery.toLowerCase())
