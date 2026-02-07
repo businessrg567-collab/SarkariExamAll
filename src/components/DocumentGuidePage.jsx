@@ -271,7 +271,7 @@ const DocumentGuidePage = ({ onBack }) => {
                 </div>
 
                 {/* Exam Hub Component */}
-                <div className="glass-card" style={{
+                <div id="exam-hub-section" className="glass-card" style={{
                     padding: '4rem',
                     marginBottom: '5rem',
                     background: 'rgba(255, 255, 255, 0.03)',
@@ -673,7 +673,10 @@ const DocumentGuidePage = ({ onBack }) => {
                         Don't let improper documentation stand between you and your dream government job. Start preparing your documents today using our comprehensive guide.
                     </p>
                     <div style={{ display: 'flex', gap: '1.5rem', justifyContent: 'center', flexWrap: 'wrap' }}>
-                        <button onClick={() => window.scrollTo(0, 400)} className="btn btn-primary" style={{ padding: '1.2rem 2.5rem', fontSize: '1.1rem' }}>
+                        <button onClick={() => {
+                            const examHub = document.getElementById('exam-hub-section');
+                            if (examHub) examHub.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        }} className="btn btn-primary" style={{ padding: '1.2rem 2.5rem', fontSize: '1.1rem' }}>
                             <Download size={20} /> View Exam Requirements
                         </button>
                         <button onClick={onBack} className="btn btn-secondary" style={{ padding: '1.2rem 2.5rem', fontSize: '1.1rem' }}>

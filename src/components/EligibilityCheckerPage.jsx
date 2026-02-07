@@ -196,7 +196,7 @@ const EligibilityCheckerPage = ({ onBack }) => {
                 </div>
 
                 {/* Eligibility Checker Component */}
-                <div className="glass-card" style={{
+                <div id="eligibility-checker-section" className="glass-card" style={{
                     padding: '4rem',
                     marginBottom: '5rem',
                     background: 'rgba(255, 255, 255, 0.03)',
@@ -442,7 +442,10 @@ const EligibilityCheckerPage = ({ onBack }) => {
                         Join 5 lakh+ aspirants who trust SarkariExamAll for accurate eligibility information and comprehensive preparation guidance. Your dream government job is just one eligibility check away!
                     </p>
                     <div style={{ display: 'flex', gap: '1.5rem', justifyContent: 'center', flexWrap: 'wrap' }}>
-                        <button onClick={() => window.scrollTo(0, 400)} className="btn btn-primary" style={{ padding: '1.2rem 2.5rem', fontSize: '1.1rem' }}>
+                        <button onClick={() => {
+                            const checker = document.getElementById('eligibility-checker-section');
+                            if (checker) checker.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        }} className="btn btn-primary" style={{ padding: '1.2rem 2.5rem', fontSize: '1.1rem' }}>
                             <CheckCircle2 size={20} /> Check Eligibility Again
                         </button>
                         <button onClick={onBack} className="btn btn-secondary" style={{ padding: '1.2rem 2.5rem', fontSize: '1.1rem' }}>
