@@ -680,7 +680,7 @@ const App = () => {
             <h2 className="hero-tagline">India’s Verified Government Exam Intelligence Platform</h2>
 
             <p className="hero-description">
-              Access verified eligibility criteria, 3000-word expert guides, and instant qualification checkers for 2026 recruitments.
+              Your one-stop destination for verified exam notifications, eligibility checks, and expert preparation strategies. Join 5 lakh+ aspirants achieving their government job dreams!
             </p>
 
             {/* Trust Stats Counter */}
