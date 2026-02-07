@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import {
@@ -14,7 +13,6 @@ import DocumentGuidePage from './components/DocumentGuidePage';
 import PreparationGuidesPage from './components/PreparationGuidesPage';
 import LocationGuidesPage from './components/LocationGuidesPage';
 import ExamRequirementsPage from './components/ExamRequirementsPage';
-import NotFoundPage from './components/NotFoundPage';
 import { blogs } from './data/articles';
 import { locations } from './data/locations';
 
@@ -566,98 +564,10 @@ const ArticleDetail = ({ blog, onBack }) => {
   );
 };
 
-
 const App = () => {
-  const location = useLocation();
-  const navigate = useNavigate();
-
-  // URL path to activeTab mapping
-  const getActiveTabFromPath = (pathname) => {
-    const pathMap = {
-      '/': 'Home',
-      '/blog': 'Blog',
-      '/about': 'About',
-      '/contact': 'Contact',
-      '/locations': 'Locations',
-      '/success-stories': 'Success',
-      '/career-counseling': 'Counseling',
-      '/partner': 'Partner',
-      '/eligibility-checker': 'EligibilityChecker',
-      '/document-guide': 'DocumentGuide',
-      '/exam-requirements': 'ExamRequirements',
-      '/preparation-guides': 'PreparationGuides',
-      '/location-guides': 'LocationGuides',
-    };
-
-    // Check for dynamic routes
-    if (pathname.startsWith('/blog/')) return 'Detail';
-    if (pathname.startsWith('/locations/')) return 'Location';
-
-    return pathMap[pathname] || 'Home';
-  };
-
-  // activeTab to URL path mapping
-  const getPathFromActiveTab = (tab) => {
-    const tabMap = {
-      'Home': '/',
-      'Blog': '/blog',
-      'Detail': '/blog',
-      'About': '/about',
-      'Contact': '/contact',
-      'Locations': '/locations',
-      'Location': '/locations',
-      'Success': '/success-stories',
-      'Counseling': '/career-counseling',
-      'Partner': '/partner',
-      'EligibilityChecker': '/eligibility-checker',
-      'DocumentGuide': '/document-guide',
-      'ExamRequirements': '/exam-requirements',
-      'PreparationGuides': '/preparation-guides',
-      'LocationGuides': '/location-guides',
-    };
-    return tabMap[tab] || '/';
-  };
-
-  const [activeTab, setActiveTab] = useState(getActiveTabFromPath(location.pathname));
+  const [activeTab, setActiveTab] = useState('Home');
   const [selectedBlog, setSelectedBlog] = useState(null);
   const [selectedLocation, setSelectedLocation] = useState(null);
-
-  // Sync activeTab with URL changes
-  useEffect(() => {
-    const newTab = getActiveTabFromPath(location.pathname);
-    if (newTab !== activeTab) {
-      setActiveTab(newTab);
-    }
-
-    // Extract blog ID or location from URL if present
-    if (location.pathname.startsWith('/blog/')) {
-      const blogId = location.pathname.split('/blog/')[1];
-      const blog = blogs.find(b => b.id === parseInt(blogId));
-      if (blog) setSelectedBlog(blog);
-    }
-    if (location.pathname.startsWith('/locations/')) {
-      const citySlug = location.pathname.split('/locations/')[1];
-      const loc = locations.find(l => l.name.toLowerCase().replace(/\s+/g, '-') === citySlug);
-      if (loc) setSelectedLocation(loc);
-    }
-  }, [location.pathname]);
-
-  // Custom setActiveTab that also updates URL
-  const navigateToTab = (tab, blogOrLocation = null) => {
-    setActiveTab(tab);
-
-    if (tab === 'Detail' && blogOrLocation) {
-      setSelectedBlog(blogOrLocation);
-      navigate(`/blog/${blogOrLocation.id}`);
-    } else if (tab === 'Location' && blogOrLocation) {
-      setSelectedLocation(blogOrLocation);
-      const citySlug = blogOrLocation.name.toLowerCase().replace(/\s+/g, '-');
-      navigate(`/locations/${citySlug}`);
-    } else {
-      const path = getPathFromActiveTab(tab);
-      navigate(path);
-    }
-  };
 
   useEffect(() => {
     // Animations disabled for ultra-stable UI as requested
@@ -919,14 +829,14 @@ const App = () => {
     <div style={{ background: 'var(--primary)', color: 'white', minHeight: '100vh' }}>
       <nav className="navbar">
         <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-          <a href="#" onClick={(e) => { e.preventDefault(); setSelectedBlog(null); setSelectedLocation(null); navigateToTab('Home'); }} className="nav-brand">
+          <a href="#" onClick={() => { setActiveTab('Home'); setSelectedBlog(null); setSelectedLocation(null); }} className="nav-brand">
             SarkariExam<span>All</span>
           </a>
           <div style={{ display: 'flex', gap: '2rem', alignItems: 'center' }}>
-            <a href="#hub" onClick={(e) => { e.preventDefault(); setSelectedBlog(null); setSelectedLocation(null); navigateToTab('Home'); }} style={{ color: 'white', textDecoration: 'none', fontWeight: 600, fontSize: '0.95rem' }}>Exam Hub</a>
-            <a href="#" onClick={(e) => { e.preventDefault(); setSelectedBlog(null); setSelectedLocation(null); navigateToTab('Blog'); }} style={{ color: activeTab === 'Blog' ? 'var(--secondary)' : 'white', textDecoration: 'none', fontWeight: 600, fontSize: '0.95rem' }}>Blog</a>
-            <a href="#" onClick={(e) => { e.preventDefault(); setSelectedBlog(null); setSelectedLocation(null); navigateToTab('Locations'); }} style={{ color: activeTab === 'Locations' ? 'var(--secondary)' : 'white', textDecoration: 'none', fontWeight: 600, fontSize: '0.95rem' }}>Top Cities</a>
-            <a href="#" onClick={(e) => { e.preventDefault(); navigateToTab('Contact'); }} className="btn btn-secondary" style={{ padding: '0.5rem 1rem', fontSize: '0.85rem' }}>Get In Touch</a>
+            <a href="#hub" onClick={() => { setActiveTab('Home'); setSelectedBlog(null); setSelectedLocation(null); }} style={{ color: 'white', textDecoration: 'none', fontWeight: 600, fontSize: '0.95rem' }}>Exam Hub</a>
+            <a href="#" onClick={() => { setActiveTab('Blog'); setSelectedBlog(null); setSelectedLocation(null); }} style={{ color: activeTab === 'Blog' ? 'var(--secondary)' : 'white', textDecoration: 'none', fontWeight: 600, fontSize: '0.95rem' }}>Blog</a>
+            <a href="#" onClick={() => { setActiveTab('Locations'); setSelectedBlog(null); setSelectedLocation(null); }} style={{ color: activeTab === 'Locations' ? 'var(--secondary)' : 'white', textDecoration: 'none', fontWeight: 600, fontSize: '0.95rem' }}>Top Cities</a>
+            <a href="#" onClick={() => setActiveTab('Contact')} className="btn btn-secondary" style={{ padding: '0.5rem 1rem', fontSize: '0.85rem' }}>Get In Touch</a>
           </div>
         </div>
       </nav>
@@ -935,20 +845,19 @@ const App = () => {
 
       {activeTab === 'Home' && renderHome()}
       {activeTab === 'Blog' && renderBlog()}
-      {activeTab === 'Detail' && selectedBlog && <ArticleDetail blog={selectedBlog} onBack={() => navigateToTab('Blog')} />}
-      {activeTab === 'About' && <AboutPage onBack={() => navigateToTab('Home')} />}
-      {activeTab === 'Success' && <SuccessStoriesPage onBack={() => navigateToTab('Home')} />}
-      {activeTab === 'Counseling' && <CareerCounselingPage onBack={() => navigateToTab('Home')} />}
-      {activeTab === 'Partner' && <PartnerPage onBack={() => navigateToTab('Home')} />}
-      {activeTab === 'Contact' && <ContactPage onBack={() => navigateToTab('Home')} />}
-      {activeTab === 'Locations' && <LocationsHub onSelectLocation={(loc) => navigateToTab('Location', loc)} onBack={() => navigateToTab('Home')} />}
-      {activeTab === 'Location' && selectedLocation && <LocationPage location={selectedLocation} onBack={() => navigateToTab('Locations')} />}
-      {activeTab === 'EligibilityChecker' && <EligibilityCheckerPage onBack={() => navigateToTab('Home')} />}
-      {activeTab === 'DocumentGuide' && <DocumentGuidePage onBack={() => navigateToTab('Home')} onNavigateToExamRequirements={() => navigateToTab('ExamRequirements')} />}
-      {activeTab === 'ExamRequirements' && <ExamRequirementsPage onBack={() => navigateToTab('Home')} />}
-      {activeTab === 'PreparationGuides' && <PreparationGuidesPage onSelectBlog={(blog) => navigateToTab('Detail', blog)} onBack={() => navigateToTab('Home')} />}
-      {activeTab === 'LocationGuides' && <LocationGuidesPage onSelectLocation={(loc) => navigateToTab('Location', loc)} onBack={() => navigateToTab('Home')} />}
-      {activeTab === 'NotFound' && <NotFoundPage />}
+      {activeTab === 'Detail' && selectedBlog && <ArticleDetail blog={selectedBlog} onBack={() => setActiveTab('Blog')} />}
+      {activeTab === 'About' && <AboutPage onBack={() => setActiveTab('Home')} />}
+      {activeTab === 'Success' && <SuccessStoriesPage onBack={() => setActiveTab('Home')} />}
+      {activeTab === 'Counseling' && <CareerCounselingPage onBack={() => setActiveTab('Home')} />}
+      {activeTab === 'Partner' && <PartnerPage onBack={() => setActiveTab('Home')} />}
+      {activeTab === 'Contact' && <ContactPage onBack={() => setActiveTab('Home')} />}
+      {activeTab === 'Locations' && <LocationsHub onSelectLocation={(loc) => { setSelectedLocation(loc); setActiveTab('Location'); }} onBack={() => setActiveTab('Home')} />}
+      {activeTab === 'Location' && selectedLocation && <LocationPage location={selectedLocation} onBack={() => setActiveTab('Locations')} />}
+      {activeTab === 'EligibilityChecker' && <EligibilityCheckerPage onBack={() => setActiveTab('Home')} />}
+      {activeTab === 'DocumentGuide' && <DocumentGuidePage onBack={() => setActiveTab('Home')} onNavigateToExamRequirements={() => setActiveTab('ExamRequirements')} />}
+      {activeTab === 'ExamRequirements' && <ExamRequirementsPage onBack={() => setActiveTab('Home')} />}
+      {activeTab === 'PreparationGuides' && <PreparationGuidesPage onSelectBlog={(blog) => { setSelectedBlog(blog); setActiveTab('Detail'); }} onBack={() => setActiveTab('Home')} />}
+      {activeTab === 'LocationGuides' && <LocationGuidesPage onSelectLocation={(loc) => { setSelectedLocation(loc); setActiveTab('Location'); }} onBack={() => setActiveTab('Home')} />}
 
       <footer id="footer" className="footer">
         <div className="container">
@@ -969,7 +878,7 @@ const App = () => {
               <h4 style={{ color: 'var(--secondary)', fontSize: '1.1rem', fontWeight: 700 }}>Top Cities</h4>
               <ul>
                 {locations.slice(0, 6).map(loc => (
-                  <li key={loc.id}><a href="#" onClick={(e) => { e.preventDefault(); navigateToTab('Location', loc); }}>{loc.name} Exams</a></li>
+                  <li key={loc.id}><a href="#" onClick={() => { setSelectedLocation(loc); setActiveTab('Location'); }}>{loc.name} Exams</a></li>
                 ))}
               </ul>
             </div>
@@ -977,24 +886,24 @@ const App = () => {
             <div className="footer-col">
               <h4 style={{ color: 'var(--secondary)', fontSize: '1.1rem', fontWeight: 700 }}>Student Resources</h4>
               <ul>
-                <li><a href="#" onClick={(e) => { e.preventDefault(); navigateToTab('EligibilityChecker'); }}>Eligibility Checker</a></li>
-                <li><a href="#" onClick={(e) => { e.preventDefault(); navigateToTab('DocumentGuide'); }}>Document Guide 2026</a></li>
-                <li><a href="#" onClick={(e) => { e.preventDefault(); navigateToTab('PreparationGuides'); }}>Preparation Guides</a></li>
-                <li><a href="#" onClick={(e) => { e.preventDefault(); navigateToTab('LocationGuides'); }}>Location Guides</a></li>
-                <li><a href="#" onClick={(e) => { e.preventDefault(); navigateToTab('Counseling'); }}>Career Counseling</a></li>
-                <li><a href="#" onClick={(e) => { e.preventDefault(); navigateToTab('Contact'); }}>Get Support</a></li>
+                <li><a href="#" onClick={() => setActiveTab('EligibilityChecker')}>Eligibility Checker</a></li>
+                <li><a href="#" onClick={() => setActiveTab('DocumentGuide')}>Document Guide 2026</a></li>
+                <li><a href="#" onClick={() => setActiveTab('PreparationGuides')}>Preparation Guides</a></li>
+                <li><a href="#" onClick={() => setActiveTab('LocationGuides')}>Location Guides</a></li>
+                <li><a href="#" onClick={() => setActiveTab('Counseling')}>Career Counseling</a></li>
+                <li><a href="#" onClick={() => setActiveTab('Contact')}>Get Support</a></li>
               </ul>
             </div>
 
             <div className="footer-col">
               <h4 style={{ color: 'var(--secondary)', fontSize: '1.1rem', fontWeight: 700 }}>About Portal</h4>
               <ul>
-                <li><a href="#" onClick={(e) => { e.preventDefault(); navigateToTab('About'); }}>About SarkariExamAll</a></li>
-                <li><a href="#" onClick={(e) => { e.preventDefault(); navigateToTab('About'); }}>Our Mission</a></li>
-                <li><a href="#" onClick={(e) => { e.preventDefault(); navigateToTab('Success'); }}>Success Stories</a></li>
-                <li><a href="#" onClick={(e) => { e.preventDefault(); navigateToTab('Contact'); }}>Contact Us</a></li>
-                <li><a href="#" onClick={(e) => { e.preventDefault(); navigateToTab('Contact'); }}>Advertise With Us</a></li>
-                <li><a href="#" onClick={(e) => { e.preventDefault(); navigateToTab('Partner'); }}>Partner With Us</a></li>
+                <li><a href="#" onClick={() => setActiveTab('About')}>About SarkariExamAll</a></li>
+                <li><a href="#" onClick={() => setActiveTab('About')}>Our Mission</a></li>
+                <li><a href="#" onClick={() => setActiveTab('Success')}>Success Stories</a></li>
+                <li><a href="#" onClick={() => setActiveTab('Contact')}>Contact Us</a></li>
+                <li><a href="#" onClick={() => setActiveTab('Contact')}>Advertise With Us</a></li>
+                <li><a href="#" onClick={() => setActiveTab('Partner')}>Partner With Us</a></li>
               </ul>
             </div>
 

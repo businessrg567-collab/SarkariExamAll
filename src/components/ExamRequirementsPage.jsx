@@ -1,8 +1,10 @@
 import React, { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Home, FileText, Award, BookOpen, Calendar, CheckCircle2, AlertCircle, Download } from 'lucide-react';
 import ExamHub from './ExamHub';
 
 const ExamRequirementsPage = ({ onBack }) => {
+    const navigate = useNavigate();
     useEffect(() => window.scrollTo(0, 0), []);
 
     const examCategories = [
@@ -198,7 +200,7 @@ const ExamRequirementsPage = ({ onBack }) => {
                         Use our eligibility checker to instantly find out which exams you qualify for based on your age, education, and category.
                     </p>
                     <div style={{ display: 'flex', gap: '1.5rem', justifyContent: 'center', flexWrap: 'wrap' }}>
-                        <button onClick={() => window.location.href = '#'} className="btn btn-primary" style={{ padding: '1.2rem 2.5rem', fontSize: '1.1rem' }}>
+                        <button onClick={() => navigate('/eligibility-checker')} className="btn btn-primary" style={{ padding: '1.2rem 2.5rem', fontSize: '1.1rem' }}>
                             <CheckCircle2 size={20} /> Check Eligibility Now
                         </button>
                         <button onClick={onBack} className="btn btn-secondary" style={{ padding: '1.2rem 2.5rem', fontSize: '1.1rem' }}>
