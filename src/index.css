@@ -751,272 +751,338 @@ h4 {
     padding: 1.5rem 1rem;
   }
 
-  .btn {
-    padding: 0.9rem 1.2rem;
+  @media (max-width: 768px) {
+    .container {
+      padding: 0 1rem;
+      max-width: 100%;
+    }
+
+    /* CRITICAL: Completely restructure navbar for mobile */
+    .navbar .container {
+      flex-direction: column !important;
+      align-items: center !important;
+      gap: 0.8rem !important;
+    }
+
+    .nav-brand {
+      font-size: 1.4rem !important;
+      width: 100%;
+      text-align: center;
+    }
+
+    /* CRITICAL: Hide desktop menu completely on mobile */
+    .desktop-menu {
+      display: none !important;
+    }
+
+    /* Show mobile menu toggle */
+    .mobile-menu-toggle {
+      display: flex !important;
+    }
+
+    /* Hero stats - horizontal scroll */
+    .hero-stats {
+      display: flex !important;
+      overflow-x: auto !important;
+      gap: 1rem !important;
+      padding: 1rem 0 !important;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      grid-template-columns: none !important;
+    }
+
+    .stats-card {
+      min-width: 150px !important;
+      flex-shrink: 0 !important;
+      scroll-snap-align: start;
+    }
+
+    /* Trust tags - horizontal scroll */
+    .trust-tags {
+      display: flex !important;
+      overflow-x: auto !important;
+      gap: 0.8rem !important;
+      padding: 0.5rem 0 !important;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      flex-wrap: nowrap !important;
+    }
+
+    .trust-tag {
+      flex-shrink: 0 !important;
+      scroll-snap-align: start;
+      white-space: nowrap;
+    }
+
+    /* Hide scrollbars but keep functionality */
+    .hero-stats::-webkit-scrollbar,
+    .trust-tags::-webkit-scrollbar {
+      display: none;
+    }
+
+    .hero-stats,
+    .trust-tags {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
+    .btn {
+      padding: 0.8rem 1rem;
+      font-size: 0.85rem;
+    }
   }
 
-  /* CRITICAL: Hide desktop menu on mobile to prevent overlap */
-  .desktop-menu {
-    display: none !important;
-  }
-
-  /* Show mobile menu toggle */
-  .mobile-menu-toggle {
-    display: block !important;
-  }
-}
-
-/* Hero Section Responsive Classes */
-.hero-badge {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.5rem 1rem;
-  background: rgba(16, 185, 129, 0.1);
-  border: 1px solid rgba(16, 185, 129, 0.3);
-  border-radius: 20px;
-}
-
-.hero-badge span {
-  font-size: 0.75rem;
-  font-weight: 700;
-  color: var(--accent-green);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  white-space: nowrap;
-}
-
-.hero-description {
-  color: white;
-  font-size: 1.25rem;
-  max-width: 750px;
-  line-height: 1.7;
-  margin-bottom: 2rem;
-  margin-inline: auto;
-}
-
-.hero-stats {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  gap: 1.5rem;
-  margin-bottom: 2.5rem;
-  max-width: 700px;
-  width: 100%;
-}
-
-.stats-card {
-  text-align: center;
-  padding: 1.5rem 1rem;
-  background: rgba(255, 255, 255, 0.03);
-  border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.stats-number {
-  font-size: 2.2rem;
-  font-weight: 800;
-  font-family: var(--font-heading);
-}
-
-.stats-label {
-  font-size: 0.85rem;
-  color: white;
-  margin-top: 0.5rem;
-  opacity: 0.9;
-}
-
-.trust-tags {
-  display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-}
-
-.trust-tag {
-  padding: 0.6rem 1.2rem;
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 8px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: white;
-}
-
-.hero-cta-group {
-  display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
-  margin-bottom: 2rem;
-  justify-content: center;
-}
-
-
-/* Hero Branding */
-.hero-brand-title {
-  font-size: 3.5rem;
-  font-weight: 800;
-  line-height: 1.1;
-  margin-bottom: 0.5rem;
-  background: linear-gradient(to right, white, var(--secondary));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.hero-tagline {
-  font-size: 1.25rem;
-  color: var(--text-dim);
-  font-weight: 500;
-  margin-bottom: 1.5rem;
-  max-width: 800px;
-  margin-inline: auto;
-}
-
-/* Mobile Overrides (Max Width 480px) */
-@media (max-width: 480px) {
-
-  /* Header Redesign */
-  .navbar {
-    padding: 1rem 0;
-    /* Breathable header */
-    height: auto;
-    min-height: 60px;
-  }
-
-  .nav-brand {
-    font-size: 1.4rem;
-    /* Readable logo */
-  }
-
-  /* Typography */
-  .hero-brand-title {
-    font-size: 2.5rem;
-    /* Mobile title size */
-  }
-
-  .hero-tagline {
-    font-size: 1rem;
-    /* Smaller text on mobile */
-    padding: 0 1rem;
-    line-height: 1.4;
-  }
-
-  /* Horizontal Scroll - Stats Cards */
-  .hero-stats {
+  /* Hero Section Responsive Classes */
+  .hero-badge {
     display: flex;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    gap: 1rem;
-    padding-bottom: 1rem;
-    /* Space for scrollbar if any */
-    margin-bottom: 2rem;
-    width: 100%;
-    /* Hide scrollbar for cleaner look */
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-    padding-right: 2rem;
-    /* Peek effect */
-    box-sizing: border-box;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: rgba(16, 185, 129, 0.1);
+    border: 1px solid rgba(16, 185, 129, 0.3);
+    border-radius: 20px;
   }
 
-  .hero-stats::-webkit-scrollbar {
-    display: none;
-  }
-
-  .stats-card {
-    min-width: 60%;
-    /* Show partial next card */
-    scroll-snap-align: center;
-    flex-shrink: 0;
-  }
-
-  .stats-number {
-    font-size: 1.8rem;
-  }
-
-  .hero-description {
-    font-size: 1rem;
-    /* Smaller text on mobile */
-    padding: 0 0.5rem;
-  }
-
-  /* Horizontal Scroll - Trust Tags */
-  .trust-tags {
-    flex-wrap: nowrap;
-    /* Disable wrap */
-    overflow-x: auto;
-    justify-content: flex-start;
-    padding-bottom: 0.5rem;
-    width: 100%;
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-    padding-left: 1rem;
-    /* Partial hint alignment */
-  }
-
-  .trust-tags::-webkit-scrollbar {
-    display: none;
-  }
-
-  .trust-tag {
-    flex-shrink: 0;
-    scroll-snap-align: start;
+  .hero-badge span {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--accent-green);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
     white-space: nowrap;
   }
 
-  /* Prevent content cutting */
-  .hero-cta-group {
-    flex-direction: column;
-    width: 100%;
-    padding: 0 1rem;
-    padding-bottom: 2rem;
-    /* Safe bottom padding */
+  .hero-description {
+    color: white;
+    font-size: 1.25rem;
+    max-width: 750px;
+    line-height: 1.7;
+    margin-bottom: 2rem;
+    margin-inline: auto;
   }
 
-  .hero-cta-group .btn {
+  .hero-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+    max-width: 700px;
     width: 100%;
+  }
+
+  .stats-card {
+    text-align: center;
+    padding: 1.5rem 1rem;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .stats-number {
+    font-size: 2.2rem;
+    font-weight: 800;
+    font-family: var(--font-heading);
+  }
+
+  .stats-label {
+    font-size: 0.85rem;
+    color: white;
+    margin-top: 0.5rem;
+    opacity: 0.9;
+  }
+
+  .trust-tags {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    align-items: center;
     justify-content: center;
   }
-}
 
-/* =========================================
+  .trust-tag {
+    padding: 0.6rem 1.2rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: white;
+  }
+
+  .hero-cta-group {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+    justify-content: center;
+  }
+
+
+  /* Hero Branding */
+  .hero-brand-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 0.5rem;
+    background: linear-gradient(to right, white, var(--secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .hero-tagline {
+    font-size: 1.25rem;
+    color: var(--text-dim);
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+    max-width: 800px;
+    margin-inline: auto;
+  }
+
+  /* Mobile Overrides (Max Width 480px) */
+  @media (max-width: 480px) {
+
+    /* Header Redesign */
+    .navbar {
+      padding: 1rem 0;
+      /* Breathable header */
+      height: auto;
+      min-height: 60px;
+    }
+
+    .nav-brand {
+      font-size: 1.4rem;
+      /* Readable logo */
+    }
+
+    /* Typography */
+    .hero-brand-title {
+      font-size: 2.5rem;
+      /* Mobile title size */
+    }
+
+    .hero-tagline {
+      font-size: 1rem;
+      /* Smaller text on mobile */
+      padding: 0 1rem;
+      line-height: 1.4;
+    }
+
+    /* Horizontal Scroll - Stats Cards */
+    .hero-stats {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      gap: 1rem;
+      padding-bottom: 1rem;
+      /* Space for scrollbar if any */
+      margin-bottom: 2rem;
+      width: 100%;
+      /* Hide scrollbar for cleaner look */
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+      padding-right: 2rem;
+      /* Peek effect */
+      box-sizing: border-box;
+    }
+
+    .hero-stats::-webkit-scrollbar {
+      display: none;
+    }
+
+    .stats-card {
+      min-width: 60%;
+      /* Show partial next card */
+      scroll-snap-align: center;
+      flex-shrink: 0;
+    }
+
+    .stats-number {
+      font-size: 1.8rem;
+    }
+
+    .hero-description {
+      font-size: 1rem;
+      /* Smaller text on mobile */
+      padding: 0 0.5rem;
+    }
+
+    /* Horizontal Scroll - Trust Tags */
+    .trust-tags {
+      flex-wrap: nowrap;
+      /* Disable wrap */
+      overflow-x: auto;
+      justify-content: flex-start;
+      padding-bottom: 0.5rem;
+      width: 100%;
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+      padding-left: 1rem;
+      /* Partial hint alignment */
+    }
+
+    .trust-tags::-webkit-scrollbar {
+      display: none;
+    }
+
+    .trust-tag {
+      flex-shrink: 0;
+      scroll-snap-align: start;
+      white-space: nowrap;
+    }
+
+    /* Prevent content cutting */
+    .hero-cta-group {
+      flex-direction: column;
+      width: 100%;
+      padding: 0 1rem;
+      padding-bottom: 2rem;
+      /* Safe bottom padding */
+    }
+
+    .hero-cta-group .btn {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+
+  /* =========================================
    AdSense & iOS Optimizations
    ========================================= */
 
-/* Prevent iOS Input Zoom (Must be 16px) */
-input,
-select,
-textarea {
-  font-size: 16px !important;
-}
+  /* Prevent iOS Input Zoom (Must be 16px) */
+  input,
+  select,
+  textarea {
+    font-size: 16px !important;
+  }
 
-/* Apple Touch Target Size (Min 44x44) */
-button,
-.btn,
-.nav-brand,
-.nav-link {
-  min-height: 44px;
-  min-width: 44px;
-}
+  /* Apple Touch Target Size (Min 44x44) */
+  button,
+  .btn,
+  .nav-brand,
+  .nav-link {
+    min-height: 44px;
+    min-width: 44px;
+  }
 
-/* Ad Slot Placeholder Structure (Hidden for now, but semantically ready) */
-.ad-slot {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px dashed rgba(255, 255, 255, 0.1);
-  margin: 2rem auto;
-  min-height: 100px;
-  width: 100%;
-  max-width: 728px;
-  /* Leaderboard standard */
-  border-radius: 8px;
-}
+  /* Ad Slot Placeholder Structure (Hidden for now, but semantically ready) */
+  .ad-slot {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px dashed rgba(255, 255, 255, 0.1);
+    margin: 2rem auto;
+    min-height: 100px;
+    width: 100%;
+    max-width: 728px;
+    /* Leaderboard standard */
+    border-radius: 8px;
+  }
 
-.ad-slot::before {
-  content: 'Advertisement Space';
-  color: rgba(255, 255, 255, 0.2);
-  font-size: 0.8rem;
-  letter-spacing: 1px;
-}
+  .ad-slot::before {
+    content: 'Advertisement Space';
+    color: rgba(255, 255, 255, 0.2);
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+  }
