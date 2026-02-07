@@ -675,7 +675,7 @@ const App = () => {
               </div>
             </div>
 
-            <h1 className="hero-brand-title">SarkariExamAll</h1>
+            <h1 className="hero-brand-title">SarkariExamAll – India's Trusted Government Exam Platform</h1>
             <h2 className="hero-tagline">India’s Verified Government Exam Intelligence Platform</h2>
 
             <p className="hero-description">
@@ -905,7 +905,7 @@ const App = () => {
           <div style={{ maxWidth: '600px', margin: '3rem auto 0', position: 'relative' }}>
             <input
               type="text"
-              placeholder="Search articles... (e.g., UPSC, Banking, Strategy)"
+              placeholder="Search exam guides, notifications..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               style={{

@@ -754,6 +754,16 @@ h4 {
   .btn {
     padding: 0.9rem 1.2rem;
   }
+
+  /* CRITICAL: Hide desktop menu on mobile to prevent overlap */
+  .desktop-menu {
+    display: none !important;
+  }
+
+  /* Show mobile menu toggle */
+  .mobile-menu-toggle {
+    display: block !important;
+  }
 }
 
 /* Hero Section Responsive Classes */
