@@ -879,3 +879,45 @@ h4 {
     justify-content: center;
   }
 }
+
+/* =========================================
+   AdSense & iOS Optimizations
+   ========================================= */
+
+/* Prevent iOS Input Zoom (Must be 16px) */
+input,
+select,
+textarea {
+  font-size: 16px !important;
+}
+
+/* Apple Touch Target Size (Min 44x44) */
+button,
+.btn,
+.nav-brand,
+.nav-link {
+  min-height: 44px;
+  min-width: 44px;
+}
+
+/* Ad Slot Placeholder Structure (Hidden for now, but semantically ready) */
+.ad-slot {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px dashed rgba(255, 255, 255, 0.1);
+  margin: 2rem auto;
+  min-height: 100px;
+  width: 100%;
+  max-width: 728px;
+  /* Leaderboard standard */
+  border-radius: 8px;
+}
+
+.ad-slot::before {
+  content: 'Advertisement Space';
+  color: rgba(255, 255, 255, 0.2);
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+}

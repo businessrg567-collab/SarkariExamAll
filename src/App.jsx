@@ -1000,24 +1000,26 @@ const App = () => {
       </nav>
 
 
-      {activeTab === 'Home' && renderHome()}
-      {activeTab === 'Blog' && renderBlog()}
-      {activeTab === 'Detail' && selectedBlog && <ArticleDetail blog={selectedBlog} onBack={() => navigateToTab('Blog')} />}
-      {activeTab === 'About' && <AboutPage onBack={() => navigateToTab('Home')} />}
-      {activeTab === 'Success' && <SuccessStoriesPage onBack={() => navigateToTab('Home')} />}
-      {activeTab === 'Counseling' && <CareerCounselingPage onBack={() => navigateToTab('Home')} />}
-      {activeTab === 'Partner' && <PartnerPage onBack={() => navigateToTab('Home')} />}
-      {activeTab === 'Contact' && <ContactPage onBack={() => navigateToTab('Home')} />}
-      {activeTab === 'Locations' && <LocationsHub onSelectLocation={(loc) => navigateToTab('Location', loc)} onBack={() => navigateToTab('Home')} />}
-      {activeTab === 'Location' && selectedLocation && <LocationPage location={selectedLocation} onBack={() => navigateToTab('Locations')} />}
-      {activeTab === 'EligibilityChecker' && <EligibilityCheckerPage onBack={() => navigateToTab('Home')} />}
-      {activeTab === 'DocumentGuide' && <DocumentGuidePage onBack={() => navigateToTab('Home')} onNavigateToExamRequirements={() => navigateToTab('ExamRequirements')} />}
-      {activeTab === 'ExamRequirements' && <ExamRequirementsPage onBack={() => navigateToTab('Home')} />}
-      {activeTab === 'PreparationGuides' && <PreparationGuidesPage onSelectBlog={(blog) => navigateToTab('Detail', blog)} onBack={() => navigateToTab('Home')} />}
-      {activeTab === 'LocationGuides' && <LocationGuidesPage onSelectLocation={(loc) => navigateToTab('Location', loc)} onBack={() => navigateToTab('Home')} />}
-      {activeTab === 'PrivacyPolicy' && <PrivacyPolicyPage onBack={() => navigateToTab('Home')} />}
-      {activeTab === 'TermsOfService' && <TermsOfServicePage onBack={() => navigateToTab('Home')} />}
-      {activeTab === 'NotFound' && <NotFoundPage />}
+      <main role="main" style={{ minHeight: '80vh' }}>
+        {activeTab === 'Home' && renderHome()}
+        {activeTab === 'Blog' && renderBlog()}
+        {activeTab === 'Detail' && selectedBlog && <ArticleDetail blog={selectedBlog} onBack={() => navigateToTab('Blog')} />}
+        {activeTab === 'About' && <AboutPage onBack={() => navigateToTab('Home')} />}
+        {activeTab === 'Success' && <SuccessStoriesPage onBack={() => navigateToTab('Home')} />}
+        {activeTab === 'Counseling' && <CareerCounselingPage onBack={() => navigateToTab('Home')} />}
+        {activeTab === 'Partner' && <PartnerPage onBack={() => navigateToTab('Home')} />}
+        {activeTab === 'Contact' && <ContactPage onBack={() => navigateToTab('Home')} />}
+        {activeTab === 'Locations' && <LocationsHub onSelectLocation={(loc) => navigateToTab('Location', loc)} onBack={() => navigateToTab('Home')} />}
+        {activeTab === 'Location' && selectedLocation && <LocationPage location={selectedLocation} onBack={() => navigateToTab('Locations')} />}
+        {activeTab === 'EligibilityChecker' && <EligibilityCheckerPage onBack={() => navigateToTab('Home')} />}
+        {activeTab === 'DocumentGuide' && <DocumentGuidePage onBack={() => navigateToTab('Home')} onNavigateToExamRequirements={() => navigateToTab('ExamRequirements')} />}
+        {activeTab === 'ExamRequirements' && <ExamRequirementsPage onBack={() => navigateToTab('Home')} />}
+        {activeTab === 'PreparationGuides' && <PreparationGuidesPage onSelectBlog={(blog) => navigateToTab('Detail', blog)} onBack={() => navigateToTab('Home')} />}
+        {activeTab === 'LocationGuides' && <LocationGuidesPage onSelectLocation={(loc) => navigateToTab('Location', loc)} onBack={() => navigateToTab('Home')} />}
+        {activeTab === 'PrivacyPolicy' && <PrivacyPolicyPage onBack={() => navigateToTab('Home')} />}
+        {activeTab === 'TermsOfService' && <TermsOfServicePage onBack={() => navigateToTab('Home')} />}
+        {activeTab === 'NotFound' && <NotFoundPage />}
+      </main>
 
       <footer id="footer" className="footer">
         <div className="container">
