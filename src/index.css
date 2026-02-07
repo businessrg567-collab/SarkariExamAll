@@ -862,6 +862,7 @@ h4 {
   line-height: 1.7;
   margin-bottom: 2rem;
   margin-inline: auto;
+  text-align: center;
 }
 
 .hero-stats {
@@ -923,13 +924,15 @@ h4 {
 
 /* Hero Branding */
 .hero-brand-title {
-  font-size: 3.5rem;
+  font-size: 2.8rem;
   font-weight: 800;
   line-height: 1.1;
-  margin-bottom: 0.5rem;
-  background: linear-gradient(to right, white, var(--secondary));
+  margin-bottom: 1rem;
+  background: linear-gradient(135deg, #FFFFFF 0%, var(--secondary) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-align: center;
 }
 
 .hero-tagline {
@@ -939,6 +942,7 @@ h4 {
   margin-bottom: 1.5rem;
   max-width: 800px;
   margin-inline: auto;
+  text-align: center;
 }
 
 /* Mobile Overrides (Max Width 480px) */

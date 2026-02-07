@@ -235,8 +235,8 @@ const CareerCounselingPage = ({ onBack }) => {
             Schedule a one-on-one session with our expert counselors. Get personalized advice on exam selection, preparation strategy, and career planning - absolutely free!
           </p>
           <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
-            <a href="tel:8077583921" className="btn btn-primary" style={{ padding: '1rem 2.5rem', fontSize: '1.1rem' }}>
-              <Phone size={20} /> Call: 8077583921
+            <a href="tel:+919424408891" className="btn btn-primary" style={{ padding: '1rem 2.5rem', fontSize: '1.1rem' }}>
+              <Phone size={20} /> Call: +91 94244 08891
             </a>
             <a href="mailto:info@sarkariexamall.com" className="btn btn-secondary" style={{ padding: '1rem 2.5rem', fontSize: '1.1rem' }}>
               <Mail size={20} /> Email Us
@@ -324,8 +324,8 @@ const PartnerPage = ({ onBack }) => {
             <a href="mailto:partnerships@sarkariexamall.com" className="btn btn-primary" style={{ padding: '1rem 2.5rem', fontSize: '1.1rem' }}>
               <Mail size={20} /> partnerships@sarkariexamall.com
             </a>
-            <a href="tel:8077583921" className="btn btn-secondary" style={{ padding: '1rem 2.5rem', fontSize: '1.1rem' }}>
-              <Phone size={20} /> Call: 8077583921
+            <a href="tel:+919424408891" className="btn btn-secondary" style={{ padding: '1rem 2.5rem', fontSize: '1.1rem' }}>
+              <Phone size={20} /> Call: +91 94244 08891
             </a>
           </div>
         </div>
@@ -430,7 +430,7 @@ const ContactPage = ({ onBack }) => {
                 <Phone size={24} /> Call Us Helpline
               </h3>
               <p style={{ color: 'white', marginBottom: '0.5rem' }}>Helpline (Mon-Sat, 9 AM - 6 PM):</p>
-              <a href="tel:8077583921" style={{ color: 'var(--secondary)', fontSize: '1rem', fontWeight: 600, textDecoration: 'none' }}>8077583921</a>
+              <a href="tel:+919424408891" style={{ color: 'var(--secondary)', fontSize: '1rem', fontWeight: 600, textDecoration: 'none' }}>+91 94244 08891</a>
             </div>
             <div className="glass-card" style={{ padding: '2.5rem' }}>
               <h3 style={{ color: 'var(--secondary)', marginBottom: '1.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
