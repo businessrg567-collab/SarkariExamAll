@@ -133,8 +133,13 @@ for (let i = 4; i <= 60; i++) {
   const photoId = photoIds[i % photoIds.length];
   const title = `${category === '2026 Exams' ? 'Railway RRB' : category === 'Eligibility Guides' ? 'State PCS' : 'Defense Services'} Complete Master Guide ${i}`;
 
+  // Generate SEO-friendly slug
+  const slug = title.toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-') // Replace non-alphanumeric chars with hyphens
+    .replace(/(^-|-$)+/g, '');   // Remove leading/trailing hyphens
+
   blogs.push({
-    id: `blog-post-${i}`,
+    id: slug, // Use slug as ID
     title: title,
     category: category,
     date: 'Feb 01, 2026',

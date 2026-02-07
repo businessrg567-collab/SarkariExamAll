@@ -631,7 +631,7 @@ const App = () => {
     // Extract blog ID or location from URL if present
     if (location.pathname.startsWith('/blog/')) {
       const blogId = location.pathname.split('/blog/')[1];
-      const blog = blogs.find(b => b.id === parseInt(blogId));
+      const blog = blogs.find(b => b.id === blogId);
       if (blog) setSelectedBlog(blog);
     }
     if (location.pathname.startsWith('/locations/')) {
@@ -951,76 +951,93 @@ const App = () => {
 
       <footer id="footer" className="footer">
         <div className="container">
-          <div className="footer-grid">
+          <div className="footer-grid" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '2rem' }}>
+
+            {/* Col 1: Brand */}
             <div className="footer-col">
-              <h3 className="nav-brand" style={{ marginBottom: '1rem' }}>SarkariExam<span>All</span></h3>
-              <p style={{ marginTop: '1rem', fontSize: '0.9rem', color: 'white', lineHeight: '1.6' }}>
-                India's most trusted educational portal for government exam preparation and career guidance since 2020.
+              <a href="#" onClick={(e) => { e.preventDefault(); navigateToTab('Home'); }} className="nav-brand" style={{ fontSize: '1.5rem', marginBottom: '1rem', display: 'block' }}>
+                SarkariExam<span>All</span>
+              </a>
+              <p style={{ color: 'var(--text-dim)', fontSize: '0.9rem', lineHeight: '1.6', marginBottom: '1.5rem' }}>
+                India's #1 trusted platform for government exam preparation, eligibility checks, and real-time result updates.
               </p>
-              <div style={{ display: 'flex', gap: '1rem', marginTop: '1.5rem', color: 'var(--secondary)' }}>
+              <div style={{ display: 'flex', gap: '1rem', color: 'var(--secondary)' }}>
                 <Twitter size={20} style={{ cursor: 'pointer' }} />
                 <Instagram size={20} style={{ cursor: 'pointer' }} />
                 <Mail size={20} style={{ cursor: 'pointer' }} />
               </div>
             </div>
 
+            {/* Col 2: Quick Links */}
             <div className="footer-col">
-              <h4 style={{ color: 'var(--secondary)', fontSize: '1.1rem', fontWeight: 700 }}>Top Cities</h4>
+              <h4 style={{ color: 'white', marginBottom: '1.5rem' }}>Quick Links</h4>
               <ul>
-                {locations.slice(0, 6).map(loc => (
-                  <li key={loc.id}><a href="#" onClick={(e) => { e.preventDefault(); navigateToTab('Location', loc); }}>{loc.name} Exams</a></li>
-                ))}
-              </ul>
-            </div>
-
-            <div className="footer-col">
-              <h4 style={{ color: 'var(--secondary)', fontSize: '1.1rem', fontWeight: 700 }}>Student Resources</h4>
-              <ul>
-                <li><a href="#" onClick={(e) => { e.preventDefault(); navigateToTab('EligibilityChecker'); }}>Eligibility Checker</a></li>
-                <li><a href="#" onClick={(e) => { e.preventDefault(); navigateToTab('DocumentGuide'); }}>Document Guide 2026</a></li>
-                <li><a href="#" onClick={(e) => { e.preventDefault(); navigateToTab('PreparationGuides'); }}>Preparation Guides</a></li>
-                <li><a href="#" onClick={(e) => { e.preventDefault(); navigateToTab('LocationGuides'); }}>Location Guides</a></li>
-                <li><a href="#" onClick={(e) => { e.preventDefault(); navigateToTab('Counseling'); }}>Career Counseling</a></li>
-                <li><a href="#" onClick={(e) => { e.preventDefault(); navigateToTab('Contact'); }}>Get Support</a></li>
-              </ul>
-            </div>
-
-            <div className="footer-col">
-              <h4 style={{ color: 'var(--secondary)', fontSize: '1.1rem', fontWeight: 700 }}>About Portal</h4>
-              <ul>
-                <li><a href="#" onClick={(e) => { e.preventDefault(); navigateToTab('About'); }}>About SarkariExamAll</a></li>
-                <li><a href="#" onClick={(e) => { e.preventDefault(); navigateToTab('About'); }}>Our Mission</a></li>
-                <li><a href="#" onClick={(e) => { e.preventDefault(); navigateToTab('Success'); }}>Success Stories</a></li>
-                <li><a href="#" onClick={(e) => { e.preventDefault(); navigateToTab('Contact'); }}>Contact Us</a></li>
-                <li><a href="#" onClick={(e) => { e.preventDefault(); navigateToTab('Contact'); }}>Advertise With Us</a></li>
-                <li><a href="#" onClick={(e) => { e.preventDefault(); navigateToTab('Partner'); }}>Partner With Us</a></li>
+                <li><a href="#" onClick={(e) => { e.preventDefault(); navigateToTab('Home'); }}>Home</a></li>
+                <li><a href="#" onClick={(e) => { e.preventDefault(); navigateToTab('About'); }}>About Us</a></li>
+                <li><a href="#" onClick={(e) => { e.preventDefault(); navigateToTab('Contact'); }}>Contact</a></li>
                 <li><a href="#" onClick={(e) => { e.preventDefault(); navigateToTab('PrivacyPolicy'); }}>Privacy Policy</a></li>
                 <li><a href="#" onClick={(e) => { e.preventDefault(); navigateToTab('TermsOfService'); }}>Terms of Service</a></li>
               </ul>
             </div>
 
+            {/* Col 3: Services */}
             <div className="footer-col">
-              <h4 style={{ color: 'var(--secondary)', fontSize: '1.1rem', fontWeight: 700 }}>Quick Contact</h4>
-              <ul style={{ listStyle: 'none' }}>
-                <li style={{ marginBottom: '1rem' }}>
-                  <Mail size={16} style={{ display: 'inline', marginRight: '0.5rem', color: 'var(--secondary)' }} />
-                  <a href="mailto:info@sarkariexamall.com" style={{ color: 'white' }}>info@sarkariexamall.com</a>
-                </li>
-                <li style={{ marginBottom: '1rem' }}>
-                  <Phone size={16} style={{ display: 'inline', marginRight: '0.5rem', color: 'var(--secondary)' }} />
-                  <a href="tel:8077583921" style={{ color: 'white' }}>8077583921</a>
-                </li>
-                <li>
-                  <button onClick={() => setActiveTab('Contact')} className="btn btn-primary" style={{ width: '100%', marginTop: '0.5rem' }}>
-                    <Send size={16} /> Send Message
-                  </button>
-                </li>
+              <h4 style={{ color: 'white', marginBottom: '1.5rem' }}>Services</h4>
+              <ul>
+                <li><a href="#" onClick={(e) => { e.preventDefault(); navigateToTab('EligibilityChecker'); }}>Eligibility Checker</a></li>
+                <li><a href="#" onClick={(e) => { e.preventDefault(); navigateToTab('DocumentGuide'); }}>Document Guide</a></li>
+                <li><a href="#" onClick={(e) => { e.preventDefault(); navigateToTab('PreparationGuides'); }}>Study Material</a></li>
+                <li><a href="#" onClick={(e) => { e.preventDefault(); navigateToTab('LocationGuides'); }}>Exam Centers</a></li>
+                <li><a href="#" onClick={(e) => { e.preventDefault(); navigateToTab('Counseling'); }}>Career Counseling</a></li>
               </ul>
             </div>
+
+            {/* Col 4: Top Cities */}
+            <div className="footer-col">
+              <h4 style={{ color: 'white', marginBottom: '1.5rem' }}>Top Cities</h4>
+              <ul style={{ columns: 2 }}>
+                {locations.slice(0, 8).map(loc => (
+                  <li key={loc.id}><a href="#" onClick={(e) => { e.preventDefault(); navigateToTab('Location', loc); }}>{loc.name}</a></li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Col 5: Newsletter & Contact */}
+            <div className="footer-col">
+              <h4 style={{ color: 'white', marginBottom: '1.5rem' }}>Newsletter</h4>
+              <p style={{ color: 'var(--text-dim)', fontSize: '0.85rem', marginBottom: '1rem' }}>
+                Stay updated with latest notifications.
+              </p>
+              <div style={{ marginBottom: '1.5rem' }}>
+                <input
+                  type="email"
+                  placeholder="Your email"
+                  className="form-input"
+                  style={{ padding: '0.8rem', borderRadius: '50px', marginBottom: '0.5rem', background: 'rgba(255,255,255,0.05)', border: '1px solid var(--glass-border)' }}
+                />
+                <button
+                  className="btn btn-primary"
+                  style={{ width: '100%', borderRadius: '50px', justifyContent: 'center' }}
+                  onClick={() => alert('Subscribed successfully! You will receive updates shortly.')}
+                >
+                  Subscribe
+                </button>
+              </div>
+
+              <div style={{ fontSize: '0.9rem', color: 'var(--text-dim)' }}>
+                <p style={{ marginBottom: '0.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                  <Phone size={14} color="var(--accent)" /> +91 94244 08891
+                </p>
+                <p style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                  <Mail size={14} color="var(--accent)" /> info@sarkariexamall.com
+                </p>
+              </div>
+            </div>
+
           </div>
-          <div style={{ textAlign: 'center', marginTop: '4rem', paddingTop: '2rem', borderTop: '1px solid var(--glass-border)', color: 'white', fontSize: '0.85rem' }}>
-            <p>&copy; 2026 SarkariExamAll Educational Services. All Rights Reserved.</p>
-            <p style={{ marginTop: '0.5rem', fontSize: '0.8rem' }}>Not affiliated with any government body or examination conducting authority.</p>
+
+          <div style={{ textAlign: 'center', marginTop: '4rem', paddingTop: '2rem', borderTop: '1px solid var(--glass-border)', color: 'var(--text-dim)', fontSize: '0.85rem' }}>
+            <p>&copy; 2026 SarkariExamAll. Built with ❤️ for Aspirants.</p>
           </div>
         </div>
       </footer>

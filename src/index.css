@@ -1,25 +1,36 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap');
 
 :root {
-  --primary: #0F172A;
-  --primary-deep: #020617;
-  --secondary: #F59E0B;
-  --accent: #D97706;
-  --trust-blue: #1E293B;
+  --primary: #0F0518;
+  /* Deep Dark Purple/Black Background */
+  --primary-deep: #05010D;
+  /* Darker shade for Footer */
+  --secondary: #A78BFA;
+  /* Soft Violet for text/borders (Violet 400) */
+  --accent: #7C3AED;
+  /* Deep Violet for buttons/highlights (Violet 600) */
+  --trust-blue: #1E1B4B;
+  /* Deep Indigo for contrast */
   --text-main: #FFFFFF;
-  --text-dim: #F8FAFC;
+  --text-dim: #E2E8F0;
+  /* Slate 200 for readable paragraphs */
   --white: #FFFFFF;
-  --glass: rgba(255, 255, 255, 0.03);
-  --glass-border: rgba(255, 255, 255, 0.08);
-  --shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.6);
+  --glass: rgba(139, 92, 246, 0.05);
+  /* Purple tinted glass */
+  --glass-border: rgba(139, 92, 246, 0.15);
+  /* Purple tinted border */
+  --shadow: 0 20px 40px -15px rgba(124, 58, 237, 0.2);
+  /* Purple glow shadow */
 
-  /* National accent colors for authority */
+  /* National accent colors for authority - Keep same */
   --india-saffron: #FF9933;
   --india-green: #138808;
   --india-blue: #000080;
 
-  --font-heading: 'Outfit', sans-serif;
-  --font-body: 'Inter', sans-serif;
+  --font-heading: 'Outfit',
+    sans-serif;
+  --font-body: 'Inter',
+    sans-serif;
 
   --section-padding: 5rem;
   --container-width: 1200px;
@@ -259,30 +270,36 @@ h4 {
 
 .btn {
   padding: 0.8rem 2rem;
-  border-radius: 8px;
-  font-weight: 700;
+  border-radius: 50px;
+  /* Fully rounded buttons like reference */
+  font-weight: 600;
   text-decoration: none;
   cursor: pointer;
-  transition: 0.3s;
-  border: 1px solid var(--secondary);
+  transition: all 0.3s ease;
+  border: 1px solid var(--accent);
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
 }
 
 .btn-primary {
-  background: var(--secondary);
-  color: var(--primary);
+  background: linear-gradient(135deg, var(--accent) 0%, #6D28D9 100%);
+  color: white;
+  border: none;
+  box-shadow: 0 4px 14px 0 rgba(124, 58, 237, 0.39);
 }
 
 .btn-secondary {
-  background: transparent;
+  background: rgba(139, 92, 246, 0.1);
   color: var(--secondary);
+  border-color: var(--glass-border);
 }
 
 .btn:hover {
-  box-shadow: 0 5px 15px rgba(245, 158, 11, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(124, 58, 237, 0.4);
 }
 
 .form-input {
@@ -547,11 +564,11 @@ h4 {
   .grid-2 {
     grid-template-columns: 1fr;
   }
-  
+
   .navbar {
     padding: 0.8rem 0;
   }
-  
+
   .nav-brand {
     font-size: 1.4rem;
   }
@@ -561,47 +578,47 @@ h4 {
   :root {
     --section-padding: 3rem;
   }
-  
+
   .container {
     padding: 0 1rem;
   }
-  
+
   /* Navbar mobile optimization */
   .navbar {
     padding: 0.6rem 0;
   }
-  
+
   .nav-brand {
     font-size: 1.3rem;
   }
-  
+
   /* Hero section mobile */
   .hero {
     min-height: 70vh;
     padding-top: 5rem;
     padding-bottom: 2rem;
   }
-  
+
   .hero h1 {
     font-size: 2.2rem;
     margin-bottom: 1rem;
   }
-  
+
   .hero p {
     font-size: 1rem;
     margin-bottom: 1.5rem;
   }
-  
+
   /* Glass cards mobile */
   .glass-card {
     padding: 1.5rem;
   }
-  
+
   .premium-checker-card {
     padding: 2rem 1.5rem;
     margin: 2rem auto;
   }
-  
+
   /* Buttons mobile - larger touch targets */
   .btn {
     padding: 1rem 1.5rem;
@@ -609,84 +626,85 @@ h4 {
     width: 100%;
     justify-content: center;
   }
-  
+
   /* Form inputs mobile */
   .form-input {
     padding: 0.9rem;
-    font-size: 16px; /* Prevents zoom on iOS */
+    font-size: 16px;
+    /* Prevents zoom on iOS */
   }
-  
+
   .checker-input {
     padding: 1rem !important;
     font-size: 16px !important;
   }
-  
+
   /* Grid mobile */
   .grid {
     gap: 1.5rem;
   }
-  
+
   .grid-2,
   .grid-3 {
     grid-template-columns: 1fr;
   }
-  
+
   /* Blog grid mobile */
   .blog-grid {
     grid-template-columns: 1fr;
     gap: 1.5rem;
   }
-  
+
   /* Footer mobile */
   .footer {
     padding: 3rem 0 1.5rem;
   }
-  
+
   .footer-grid {
     grid-template-columns: 1fr;
     gap: 2rem;
   }
-  
+
   /* Article content mobile */
   .article-content h1 {
     font-size: 1.8rem;
     margin-bottom: 1.5rem;
   }
-  
+
   .article-content h2 {
     font-size: 1.5rem;
     margin-top: 2.5rem;
     margin-bottom: 1.5rem;
   }
-  
+
   .article-content h3 {
     font-size: 1.3rem;
     margin-top: 2rem;
     margin-bottom: 1rem;
   }
-  
+
   .article-content h4 {
     font-size: 1.1rem;
     margin-top: 1.5rem;
   }
-  
+
   .article-content p,
   .article-content li {
     font-size: 1rem;
     line-height: 1.7;
   }
-  
+
   .article-content ul,
   .article-content ol {
     padding-left: 1.5rem;
   }
-  
+
   /* Badge mobile */
   .badge-trust {
     padding: 0.4rem 0.8rem;
     font-size: 0.7rem;
   }
-  
+
   /* Section titles mobile */
   .section-title h2 {
     font-size: 1.8rem;
@@ -705,28 +723,28 @@ h4 {
   .blog-grid {
     grid-template-columns: 1fr;
   }
-  
+
   /* Extra small mobile optimizations */
   .navbar {
     padding: 0.5rem 0;
   }
-  
+
   .nav-brand {
     font-size: 1.2rem;
   }
-  
+
   .hero {
     padding-top: 4rem;
   }
-  
+
   .glass-card {
     padding: 1.2rem;
   }
-  
+
   .premium-checker-card {
     padding: 1.5rem 1rem;
   }
-  
+
   .btn {
     padding: 0.9rem 1.2rem;
   }
