@@ -23,12 +23,12 @@ const generateLocationContent = (cityName) => {
 
   return `
     <article class="dedicated-content">
-      <section class="intro">
+      <section class="intro" style="margin-bottom: 1rem;">
         <h1>Government Exam Preparation Guide for ${cityName} 2026</h1>
-        <p>Welcome to the authoritative guide for government exam aspirants in <strong>${cityName}</strong>. As the 2026 examination season approaches, ${cityName} continues to be a critical hub for state and central recruitment preparation in Bharat.</p>
+        <p style="margin-bottom: 0.5rem;">Welcome to the authoritative guide for government exam aspirants in <strong>${cityName}</strong>. As the 2026 examination season approaches, ${cityName} continues to be a critical hub for state and central recruitment preparation in Bharat.</p>
       </section>
 
-      <section class="local-hubs">
+      <section class="local-hubs" style="margin-top: 0;">
         <h2>1. Major Coaching Hubs & Local Resources in ${cityName}</h2>
         <p>${cityName} hosts a vibrant ecosystem of coaching institutes. Whether you are targeting technical exams or administrative services, the city offers specialized mentorship.</p>
         <table class="content-table" style="width:100%; border-collapse: collapse; margin: 2rem 0;">
