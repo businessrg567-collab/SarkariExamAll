@@ -803,12 +803,13 @@ const App = () => {
           <div className="grid grid-3 reveal">
             {locations.slice(0, 6).map((location) => (
               <div key={location.id} className="glass-card" style={{ padding: '0', overflow: 'hidden', cursor: 'pointer' }} onClick={() => { setSelectedLocation(location); setActiveTab('Location'); }}>
-                <div style={{ height: '180px', overflow: 'hidden', background: '#1E293B' }}>
+                <div style={{ height: '240px', overflow: 'hidden', background: '#1E293B' }}>
                   <img
                     src={location.image}
                     alt={location.name}
                     style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                     onError={handleImageError}
+                    loading="lazy"
                   />
                 </div>
                 <div style={{ padding: '1.5rem' }}>
@@ -820,10 +821,55 @@ const App = () => {
               </div>
             ))}
           </div>
-          <div style={{ textAlign: 'center', marginTop: '3rem' }}>
-            <button onClick={() => setActiveTab('Locations')} className="btn btn-primary">
-              View All Locations <ArrowRight size={16} />
-            </button>
+        </div>
+      </section>
+
+      {/* Homepage Newsletter Section */}
+      <section className="homepage-newsletter">
+        <div className="container">
+          <div className="glass-card reveal" style={{ padding: '3.5rem', textAlign: 'center', border: '1px solid var(--secondary)', background: 'rgba(139, 92, 246, 0.03)' }}>
+            <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '1.5rem' }}>
+              <div style={{ width: '60px', height: '60px', background: 'rgba(139, 92, 246, 0.1)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <Mail size={30} color="var(--secondary)" />
+              </div>
+            </div>
+            <h2 className="gradient-text-purple" style={{ marginBottom: '1rem' }}>Never Miss An Update</h2>
+            <p style={{ color: 'white', opacity: 0.9, maxWidth: '600px', margin: '0 auto 2.5rem', fontSize: '1.1rem' }}>
+              Get verified notification alerts, eligibility changes, and 2026 recruitment guides delivered directly to your inbox.
+            </p>
+
+            <div style={{ maxWidth: '600px', margin: '0 auto', display: 'flex', gap: '1rem', flexWrap: 'wrap', justifyContent: 'center' }}>
+              <input
+                type="email"
+                placeholder="Enter your email address"
+                className="form-input"
+                style={{ flex: '1', minWidth: '280px', padding: '1.2rem 1.5rem', borderRadius: '50px', background: 'rgba(0,0,0,0.2)', border: '1px solid var(--glass-border)' }}
+              />
+              <button
+                className="btn btn-primary"
+                style={{ padding: '1.2rem 2.5rem', borderRadius: '50px', fontWeight: 'bold' }}
+                onClick={() => alert('Welcome to the inner circle! You will receive verified updates shortly.')}
+              >
+                Join Now <ArrowRight size={18} />
+              </button>
+            </div>
+
+            <div style={{ marginTop: '2.5rem', display: 'flex', justifyContent: 'center', gap: '2rem', flexWrap: 'wrap', borderTop: '1px solid rgba(255,255,255,0.05)', paddingTop: '2.5rem' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.8rem' }}>
+                <Phone size={20} color="var(--secondary)" />
+                <div style={{ textAlign: 'left' }}>
+                  <p style={{ fontSize: '0.75rem', color: 'var(--text-dim)', marginBottom: '0.2rem' }}>Helpline Number</p>
+                  <a href="tel:+919424408891" style={{ color: 'white', fontWeight: 600, textDecoration: 'none', fontSize: '1rem' }}>+91 94244 08891</a>
+                </div>
+              </div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.8rem' }}>
+                <Mail size={20} color="var(--secondary)" />
+                <div style={{ textAlign: 'left' }}>
+                  <p style={{ fontSize: '0.75rem', color: 'var(--text-dim)', marginBottom: '0.2rem' }}>Support Email</p>
+                  <a href="mailto:info@sarkariexamall.com" style={{ color: 'white', fontWeight: 600, textDecoration: 'none', fontSize: '1rem' }}>info@sarkariexamall.com</a>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -1071,35 +1117,19 @@ const App = () => {
               </ul>
             </div>
 
-            {/* Col 5: Newsletter & Contact */}
+            {/* Col 5: Contact Info */}
             <div className="footer-col">
-              <h4 style={{ color: 'white', marginBottom: '1.5rem' }}>Newsletter</h4>
-              <p style={{ color: 'var(--text-dim)', fontSize: '0.85rem', marginBottom: '1rem' }}>
-                Stay updated with latest notifications.
+              <h4 style={{ color: 'white', marginBottom: '1.5rem' }}>Contact Us</h4>
+              <p style={{ color: 'var(--text-dim)', fontSize: '0.9rem', lineHeight: '1.6', marginBottom: '1.5rem' }}>
+                Join India's most trusted platform for verified government exam intelligence.
               </p>
-              <div style={{ marginBottom: '1.5rem' }}>
-                <input
-                  type="email"
-                  placeholder="Your email"
-                  className="form-input"
-                  style={{ padding: '0.8rem', borderRadius: '50px', marginBottom: '0.5rem', background: 'rgba(255,255,255,0.05)', border: '1px solid var(--glass-border)' }}
-                />
-                <button
-                  className="btn btn-primary"
-                  style={{ width: '100%', borderRadius: '50px', justifyContent: 'center' }}
-                  onClick={() => alert('Subscribed successfully! You will receive updates shortly.')}
-                >
-                  Subscribe
-                </button>
-              </div>
-
-              <div style={{ fontSize: '0.9rem', color: 'var(--text-dim)' }}>
-                <p style={{ marginBottom: '0.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                  <Phone size={14} color="var(--accent)" /> +91 94244 08891
-                </p>
-                <p style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                  <Mail size={14} color="var(--accent)" /> info@sarkariexamall.com
-                </p>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+                <a href="tel:+919424408891" style={{ display: 'flex', alignItems: 'center', gap: '0.8rem', color: 'white', textDecoration: 'none', fontSize: '0.95rem' }}>
+                  <Phone size={18} color="var(--secondary)" /> +91 94244 08891
+                </a>
+                <a href="mailto:info@sarkariexamall.com" style={{ display: 'flex', alignItems: 'center', gap: '0.8rem', color: 'white', textDecoration: 'none', fontSize: '0.95rem' }}>
+                  <Mail size={18} color="var(--secondary)" /> info@sarkariexamall.com
+                </a>
               </div>
             </div>
 

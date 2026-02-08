@@ -235,6 +235,11 @@ h4 {
   contain-intrinsic-size: 1px 1000px;
 }
 
+section {
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 500px;
+}
+
 .blog-card {
   background: rgba(255, 255, 255, 0.02);
   border-radius: 12px;
@@ -1102,4 +1107,47 @@ button,
   color: rgba(255, 255, 255, 0.2);
   font-size: 0.8rem;
   letter-spacing: 1px;
+}
+
+/* Homepage Newsletter Styles */
+.homepage-newsletter {
+  padding: var(--section-padding) 0;
+  position: relative;
+  z-index: 1;
+}
+
+.homepage-newsletter .form-input:focus {
+  border-color: var(--secondary);
+  background: rgba(0, 0, 0, 0.3) !important;
+  outline: none;
+}
+
+/* Mobile Performance Optimizations */
+@media (max-width: 768px) {
+  .glass-card {
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+  }
+
+  .btn-primary {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  }
+
+  .reveal {
+    transition: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .homepage-newsletter .glass-card {
+    padding: 2rem 1.5rem !important;
+  }
+
+  .homepage-newsletter h2 {
+    font-size: 1.8rem;
+  }
+
+  .homepage-newsletter p {
+    font-size: 1rem;
+  }
 }
