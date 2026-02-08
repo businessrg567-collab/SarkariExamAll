@@ -74,18 +74,21 @@ h4 {
 .gradient-text-gold {
   background: linear-gradient(135deg, #F59E0B 0%, #FCD34D 100%);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .gradient-text-teal {
   background: linear-gradient(135deg, #10B981 0%, #34D399 100%);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .gradient-text-purple {
   background: linear-gradient(135deg, #8B5CF6 0%, #A78BFA 100%);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
@@ -872,10 +875,10 @@ section {
 
 .hero-stats {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  gap: 1.5rem;
-  margin-bottom: 2.5rem;
-  max-width: 900px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-bottom: 3rem;
+  max-width: 1000px;
   width: 100%;
   margin-inline: auto;
   justify-items: center;
@@ -883,12 +886,18 @@ section {
 
 .stats-card {
   text-align: center;
-  padding: 2.5rem 2rem;
+  padding: 3rem 2rem;
   background: rgba(255, 255, 255, 0.03);
-  border-radius: 12px;
+  border-radius: 16px;
   border: 1px solid rgba(139, 92, 246, 0.2);
   transition: all 0.3s ease;
-  min-width: 200px;
+  width: 100%;
+  min-width: unset;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
 }
 
 .stats-card:hover {
@@ -989,22 +998,20 @@ section {
     line-height: 1.4;
   }
 
-  /* Horizontal Scroll - Stats Cards */
+  /* Horizontal Scroll - Stats */
   .hero-stats {
-    display: flex;
-    overflow-x: auto;
+    display: flex !important;
+    overflow-x: auto !important;
+    gap: 1rem !important;
+    padding: 1rem 0.5rem !important;
     scroll-snap-type: x mandatory;
-    gap: 1rem;
-    padding-bottom: 1rem;
-    /* Space for scrollbar if any */
-    margin-bottom: 2rem;
+    -webkit-overflow-scrolling: touch;
     width: 100%;
-    /* Hide scrollbar for cleaner look */
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-    padding-right: 2rem;
-    /* Peek effect */
-    box-sizing: border-box;
+    justify-content: flex-start !important;
+    margin-bottom: 2rem;
+    max-width: 100%;
+    grid-template-columns: none !important;
+    /* Override desktop grid */
   }
 
   .hero-stats::-webkit-scrollbar {
@@ -1012,10 +1019,27 @@ section {
   }
 
   .stats-card {
-    min-width: 60%;
-    /* Show partial next card */
+    min-width: 160px;
+    width: 160px;
+    padding: 1.5rem 1rem;
     scroll-snap-align: center;
     flex-shrink: 0;
+    border-radius: 12px;
+    height: auto;
+  }
+
+  .stats-number {
+    font-size: 2rem;
+  }
+
+  .stats-label {
+    font-size: 0.9rem;
+  }
+
+  .hero-description {
+    font-size: 1rem;
+    padding: 0 1rem;
+    margin-bottom: 1.5rem;
   }
 
   .stats-number {
