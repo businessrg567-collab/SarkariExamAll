@@ -775,7 +775,7 @@ const App = () => {
         </div>
       </header>
 
-      <section id="hub" style={{ padding: 'var(--section-padding) 0' }}>
+      <section id="hub" style={{ padding: '2rem 0 4rem 0' }}>
         <div className="container">
           <div className="section-title reveal" style={{ marginBottom: '3rem' }}>
             <h2 className="gradient-text-teal">Comprehensive Exam Documentation Hub</h2>
