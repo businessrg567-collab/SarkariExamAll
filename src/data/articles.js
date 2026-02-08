@@ -85,9 +85,90 @@ const generateLongFormContent = (title, category) => {
   `;
 };
 
+
+
+// [ ... generateLongFormContent function ... ]
+
+export const articles = [
+  {
+    id: '1',
+    title: 'UPSC CSE 2026 Notification',
+    slug: 'upsc-cse-2026-notification',
+    category: 'UPSC',
+    excerpt: 'Comprehensive guide to the Civil Services Examination 2026 cycle. Includes tentative dates for Prelims, Mains, and Interview stages.',
+    date: 'Feb 8, 2026',
+    author: 'SarkariExamAll Analysis Team',
+    readTime: '8 min read',
+    image: 'https://images.unsplash.com/photo-1589829085413-56de8ae18c73?auto=format&fit=crop&q=80&w=800', // UPSC concept
+    content: generateLongFormContent('UPSC CSE 2026 Notification', 'UPSC')
+  },
+  {
+    id: '2',
+    title: 'SSC CGL 2026 Exam Calendar',
+    slug: 'ssc-cgl-2026-exam-calendar',
+    category: 'SSC',
+    excerpt: 'Official SSC exam calendar breakdown. Detailed analysis of Tier-I and Tier-II pattern changes expected in 2026.',
+    date: 'Feb 7, 2026',
+    author: 'Exam Strategy Desk',
+    readTime: '6 min read',
+    image: 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&q=80&w=800', // Exam/Study concept
+    content: generateLongFormContent('SSC CGL 2026 Exam Calendar', 'SSC')
+  },
+  {
+    id: '3',
+    title: 'IBPS PO 2026 Eligibility Criteria',
+    slug: 'ibps-po-2026-eligibility-criteria',
+    category: 'Banking',
+    excerpt: 'Updated age limit, educational qualification, and EWS reservation norms for Probationary Officer recruitment.',
+    date: 'Feb 6, 2026',
+    author: 'Banking Careers Expert',
+    readTime: '5 min read',
+    image: 'https://images.unsplash.com/photo-1601597111158-2fceff292cdc?auto=format&fit=crop&q=80&w=800', // Banking/Finance concept
+    content: generateLongFormContent('IBPS PO 2026 Eligibility Criteria', 'Banking')
+  },
+  {
+    id: '4',
+    title: 'Railway RRB NTPC 2026 Update',
+    slug: 'railway-rrb-ntpc-2026-update',
+    category: 'Railways',
+    excerpt: 'Ministry of Railways announcement regarding 1.5 Lakh vacancies. Zone-wise breakdown and application process.',
+    date: 'Feb 5, 2026',
+    author: 'Rail Recruitment Cell Watch',
+    readTime: '7 min read',
+    image: 'https://images.unsplash.com/photo-1474487548417-781cb71495f3?auto=format&fit=crop&q=80&w=800', // Train/Railway concept
+    content: generateLongFormContent('Railway RRB NTPC 2026 Update', 'Railways')
+  },
+  {
+    id: '5',
+    title: 'State PSC 2026 Syllabus Changes',
+    slug: 'state-psc-2026-syllabus-changes',
+    category: 'State PSC',
+    excerpt: 'comparative analysis of syllabus updates for UPPSC, BPSC, MPPSC and RAS examinations for the upcoming session.',
+    date: 'Feb 4, 2026',
+    author: 'State Services Mentor',
+    readTime: '9 min read',
+    image: 'https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&q=80&w=800', // Meeting/Discussion concept
+    content: generateLongFormContent('State PSC 2026 Syllabus Changes', 'State PSC')
+  },
+  {
+    id: '6',
+    title: 'Defense Exams (NDA/CDS) 2026',
+    slug: 'defense-exams-nda-cds-2026',
+    category: 'Defense',
+    excerpt: 'Complete roadmap for joining Indian Armed Forces. Physical standards, medical requirements, and SSB interview tips.',
+    date: 'Feb 3, 2026',
+    author: 'Defense Academy Expert',
+    readTime: '6 min read',
+    image: 'https://images.unsplash.com/photo-1579912437766-70e447b9528d?auto=format&fit=crop&q=80&w=800', // Defense/Uniform concept
+    content: generateLongFormContent('Defense Exams (NDA/CDS) 2026', 'Defense')
+  }
+];
+
 export const blogs = [
+  ...articles,
   {
     id: 'ssc-cgl-2026-complete-guide',
+    slug: 'ssc-cgl-2026-complete-guide',
     title: 'SSC CGL 2026 Complete Preparation Guide and Eligibility Roadmap',
     category: '2026 Exams',
     date: 'Feb 06, 2026',
@@ -97,6 +178,7 @@ export const blogs = [
   },
   {
     id: 'upsc-civil-services-2026-guide',
+    slug: 'upsc-civil-services-2026-guide',
     title: 'UPSC Civil Services 2026 Document Verification Complete Guide',
     category: 'Eligibility Guides',
     date: 'Feb 05, 2026',
@@ -106,6 +188,7 @@ export const blogs = [
   },
   {
     id: 'banking-sector-2026-opportunities',
+    slug: 'banking-sector-2026-opportunities',
     title: 'Banking Sector Career Opportunities and Preparation Strategy for 2026',
     category: 'Career Opportunities',
     date: 'Feb 04, 2026',
@@ -140,6 +223,7 @@ for (let i = 4; i <= 60; i++) {
 
   blogs.push({
     id: slug, // Use slug as ID
+    slug: slug,
     title: title,
     category: category,
     date: 'Feb 01, 2026',

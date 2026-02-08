@@ -46,7 +46,7 @@ const FAQItem = ({ question, answer }) => {
 const AboutPage = ({ onBack }) => {
   useEffect(() => window.scrollTo(0, 0), []);
   return (
-    <div style={{ paddingTop: '10rem', paddingBottom: '6rem', background: 'linear-gradient(135deg, var(--primary) 0%, var(--primary-deep) 100%)' }}>
+    <div className="page-wrapper" style={{ background: 'linear-gradient(135deg, var(--primary) 0%, var(--primary-deep) 100%)' }}>
       <div className="container">
         <button onClick={onBack} className="btn btn-secondary" style={{ marginBottom: '3rem' }}>
           <Home size={16} /> Back to Home
@@ -127,7 +127,7 @@ const SuccessStoriesPage = ({ onBack }) => {
   ];
 
   return (
-    <div style={{ paddingTop: '10rem', paddingBottom: '6rem', background: 'linear-gradient(135deg, #0F172A 0%, #1E293B 100%)' }}>
+    <div className="page-wrapper" style={{ background: 'linear-gradient(135deg, #0F172A 0%, #1E293B 100%)' }}>
       <div className="container">
         <button onClick={onBack} className="btn btn-secondary" style={{ marginBottom: '3rem' }}>
           <Home size={16} /> Back to Home
@@ -174,7 +174,7 @@ const CareerCounselingPage = ({ onBack }) => {
   useEffect(() => window.scrollTo(0, 0), []);
 
   return (
-    <div style={{ paddingTop: '10rem', paddingBottom: '6rem' }}>
+    <div className="page-wrapper">
       <div className="container">
         <button onClick={onBack} className="btn btn-secondary" style={{ marginBottom: '3rem' }}>
           <Home size={16} /> Back to Home
@@ -252,7 +252,7 @@ const PartnerPage = ({ onBack }) => {
   useEffect(() => window.scrollTo(0, 0), []);
 
   return (
-    <div style={{ paddingTop: '10rem', paddingBottom: '6rem', background: 'linear-gradient(135deg, #1E293B 0%, #0F172A 100%)' }}>
+    <div className="page-wrapper" style={{ background: 'linear-gradient(135deg, #1E293B 0%, #0F172A 100%)' }}>
       <div className="container">
         <button onClick={onBack} className="btn btn-secondary" style={{ marginBottom: '3rem' }}>
           <Home size={16} /> Back to Home
@@ -349,7 +349,7 @@ const ContactPage = ({ onBack }) => {
   useEffect(() => window.scrollTo(0, 0), []);
 
   return (
-    <div style={{ paddingTop: '10rem', paddingBottom: '6rem' }}>
+    <div className="page-wrapper">
       <div className="container">
         <button onClick={onBack} className="btn btn-secondary" style={{ marginBottom: '3rem' }}>
           <Home size={16} /> Back to Home
@@ -459,7 +459,7 @@ const LocationPage = ({ location, onBack }) => {
   useEffect(() => window.scrollTo(0, 0), []);
 
   return (
-    <div style={{ paddingTop: '10rem', paddingBottom: '6rem' }}>
+    <div className="page-wrapper">
       <div className="container">
         <button onClick={onBack} className="btn btn-secondary" style={{ marginBottom: '2rem' }}>
           <Home size={16} /> Back to Locations
@@ -488,8 +488,15 @@ const LocationPage = ({ location, onBack }) => {
 const LocationsHub = ({ onSelectLocation, onBack }) => {
   useEffect(() => window.scrollTo(0, 0), []);
 
+  const [searchQuery, setSearchQuery] = useState('');
+
+  const filteredLocations = locations.filter(loc =>
+    loc.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    loc.excerpt.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
   return (
-    <div style={{ paddingTop: '10rem', paddingBottom: '6rem' }}>
+    <div className="page-wrapper">
       <div className="container">
         <button onClick={onBack} className="btn btn-secondary" style={{ marginBottom: '3rem' }}>
           <Home size={16} /> Back to Home
@@ -501,25 +508,53 @@ const LocationsHub = ({ onSelectLocation, onBack }) => {
           </p>
           <div className="divider" style={{ margin: '1rem auto' }}></div>
         </div>
+
+        {/* Search Bar */}
+        <div style={{ maxWidth: '600px', margin: '0 auto 4rem', position: 'relative' }}>
+          <input
+            type="text"
+            placeholder="Search city, state, or exam center..."
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            style={{
+              width: '100%',
+              padding: '1rem 1.5rem',
+              paddingRight: '3rem',
+              background: 'var(--glass)',
+              border: '1px solid var(--glass-border)',
+              borderRadius: '50px',
+              color: 'white',
+              fontSize: '1rem'
+            }}
+          />
+          <Search size={20} color="var(--secondary)" style={{ position: 'absolute', right: '1.5rem', top: '50%', transform: 'translateY(-50%)' }} />
+        </div>
+
         <div className="blog-grid">
-          {locations.map((location) => (
-            <div key={location.id} className="blog-card" onClick={() => onSelectLocation(location)} style={{ cursor: 'pointer' }}>
-              <div style={{ height: '220px', overflow: 'hidden', position: 'relative' }}>
-                <img src={location.image} alt={location.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} onError={handleImageError} />
-                <div style={{ position: 'absolute', top: '1rem', right: '1rem', background: 'var(--secondary)', color: 'var(--primary)', padding: '0.5rem 1rem', borderRadius: '20px', fontWeight: 700, fontSize: '0.85rem' }}>
-                  <MapPin size={14} style={{ display: 'inline', marginRight: '0.3rem' }} />
-                  {location.name}
+          {filteredLocations.length > 0 ? (
+            filteredLocations.map((location) => (
+              <div key={location.id} className="blog-card" onClick={() => onSelectLocation(location)} style={{ cursor: 'pointer' }}>
+                <div style={{ height: '220px', overflow: 'hidden', position: 'relative' }}>
+                  <img src={location.image} alt={location.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} onError={handleImageError} />
+                  <div style={{ position: 'absolute', top: '1rem', right: '1rem', background: 'var(--secondary)', color: 'var(--primary)', padding: '0.5rem 1rem', borderRadius: '20px', fontWeight: 700, fontSize: '0.85rem' }}>
+                    <MapPin size={14} style={{ display: 'inline', marginRight: '0.3rem' }} />
+                    {location.name}
+                  </div>
+                </div>
+                <div className="blog-content">
+                  <h3 style={{ color: 'white', fontSize: '1.3rem', marginBottom: '1rem' }}>{location.name} Exam Guide 2026</h3>
+                  <p style={{ color: 'white', fontSize: '0.95rem', lineHeight: '1.7' }}>{location.excerpt}</p>
+                  <span style={{ color: 'var(--secondary)', fontSize: '0.9rem', fontWeight: 600, marginTop: '1rem', display: 'inline-block' }}>
+                    Explore Location Guide →
+                  </span>
                 </div>
               </div>
-              <div className="blog-content">
-                <h3 style={{ color: 'white', fontSize: '1.3rem', marginBottom: '1rem' }}>{location.name} Exam Guide 2026</h3>
-                <p style={{ color: 'white', fontSize: '0.95rem', lineHeight: '1.7' }}>{location.excerpt}</p>
-                <span style={{ color: 'var(--secondary)', fontSize: '0.9rem', fontWeight: 600, marginTop: '1rem', display: 'inline-block' }}>
-                  Explore Location Guide →
-                </span>
-              </div>
+            ))
+          ) : (
+            <div style={{ gridColumn: '1 / -1', textAlign: 'center', padding: '3rem', color: 'var(--text-dim)' }}>
+              <p>No cities found matching "{searchQuery}". Try different keywords.</p>
             </div>
-          ))}
+          )}
         </div>
       </div>
     </div>
@@ -533,7 +568,7 @@ const ArticleDetail = ({ blog, onBack }) => {
   }, [blog]);
 
   return (
-    <div className="container" style={{ paddingTop: '10rem', paddingBottom: '6rem' }}>
+    <div className="container page-wrapper">
       <button onClick={onBack} className="btn btn-secondary" style={{ marginBottom: '2rem' }}>
         ← Back to Blog
       </button>
@@ -586,7 +621,12 @@ const App = () => {
     };
 
     // Check for dynamic routes
-    if (pathname.startsWith('/blog/')) return 'Detail';
+    const pathValues = pathname.split('/').filter(Boolean);
+    if (pathValues.length === 1 && !['about', 'contact', 'locations', 'success-stories', 'career-counseling', 'partner', 'eligibility-checker', 'document-guide', 'exam-requirements', 'preparation-guides', 'location-guides', 'privacy-policy', 'terms-of-service'].includes(pathValues[0])) {
+      const slug = pathValues[0];
+      if (blogs.some(b => b.slug === slug || b.id === slug)) return 'Detail';
+    }
+
     if (pathname.startsWith('/locations/')) return 'Location';
 
     // Return NotFound for invalid URLs
@@ -629,12 +669,21 @@ const App = () => {
       setActiveTab(newTab);
     }
 
-    // Extract blog ID or location from URL if present
-    if (location.pathname.startsWith('/blog/')) {
-      const blogId = location.pathname.split('/blog/')[1];
-      const blog = blogs.find(b => b.id === blogId);
-      if (blog) setSelectedBlog(blog);
+    // Extract blog slug or location from URL if present
+    const pathValues = location.pathname.split('/').filter(Boolean);
+
+    if (pathValues.length === 1 && !['about', 'contact', 'locations', 'success-stories', 'career-counseling', 'partner', 'eligibility-checker', 'document-guide', 'exam-requirements', 'preparation-guides', 'location-guides', 'privacy-policy', 'terms-of-service'].includes(pathValues[0])) {
+      const slug = pathValues[0];
+      const blog = blogs.find(b => (b.slug === slug) || (b.id === slug));
+
+      if (blog) {
+        setSelectedBlog(blog);
+        // We don't need to force setActiveTab here if getActiveTabFromPath works correctly,
+        // but for safety in case of race conditions or initial load nuances:
+        if (activeTab !== 'Detail') setActiveTab('Detail');
+      }
     }
+
     if (location.pathname.startsWith('/locations/')) {
       const citySlug = location.pathname.split('/locations/')[1];
       const loc = locations.find(l => l.name.toLowerCase().replace(/\s+/g, '-') === citySlug);
@@ -648,7 +697,7 @@ const App = () => {
 
     if (tab === 'Detail' && blogOrLocation) {
       setSelectedBlog(blogOrLocation);
-      navigate(`/blog/${blogOrLocation.id}`);
+      navigate(`/${blogOrLocation.slug || blogOrLocation.id}`);
     } else if (tab === 'Location' && blogOrLocation) {
       setSelectedLocation(blogOrLocation);
       const citySlug = blogOrLocation.name.toLowerCase().replace(/\s+/g, '-');
@@ -656,6 +705,7 @@ const App = () => {
     } else {
       const path = getPathFromActiveTab(tab);
       navigate(path);
+      window.scrollTo(0, 0); // Ensure scroll to top
     }
   };
 
@@ -771,7 +821,7 @@ const App = () => {
           </div>
           <div className="blog-grid">
             {blogs.slice(0, 3).map((blog) => (
-              <div key={blog.id} className="blog-card reveal" onClick={() => { setSelectedBlog(blog); setActiveTab('Detail'); }}>
+              <div key={blog.id} className="blog-card reveal" onClick={() => navigateToTab('Detail', blog)}>
                 <div style={{ height: '200px', overflow: 'hidden', background: '#1E293B' }}>
                   <img
                     src={blog.image}
@@ -933,7 +983,7 @@ const App = () => {
     );
 
     return (
-      <div style={{ paddingTop: '10rem', paddingBottom: '6rem' }}>
+      <div className="page-wrapper">
         <div className="container">
           <div className="section-title reveal" style={{ textAlign: 'center' }}>
             <h1 className="gradient-text-teal">Expert Knowledge Blog</h1>
@@ -965,7 +1015,7 @@ const App = () => {
           <div className="blog-grid" style={{ marginTop: '4rem' }}>
             {filteredBlogs.length > 0 ? (
               filteredBlogs.map((blog) => (
-                <div key={blog.id} className="blog-card reveal" onClick={() => { setSelectedBlog(blog); setActiveTab('Detail'); }}>
+                <div key={blog.id} className="blog-card reveal" onClick={() => navigateToTab('Detail', blog)}>
                   <div style={{ height: '220px', overflow: 'hidden', background: '#1E293B' }}>
                     <img
                       src={blog.image}
