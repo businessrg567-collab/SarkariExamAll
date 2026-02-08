@@ -599,7 +599,7 @@ section {
 
   /* Navbar mobile optimization */
   .navbar {
-    padding: 0.6rem 0;
+    padding: 0.5rem 0;
   }
 
   .nav-brand {
@@ -608,8 +608,8 @@ section {
 
   /* Hero section mobile */
   .hero {
-    min-height: 70vh;
-    padding-top: 5rem;
+    min-height: auto;
+    padding-top: 6rem;
     padding-bottom: 2rem;
   }
 
@@ -663,10 +663,32 @@ section {
     grid-template-columns: 1fr;
   }
 
-  /* Blog grid mobile */
-  .blog-grid {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
+  /* Blog grid mobile - Horizontal Scroll */
+  .blog-grid,
+  .grid-2,
+  .grid-3 {
+    display: flex !important;
+    overflow-x: auto !important;
+    gap: 1rem !important;
+    padding-bottom: 1rem;
+    scroll-snap-type: x mandatory;
+    scroll-padding-left: 1rem;
+    grid-template-columns: none !important;
+  }
+
+  .blog-grid::-webkit-scrollbar,
+  .grid-2::-webkit-scrollbar,
+  .grid-3::-webkit-scrollbar {
+    display: none;
+  }
+
+  .blog-card,
+  .grid-2>div,
+  .grid-3>div {
+    min-width: 260px !important;
+    max-width: 260px !important;
+    scroll-snap-align: start;
+    flex-shrink: 0;
   }
 
   /* Footer mobile */
@@ -769,15 +791,16 @@ section {
 
   /* CRITICAL: Completely restructure navbar for mobile */
   .navbar .container {
-    flex-direction: column !important;
+    flex-direction: row !important;
+    justify-content: space-between !important;
     align-items: center !important;
-    gap: 0.8rem !important;
+    gap: 0 !important;
   }
 
   .nav-brand {
     font-size: 1.4rem !important;
-    width: 100%;
-    text-align: center;
+    width: auto !important;
+    text-align: left !important;
   }
 
   /* CRITICAL: Hide desktop menu completely on mobile */

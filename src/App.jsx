@@ -727,7 +727,7 @@ const App = () => {
             </div>
 
             <h1 className="hero-brand-title">India's Trusted Exam Platform</h1>
-            <h2 className="hero-tagline">India’s Verified Government Exam Intelligence Platform</h2>
+            <h2 className="hero-tagline">Official Govt Exam Portal</h2>
 
             <p className="hero-description">
               Your one-stop destination for verified exam notifications, eligibility checks, and expert preparation strategies. Join 5 lakh+ aspirants achieving their government job dreams!
