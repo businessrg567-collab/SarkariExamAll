@@ -751,7 +751,7 @@ const App = () => {
 
             {/* Trust Icons */}
             <div style={{ marginBottom: '2rem' }}>
-              <div style={{ fontSize: '0.8rem', color: 'rgba(255, 255, 255, 0.6)', marginBottom: '1rem', fontWeight: 600, letterSpacing: '0.05em' }}>TRUSTED SOURCE FOR:</div>
+
               <div className="trust-tags">
                 <div className="trust-tag">UPSC</div>
                 <div className="trust-tag">SSC</div>
