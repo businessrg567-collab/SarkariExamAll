@@ -570,7 +570,7 @@ const ArticleDetail = ({ blog, onBack }) => {
   return (
     <div className="container page-wrapper">
       <button onClick={onBack} className="btn btn-secondary" style={{ marginBottom: '2rem' }}>
-        ← Back to Blog
+        ← Back
       </button>
       <div className="article-content">
         <div style={{ position: 'relative', height: '400px', borderRadius: '20px', overflow: 'hidden', marginBottom: '3rem', background: '#1E293B' }}>
@@ -661,6 +661,7 @@ const App = () => {
   const [selectedBlog, setSelectedBlog] = useState(null);
   const [selectedLocation, setSelectedLocation] = useState(null);
   const [searchQuery, setSearchQuery] = useState(''); // For blog search
+  const [previousTab, setPreviousTab] = useState('Home'); // Default to Home
 
   // Sync activeTab with URL changes
   useEffect(() => {
@@ -686,13 +687,20 @@ const App = () => {
 
     if (location.pathname.startsWith('/locations/')) {
       const citySlug = location.pathname.split('/locations/')[1];
-      const loc = locations.find(l => l.name.toLowerCase().replace(/\s+/g, '-') === citySlug);
-      if (loc) setSelectedLocation(loc);
+      // Try to match by slug first, then fallback to name manipulation (for backward compatibility if needed)
+      const loc = locations.find(l => l.slug === citySlug || l.name.toLowerCase().replace(/\s+/g, '-') === citySlug);
+      if (loc) {
+        setSelectedLocation(loc);
+        if (activeTab !== 'Location') setActiveTab('Location');
+      }
     }
   }, [location.pathname]);
 
   // Custom setActiveTab that also updates URL
   const navigateToTab = (tab, blogOrLocation = null) => {
+    if (activeTab !== tab) {
+      setPreviousTab(activeTab); // Store current tab before switching
+    }
     setActiveTab(tab);
 
     if (tab === 'Detail' && blogOrLocation) {
@@ -700,12 +708,22 @@ const App = () => {
       navigate(`/${blogOrLocation.slug || blogOrLocation.id}`);
     } else if (tab === 'Location' && blogOrLocation) {
       setSelectedLocation(blogOrLocation);
-      const citySlug = blogOrLocation.name.toLowerCase().replace(/\s+/g, '-');
-      navigate(`/locations/${citySlug}`);
+      // Use the explicit slug from locations.js
+      navigate(`/locations/${blogOrLocation.slug}`);
     } else {
       const path = getPathFromActiveTab(tab);
       navigate(path);
       window.scrollTo(0, 0); // Ensure scroll to top
+    }
+  };
+
+  const handleBack = () => {
+    // If previous tab was Home or Locations, go there.
+    // If we are deep in something, maybe default to Home.
+    if (['Home', 'Locations', 'Blog'].includes(previousTab)) {
+      navigateToTab(previousTab);
+    } else {
+      navigateToTab('Home');
     }
   };
 
@@ -1096,21 +1114,21 @@ const App = () => {
       <main role="main" style={{ minHeight: '80vh' }}>
         {activeTab === 'Home' && renderHome()}
         {activeTab === 'Blog' && renderBlog()}
-        {activeTab === 'Detail' && selectedBlog && <ArticleDetail blog={selectedBlog} onBack={() => navigateToTab('Blog')} />}
-        {activeTab === 'About' && <AboutPage onBack={() => navigateToTab('Home')} />}
-        {activeTab === 'Success' && <SuccessStoriesPage onBack={() => navigateToTab('Home')} />}
-        {activeTab === 'Counseling' && <CareerCounselingPage onBack={() => navigateToTab('Home')} />}
-        {activeTab === 'Partner' && <PartnerPage onBack={() => navigateToTab('Home')} />}
-        {activeTab === 'Contact' && <ContactPage onBack={() => navigateToTab('Home')} />}
-        {activeTab === 'Locations' && <LocationsHub onSelectLocation={(loc) => navigateToTab('Location', loc)} onBack={() => navigateToTab('Home')} />}
-        {activeTab === 'Location' && selectedLocation && <LocationPage location={selectedLocation} onBack={() => navigateToTab('Locations')} />}
-        {activeTab === 'EligibilityChecker' && <EligibilityCheckerPage onBack={() => navigateToTab('Home')} />}
-        {activeTab === 'DocumentGuide' && <DocumentGuidePage onBack={() => navigateToTab('Home')} onNavigateToExamRequirements={() => navigateToTab('ExamRequirements')} />}
-        {activeTab === 'ExamRequirements' && <ExamRequirementsPage onBack={() => navigateToTab('Home')} />}
-        {activeTab === 'PreparationGuides' && <PreparationGuidesPage onSelectBlog={(blog) => navigateToTab('Detail', blog)} onBack={() => navigateToTab('Home')} />}
-        {activeTab === 'LocationGuides' && <LocationGuidesPage onSelectLocation={(loc) => navigateToTab('Location', loc)} onBack={() => navigateToTab('Home')} />}
-        {activeTab === 'PrivacyPolicy' && <PrivacyPolicyPage onBack={() => navigateToTab('Home')} />}
-        {activeTab === 'TermsOfService' && <TermsOfServicePage onBack={() => navigateToTab('Home')} />}
+        {activeTab === 'Detail' && selectedBlog && <ArticleDetail blog={selectedBlog} onBack={handleBack} />}
+        {activeTab === 'About' && <AboutPage onBack={handleBack} />}
+        {activeTab === 'Success' && <SuccessStoriesPage onBack={handleBack} />}
+        {activeTab === 'Counseling' && <CareerCounselingPage onBack={handleBack} />}
+        {activeTab === 'Partner' && <PartnerPage onBack={handleBack} />}
+        {activeTab === 'Contact' && <ContactPage onBack={handleBack} />}
+        {activeTab === 'Locations' && <LocationsHub onSelectLocation={(loc) => navigateToTab('Location', loc)} onBack={handleBack} />}
+        {activeTab === 'Location' && selectedLocation && <LocationPage location={selectedLocation} onBack={handleBack} />}
+        {activeTab === 'EligibilityChecker' && <EligibilityCheckerPage onBack={handleBack} />}
+        {activeTab === 'DocumentGuide' && <DocumentGuidePage onBack={handleBack} onNavigateToExamRequirements={() => navigateToTab('ExamRequirements')} />}
+        {activeTab === 'ExamRequirements' && <ExamRequirementsPage onBack={handleBack} />}
+        {activeTab === 'PreparationGuides' && <PreparationGuidesPage onSelectBlog={(blog) => navigateToTab('Detail', blog)} onBack={handleBack} />}
+        {activeTab === 'LocationGuides' && <LocationGuidesPage onSelectLocation={(loc) => navigateToTab('Location', loc)} onBack={handleBack} />}
+        {activeTab === 'PrivacyPolicy' && <PrivacyPolicyPage onBack={handleBack} />}
+        {activeTab === 'TermsOfService' && <TermsOfServicePage onBack={handleBack} />}
         {activeTab === 'NotFound' && <NotFoundPage />}
       </main>
 
