@@ -613,6 +613,11 @@ section {
     padding-bottom: 2rem;
   }
 
+  /* Badge Spacing Fix */
+  .hero-badge {
+    margin-top: 10px;
+  }
+
   .hero h1 {
     font-size: 2.2rem;
     margin-bottom: 1rem;
