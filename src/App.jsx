@@ -456,11 +456,11 @@ const ContactPage = ({ onBack }) => {
 };
 
 const RelatedLocations = ({ currentId, onNavigate }) => {
-  // Show 3 random other locations
+  // Show 4 random other locations
   const related = locations
     .filter(l => l.id !== currentId)
     .sort(() => 0.5 - Math.random())
-    .slice(0, 3);
+    .slice(0, 4);
 
   return (
     <div style={{ marginTop: '4rem', borderTop: '1px solid var(--glass-border)', paddingTop: '3rem' }}>
@@ -488,10 +488,10 @@ const LocationPage = ({ location, onBack, onNavigate }) => {
   useEffect(() => window.scrollTo(0, 0), []);
 
   return (
-    <div className="page-wrapper">
+    <div className="page-wrapper" style={{ paddingTop: '2rem' }}>
       <div className="container">
-        <button onClick={onBack} className="btn btn-secondary" style={{ marginBottom: '2rem' }}>
-          <Home size={16} /> Back to Locations
+        <button onClick={onBack} className="btn btn-secondary" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '2rem' }}>
+          <ArrowLeft size={18} /> Back
         </button>
         <div style={{ position: 'relative', height: '350px', borderRadius: '20px', overflow: 'hidden', marginBottom: '3rem' }}>
           <img src={location.image} alt={location.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} fetchPriority="high" onError={handleImageError} />
@@ -595,7 +595,7 @@ const RelatedArticles = ({ currentId, category, onNavigate }) => {
   // Simple suggestion logic: same category, excluding current
   const related = blogs
     .filter(b => b.category === category && b.id !== currentId)
-    .slice(0, 3);
+    .slice(0, 4);
 
   if (related.length === 0) return null;
 
@@ -945,7 +945,7 @@ const App = () => {
           </div>
           <div className="grid grid-3 reveal">
             {locations.slice(0, 6).map((location) => (
-              <div key={location.id} className="glass-card" style={{ padding: '0', overflow: 'hidden', cursor: 'pointer' }} onClick={() => { setSelectedLocation(location); setActiveTab('Location'); }}>
+              <div key={location.id} className="glass-card" style={{ padding: '0', overflow: 'hidden', cursor: 'pointer' }} onClick={() => navigateToTab('Location', location)}>
                 <div style={{ height: '240px', overflow: 'hidden', background: '#1E293B' }}>
                   <img
                     src={location.image}
