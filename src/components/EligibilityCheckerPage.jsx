@@ -128,9 +128,7 @@ const EligibilityCheckerPage = ({ onBack }) => {
     ];
 
     return (
-        <div style={{
-            paddingTop: '10rem',
-            paddingBottom: '6rem',
+        <div className="page-wrapper" style={{
             background: 'var(--primary)',
             minHeight: '100vh'
         }}>
@@ -196,8 +194,8 @@ const EligibilityCheckerPage = ({ onBack }) => {
                 </div>
 
                 {/* Eligibility Checker Component */}
-                <div id="eligibility-checker-section" className="glass-card" style={{
-                    padding: '4rem',
+                <div id="eligibility-checker-section" className="glass-card mobile-p-1" style={{
+                    padding: '3rem',
                     marginBottom: '5rem',
                     background: 'rgba(255, 255, 255, 0.03)',
                     border: '2px solid rgba(139, 92, 246, 0.3)'
@@ -224,7 +222,7 @@ const EligibilityCheckerPage = ({ onBack }) => {
                         </p>
                     </div>
 
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '2rem' }}>
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '2rem' }}>
                         {eligibilityCriteria.map((exam, idx) => (
                             <div key={idx} className="glass-card" style={{
                                 padding: '2.5rem',
@@ -258,8 +256,8 @@ const EligibilityCheckerPage = ({ onBack }) => {
                 </div>
 
                 {/* Age Relaxation Guide */}
-                <div className="glass-card" style={{
-                    padding: '4rem',
+                <div className="glass-card mobile-p-1" style={{
+                    padding: '3rem',
                     marginBottom: '5rem',
                     background: 'rgba(16, 185, 129, 0.03)',
                     border: '2px solid rgba(16, 185, 129, 0.2)'
@@ -391,8 +389,8 @@ const EligibilityCheckerPage = ({ onBack }) => {
                 </div>
 
                 {/* Preparation Tips After Eligibility Confirmation */}
-                <div className="glass-card" style={{
-                    padding: '4rem',
+                <div className="glass-card mobile-p-1" style={{
+                    padding: '3rem',
                     marginBottom: '5rem',
                     background: 'rgba(139, 92, 246, 0.05)',
                     border: '2px solid rgba(139, 92, 246, 0.3)'
@@ -406,7 +404,7 @@ const EligibilityCheckerPage = ({ onBack }) => {
                         </p>
                     </div>
 
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '2.5rem' }}>
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '2.5rem' }}>
                         {preparationTips.map((tip, idx) => (
                             <div key={idx} style={{
                                 padding: '2.5rem',
@@ -429,8 +427,8 @@ const EligibilityCheckerPage = ({ onBack }) => {
                 </div>
 
                 {/* CTA Section */}
-                <div className="glass-card" style={{
-                    padding: '4rem',
+                <div className="glass-card mobile-p-1" style={{
+                    padding: '3rem',
                     textAlign: 'center',
                     background: 'linear-gradient(135deg, rgba(139, 92, 246, 0.1) 0%, rgba(16, 185, 129, 0.1) 100%)',
                     border: '2px solid #8B5CF6'

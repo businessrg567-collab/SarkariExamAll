@@ -354,7 +354,7 @@ const ContactPage = ({ onBack }) => {
         <button onClick={onBack} className="btn btn-secondary" style={{ marginBottom: '3rem' }}>
           <Home size={16} /> Back to Home
         </button>
-        <div style={{ display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: '4rem' }}>
+        <div className="grid-responsive">
           <div>
             <h1 className="gradient-text-purple" style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', marginBottom: '1rem' }}>Get In Touch</h1>
             <p style={{ fontSize: '1.1rem', color: 'white', marginBottom: '3rem' }}>

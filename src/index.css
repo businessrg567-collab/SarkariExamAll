@@ -821,9 +821,33 @@ section {
     padding: 1rem 0 !important;
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
-    grid-template-columns: none !important;
-    justify-content: center !important;
   }
+
+  /* Utility for stacking grids on mobile */
+  .grid-responsive {
+    display: grid;
+    grid-template-columns: 1fr !important;
+    gap: 2rem;
+  }
+
+  /* Mobile padding adjustments */
+  .section-padding {
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
+  }
+
+  .mobile-p-1 {
+    padding: 1.5rem !important;
+  }
+
+  /* Ensure inputs don't overflow */
+  input,
+  select,
+  textarea {
+    max-width: 100%;
+  }
+
+
 
   .stats-card {
     min-width: 150px !important;
