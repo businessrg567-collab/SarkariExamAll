@@ -455,7 +455,36 @@ const ContactPage = ({ onBack }) => {
   );
 };
 
-const LocationPage = ({ location, onBack }) => {
+const RelatedLocations = ({ currentId, onNavigate }) => {
+  // Show 3 random other locations
+  const related = locations
+    .filter(l => l.id !== currentId)
+    .sort(() => 0.5 - Math.random())
+    .slice(0, 3);
+
+  return (
+    <div style={{ marginTop: '4rem', borderTop: '1px solid var(--glass-border)', paddingTop: '3rem' }}>
+      <h3 className="gradient-text-teal" style={{ fontSize: '1.8rem', marginBottom: '2rem' }}>Explore Other Cities</h3>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '2rem' }}>
+        {related.map(location => (
+          <div key={location.id} className="glass-card" style={{ padding: '0', overflow: 'hidden', cursor: 'pointer' }} onClick={() => onNavigate(location)}>
+            <div style={{ height: '180px', overflow: 'hidden' }}>
+              <img src={location.image} alt={location.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} onError={handleImageError} />
+            </div>
+            <div style={{ padding: '1.5rem' }}>
+              <h4 style={{ color: 'white', marginBottom: '0.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                <MapPin size={18} color="var(--secondary)" /> {location.name}
+              </h4>
+              <p style={{ fontSize: '0.85rem', color: 'white', lineHeight: '1.6' }}>{location.excerpt.substring(0, 80)}...</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+const LocationPage = ({ location, onBack, onNavigate }) => {
   useEffect(() => window.scrollTo(0, 0), []);
 
   return (
@@ -478,6 +507,7 @@ const LocationPage = ({ location, onBack }) => {
         <div className="article-content" style={{ marginTop: '2rem' }}>
           <div className="glass-card" style={{ padding: '3rem', background: 'rgba(15, 23, 42, 0.95)' }}>
             <div dangerouslySetInnerHTML={{ __html: location.content }} />
+            <RelatedLocations currentId={location.id} onNavigate={onNavigate} />
           </div>
         </div>
       </div>
@@ -561,7 +591,36 @@ const LocationsHub = ({ onSelectLocation, onBack }) => {
   );
 };
 
-const ArticleDetail = ({ blog, onBack }) => {
+const RelatedArticles = ({ currentId, category, onNavigate }) => {
+  // Simple suggestion logic: same category, excluding current
+  const related = blogs
+    .filter(b => b.category === category && b.id !== currentId)
+    .slice(0, 3);
+
+  if (related.length === 0) return null;
+
+  return (
+    <div style={{ marginTop: '4rem', borderTop: '1px solid var(--glass-border)', paddingTop: '3rem' }}>
+      <h3 className="gradient-text-teal" style={{ fontSize: '1.8rem', marginBottom: '2rem' }}>Related Articles</h3>
+      <div className="blog-grid" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))' }}>
+        {related.map(blog => (
+          <div key={blog.id} className="blog-card" onClick={() => onNavigate(blog)} style={{ cursor: 'pointer' }}>
+            <div style={{ height: '180px', overflow: 'hidden', position: 'relative' }}>
+              <img src={blog.image} alt={blog.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} onError={handleImageError} />
+            </div>
+            <div className="blog-content" style={{ padding: '1.5rem' }}>
+              <span className="blog-cat" style={{ fontSize: '0.75rem' }}>{blog.category}</span>
+              <h4 style={{ color: 'white', fontSize: '1.1rem', marginBottom: '0.5rem', lineHeight: '1.4' }}>{blog.title}</h4>
+              <span style={{ color: 'var(--secondary)', fontSize: '0.85rem', fontWeight: 600 }}>Read Guide →</span>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+const ArticleDetail = ({ blog, onBack, onNavigate }) => {
   useEffect(() => {
     window.scrollTo(0, 0);
     gsap.from('.article-content', { opacity: 1, y: 30, duration: 0.8, ease: 'power3.out' });
@@ -589,6 +648,7 @@ const ArticleDetail = ({ blog, onBack }) => {
         </div>
         <div className="glass-card" style={{ padding: '3rem' }}>
           <div style={{ color: 'white', lineHeight: '1.9', fontSize: '1.05rem' }} dangerouslySetInnerHTML={{ __html: blog.content }} />
+          <RelatedArticles currentId={blog.id} category={blog.category} onNavigate={onNavigate} />
         </div>
       </div>
     </div>
@@ -662,6 +722,17 @@ const App = () => {
   const [selectedLocation, setSelectedLocation] = useState(null);
   const [searchQuery, setSearchQuery] = useState(''); // For blog search
   const [previousTab, setPreviousTab] = useState('Home'); // Default to Home
+  const [homeScrollPos, setHomeScrollPos] = useState(0);
+
+  // Restore scroll position when returning to Home
+  useEffect(() => {
+    if (activeTab === 'Home') {
+      // Use setTimeout to ensure rendering is done
+      setTimeout(() => {
+        window.scrollTo(0, homeScrollPos);
+      }, 0);
+    }
+  }, [activeTab]);
 
   // Sync activeTab with URL changes
   useEffect(() => {
@@ -700,6 +771,10 @@ const App = () => {
   const navigateToTab = (tab, blogOrLocation = null) => {
     if (activeTab !== tab) {
       setPreviousTab(activeTab); // Store current tab before switching
+      // Save scroll position if leaving Home
+      if (activeTab === 'Home') {
+        setHomeScrollPos(window.scrollY);
+      }
     }
     setActiveTab(tab);
 
@@ -1114,14 +1189,14 @@ const App = () => {
       <main role="main" style={{ minHeight: '80vh' }}>
         {activeTab === 'Home' && renderHome()}
         {activeTab === 'Blog' && renderBlog()}
-        {activeTab === 'Detail' && selectedBlog && <ArticleDetail blog={selectedBlog} onBack={handleBack} />}
+        {activeTab === 'Detail' && selectedBlog && <ArticleDetail blog={selectedBlog} onBack={handleBack} onNavigate={(blog) => navigateToTab('Detail', blog)} />}
         {activeTab === 'About' && <AboutPage onBack={handleBack} />}
         {activeTab === 'Success' && <SuccessStoriesPage onBack={handleBack} />}
         {activeTab === 'Counseling' && <CareerCounselingPage onBack={handleBack} />}
         {activeTab === 'Partner' && <PartnerPage onBack={handleBack} />}
         {activeTab === 'Contact' && <ContactPage onBack={handleBack} />}
         {activeTab === 'Locations' && <LocationsHub onSelectLocation={(loc) => navigateToTab('Location', loc)} onBack={handleBack} />}
-        {activeTab === 'Location' && selectedLocation && <LocationPage location={selectedLocation} onBack={handleBack} />}
+        {activeTab === 'Location' && selectedLocation && <LocationPage location={selectedLocation} onBack={handleBack} onNavigate={(loc) => navigateToTab('Location', loc)} />}
         {activeTab === 'EligibilityChecker' && <EligibilityCheckerPage onBack={handleBack} />}
         {activeTab === 'DocumentGuide' && <DocumentGuidePage onBack={handleBack} onNavigateToExamRequirements={() => navigateToTab('ExamRequirements')} />}
         {activeTab === 'ExamRequirements' && <ExamRequirementsPage onBack={handleBack} />}
