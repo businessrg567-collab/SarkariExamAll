@@ -997,15 +997,17 @@ const App = () => {
 
       <section style={{ padding: 'var(--section-padding) 0' }}>
         <div className="container">
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '3rem' }} className="reveal">
-            <div>
+          <div className="section-header-blog reveal">
+            <div className="section-title-blog">
               <h2 className="gradient-text-gold">Expert Knowledge Blog</h2>
               <p style={{ color: 'white', marginTop: '0.5rem' }}>In-depth 3000-word guides written by exam experts and successful candidates</p>
-              <div className="divider"></div>
+              <div className="divider" style={{ margin: '1.5rem 0' }}></div>
             </div>
-            <button onClick={() => setActiveTab('Blog')} className="btn btn-secondary">
-              View All Articles <ArrowRight size={16} />
-            </button>
+            <div className="view-all-wrapper">
+              <button onClick={() => setActiveTab('Blog')} className="btn btn-secondary view-all-btn">
+                View All Articles <ArrowRight size={16} />
+              </button>
+            </div>
           </div>
           <div className="blog-grid">
             {blogs.slice(0, 3).map((blog) => (
