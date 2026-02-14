@@ -5,12 +5,7 @@ const PrivacyPolicyPage = ({ onBack }) => {
     useEffect(() => window.scrollTo(0, 0), []);
 
     return (
-        <div style={{
-            paddingTop: '10rem',
-            paddingBottom: '6rem',
-            background: 'var(--primary)',
-            minHeight: '100vh'
-        }}>
+        <div className="page-wrapper" style={{ minHeight: '100vh' }}>
             <div className="container">
                 <button onClick={onBack} className="btn btn-secondary" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '3rem' }}>
                     <ArrowLeft size={18} /> Back
@@ -44,7 +39,7 @@ const PrivacyPolicyPage = ({ onBack }) => {
                 </div>
 
                 {/* Content */}
-                <div className="glass-card" style={{ padding: '4rem', maxWidth: '1000px', margin: '0 auto' }}>
+                <div className="glass-card" style={{ padding: '2rem 1.5rem', maxWidth: '1000px', margin: '0 auto' }}>
 
                     {/* Introduction */}
                     <section style={{ marginBottom: '3rem' }}>
@@ -232,7 +227,7 @@ const PrivacyPolicyPage = ({ onBack }) => {
 
                 {/* Back Button */}
                 <div style={{ textAlign: 'center', marginTop: '3rem' }}>
-                    <button onClick={onBack} className="btn btn-primary" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', margin: '0 auto', padding: '1.2rem 2.5rem', fontSize: '1.1rem' }}>
+                    <button onClick={onBack} className="btn btn-primary" style={{ margin: '0 auto' }}>
                         <ArrowLeft size={20} /> Back
                     </button>
                 </div>

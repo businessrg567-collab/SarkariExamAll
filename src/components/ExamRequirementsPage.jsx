@@ -80,23 +80,16 @@ const ExamRequirementsPage = ({ onBack }) => {
                         Comprehensive requirements for all major government examinations. Find detailed eligibility criteria, educational qualifications, age limits, and document requirements for your target exam.
                     </p>
 
-                    {/* Stats */}
-                    <div style={{
-                        display: 'grid',
-                        gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
-                        gap: '2rem',
-                        maxWidth: '100%',
-                        margin: '0 auto'
-                    }}>
-                        <div className="glass-card" style={{ padding: '2rem', background: 'rgba(245, 158, 11, 0.05)', border: '2px solid rgba(245, 158, 11, 0.2)' }}>
+                    <div className="grid-responsive" style={{ gap: '1.5rem' }}>
+                        <div className="glass-card" style={{ padding: '2rem' }}>
                             <div style={{ fontSize: '2.2rem', fontWeight: 800, color: '#F59E0B', marginBottom: '0.5rem' }}>50+</div>
                             <div style={{ color: 'white', fontSize: '0.9rem' }}>Exams Covered</div>
                         </div>
-                        <div className="glass-card" style={{ padding: '2rem', background: 'rgba(245, 158, 11, 0.05)', border: '2px solid rgba(245, 158, 11, 0.2)' }}>
+                        <div className="glass-card" style={{ padding: '2rem' }}>
                             <div style={{ fontSize: '2.2rem', fontWeight: 800, color: '#F59E0B', marginBottom: '0.5rem' }}>100%</div>
                             <div style={{ color: 'white', fontSize: '0.9rem' }}>Accurate Data</div>
                         </div>
-                        <div className="glass-card" style={{ padding: '2rem', background: 'rgba(245, 158, 11, 0.05)', border: '2px solid rgba(245, 158, 11, 0.2)' }}>
+                        <div className="glass-card" style={{ padding: '2rem' }}>
                             <div style={{ fontSize: '2.2rem', fontWeight: 800, color: '#F59E0B', marginBottom: '0.5rem' }}>2026</div>
                             <div style={{ color: 'white', fontSize: '0.9rem' }}>Updated Info</div>
                         </div>
@@ -152,7 +145,7 @@ const ExamRequirementsPage = ({ onBack }) => {
 
                 {/* Exam Hub - Interactive Exam Selector */}
                 <div className="glass-card" style={{
-                    padding: '4rem',
+                    padding: '2rem 1.5rem',
                     marginBottom: '5rem',
                     background: 'rgba(255, 255, 255, 0.03)',
                     border: '2px solid rgba(245, 158, 11, 0.3)'
@@ -205,11 +198,11 @@ const ExamRequirementsPage = ({ onBack }) => {
                     <p style={{ color: 'white', fontSize: '1.2rem', marginBottom: '2.5rem', lineHeight: '1.8', maxWidth: '700px', margin: '0 auto 2.5rem' }}>
                         Use our eligibility checker to instantly find out which exams you qualify for based on your age, education, and category.
                     </p>
-                    <div style={{ display: 'flex', gap: '1.5rem', justifyContent: 'center', flexWrap: 'wrap' }}>
+                    <div className="grid-responsive" style={{ gap: '1.5rem', justifyContent: 'center' }}>
                         <button onClick={() => navigate('/eligibility-checker')} className="btn btn-primary" style={{ padding: '1.2rem 2.5rem', fontSize: '1.1rem' }}>
                             <CheckCircle2 size={20} /> Check Eligibility Now
                         </button>
-                        <button onClick={onBack} className="btn btn-secondary" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', padding: '1.2rem 2.5rem', fontSize: '1.1rem' }}>
+                        <button onClick={onBack} className="btn btn-secondary">
                             <ArrowLeft size={20} /> Back
                         </button>
                     </div>

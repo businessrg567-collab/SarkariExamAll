@@ -164,23 +164,16 @@ const LocationGuidesPage = ({ onSelectLocation, onBack }) => {
                         Comprehensive city-wise guides covering exam centers, state PSC opportunities, coaching hubs, accommodation options, and career prospects. Make informed decisions about where to prepare and appear for exams.
                     </p>
 
-                    {/* Stats */}
-                    <div style={{
-                        display: 'grid',
-                        gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
-                        gap: '2rem',
-                        maxWidth: '100%',
-                        margin: '0 auto'
-                    }}>
-                        <div className="glass-card" style={{ padding: '2rem', background: 'rgba(6, 182, 212, 0.05)', border: '2px solid rgba(6, 182, 212, 0.2)' }}>
+                    <div className="grid-responsive" style={{ gap: '1.5rem' }}>
+                        <div className="glass-card" style={{ padding: '2rem' }}>
                             <div style={{ fontSize: '2.2rem', fontWeight: 800, color: '#06B6D4', marginBottom: '0.5rem' }}>20</div>
                             <div style={{ color: 'white', fontSize: '0.9rem' }}>Major Cities</div>
                         </div>
-                        <div className="glass-card" style={{ padding: '2rem', background: 'rgba(6, 182, 212, 0.05)', border: '2px solid rgba(6, 182, 212, 0.2)' }}>
+                        <div className="glass-card" style={{ padding: '2rem' }}>
                             <div style={{ fontSize: '2.2rem', fontWeight: 800, color: '#06B6D4', marginBottom: '0.5rem' }}>28</div>
                             <div style={{ color: 'white', fontSize: '0.9rem' }}>State PSCs</div>
                         </div>
-                        <div className="glass-card" style={{ padding: '2rem', background: 'rgba(6, 182, 212, 0.05)', border: '2px solid rgba(6, 182, 212, 0.2)' }}>
+                        <div className="glass-card" style={{ padding: '2rem' }}>
                             <div style={{ fontSize: '2.2rem', fontWeight: 800, color: '#06B6D4', marginBottom: '0.5rem' }}>500+</div>
                             <div style={{ color: 'white', fontSize: '0.9rem' }}>Coaching Institutes</div>
                         </div>
@@ -213,7 +206,9 @@ const LocationGuidesPage = ({ onSelectLocation, onBack }) => {
                             <div key={region} style={{ marginBottom: '4rem' }}>
                                 <div className="dedicated-content" style={{
                                     display: 'flex',
+                                    flexDirection: 'column',
                                     alignItems: 'center',
+                                    textAlign: 'center',
                                     gap: '1rem',
                                     marginBottom: '2rem',
                                     background: 'rgba(6, 182, 212, 0.05)',
@@ -225,7 +220,6 @@ const LocationGuidesPage = ({ onSelectLocation, onBack }) => {
                                         {region} India
                                     </h3>
                                     <div style={{
-                                        marginLeft: 'auto',
                                         padding: '0.4rem 1rem',
                                         background: 'rgba(6, 182, 212, 0.1)',
                                         border: '2px solid #06B6D4',
@@ -504,11 +498,11 @@ const LocationGuidesPage = ({ onSelectLocation, onBack }) => {
                     <p style={{ color: 'white', fontSize: '1.2rem', marginBottom: '2.5rem', lineHeight: '1.8', width: '100%', margin: '0 auto 2.5rem' }}>
                         Explore detailed guides for 20 major Indian cities. Find the perfect location for your exam preparation journey with information on coaching hubs, exam centers, and career opportunities.
                     </p>
-                    <div style={{ display: 'flex', gap: '1.5rem', justifyContent: 'center', flexWrap: 'wrap' }}>
+                    <div className="grid-responsive" style={{ gap: '1.5rem', justifyContent: 'center' }}>
                         <button onClick={() => window.scrollTo(0, 600)} className="btn btn-primary" style={{ padding: '1.2rem 2.5rem', fontSize: '1.1rem' }}>
                             <MapPin size={20} /> Explore All Cities
                         </button>
-                        <button onClick={onBack} className="btn btn-secondary" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', padding: '1.2rem 2.5rem', fontSize: '1.1rem' }}>
+                        <button onClick={onBack} className="btn btn-secondary">
                             <ArrowLeft size={20} /> Back
                         </button>
                     </div>

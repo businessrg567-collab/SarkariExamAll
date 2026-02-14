@@ -167,23 +167,16 @@ const EligibilityCheckerPage = ({ onBack }) => {
                         Discover all government exams you're eligible for in 2026. Our advanced algorithm analyzes 50+ central and state notifications to match you with the perfect opportunities based on your age, qualification, and category.
                     </p>
 
-                    {/* Stats */}
-                    <div style={{
-                        display: 'grid',
-                        gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
-                        gap: '2rem',
-                        maxWidth: '100%',
-                        margin: '0 auto'
-                    }}>
-                        <div className="glass-card" style={{ padding: '2rem', background: 'rgba(139, 92, 246, 0.05)', border: '2px solid rgba(139, 92, 246, 0.2)' }}>
+                    <div className="grid-responsive" style={{ gap: '1.5rem' }}>
+                        <div className="glass-card" style={{ padding: '2rem' }}>
                             <div style={{ fontSize: '3rem', fontWeight: 800, color: '#8B5CF6', marginBottom: '0.5rem' }}>50+</div>
                             <div style={{ color: 'white', fontSize: '1rem' }}>Exams Covered</div>
                         </div>
-                        <div className="glass-card" style={{ padding: '2rem', background: 'rgba(139, 92, 246, 0.05)', border: '2px solid rgba(139, 92, 246, 0.2)' }}>
+                        <div className="glass-card" style={{ padding: '2rem' }}>
                             <div style={{ fontSize: '3rem', fontWeight: 800, color: '#8B5CF6', marginBottom: '0.5rem' }}>100%</div>
                             <div style={{ color: 'white', fontSize: '1rem' }}>Accurate Results</div>
                         </div>
-                        <div className="glass-card" style={{ padding: '2rem', background: 'rgba(139, 92, 246, 0.05)', border: '2px solid rgba(139, 92, 246, 0.2)' }}>
+                        <div className="glass-card" style={{ padding: '2rem' }}>
                             <div style={{ fontSize: '3rem', fontWeight: 800, color: '#8B5CF6', marginBottom: '0.5rem' }}>5L+</div>
                             <div style={{ color: 'white', fontSize: '1rem' }}>Users Trust Us</div>
                         </div>
@@ -274,8 +267,10 @@ const EligibilityCheckerPage = ({ onBack }) => {
                                 borderRadius: '12px',
                                 border: `2px solid ${item.color}20`,
                                 display: 'flex',
-                                justifyContent: 'space-between',
+                                flexDirection: 'column',
                                 alignItems: 'center',
+                                textAlign: 'center',
+                                gap: '1rem',
                                 width: '100%'
                             }}>
                                 <div>
@@ -434,14 +429,14 @@ const EligibilityCheckerPage = ({ onBack }) => {
                     <p style={{ color: 'white', fontSize: '1.2rem', marginBottom: '2.5rem', lineHeight: '1.8', width: '100%', margin: '0 auto 2.5rem' }}>
                         Join 5 lakh+ aspirants who trust SarkariExamAll for accurate eligibility information and comprehensive preparation guidance. Your dream government job is just one eligibility check away!
                     </p>
-                    <div style={{ display: 'flex', gap: '1.5rem', justifyContent: 'center', flexWrap: 'wrap' }}>
+                    <div className="grid-responsive" style={{ gap: '1.5rem', justifyContent: 'center' }}>
                         <button onClick={() => {
                             const checker = document.getElementById('eligibility-checker-section');
                             if (checker) checker.scrollIntoView({ behavior: 'smooth', block: 'start' });
                         }} className="btn btn-primary" style={{ padding: '1.2rem 2.5rem', fontSize: '1.1rem' }}>
                             <CheckCircle2 size={20} /> Check Eligibility Again
                         </button>
-                        <button onClick={onBack} className="btn btn-secondary" style={{ padding: '1.2rem 2.5rem', fontSize: '1.1rem' }}>
+                        <button onClick={onBack} className="btn btn-secondary">
                             <Home size={20} /> Explore More Resources
                         </button>
                     </div>

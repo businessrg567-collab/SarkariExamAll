@@ -76,7 +76,17 @@ const EligibilityChecker = () => {
                     <h4 style={{ fontSize: '1.1rem', marginBottom: '0.8rem' }}>Eligible Opportunities:</h4>
                     <div style={{ display: 'grid', gap: '0.6rem' }}>
                         {results.length > 0 ? results.map((exam, i) => (
-                            <div key={i} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '0.8rem 1rem', background: 'rgba(100, 255, 218, 0.05)', borderRadius: '6px', border: '1px solid rgba(100, 255, 218, 0.1)' }}>
+                            <div key={i} style={{
+                                display: 'flex',
+                                justifyContent: 'space-between',
+                                alignItems: 'center',
+                                padding: '0.8rem 1rem',
+                                background: 'rgba(100, 255, 218, 0.05)',
+                                borderRadius: '6px',
+                                border: '1px solid rgba(100, 255, 218, 0.1)',
+                                flexWrap: 'wrap',
+                                gap: '0.5rem'
+                            }}>
                                 <span style={{ fontWeight: '600', color: 'white' }}>{exam.name}</span>
                                 <span style={{ fontSize: '0.75rem', color: 'var(--secondary)', display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
                                     <CheckCircle2 size={12} /> Verified

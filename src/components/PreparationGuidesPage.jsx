@@ -156,40 +156,29 @@ const PreparationGuidesPage = ({ onSelectBlog, onBack }) => {
                         Comprehensive preparation strategies written by successful candidates and exam experts. Every guide is 3000+ words covering syllabus, study plan, resources, and success tips.
                     </p>
 
-                    {/* Stats */}
-                    <div style={{
-                        display: 'grid',
-                        gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
-                        gap: '2rem',
-                        maxWidth: '100%',
-                        margin: '0 auto'
-                    }}>
-                        <div className="glass-card" style={{ padding: '2rem', background: 'rgba(234, 88, 12, 0.05)', border: '2px solid rgba(234, 88, 12, 0.2)' }}>
+                    <div className="grid-responsive" style={{ gap: '1.5rem' }}>
+                        <div className="glass-card" style={{ padding: '2rem' }}>
                             <div style={{ fontSize: '2.2rem', fontWeight: 800, color: '#EA580C', marginBottom: '0.5rem' }}>30+</div>
                             <div style={{ color: 'white', fontSize: '0.9rem' }}>Expert Guides</div>
                         </div>
-                        <div className="glass-card" style={{ padding: '2rem', background: 'rgba(234, 88, 12, 0.05)', border: '2px solid rgba(234, 88, 12, 0.2)' }}>
+                        <div className="glass-card" style={{ padding: '2rem' }}>
                             <div style={{ fontSize: '2.2rem', fontWeight: 800, color: '#EA580C', marginBottom: '0.5rem' }}>3000+</div>
                             <div style={{ color: 'white', fontSize: '0.9rem' }}>Words Per Guide</div>
                         </div>
-                        <div className="glass-card" style={{ padding: '2rem', background: 'rgba(234, 88, 12, 0.05)', border: '2px solid rgba(234, 88, 12, 0.2)' }}>
+                        <div className="glass-card" style={{ padding: '2rem' }}>
                             <div style={{ fontSize: '2.2rem', fontWeight: 800, color: '#EA580C', marginBottom: '0.5rem' }}>100%</div>
                             <div style={{ color: 'white', fontSize: '0.9rem' }}>Success Proven</div>
                         </div>
                     </div>
                 </div>
 
-                {/* Category Filter */}
                 <div style={{ marginBottom: '4rem' }}>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '2rem', flexWrap: 'wrap', justifyContent: 'center' }}>
-                        <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: '#EA580C', fontWeight: 600 }}>
-                            <Filter size={20} />
-                            <span>Filter by Exam:</span>
-                        </div>
+                    <div className="grid-responsive" style={{ gap: '1rem', marginBottom: '2rem', justifyContent: 'center' }}>
                         {categories.map(cat => (
                             <button
                                 key={cat}
                                 onClick={() => setSelectedCategory(cat)}
+                                className="btn"
                                 style={{
                                     padding: '0.7rem 1.5rem',
                                     background: selectedCategory === cat ? '#EA580C' : 'rgba(255, 255, 255, 0.05)',
@@ -277,7 +266,7 @@ const PreparationGuidesPage = ({ onSelectBlog, onBack }) => {
                         </p>
                     </div>
 
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '2.5rem' }}>
+                    <div className="grid-responsive" style={{ gap: '2rem' }}>
                         {studyPlans.map((plan, idx) => (
                             <div key={idx} className="glass-card" style={{
                                 padding: '2rem 1.5rem',
@@ -359,7 +348,7 @@ const PreparationGuidesPage = ({ onSelectBlog, onBack }) => {
                         </p>
                     </div>
 
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '2.5rem' }}>
+                    <div className="grid-responsive" style={{ gap: '2rem' }}>
                         {expertTips.map((tip, idx) => (
                             <div key={idx} className="glass-card" style={{
                                 padding: '2rem 1.5rem',
@@ -432,11 +421,11 @@ const PreparationGuidesPage = ({ onSelectBlog, onBack }) => {
                     <p style={{ color: 'white', fontSize: '1.2rem', marginBottom: '2.5rem', lineHeight: '1.8', width: '100%', margin: '0 auto 2.5rem' }}>
                         Access 30+ comprehensive preparation guides written by experts and successful candidates. Every guide is 3000+ words covering complete syllabus, strategy, and resources.
                     </p>
-                    <div style={{ display: 'flex', gap: '1.5rem', justifyContent: 'center', flexWrap: 'wrap' }}>
+                    <div className="grid-responsive" style={{ gap: '1.5rem', justifyContent: 'center' }}>
                         <button onClick={() => window.scrollTo(0, 600)} className="btn btn-primary" style={{ padding: '1.2rem 2.5rem', fontSize: '1.1rem' }}>
                             <BookOpen size={20} /> Explore All Guides
                         </button>
-                        <button onClick={onBack} className="btn btn-secondary" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', padding: '1.2rem 2.5rem', fontSize: '1.1rem' }}>
+                        <button onClick={onBack} className="btn btn-secondary">
                             <ArrowLeft size={20} /> Back
                         </button>
                     </div>

@@ -51,13 +51,13 @@ const AboutPage = ({ onBack }) => {
         <button onClick={onBack} className="btn btn-secondary" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '3rem' }}>
           <ArrowLeft size={18} /> Back
         </button>
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '3rem', alignItems: 'start' }}>
+        <div className="grid-responsive" style={{ gap: '3rem', alignItems: 'start' }}>
           <div>
             <h1 className="gradient-text-gold" style={{ fontSize: 'clamp(1.8rem, 4.5vw, 2.8rem)', marginBottom: '2rem' }}>About SarkariExamAll</h1>
             <p style={{ fontSize: '1.2rem', lineHeight: '1.8', color: 'white', marginBottom: '2rem' }}>
               India's premier educational portal dedicated to helping government job aspirants achieve their career goals since 2020.
             </p>
-            <div style={{ display: 'flex', gap: '2rem', marginTop: '3rem' }}>
+            <div className="grid-responsive" style={{ gap: '1.5rem', marginTop: '3rem' }}>
               <div className="glass-card" style={{ padding: '2rem', flex: 1, textAlign: 'center' }}>
                 <h3 style={{ fontSize: '2.2rem', color: 'var(--secondary)', marginBottom: '0.5rem' }}>100K+</h3>
                 <p style={{ color: 'white' }}>Students Served</p>
@@ -140,9 +140,9 @@ const SuccessStoriesPage = ({ onBack }) => {
           </p>
         </div>
 
-        <div style={{ display: 'grid', gap: '3rem' }}>
+        <div style={{ display: 'grid', gap: '2rem' }}>
           {stories.map((story, idx) => (
-            <div key={idx} className="glass-card" style={{ padding: '3rem', display: 'grid', gridTemplateColumns: '150px 1fr', gap: '2rem', alignItems: 'start' }}>
+            <div key={idx} className="glass-card" style={{ padding: '2rem 0', display: 'flex', flexDirection: 'column', gap: '2rem', alignItems: 'center', textAlign: 'center' }}>
               <img src={story.image} alt={story.name} style={{ width: '150px', height: '150px', borderRadius: '50%', objectFit: 'cover', border: '3px solid var(--secondary)' }} />
               <div>
                 <h3 style={{ color: 'var(--secondary)', fontSize: '1.8rem', marginBottom: '0.5rem' }}>{story.name}</h3>
@@ -187,9 +187,7 @@ const CareerCounselingPage = ({ onBack }) => {
           </p>
         </div>
 
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))',
+        <div className="grid-responsive" style={{
           gap: '2rem',
           marginBottom: '5rem',
           maxWidth: '1000px',
@@ -272,7 +270,7 @@ const PartnerPage = ({ onBack }) => {
           </p>
         </div>
 
-        <div style={{ display: 'grid', gap: '3rem', marginBottom: '4rem' }}>
+        <div className="grid-responsive" style={{ gap: '2rem', marginBottom: '4rem' }}>
           <div className="glass-card" style={{ padding: '3rem' }}>
             <h2 style={{ color: 'var(--secondary)', fontSize: '2rem', marginBottom: '2rem', display: 'flex', alignItems: 'center', gap: '1rem' }}>
               <Building2 size={32} /> Coaching Institute Partnership
@@ -322,12 +320,12 @@ const PartnerPage = ({ onBack }) => {
           </div>
         </div>
 
-        <div className="glass-card" style={{ padding: '4rem', textAlign: 'center', background: 'rgba(245, 158, 11, 0.05)', border: '2px solid var(--secondary)' }}>
-          <h2 style={{ color: 'var(--secondary)', fontSize: '2.2rem', marginBottom: '2rem' }}>Let's Grow Together</h2>
+        <div className="glass-card" style={{ padding: '2rem 0', textAlign: 'center', background: 'rgba(245, 158, 11, 0.05)' }}>
+          <h2 style={{ color: 'var(--secondary)', fontSize: '2rem', marginBottom: '2rem' }}>Let's Grow Together</h2>
           <p style={{ color: 'white', fontSize: '1.1rem', marginBottom: '3rem', maxWidth: '800px', margin: '0 auto 3rem', lineHeight: '1.8' }}>
             Whether you're a coaching institute, content creator, or corporate advertiser, we have partnership models designed for mutual growth. Contact our partnership team to discuss opportunities.
           </p>
-          <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
+          <div className="grid-responsive" style={{ gap: '1rem', justifyContent: 'center' }}>
             <a href="mailto:partnerships@sarkariexamall.com" className="btn btn-primary" style={{ padding: '1rem 2.5rem', fontSize: '1.1rem' }}>
               <Mail size={20} /> partnerships@sarkariexamall.com
             </a>
@@ -365,9 +363,9 @@ const ContactPage = ({ onBack }) => {
         <p style={{ fontSize: '1.1rem', color: 'white', marginBottom: '3rem' }}>
           Have questions about government exams? Our team is here to help you with personalized guidance.
         </p>
-        <div style={{ display: 'flex', gap: '2rem', flexWrap: 'wrap' }}>
-          <div style={{ flex: '1 1 500px' }}>
-            <h2 className="gradient-text-purple" style={{ marginBottom: '1.5rem' }}>Send Us a Message</h2>
+        <div className="grid-responsive" style={{ gap: '2rem' }}>
+          <div>
+            <h2 className="gradient-text-purple" style={{ marginBottom: '1.5rem', textAlign: 'center' }}>Send Us a Message</h2>
             <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
               <div>
                 <label style={{ display: 'block', color: 'var(--secondary)', marginBottom: '0.5rem', fontWeight: 600 }}>Full Name</label>
@@ -376,6 +374,7 @@ const ContactPage = ({ onBack }) => {
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                   required
+                  className="form-input"
                   style={{ width: '100%', padding: '1rem', borderRadius: '10px', border: '2px solid var(--glass-border)', background: 'var(--glass)', color: 'white', fontSize: '1rem' }}
                   placeholder="Your Name"
                 />
@@ -387,6 +386,7 @@ const ContactPage = ({ onBack }) => {
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                   required
+                  className="form-input"
                   style={{ width: '100%', padding: '1rem', borderRadius: '10px', border: '2px solid var(--glass-border)', background: 'var(--glass)', color: 'white', fontSize: '1rem' }}
                   placeholder="yourname@gmail.com"
                 />
@@ -398,6 +398,7 @@ const ContactPage = ({ onBack }) => {
                   value={formData.subject}
                   onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
                   required
+                  className="form-input"
                   style={{ width: '100%', padding: '1rem', borderRadius: '10px', border: '2px solid var(--glass-border)', background: 'var(--glass)', color: 'white', fontSize: '1rem' }}
                   placeholder="What is your query about?"
                 />
@@ -409,11 +410,12 @@ const ContactPage = ({ onBack }) => {
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                   required
                   rows="6"
+                  className="form-input"
                   style={{ width: '100%', padding: '1rem', borderRadius: '10px', border: '2px solid var(--glass-border)', background: 'var(--glass)', color: 'white', fontSize: '1rem', resize: 'vertical' }}
                   placeholder="Tell us how we can help you..."
                 />
               </div>
-              <button type="submit" className="btn btn-primary" style={{ width: 'fit-content' }}>
+              <button type="submit" className="btn btn-primary">
                 <Send size={18} /> Send Message
               </button>
               {submitted && (
@@ -444,7 +446,7 @@ const ContactPage = ({ onBack }) => {
               <h3 style={{ color: 'var(--secondary)', marginBottom: '1.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                 <MessageCircle size={24} /> Connect With Us
               </h3>
-              <div style={{ display: 'flex', gap: '1rem' }}>
+              <div className="grid-responsive" style={{ gap: '1rem' }}>
                 <a href="#" style={{ padding: '1rem', background: 'var(--glass)', borderRadius: '10px', color: 'var(--secondary)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                   <Twitter size={24} />
                 </a>
@@ -472,8 +474,8 @@ const RelatedLocations = ({ currentId, onNavigate }) => {
 
   return (
     <div style={{ marginTop: '4rem', borderTop: '1px solid var(--glass-border)', paddingTop: '3rem' }}>
-      <h3 className="gradient-text-teal" style={{ fontSize: '1.8rem', marginBottom: '2rem' }}>Explore Other Cities</h3>
-      <div className="blog-grid" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))' }}>
+      <h3 className="gradient-text-teal" style={{ fontSize: '1.8rem', marginBottom: '2rem', textAlign: 'center' }}>Explore Other Cities</h3>
+      <div className="grid-responsive">
         {related.map(location => (
           <div key={location.id} className="glass-card" style={{ padding: '0', overflow: 'hidden', cursor: 'pointer' }} onClick={() => onNavigate(location)}>
             <div style={{ height: '180px', overflow: 'hidden' }}>
@@ -910,16 +912,16 @@ const App = () => {
 
             {/* Trust Stats Counter */}
             {/* Trust Stats Counter */}
-            <div className="hero-stats" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1.5rem', marginTop: '2rem', marginBottom: '3rem' }}>
-              <div className="stats-card" style={{ padding: '1.5rem', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', background: 'rgba(255, 255, 255, 0.03)', border: '1px solid var(--glass-border)', borderRadius: '12px' }}>
+            <div className="grid-responsive" style={{ gap: '1.5rem', marginTop: '2rem', marginBottom: '3rem' }}>
+              <div className="glass-card" style={{ padding: '1.5rem', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
                 <div className="stats-number" style={{ color: 'var(--secondary)', fontSize: '2.5rem', fontWeight: 800, lineHeight: 1 }}>5L+</div>
                 <div className="stats-label" style={{ fontSize: '1rem', marginTop: '0.5rem', color: 'var(--text-dim)' }}>Active Aspirants</div>
               </div>
-              <div className="stats-card" style={{ padding: '1.5rem', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', background: 'rgba(255, 255, 255, 0.03)', border: '1px solid var(--glass-border)', borderRadius: '12px' }}>
+              <div className="glass-card" style={{ padding: '1.5rem', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
                 <div className="stats-number" style={{ color: '#10B981', fontSize: '2.5rem', fontWeight: 800, lineHeight: 1 }}>50+</div>
                 <div className="stats-label" style={{ fontSize: '1rem', marginTop: '0.5rem', color: 'var(--text-dim)' }}>Exam Bodies</div>
               </div>
-              <div className="stats-card" style={{ padding: '1.5rem', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', background: 'rgba(255, 255, 255, 0.03)', border: '1px solid var(--glass-border)', borderRadius: '12px' }}>
+              <div className="glass-card" style={{ padding: '1.5rem', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
                 <div className="stats-number" style={{ color: '#8B5CF6', fontSize: '2.5rem', fontWeight: 800, lineHeight: 1 }}>100%</div>
                 <div className="stats-label" style={{ fontSize: '1rem', marginTop: '0.5rem', color: 'var(--text-dim)' }}>Official Data</div>
               </div>
@@ -938,7 +940,7 @@ const App = () => {
               </div>
             </div>
 
-            <div className="hero-cta-group">
+            <div className="grid-responsive" style={{ gap: '1rem' }}>
               <a href="#hub" className="btn btn-primary">
                 Document Hub <ChevronRight size={18} />
               </a>

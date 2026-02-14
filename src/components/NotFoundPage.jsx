@@ -6,15 +6,7 @@ const NotFoundPage = () => {
     const navigate = useNavigate();
 
     return (
-        <div style={{
-            paddingTop: '10rem',
-            paddingBottom: '6rem',
-            background: 'var(--primary)',
-            minHeight: '100vh',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center'
-        }}>
+        <div className="page-wrapper" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
             <div className="container" style={{ textAlign: 'center', maxWidth: '600px' }}>
                 <AlertCircle size={80} color="#EF4444" style={{ marginBottom: '2rem' }} />
 

@@ -242,23 +242,16 @@ const DocumentGuidePage = ({ onBack, onNavigateToExamRequirements }) => {
                         Complete information about essential documents required for government exams, verified by official sources. Every guide is 3000+ words covering requirements, format, and common issues.
                     </p>
 
-                    {/* Stats */}
-                    <div style={{
-                        display: 'grid',
-                        gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
-                        gap: '2rem',
-                        maxWidth: '100%',
-                        margin: '0 auto'
-                    }}>
-                        <div className="glass-card" style={{ padding: '2rem', background: 'rgba(16, 185, 129, 0.05)', border: '2px solid rgba(16, 185, 129, 0.2)' }}>
+                    <div className="grid-responsive" style={{ gap: '1.5rem' }}>
+                        <div className="glass-card" style={{ padding: '2rem' }}>
                             <div style={{ fontSize: '3rem', fontWeight: 800, color: '#10B981', marginBottom: '0.5rem' }}>50+</div>
                             <div style={{ color: 'white', fontSize: '1rem' }}>Exams Covered</div>
                         </div>
-                        <div className="glass-card" style={{ padding: '2rem', background: 'rgba(16, 185, 129, 0.05)', border: '2px solid rgba(16, 185, 129, 0.2)' }}>
+                        <div className="glass-card" style={{ padding: '2rem' }}>
                             <div style={{ fontSize: '3rem', fontWeight: 800, color: '#10B981', marginBottom: '0.5rem' }}>100+</div>
                             <div style={{ color: 'white', fontSize: '1rem' }}>Document Types</div>
                         </div>
-                        <div style={{ padding: '2rem', background: 'rgba(16, 185, 129, 0.05)', border: '2px solid rgba(16, 185, 129, 0.2)' }}>
+                        <div className="glass-card" style={{ padding: '2rem' }}>
                             <div style={{ fontSize: '3rem', fontWeight: 800, color: '#10B981', marginBottom: '0.5rem' }}>Zero</div>
                             <div style={{ color: 'white', fontSize: '1rem' }}>Rejection Risk</div>
                         </div>
@@ -267,7 +260,7 @@ const DocumentGuidePage = ({ onBack, onNavigateToExamRequirements }) => {
 
                 {/* Exam Hub Component */}
                 <div id="exam-hub-section" className="glass-card" style={{
-                    padding: '4rem',
+                    padding: '2rem 1rem',
                     marginBottom: '5rem',
                     background: 'rgba(255, 255, 255, 0.03)',
                     border: '2px solid rgba(16, 185, 129, 0.3)'
@@ -370,7 +363,7 @@ const DocumentGuidePage = ({ onBack, onNavigateToExamRequirements }) => {
                                     {spec.exam}
                                 </h3>
 
-                                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem', marginBottom: '2rem' }}>
+                                <div className="grid-responsive" style={{ gap: '1rem', marginBottom: '2rem' }}>
                                     <div style={{ padding: '1.5rem', background: 'rgba(255, 255, 255, 0.02)', borderRadius: '12px' }}>
                                         <div style={{ color: '#F59E0B', fontSize: '0.85rem', fontWeight: 700, marginBottom: '1rem', textTransform: 'uppercase' }}>
                                             📸 Photograph
@@ -384,7 +377,6 @@ const DocumentGuidePage = ({ onBack, onNavigateToExamRequirements }) => {
                                             <span style={{ color: 'white', fontWeight: 600 }}>{spec.photoFormat}</span>
                                         </div>
                                     </div>
-
                                     <div style={{ padding: '1.5rem', background: 'rgba(255, 255, 255, 0.02)', borderRadius: '12px' }}>
                                         <div style={{ color: '#F59E0B', fontSize: '0.85rem', fontWeight: 700, marginBottom: '1rem', textTransform: 'uppercase' }}>
                                             ✍️ Signature
@@ -429,7 +421,7 @@ const DocumentGuidePage = ({ onBack, onNavigateToExamRequirements }) => {
                         </p>
                     </div>
 
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))', gap: '2rem' }}>
+                    <div className="grid-responsive" style={{ gap: '2rem' }}>
                         {stateSpecificDocs.map((state, idx) => (
                             <div key={idx} className="glass-card" style={{
                                 padding: '2.5rem',
@@ -495,7 +487,7 @@ const DocumentGuidePage = ({ onBack, onNavigateToExamRequirements }) => {
                                 background: 'rgba(239, 68, 68, 0.03)',
                                 border: '2px solid rgba(239, 68, 68, 0.2)'
                             }}>
-                                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '2rem', alignItems: 'start' }}>
+                                <div className="grid-responsive" style={{ gap: '1.5rem', alignItems: 'start' }}>
                                     <div>
                                         <div style={{
                                             fontSize: '0.75rem',
@@ -574,7 +566,7 @@ const DocumentGuidePage = ({ onBack, onNavigateToExamRequirements }) => {
                         </p>
                     </div>
 
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))', gap: '1.5rem' }}>
+                    <div className="grid-responsive" style={{ gap: '1.5rem' }}>
                         {verificationChecklist.map((item, idx) => (
                             <div key={idx} style={{
                                 display: 'flex',
@@ -665,11 +657,11 @@ const DocumentGuidePage = ({ onBack, onNavigateToExamRequirements }) => {
                     <p style={{ color: 'white', fontSize: '1.2rem', marginBottom: '2.5rem', lineHeight: '1.8', width: '100%', margin: '0 auto 2.5rem' }}>
                         Access 30+ comprehensive document guides written by official verification experts. Every guide is 3000+ words covering complete requirements, format, and issue resolution.
                     </p>
-                    <div style={{ display: 'flex', gap: '1.5rem', justifyContent: 'center', flexWrap: 'wrap' }}>
+                    <div className="grid-responsive" style={{ gap: '1.5rem', justifyContent: 'center' }}>
                         <button onClick={onNavigateToExamRequirements} className="btn btn-primary" style={{ padding: '1.2rem 2.5rem', fontSize: '1.1rem' }}>
                             <Download size={20} /> View Exam Requirements
                         </button>
-                        <button onClick={onBack} className="btn btn-secondary" style={{ padding: '1.2rem 2.5rem', fontSize: '1.1rem' }}>
+                        <button onClick={onBack} className="btn btn-secondary">
                             <Home size={20} /> Back to Home
                         </button>
                     </div>

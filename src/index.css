@@ -1097,26 +1097,46 @@ section {
   /* Dedicated content container mobile - Clean, layerless look */
   .dedicated-content {
     margin: 1rem 0;
-    padding: 1.5rem 1rem;
-    background: transparent;
-    border: none;
+    padding: 1rem 0;
+    background: transparent !important;
+    border: none !important;
     border-radius: 0;
     width: 100%;
     max-width: 100%;
     font-size: clamp(1.05rem, 4vw, 1.15rem);
     line-height: 1.7;
+    box-shadow: none !important;
   }
 
-  /* Smaller table cells for very small screens */
-  .article-content th,
-  .article-content td {
-    padding: 0.8rem 1rem;
-    font-size: 0.85rem;
-    min-width: 100px;
+  /* Universal layer removal for mobile */
+  .glass-card,
+  .stats-card,
+  .premium-checker-card {
+    background: transparent !important;
+    border: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    padding: 1.5rem 0 !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
   }
 
-  .article-content th {
-    font-size: 0.8rem;
+  /* Ensure all grids stack vertically on small mobile by default */
+  .grid,
+  .grid-2,
+  .grid-3,
+  .grid-4,
+  .blog-grid,
+  .footer-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 2rem !important;
+  }
+
+  .blog-card {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 0 2rem 0 !important;
   }
 }
 
@@ -1193,30 +1213,24 @@ section {
     scroll-snap-align: start;
   }
 
-  /* Grid-3 (Cities) swipe effect */
+  /* Grid-3 (Cities) - Stack vertically on mobile as requested */
   .grid-3 {
     display: flex !important;
-    overflow-x: auto !important;
-    gap: 1.25rem !important;
-    padding: 1rem 0 2rem !important;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-    width: 100%;
-    scrollbar-width: none;
-  }
-
-  .grid-3::-webkit-scrollbar {
-    display: none;
+    flex-direction: column !important;
+    gap: 1.5rem !important;
+    padding: 1rem 0 !important;
+    width: 100% !important;
   }
 
   .grid-3>.glass-card {
-    min-width: 85% !important;
-    max-width: 85% !important;
-    width: 85% !important;
-    scroll-snap-align: center;
-    flex-shrink: 0;
+    min-width: 100% !important;
+    max-width: 100% !important;
+    width: 100% !important;
     margin: 0 !important;
   }
+
+  Line 1241: Line 1242:
+  /* Trust tags - horizontal scroll */
 
   /* Trust tags - horizontal scroll */
   .trust-tags {
@@ -1270,8 +1284,16 @@ section {
   }
 
   .btn {
-    padding: 0.8rem 1rem;
-    font-size: 0.85rem;
+    padding: 1rem 1.5rem !important;
+    font-size: 1rem !important;
+    width: 100% !important;
+    justify-content: center !important;
+    display: flex !important;
+    height: auto !important;
+    min-height: 48px !important;
+    white-space: normal !important;
+    /* Allow long text to wrap */
+    text-align: center !important;
   }
 
   /* Section Header Blog Mobile */
