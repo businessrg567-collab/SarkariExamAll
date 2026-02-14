@@ -523,7 +523,7 @@ const LocationPage = ({ location, onBack, onHome, onNavigate }) => {
               <ArrowLeft size={18} /> Back
             </button>
           </div>
-          <div className="dedicated-content" style={{ background: 'rgba(15, 23, 42, 0.95)', marginBottom: '3rem' }}>
+          <div className="dedicated-content" style={{ marginBottom: '3rem' }}>
             <div dangerouslySetInnerHTML={{ __html: location.content }} />
           </div>
           <RelatedLocations currentId={location.id} onNavigate={onNavigate} />
@@ -707,8 +707,8 @@ const ArticleDetail = ({ blog, onBack, onHome, onNavigate }) => {
           </button>
         </div>
 
-        <div className="glass-card" style={{ padding: '3rem', marginBottom: '3rem', background: 'rgba(15, 23, 42, 0.95)' }}>
-          <div style={{ color: 'white', lineHeight: '1.9', fontSize: '1.05rem' }} dangerouslySetInnerHTML={{ __html: blog.content }} />
+        <div className="dedicated-content" style={{ marginBottom: '3rem' }}>
+          <div style={{ color: 'white' }} dangerouslySetInnerHTML={{ __html: blog.content }} />
         </div>
 
         <RelatedArticles currentId={blog.id} category={blog.category} onNavigate={onNavigate} />
