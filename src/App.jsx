@@ -4,8 +4,8 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import {
   ShieldCheck, TrendingUp, ChevronRight, CheckCircle2, FileText, Briefcase, BookOpen, Mail, Instagram, Twitter,
-  ArrowRight, Globe, Award, Users, ChevronDown, ChevronUp, Calendar, Bell, Send, Download, ExternalLink, Cpu, Search, Zap, Home,
-  MapPin, Phone, MessageCircle, Building2, GraduationCap, Target, FileCheck, Menu, X
+  ArrowRight, ArrowLeft, Globe, Award, Users, ChevronDown, ChevronUp, Calendar, Bell, Send, Download, ExternalLink, Cpu, Search, Zap, Home,
+  MapPin, Phone, MessageCircle, Building2, GraduationCap, Target, FileCheck, Menu, X, ClipboardList
 } from 'lucide-react';
 import EligibilityChecker from './components/EligibilityChecker';
 import ExamHub from './components/ExamHub';
@@ -48,22 +48,22 @@ const AboutPage = ({ onBack }) => {
   return (
     <div className="page-wrapper" style={{ background: 'linear-gradient(135deg, var(--primary) 0%, var(--primary-deep) 100%)' }}>
       <div className="container">
-        <button onClick={onBack} className="btn btn-secondary" style={{ marginBottom: '3rem' }}>
-          <Home size={16} /> Back to Home
+        <button onClick={onBack} className="btn btn-secondary" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '3rem' }}>
+          <ArrowLeft size={18} /> Back
         </button>
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '3rem', alignItems: 'start' }}>
           <div>
-            <h1 className="gradient-text-gold" style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', marginBottom: '2rem' }}>About SarkariExamAll</h1>
+            <h1 className="gradient-text-gold" style={{ fontSize: 'clamp(1.8rem, 4.5vw, 2.8rem)', marginBottom: '2rem' }}>About SarkariExamAll</h1>
             <p style={{ fontSize: '1.2rem', lineHeight: '1.8', color: 'white', marginBottom: '2rem' }}>
               India's premier educational portal dedicated to helping government job aspirants achieve their career goals since 2020.
             </p>
             <div style={{ display: 'flex', gap: '2rem', marginTop: '3rem' }}>
               <div className="glass-card" style={{ padding: '2rem', flex: 1, textAlign: 'center' }}>
-                <h3 style={{ fontSize: '3rem', color: 'var(--secondary)', marginBottom: '0.5rem' }}>100K+</h3>
+                <h3 style={{ fontSize: '2.2rem', color: 'var(--secondary)', marginBottom: '0.5rem' }}>100K+</h3>
                 <p style={{ color: 'white' }}>Students Served</p>
               </div>
               <div className="glass-card" style={{ padding: '2rem', flex: 1, textAlign: 'center' }}>
-                <h3 style={{ fontSize: '3rem', color: 'var(--secondary)', marginBottom: '0.5rem' }}>50+</h3>
+                <h3 style={{ fontSize: '2.2rem', color: 'var(--secondary)', marginBottom: '0.5rem' }}>50+</h3>
                 <p style={{ color: 'white' }}>Exams Covered</p>
               </div>
             </div>
@@ -129,12 +129,12 @@ const SuccessStoriesPage = ({ onBack }) => {
   return (
     <div className="page-wrapper" style={{ background: 'linear-gradient(135deg, #0F172A 0%, #1E293B 100%)' }}>
       <div className="container">
-        <button onClick={onBack} className="btn btn-secondary" style={{ marginBottom: '3rem' }}>
-          <Home size={16} /> Back to Home
+        <button onClick={onBack} className="btn btn-secondary" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '3rem' }}>
+          <ArrowLeft size={18} /> Back
         </button>
 
         <div style={{ textAlign: 'center', marginBottom: '5rem' }}>
-          <h1 className="gradient-text-gold" style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', marginBottom: '1rem' }}>Success Stories</h1>
+          <h1 className="gradient-text-gold" style={{ fontSize: 'clamp(1.8rem, 4.5vw, 2.8rem)', marginBottom: '1rem' }}>Success Stories</h1>
           <p style={{ fontSize: '1.2rem', color: 'white', maxWidth: '800px', margin: '0 auto', lineHeight: '1.8' }}>
             Real aspirants, real success. Read how thousands of students cracked their dream government exams with SarkariExamAll's guidance.
           </p>
@@ -176,54 +176,61 @@ const CareerCounselingPage = ({ onBack }) => {
   return (
     <div className="page-wrapper">
       <div className="container">
-        <button onClick={onBack} className="btn btn-secondary" style={{ marginBottom: '3rem' }}>
-          <Home size={16} /> Back to Home
+        <button onClick={onBack} className="btn btn-secondary" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '3rem' }}>
+          <ArrowLeft size={18} /> Back
         </button>
 
         <div style={{ textAlign: 'center', marginBottom: '5rem' }}>
-          <h1 className="gradient-text-purple" style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', marginBottom: '1rem' }}>Career Counseling</h1>
+          <h1 className="gradient-text-purple" style={{ fontSize: 'clamp(1.8rem, 4.5vw, 2.8rem)', marginBottom: '1rem' }}>Career Counseling</h1>
           <p style={{ fontSize: '1.2rem', color: 'white', maxWidth: '800px', margin: '0 auto', lineHeight: '1.8' }}>
             Expert guidance to help you choose the right government exam path based on your qualifications, interests, and career goals.
           </p>
         </div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '3rem', marginBottom: '4rem' }}>
-          <div className="glass-card" style={{ padding: '3rem' }}>
-            <div style={{ width: '60px', height: '60px', background: 'var(--glass)', borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1.5rem' }}>
-              <GraduationCap size={32} color="var(--secondary)" />
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))',
+          gap: '2rem',
+          marginBottom: '5rem',
+          maxWidth: '1000px',
+          margin: '0 auto'
+        }}>
+          <div className="glass-card" style={{ padding: '2rem' }}>
+            <div style={{ width: '50px', height: '50px', background: 'var(--glass)', borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1.2rem' }}>
+              <GraduationCap size={28} color="var(--secondary)" />
             </div>
-            <h3 style={{ color: 'var(--secondary)', fontSize: '1.6rem', marginBottom: '1rem' }}>Personalized Exam Roadmap</h3>
-            <p style={{ color: 'white', fontSize: '1.05rem', lineHeight: '1.8' }}>
+            <h3 style={{ color: 'var(--secondary)', fontSize: '1.4rem', marginBottom: '0.8rem' }}>Personalized Exam Roadmap</h3>
+            <p style={{ color: 'white', fontSize: '1rem', lineHeight: '1.7' }}>
               Our counselors analyze your educational background, age, and career aspirations to create a customized exam preparation roadmap. We help you identify the most suitable exams from UPSC, SSC, Banking, Railways, and State PSCs.
             </p>
           </div>
 
-          <div className="glass-card" style={{ padding: '3rem' }}>
-            <div style={{ width: '60px', height: '60px', background: 'var(--glass-light-green)', borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1.5rem' }}>
-              <Target size={32} color="var(--accent-green)" />
+          <div className="glass-card" style={{ padding: '2rem' }}>
+            <div style={{ width: '50px', height: '50px', background: 'var(--glass-light-green)', borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1.2rem' }}>
+              <Target size={28} color="var(--accent-green)" />
             </div>
-            <h3 style={{ color: 'var(--accent-green)', fontSize: '1.6rem', marginBottom: '1rem' }}>Strategy & Time Management</h3>
-            <p style={{ color: 'white', fontSize: '1.05rem', lineHeight: '1.8' }}>
+            <h3 style={{ color: 'var(--accent-green)', fontSize: '1.4rem', marginBottom: '0.8rem' }}>Strategy & Time Management</h3>
+            <p style={{ color: 'white', fontSize: '1rem', lineHeight: '1.7' }}>
               Learn proven strategies from successful candidates. We provide detailed study plans, time management techniques, and preparation timelines for each exam. Our 3000-word guides cover every aspect from basics to advanced preparation.
             </p>
           </div>
 
-          <div className="glass-card" style={{ padding: '3rem' }}>
-            <div style={{ width: '60px', height: '60px', background: 'var(--glass)', borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1.5rem' }}>
-              <FileText size={32} color="var(--secondary)" />
+          <div className="glass-card" style={{ padding: '2rem' }}>
+            <div style={{ width: '50px', height: '50px', background: 'var(--glass)', borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1.2rem' }}>
+              <FileText size={28} color="var(--secondary)" />
             </div>
-            <h3 style={{ color: 'var(--secondary)', fontSize: '1.6rem', marginBottom: '1rem' }}>Document & Eligibility Guidance</h3>
-            <p style={{ color: 'white', fontSize: '1.05rem', lineHeight: '1.8' }}>
+            <h3 style={{ color: 'var(--secondary)', fontSize: '1.4rem', marginBottom: '0.8rem' }}>Document & Eligibility Guidance</h3>
+            <p style={{ color: 'white', fontSize: '1rem', lineHeight: '1.7' }}>
               Confused about eligibility criteria or required documents? Our experts clarify all doubts regarding age limits, educational qualifications, reservation policies, and document requirements for 50+ government exams.
             </p>
           </div>
 
-          <div className="glass-card" style={{ padding: '3rem' }}>
-            <div style={{ width: '60px', height: '60px', background: 'var(--glass)', borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1.5rem' }}>
-              <Users size={32} color="var(--secondary)" />
+          <div className="glass-card" style={{ padding: '2rem' }}>
+            <div style={{ width: '50px', height: '50px', background: 'var(--glass)', borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1.2rem' }}>
+              <Users size={28} color="var(--secondary)" />
             </div>
-            <h3 style={{ color: 'var(--secondary)', fontSize: '1.6rem', marginBottom: '1rem' }}>Ongoing Mentorship</h3>
-            <p style={{ color: 'white', fontSize: '1.05rem', lineHeight: '1.8' }}>
+            <h3 style={{ color: 'var(--secondary)', fontSize: '1.4rem', marginBottom: '0.8rem' }}>Ongoing Mentorship</h3>
+            <p style={{ color: 'white', fontSize: '1rem', lineHeight: '1.7' }}>
               Get continuous support throughout your preparation journey. Our mentors are available to answer your queries, review your progress, and provide motivation during challenging times. Join our community of 5L+ aspirants.
             </p>
           </div>
@@ -235,8 +242,8 @@ const CareerCounselingPage = ({ onBack }) => {
             Schedule a one-on-one session with our expert counselors. Get personalized advice on exam selection, preparation strategy, and career planning - absolutely free!
           </p>
           <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
-            <a href="tel:+919424408891" className="btn btn-primary" style={{ padding: '1rem 2.5rem', fontSize: '1.1rem' }}>
-              <Phone size={20} /> Call: +91 94244 08891
+            <a href="tel:+918077583921" className="btn btn-primary" style={{ padding: '1rem 2.5rem', fontSize: '1.1rem' }}>
+              <Phone size={20} /> Call: +91 8077583921
             </a>
             <a href="mailto:info@sarkariexamall.com" className="btn btn-secondary" style={{ padding: '1rem 2.5rem', fontSize: '1.1rem' }}>
               <Mail size={20} /> Email Us
@@ -254,12 +261,12 @@ const PartnerPage = ({ onBack }) => {
   return (
     <div className="page-wrapper" style={{ background: 'linear-gradient(135deg, #1E293B 0%, #0F172A 100%)' }}>
       <div className="container">
-        <button onClick={onBack} className="btn btn-secondary" style={{ marginBottom: '3rem' }}>
-          <Home size={16} /> Back to Home
+        <button onClick={onBack} className="btn btn-secondary" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '3rem' }}>
+          <ArrowLeft size={18} /> Back
         </button>
 
         <div style={{ textAlign: 'center', marginBottom: '5rem' }}>
-          <h1 className="gradient-text-teal" style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', marginBottom: '1rem' }}>Partner With Us</h1>
+          <h1 className="gradient-text-teal" style={{ fontSize: 'clamp(1.8rem, 4.5vw, 2.8rem)', marginBottom: '1rem' }}>Partner With Us</h1>
           <p style={{ fontSize: '1.2rem', color: 'white', maxWidth: '900px', margin: '0 auto', lineHeight: '1.8' }}>
             Join India's fastest-growing government exam preparation platform. Collaborate with SarkariExamAll to reach millions of aspirants and grow your educational business.
           </p>
@@ -324,8 +331,8 @@ const PartnerPage = ({ onBack }) => {
             <a href="mailto:partnerships@sarkariexamall.com" className="btn btn-primary" style={{ padding: '1rem 2.5rem', fontSize: '1.1rem' }}>
               <Mail size={20} /> partnerships@sarkariexamall.com
             </a>
-            <a href="tel:+919424408891" className="btn btn-secondary" style={{ padding: '1rem 2.5rem', fontSize: '1.1rem' }}>
-              <Phone size={20} /> Call: +91 94244 08891
+            <a href="tel:+918077583921" className="btn btn-secondary" style={{ padding: '1rem 2.5rem', fontSize: '1.1rem' }}>
+              <Phone size={20} /> Call: +91 8077583921
             </a>
           </div>
         </div>
@@ -351,12 +358,12 @@ const ContactPage = ({ onBack }) => {
   return (
     <div className="page-wrapper">
       <div className="container">
-        <button onClick={onBack} className="btn btn-secondary" style={{ marginBottom: '3rem' }}>
-          <Home size={16} /> Back to Home
+        <button onClick={onBack} className="btn btn-secondary" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '3rem' }}>
+          <ArrowLeft size={18} /> Back
         </button>
         <div className="grid-responsive">
           <div>
-            <h1 className="gradient-text-purple" style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', marginBottom: '1rem' }}>Get In Touch</h1>
+            <h1 className="gradient-text-purple" style={{ fontSize: 'clamp(1.8rem, 4.5vw, 2.8rem)', marginBottom: '1rem' }}>Get In Touch</h1>
             <p style={{ fontSize: '1.1rem', color: 'white', marginBottom: '3rem' }}>
               Have questions about government exams? Our team is here to help you with personalized guidance.
             </p>
@@ -430,7 +437,7 @@ const ContactPage = ({ onBack }) => {
                 <Phone size={24} /> Call Us Helpline
               </h3>
               <p style={{ color: 'white', marginBottom: '0.5rem' }}>Helpline (Mon-Sat, 9 AM - 6 PM):</p>
-              <a href="tel:+919424408891" style={{ color: 'var(--secondary)', fontSize: '1rem', fontWeight: 600, textDecoration: 'none' }}>+91 94244 08891</a>
+              <a href="tel:+918077583921" style={{ color: 'var(--secondary)', fontSize: '1rem', fontWeight: 600, textDecoration: 'none' }}>+91 8077583921</a>
             </div>
             <div className="glass-card" style={{ padding: '2.5rem' }}>
               <h3 style={{ color: 'var(--secondary)', marginBottom: '1.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
@@ -460,12 +467,12 @@ const RelatedLocations = ({ currentId, onNavigate }) => {
   const related = locations
     .filter(l => l.id !== currentId)
     .sort(() => 0.5 - Math.random())
-    .slice(0, 4);
+    .slice(0, 6);
 
   return (
     <div style={{ marginTop: '4rem', borderTop: '1px solid var(--glass-border)', paddingTop: '3rem' }}>
       <h3 className="gradient-text-teal" style={{ fontSize: '1.8rem', marginBottom: '2rem' }}>Explore Other Cities</h3>
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '2rem' }}>
+      <div className="blog-grid" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))' }}>
         {related.map(location => (
           <div key={location.id} className="glass-card" style={{ padding: '0', overflow: 'hidden', cursor: 'pointer' }} onClick={() => onNavigate(location)}>
             <div style={{ height: '180px', overflow: 'hidden' }}>
@@ -484,31 +491,41 @@ const RelatedLocations = ({ currentId, onNavigate }) => {
   );
 };
 
-const LocationPage = ({ location, onBack, onNavigate }) => {
+const LocationPage = ({ location, onBack, onHome, onNavigate }) => {
   useEffect(() => window.scrollTo(0, 0), []);
 
   return (
     <div className="page-wrapper" style={{ paddingTop: '2rem' }}>
       <div className="container">
-        <button onClick={onBack} className="btn btn-secondary" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '2rem' }}>
-          <ArrowLeft size={18} /> Back
-        </button>
-        <div style={{ position: 'relative', height: '350px', borderRadius: '20px', overflow: 'hidden', marginBottom: '3rem' }}>
+        <div style={{ display: 'flex', gap: '1rem', marginBottom: '2rem' }}>
+          <button onClick={onBack} className="btn btn-secondary" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+            <ArrowLeft size={18} /> Back
+          </button>
+          <button onClick={onHome} className="btn btn-secondary" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+            <Home size={18} /> Home
+          </button>
+        </div>
+        <div style={{ position: 'relative', height: '280px', borderRadius: '20px', overflow: 'hidden', marginBottom: '2.5rem' }}>
           <img src={location.image} alt={location.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} fetchPriority="high" onError={handleImageError} />
           <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, var(--primary), transparent)' }}></div>
-          <div style={{ position: 'absolute', bottom: '2rem', left: '2rem' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '1rem' }}>
-              <MapPin size={24} color="var(--secondary)" />
-              <span style={{ color: 'var(--secondary)', fontWeight: 600 }}>LOCATION GUIDE</span>
+          <div style={{ position: 'absolute', bottom: '1.5rem', left: '1.5rem', right: '1.5rem' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.8rem' }}>
+              <MapPin size={20} color="var(--secondary)" />
+              <span style={{ color: 'var(--secondary)', fontWeight: 600, fontSize: '0.9rem' }}>LOCATION GUIDE</span>
             </div>
-            <h1 className="gradient-text-gold" style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)' }}>{location.name}</h1>
+            <h1 className="gradient-text-gold" style={{ fontSize: 'clamp(1.4rem, 4vw, 2.2rem)' }}>{location.name}</h1>
           </div>
         </div>
-        <div className="article-content" style={{ marginTop: '2rem' }}>
-          <div className="glass-card" style={{ padding: '3rem', background: 'rgba(15, 23, 42, 0.95)' }}>
-            <div dangerouslySetInnerHTML={{ __html: location.content }} />
-            <RelatedLocations currentId={location.id} onNavigate={onNavigate} />
+        <div style={{ marginTop: '2rem' }}>
+          <div style={{ marginBottom: '2rem', textAlign: 'center' }}>
+            <button onClick={onBack} className="btn btn-secondary" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', padding: '0.8rem 2rem' }}>
+              <ArrowLeft size={18} /> Back
+            </button>
           </div>
+          <div className="glass-card" style={{ padding: '3rem', background: 'rgba(15, 23, 42, 0.95)', marginBottom: '3rem' }}>
+            <div dangerouslySetInnerHTML={{ __html: location.content }} />
+          </div>
+          <RelatedLocations currentId={location.id} onNavigate={onNavigate} />
         </div>
       </div>
     </div>
@@ -528,8 +545,8 @@ const LocationsHub = ({ onSelectLocation, onBack }) => {
   return (
     <div className="page-wrapper">
       <div className="container">
-        <button onClick={onBack} className="btn btn-secondary" style={{ marginBottom: '3rem' }}>
-          <Home size={16} /> Back to Home
+        <button onClick={onBack} className="btn btn-secondary" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '3rem' }}>
+          <ArrowLeft size={18} /> Back
         </button>
         <div className="section-title" style={{ textAlign: 'center', marginBottom: '4rem' }}>
           <h1 className="gradient-text-teal">City-Wise Exam Preparation Guide</h1>
@@ -595,14 +612,14 @@ const RelatedArticles = ({ currentId, category, onNavigate }) => {
   // Simple suggestion logic: same category, excluding current
   const related = blogs
     .filter(b => b.category === category && b.id !== currentId)
-    .slice(0, 4);
+    .slice(0, 6);
 
   if (related.length === 0) return null;
 
   return (
     <div style={{ marginTop: '4rem', borderTop: '1px solid var(--glass-border)', paddingTop: '3rem' }}>
       <h3 className="gradient-text-teal" style={{ fontSize: '1.8rem', marginBottom: '2rem' }}>Related Articles</h3>
-      <div className="blog-grid" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))' }}>
+      <div className="blog-grid" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))' }}>
         {related.map(blog => (
           <div key={blog.id} className="blog-card" onClick={() => onNavigate(blog)} style={{ cursor: 'pointer' }}>
             <div style={{ height: '180px', overflow: 'hidden', position: 'relative' }}>
@@ -620,17 +637,22 @@ const RelatedArticles = ({ currentId, category, onNavigate }) => {
   );
 };
 
-const ArticleDetail = ({ blog, onBack, onNavigate }) => {
+const ArticleDetail = ({ blog, onBack, onHome, onNavigate }) => {
   useEffect(() => {
     window.scrollTo(0, 0);
     gsap.from('.article-content', { opacity: 1, y: 30, duration: 0.8, ease: 'power3.out' });
   }, [blog]);
 
   return (
-    <div className="container page-wrapper">
-      <button onClick={onBack} className="btn btn-secondary" style={{ marginBottom: '2rem' }}>
-        ← Back
-      </button>
+    <div className="container" style={{ padding: '0 1rem' }}>
+      <div style={{ display: 'flex', gap: '1rem', marginBottom: '2rem' }}>
+        <button onClick={onBack} className="btn btn-secondary" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+          <ArrowLeft size={18} /> Back
+        </button>
+        <button onClick={onHome} className="btn btn-secondary" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+          <Home size={18} /> Home
+        </button>
+      </div>
       <div className="article-content">
         <div style={{ position: 'relative', height: '400px', borderRadius: '20px', overflow: 'hidden', marginBottom: '3rem', background: '#1E293B' }}>
           <img
@@ -641,15 +663,22 @@ const ArticleDetail = ({ blog, onBack, onNavigate }) => {
             onError={handleImageError}
           />
           <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, var(--primary), transparent)' }}></div>
-          <div style={{ position: 'absolute', bottom: '2rem', left: '2rem' }}>
+          <div style={{ position: 'absolute', bottom: '1.5rem', left: '1.5rem', right: '1.5rem' }}>
             <span className="blog-cat">{blog.category}</span>
-            <h1 className="gradient-text-gold" style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', marginTop: '0.5rem' }}>{blog.title}</h1>
+            <h1 className="gradient-text-gold" style={{ fontSize: 'clamp(1.4rem, 4vw, 2.2rem)', marginTop: '0.5rem' }}>{blog.title}</h1>
           </div>
         </div>
-        <div className="glass-card" style={{ padding: '3rem' }}>
-          <div style={{ color: 'white', lineHeight: '1.9', fontSize: '1.05rem' }} dangerouslySetInnerHTML={{ __html: blog.content }} />
-          <RelatedArticles currentId={blog.id} category={blog.category} onNavigate={onNavigate} />
+        <div style={{ marginBottom: '2rem', textAlign: 'center' }}>
+          <button onClick={onBack} className="btn btn-secondary" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', padding: '0.8rem 2rem' }}>
+            <ArrowLeft size={18} /> Back
+          </button>
         </div>
+
+        <div className="glass-card" style={{ padding: '3rem', marginBottom: '3rem', background: 'rgba(15, 23, 42, 0.95)' }}>
+          <div style={{ color: 'white', lineHeight: '1.9', fontSize: '1.05rem' }} dangerouslySetInnerHTML={{ __html: blog.content }} />
+        </div>
+
+        <RelatedArticles currentId={blog.id} category={blog.category} onNavigate={onNavigate} />
       </div>
     </div>
   );
@@ -778,6 +807,9 @@ const App = () => {
     }
     setActiveTab(tab);
 
+    // Always scroll to top when navigating
+    window.scrollTo(0, 0);
+
     if (tab === 'Detail' && blogOrLocation) {
       setSelectedBlog(blogOrLocation);
       navigate(`/${blogOrLocation.slug || blogOrLocation.id}`);
@@ -788,16 +820,15 @@ const App = () => {
     } else {
       const path = getPathFromActiveTab(tab);
       navigate(path);
-      window.scrollTo(0, 0); // Ensure scroll to top
     }
   };
 
   const handleBack = () => {
-    // If previous tab was Home or Locations, go there.
-    // If we are deep in something, maybe default to Home.
-    if (['Home', 'Locations', 'Blog'].includes(previousTab)) {
-      navigateToTab(previousTab);
+    // Navigate back in history if possible
+    if (window.history.length > 1) {
+      navigate(-1);
     } else {
+      // Fallback to Home if no history
       navigateToTab('Home');
     }
   };
@@ -815,11 +846,11 @@ const App = () => {
             <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '1.5rem' }}>
               <div className="hero-badge">
                 <CheckCircle2 size={14} color="var(--accent-green)" />
-                <span>Official 2026 Verified Portal</span>
+                <span>OFFICIAL 2026 VERIFIED PORTAL</span>
               </div>
             </div>
 
-            <h1 className="hero-brand-title">India's Trusted Exam Platform</h1>
+            <h1 className="hero-brand-title" style={{ fontSize: 'clamp(1.8rem, 5vw, 4rem)', fontWeight: 600, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>India's Trusted Exam Platform</h1>
             <h2 className="hero-tagline">Official Govt Exam Portal</h2>
 
             <p className="hero-description">
@@ -827,18 +858,19 @@ const App = () => {
             </p>
 
             {/* Trust Stats Counter */}
-            <div className="hero-stats">
-              <div className="stats-card">
-                <div className="stats-number" style={{ color: 'var(--secondary)' }}>5L+</div>
-                <div className="stats-label">Active Aspirants</div>
+            {/* Trust Stats Counter */}
+            <div className="hero-stats" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1.5rem', marginTop: '2rem', marginBottom: '3rem' }}>
+              <div className="stats-card" style={{ padding: '1.5rem', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', background: 'rgba(255, 255, 255, 0.03)', border: '1px solid var(--glass-border)', borderRadius: '12px' }}>
+                <div className="stats-number" style={{ color: 'var(--secondary)', fontSize: '2.5rem', fontWeight: 800, lineHeight: 1 }}>5L+</div>
+                <div className="stats-label" style={{ fontSize: '1rem', marginTop: '0.5rem', color: 'var(--text-dim)' }}>Active Aspirants</div>
               </div>
-              <div className="stats-card">
-                <div className="stats-number" style={{ color: '#10B981' }}>50+</div>
-                <div className="stats-label">Exam Bodies</div>
+              <div className="stats-card" style={{ padding: '1.5rem', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', background: 'rgba(255, 255, 255, 0.03)', border: '1px solid var(--glass-border)', borderRadius: '12px' }}>
+                <div className="stats-number" style={{ color: '#10B981', fontSize: '2.5rem', fontWeight: 800, lineHeight: 1 }}>50+</div>
+                <div className="stats-label" style={{ fontSize: '1rem', marginTop: '0.5rem', color: 'var(--text-dim)' }}>Exam Bodies</div>
               </div>
-              <div className="stats-card">
-                <div className="stats-number" style={{ color: '#8B5CF6' }}>100%</div>
-                <div className="stats-label">Official Data</div>
+              <div className="stats-card" style={{ padding: '1.5rem', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', background: 'rgba(255, 255, 255, 0.03)', border: '1px solid var(--glass-border)', borderRadius: '12px' }}>
+                <div className="stats-number" style={{ color: '#8B5CF6', fontSize: '2.5rem', fontWeight: 800, lineHeight: 1 }}>100%</div>
+                <div className="stats-label" style={{ fontSize: '1rem', marginTop: '0.5rem', color: 'var(--text-dim)' }}>Official Data</div>
               </div>
             </div>
 
@@ -876,6 +908,14 @@ const App = () => {
             <div className="divider"></div>
           </div>
           <ExamHub />
+          <div style={{ textAlign: 'center', marginTop: '3rem' }}>
+            <button onClick={() => navigateToTab('DocumentGuide')} className="btn btn-primary" style={{ marginRight: '1rem' }}>
+              <FileText size={18} /> View Full Document Guide
+            </button>
+            <button onClick={() => navigateToTab('ExamRequirements')} className="btn btn-secondary">
+              <ClipboardList size={18} /> Exam Requirements
+            </button>
+          </div>
         </div>
       </section>
 
@@ -888,6 +928,11 @@ const App = () => {
                 Our advanced algorithm analyzes 50+ central and state government notifications to instantly match you with eligible 2026 examinations based on your age and educational qualification.
               </p>
               <EligibilityChecker />
+              <div style={{ marginTop: '2rem' }}>
+                <button onClick={() => navigateToTab('EligibilityChecker')} className="btn btn-primary">
+                  <ShieldCheck size={18} /> Open Full Eligibility Checker
+                </button>
+              </div>
             </div>
             <div className="reveal glass-card" style={{ textAlign: 'center', border: 'none', background: 'var(--trust-blue)', padding: '3rem' }}>
               <Cpu size={48} color="var(--secondary)" />
@@ -922,6 +967,7 @@ const App = () => {
                     style={{ width: '100%', height: '100%', objectFit: 'cover', transition: '0.5s' }}
                     className="blog-img"
                     onError={handleImageError}
+                    loading="lazy"
                   />
                 </div>
                 <div className="blog-content">
@@ -939,7 +985,7 @@ const App = () => {
       <section style={{ padding: 'var(--section-padding) 0', background: 'rgba(255,255,255,0.02)' }}>
         <div className="container">
           <div className="section-title reveal" style={{ textAlign: 'center', marginBottom: '3rem' }}>
-            <h2 className="gradient-text-teal">Regional Exam Preparation Hubs</h2>
+            <h2 className="gradient-text-teal">Top Cities for Exam Preparation</h2>
             <p style={{ color: 'white', marginTop: '0.5rem' }}>Discover exam centers, career opportunities, and preparation resources across India's major cities</p>
             <div className="divider" style={{ margin: '0.5rem auto' }}></div>
           </div>
@@ -970,30 +1016,37 @@ const App = () => {
       {/* Homepage Newsletter Section */}
       <section className="homepage-newsletter">
         <div className="container">
-          <div className="glass-card reveal" style={{ padding: '3.5rem', textAlign: 'center', border: '1px solid var(--secondary)', background: 'rgba(139, 92, 246, 0.03)' }}>
-            <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '1.5rem' }}>
-              <div style={{ width: '60px', height: '60px', background: 'rgba(139, 92, 246, 0.1)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                <Mail size={30} color="var(--secondary)" />
+          <div className="glass-card reveal" style={{
+            padding: '2.5rem',
+            textAlign: 'center',
+            border: '1px solid var(--secondary)',
+            background: 'rgba(139, 92, 246, 0.03)',
+            maxWidth: '900px',
+            margin: '0 auto'
+          }}>
+            <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '1rem' }}>
+              <div style={{ width: '50px', height: '50px', background: 'rgba(139, 92, 246, 0.1)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <Mail size={24} color="var(--secondary)" />
               </div>
             </div>
-            <h2 className="gradient-text-purple" style={{ marginBottom: '1rem' }}>Never Miss An Update</h2>
-            <p style={{ color: 'white', opacity: 0.9, maxWidth: '600px', margin: '0 auto 2.5rem', fontSize: '1.1rem' }}>
+            <h2 className="gradient-text-purple" style={{ marginBottom: '0.8rem', fontSize: '1.8rem' }}>Never Miss An Update</h2>
+            <p style={{ color: 'white', opacity: 0.9, maxWidth: '550px', margin: '0 auto 2rem', fontSize: '1rem', lineHeight: '1.6' }}>
               Get verified notification alerts, eligibility changes, and 2026 recruitment guides delivered directly to your inbox.
             </p>
 
-            <div style={{ maxWidth: '600px', margin: '0 auto', display: 'flex', gap: '1rem', flexWrap: 'wrap', justifyContent: 'center' }}>
+            <div style={{ maxWidth: '550px', margin: '0 auto', display: 'flex', gap: '0.8rem', flexWrap: 'wrap', justifyContent: 'center' }}>
               <input
                 type="email"
                 placeholder="Enter your email address"
                 className="form-input"
-                style={{ flex: '1', minWidth: '280px', padding: '1.2rem 1.5rem', borderRadius: '50px', background: 'rgba(0,0,0,0.2)', border: '1px solid var(--glass-border)' }}
+                style={{ flex: '1', minWidth: '250px', padding: '1rem 1.2rem', borderRadius: '50px', background: 'rgba(0,0,0,0.2)', border: '1px solid var(--glass-border)', fontSize: '0.95rem' }}
               />
               <button
                 className="btn btn-primary"
-                style={{ padding: '1.2rem 2.5rem', borderRadius: '50px', fontWeight: 'bold' }}
+                style={{ padding: '1rem 2rem', borderRadius: '50px', fontWeight: 'bold', fontSize: '0.95rem' }}
                 onClick={() => alert('Welcome to the inner circle! You will receive verified updates shortly.')}
               >
-                Join Now <ArrowRight size={18} />
+                Join Now <ArrowRight size={16} />
               </button>
             </div>
 
@@ -1002,7 +1055,7 @@ const App = () => {
                 <Phone size={20} color="var(--secondary)" />
                 <div style={{ textAlign: 'left' }}>
                   <p style={{ fontSize: '0.75rem', color: 'var(--text-dim)', marginBottom: '0.2rem' }}>Helpline Number</p>
-                  <a href="tel:+919424408891" style={{ color: 'white', fontWeight: 600, textDecoration: 'none', fontSize: '1rem' }}>+91 94244 08891</a>
+                  <a href="tel:+918077583921" style={{ color: 'white', fontWeight: 600, textDecoration: 'none', fontSize: '1rem' }}>+91 8077583921</a>
                 </div>
               </div>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.8rem' }}>
@@ -1025,7 +1078,7 @@ const App = () => {
               { icon: <Users />, title: '100K+ Community', desc: 'Join thousands of successful candidates who trust our guidance and preparation resources.' },
               { icon: <ShieldCheck />, title: 'Privacy First', desc: 'Zero personal data storage. All eligibility checks processed locally on your device.' }
             ].map((item, i) => (
-              <div key={i} className="glass-card" style={{ textAlign: 'center', border: 'none', padding: '2.5rem' }}>
+              <div key={i} className="glass-card" style={{ textAlign: 'center', border: 'none', padding: '2rem' }}>
                 <div style={{ color: 'var(--secondary)', marginBottom: '1.5rem', display: 'flex', justifyContent: 'center' }}>{item.icon}</div>
                 <h4 style={{ color: 'white', marginBottom: '1rem' }}>{item.title}</h4>
                 <p style={{ fontSize: '0.95rem', color: 'white', lineHeight: '1.6' }}>{item.desc}</p>
@@ -1189,14 +1242,14 @@ const App = () => {
       <main role="main" style={{ minHeight: '80vh' }}>
         {activeTab === 'Home' && renderHome()}
         {activeTab === 'Blog' && renderBlog()}
-        {activeTab === 'Detail' && selectedBlog && <ArticleDetail blog={selectedBlog} onBack={handleBack} onNavigate={(blog) => navigateToTab('Detail', blog)} />}
+        {activeTab === 'Detail' && selectedBlog && <ArticleDetail blog={selectedBlog} onBack={handleBack} onHome={() => navigateToTab('Home')} onNavigate={(blog) => navigateToTab('Detail', blog)} />}
         {activeTab === 'About' && <AboutPage onBack={handleBack} />}
         {activeTab === 'Success' && <SuccessStoriesPage onBack={handleBack} />}
         {activeTab === 'Counseling' && <CareerCounselingPage onBack={handleBack} />}
         {activeTab === 'Partner' && <PartnerPage onBack={handleBack} />}
         {activeTab === 'Contact' && <ContactPage onBack={handleBack} />}
         {activeTab === 'Locations' && <LocationsHub onSelectLocation={(loc) => navigateToTab('Location', loc)} onBack={handleBack} />}
-        {activeTab === 'Location' && selectedLocation && <LocationPage location={selectedLocation} onBack={handleBack} onNavigate={(loc) => navigateToTab('Location', loc)} />}
+        {activeTab === 'Location' && selectedLocation && <LocationPage location={selectedLocation} onBack={handleBack} onHome={() => navigateToTab('Home')} onNavigate={(loc) => navigateToTab('Location', loc)} />}
         {activeTab === 'EligibilityChecker' && <EligibilityCheckerPage onBack={handleBack} />}
         {activeTab === 'DocumentGuide' && <DocumentGuidePage onBack={handleBack} onNavigateToExamRequirements={() => navigateToTab('ExamRequirements')} />}
         {activeTab === 'ExamRequirements' && <ExamRequirementsPage onBack={handleBack} />}
@@ -1209,7 +1262,7 @@ const App = () => {
 
       <footer id="footer" className="footer">
         <div className="container">
-          <div className="footer-grid" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '2rem' }}>
+          <div className="footer-grid" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))', gap: '2rem' }}>
 
             {/* Col 1: Brand */}
             <div className="footer-col">
@@ -1228,7 +1281,7 @@ const App = () => {
 
             {/* Col 2: Quick Links */}
             <div className="footer-col">
-              <h4 style={{ color: 'white', marginBottom: '1.5rem' }}>Quick Links</h4>
+              <h4 style={{ color: 'white', marginBottom: '1.2rem', fontSize: '1rem' }}>Quick Links</h4>
               <ul>
                 <li><a href="#" onClick={(e) => { e.preventDefault(); navigateToTab('Home'); }}>Home</a></li>
                 <li><a href="#" onClick={(e) => { e.preventDefault(); navigateToTab('About'); }}>About Us</a></li>
@@ -1240,7 +1293,7 @@ const App = () => {
 
             {/* Col 3: Services */}
             <div className="footer-col">
-              <h4 style={{ color: 'white', marginBottom: '1.5rem' }}>Services</h4>
+              <h4 style={{ color: 'white', marginBottom: '1.2rem', fontSize: '1rem' }}>Services</h4>
               <ul>
                 <li><a href="#" onClick={(e) => { e.preventDefault(); navigateToTab('EligibilityChecker'); }}>Eligibility Checker</a></li>
                 <li><a href="#" onClick={(e) => { e.preventDefault(); navigateToTab('DocumentGuide'); }}>Document Guide</a></li>
@@ -1250,28 +1303,28 @@ const App = () => {
               </ul>
             </div>
 
-            {/* Col 4: Top Cities */}
-            <div className="footer-col">
-              <h4 style={{ color: 'white', marginBottom: '1.5rem' }}>Top Cities</h4>
-              <ul style={{ columns: 2 }}>
+            {/* Col 4: Top Cities (Explicitly separate) */}
+            <div className="footer-col" style={{ gridColumn: 'span 1' }}>
+              <h4 style={{ color: 'white', marginBottom: '1.2rem', fontSize: '1rem' }}>Top Cities</h4>
+              <ul style={{ columns: 2, gap: '1rem' }}>
                 {locations.slice(0, 8).map(loc => (
-                  <li key={loc.id}><a href="#" onClick={(e) => { e.preventDefault(); navigateToTab('Location', loc); }}>{loc.name}</a></li>
+                  <li key={loc.id} style={{ marginBottom: '0.4rem' }}><a href="#" onClick={(e) => { e.preventDefault(); navigateToTab('Location', loc); }} style={{ fontSize: '0.85rem' }}>{loc.name}</a></li>
                 ))}
               </ul>
             </div>
 
             {/* Col 5: Contact Info */}
             <div className="footer-col">
-              <h4 style={{ color: 'white', marginBottom: '1.5rem' }}>Contact Us</h4>
-              <p style={{ color: 'var(--text-dim)', fontSize: '0.9rem', lineHeight: '1.6', marginBottom: '1.5rem' }}>
+              <h4 style={{ color: 'white', marginBottom: '1.2rem', fontSize: '1rem' }}>Contact Us</h4>
+              <p style={{ color: 'var(--text-dim)', fontSize: '0.85rem', lineHeight: '1.6', marginBottom: '1.2rem' }}>
                 Join India's most trusted platform for verified government exam intelligence.
               </p>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-                <a href="tel:+919424408891" style={{ display: 'flex', alignItems: 'center', gap: '0.8rem', color: 'white', textDecoration: 'none', fontSize: '0.95rem' }}>
-                  <Phone size={18} color="var(--secondary)" /> +91 94244 08891
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.8rem' }}>
+                <a href="tel:+918077583921" style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', color: 'white', textDecoration: 'none', fontSize: '0.9rem' }}>
+                  <Phone size={16} color="var(--secondary)" /> +91 8077583921
                 </a>
-                <a href="mailto:info@sarkariexamall.com" style={{ display: 'flex', alignItems: 'center', gap: '0.8rem', color: 'white', textDecoration: 'none', fontSize: '0.95rem' }}>
-                  <Mail size={18} color="var(--secondary)" /> info@sarkariexamall.com
+                <a href="mailto:info@sarkariexamall.com" style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', color: 'white', textDecoration: 'none', fontSize: '0.9rem' }}>
+                  <Mail size={16} color="var(--secondary)" /> info@sarkariexamall.com
                 </a>
               </div>
             </div>

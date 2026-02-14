@@ -1,9 +1,13 @@
 import React, { useEffect } from 'react';
-import { Home, MapPin, Building2, GraduationCap, Hotel, Briefcase, TrendingUp, Users, Award, Target } from 'lucide-react';
+import { Home, MapPin, Building2, GraduationCap, Hotel, Briefcase, TrendingUp, Users, Award, Target, ArrowLeft } from 'lucide-react';
 import { locations } from '../data/locations';
 
 const LocationGuidesPage = ({ onSelectLocation, onBack }) => {
     useEffect(() => window.scrollTo(0, 0), []);
+
+    const handleImageError = (e) => {
+        e.target.src = 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=400&q=60';
+    };
 
     const regionalGroups = {
         'North': ['Delhi', 'Chandigarh', 'Lucknow', 'Jaipur'],
@@ -128,8 +132,8 @@ const LocationGuidesPage = ({ onSelectLocation, onBack }) => {
             minHeight: '100vh'
         }}>
             <div className="container">
-                <button onClick={onBack} className="btn btn-secondary" style={{ marginBottom: '3rem' }}>
-                    <Home size={16} /> Back to Home
+                <button onClick={onBack} className="btn btn-secondary" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '3rem' }}>
+                    <ArrowLeft size={18} /> Back
                 </button>
 
                 {/* Hero Section */}
@@ -150,12 +154,12 @@ const LocationGuidesPage = ({ onSelectLocation, onBack }) => {
                         </span>
                     </div>
 
-                    <h1 className="gradient-text-teal" style={{ fontSize: 'clamp(2.5rem, 6vw, 5rem)', marginBottom: '1.5rem', lineHeight: '1.1' }}>
+                    <h1 className="gradient-text-teal" style={{ fontSize: 'clamp(1.8rem, 4.5vw, 2.8rem)', marginBottom: '1.5rem', lineHeight: '1.1' }}>
                         Location Guides
                     </h1>
 
                     <p style={{
-                        fontSize: '1.3rem',
+                        fontSize: '1.1rem',
                         color: 'white',
                         maxWidth: '900px',
                         margin: '0 auto 3rem',
@@ -174,16 +178,16 @@ const LocationGuidesPage = ({ onSelectLocation, onBack }) => {
                         margin: '0 auto'
                     }}>
                         <div className="glass-card" style={{ padding: '2rem', background: 'rgba(6, 182, 212, 0.05)', border: '2px solid rgba(6, 182, 212, 0.2)' }}>
-                            <div style={{ fontSize: '3rem', fontWeight: 800, color: '#06B6D4', marginBottom: '0.5rem' }}>20</div>
-                            <div style={{ color: 'white', fontSize: '1rem' }}>Major Cities</div>
+                            <div style={{ fontSize: '2.2rem', fontWeight: 800, color: '#06B6D4', marginBottom: '0.5rem' }}>20</div>
+                            <div style={{ color: 'white', fontSize: '0.9rem' }}>Major Cities</div>
                         </div>
                         <div className="glass-card" style={{ padding: '2rem', background: 'rgba(6, 182, 212, 0.05)', border: '2px solid rgba(6, 182, 212, 0.2)' }}>
-                            <div style={{ fontSize: '3rem', fontWeight: 800, color: '#06B6D4', marginBottom: '0.5rem' }}>28</div>
-                            <div style={{ color: 'white', fontSize: '1rem' }}>State PSCs</div>
+                            <div style={{ fontSize: '2.2rem', fontWeight: 800, color: '#06B6D4', marginBottom: '0.5rem' }}>28</div>
+                            <div style={{ color: 'white', fontSize: '0.9rem' }}>State PSCs</div>
                         </div>
                         <div className="glass-card" style={{ padding: '2rem', background: 'rgba(6, 182, 212, 0.05)', border: '2px solid rgba(6, 182, 212, 0.2)' }}>
-                            <div style={{ fontSize: '3rem', fontWeight: 800, color: '#06B6D4', marginBottom: '0.5rem' }}>500+</div>
-                            <div style={{ color: 'white', fontSize: '1rem' }}>Coaching Institutes</div>
+                            <div style={{ fontSize: '2.2rem', fontWeight: 800, color: '#06B6D4', marginBottom: '0.5rem' }}>500+</div>
+                            <div style={{ color: 'white', fontSize: '0.9rem' }}>Coaching Institutes</div>
                         </div>
                     </div>
                 </div>
@@ -192,7 +196,7 @@ const LocationGuidesPage = ({ onSelectLocation, onBack }) => {
                 <div style={{ marginBottom: '5rem' }}>
                     <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
                         <h2 style={{
-                            fontSize: 'clamp(2rem, 4vw, 3.5rem)',
+                            fontSize: 'clamp(1.5rem, 3.5vw, 2.2rem)',
                             marginBottom: '1rem',
                             background: 'linear-gradient(135deg, #67E8F9 0%, #06B6D4 50%, #67E8F9 100%)',
                             WebkitBackgroundClip: 'text',
@@ -223,7 +227,7 @@ const LocationGuidesPage = ({ onSelectLocation, onBack }) => {
                                     border: '2px solid rgba(6, 182, 212, 0.2)'
                                 }}>
                                     <MapPin size={24} color="#06B6D4" />
-                                    <h3 style={{ color: '#06B6D4', fontSize: '1.8rem', fontWeight: 700, margin: 0 }}>
+                                    <h3 style={{ color: '#06B6D4', fontSize: '1.5rem', fontWeight: 700, margin: 0 }}>
                                         {region} India
                                     </h3>
                                     <div style={{
@@ -258,6 +262,8 @@ const LocationGuidesPage = ({ onSelectLocation, onBack }) => {
                                                     src={location.image}
                                                     alt={location.name}
                                                     style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                                                    loading="lazy"
+                                                    onError={handleImageError}
                                                 />
                                                 <div style={{
                                                     position: 'absolute',
@@ -304,7 +310,7 @@ const LocationGuidesPage = ({ onSelectLocation, onBack }) => {
                     border: '2px solid rgba(6, 182, 212, 0.2)'
                 }}>
                     <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
-                        <h2 style={{ color: '#06B6D4', fontSize: '2.5rem', marginBottom: '1rem' }}>
+                        <h2 style={{ color: '#06B6D4', fontSize: '2.2rem', marginBottom: '1rem' }}>
                             Why Location Matters for Exam Preparation
                         </h2>
                         <p style={{ color: 'white', fontSize: '1.1rem', lineHeight: '1.7', maxWidth: '800px', margin: '0 auto' }}>
@@ -338,7 +344,7 @@ const LocationGuidesPage = ({ onSelectLocation, onBack }) => {
                 <div style={{ marginBottom: '5rem' }}>
                     <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
                         <h2 style={{
-                            fontSize: 'clamp(2rem, 4vw, 3.5rem)',
+                            fontSize: 'clamp(1.5rem, 3.5vw, 2.2rem)',
                             marginBottom: '1rem',
                             background: 'linear-gradient(135deg, #67E8F9 0%, #06B6D4 50%, #67E8F9 100%)',
                             WebkitBackgroundClip: 'text',
@@ -417,7 +423,7 @@ const LocationGuidesPage = ({ onSelectLocation, onBack }) => {
                     border: '2px solid rgba(245, 158, 11, 0.2)'
                 }}>
                     <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
-                        <h2 style={{ color: '#F59E0B', fontSize: '2.5rem', marginBottom: '1rem' }}>
+                        <h2 style={{ color: '#F59E0B', fontSize: '2.2rem', marginBottom: '1rem' }}>
                             State PSC Opportunities
                         </h2>
                         <p style={{ color: 'white', fontSize: '1.1rem', lineHeight: '1.7', maxWidth: '800px', margin: '0 auto' }}>
@@ -497,7 +503,7 @@ const LocationGuidesPage = ({ onSelectLocation, onBack }) => {
                     background: 'linear-gradient(135deg, rgba(6, 182, 212, 0.1) 0%, rgba(14, 116, 144, 0.1) 100%)',
                     border: '2px solid #06B6D4'
                 }}>
-                    <h2 style={{ color: '#06B6D4', fontSize: '2.5rem', marginBottom: '1.5rem' }}>
+                    <h2 style={{ color: '#06B6D4', fontSize: '2.2rem', marginBottom: '1.5rem' }}>
                         Choose Your Preparation Destination
                     </h2>
                     <p style={{ color: 'white', fontSize: '1.2rem', marginBottom: '2.5rem', lineHeight: '1.8', maxWidth: '700px', margin: '0 auto 2.5rem' }}>
@@ -507,8 +513,8 @@ const LocationGuidesPage = ({ onSelectLocation, onBack }) => {
                         <button onClick={() => window.scrollTo(0, 600)} className="btn btn-primary" style={{ padding: '1.2rem 2.5rem', fontSize: '1.1rem' }}>
                             <MapPin size={20} /> Explore All Cities
                         </button>
-                        <button onClick={onBack} className="btn btn-secondary" style={{ padding: '1.2rem 2.5rem', fontSize: '1.1rem' }}>
-                            <Home size={20} /> Back to Home
+                        <button onClick={onBack} className="btn btn-secondary" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', padding: '1.2rem 2.5rem', fontSize: '1.1rem' }}>
+                            <ArrowLeft size={20} /> Back
                         </button>
                     </div>
                 </div>

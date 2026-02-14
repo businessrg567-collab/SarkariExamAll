@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Home, BookOpen, Target, TrendingUp, Award, Clock, Users, Zap, CheckCircle2, Star, Filter } from 'lucide-react';
+import { Home, BookOpen, Target, TrendingUp, Award, Clock, Users, Zap, CheckCircle2, Star, Filter, ArrowLeft } from 'lucide-react';
 import { blogs } from '../data/articles';
 
 const PreparationGuidesPage = ({ onSelectBlog, onBack }) => {
@@ -37,6 +37,14 @@ const PreparationGuidesPage = ({ onSelectBlog, onBack }) => {
             hours: "5-6 hours/day",
             phases: ["Concept Building (1.5 months)", "Practice (1.5 months)", "Mocks (1 month)"],
             color: "#10B981"
+        },
+        {
+            title: "9-Month Strategic Plan",
+            exam: "State PSC",
+            duration: "9 months",
+            hours: "6-7 hours/day",
+            phases: ["State GK Focus (3 months)", "Standard Books (3 months)", "Answer Writing (2 months)", "State-Spec Mock (1 month)"],
+            color: "#6366F1"
         }
     ];
 
@@ -108,8 +116,8 @@ const PreparationGuidesPage = ({ onSelectBlog, onBack }) => {
             minHeight: '100vh'
         }}>
             <div className="container">
-                <button onClick={onBack} className="btn btn-secondary" style={{ marginBottom: '3rem' }}>
-                    <Home size={16} /> Back to Home
+                <button onClick={onBack} className="btn btn-secondary" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '3rem' }}>
+                    <ArrowLeft size={18} /> Back
                 </button>
 
                 {/* Hero Section */}
@@ -131,7 +139,7 @@ const PreparationGuidesPage = ({ onSelectBlog, onBack }) => {
                     </div>
 
                     <h1 style={{
-                        fontSize: 'clamp(2.5rem, 6vw, 5rem)',
+                        fontSize: 'clamp(1.8rem, 4.5vw, 2.8rem)',
                         marginBottom: '1.5rem',
                         lineHeight: '1.1',
                         background: 'linear-gradient(135deg, #FCD34D 0%, #F59E0B 50%, #FCD34D 100%)',
@@ -143,7 +151,7 @@ const PreparationGuidesPage = ({ onSelectBlog, onBack }) => {
                     </h1>
 
                     <p style={{
-                        fontSize: '1.3rem',
+                        fontSize: '1.1rem',
                         color: 'white',
                         maxWidth: '900px',
                         margin: '0 auto 3rem',
@@ -162,16 +170,16 @@ const PreparationGuidesPage = ({ onSelectBlog, onBack }) => {
                         margin: '0 auto'
                     }}>
                         <div className="glass-card" style={{ padding: '2rem', background: 'rgba(234, 88, 12, 0.05)', border: '2px solid rgba(234, 88, 12, 0.2)' }}>
-                            <div style={{ fontSize: '3rem', fontWeight: 800, color: '#EA580C', marginBottom: '0.5rem' }}>30+</div>
-                            <div style={{ color: 'white', fontSize: '1rem' }}>Expert Guides</div>
+                            <div style={{ fontSize: '2.2rem', fontWeight: 800, color: '#EA580C', marginBottom: '0.5rem' }}>30+</div>
+                            <div style={{ color: 'white', fontSize: '0.9rem' }}>Expert Guides</div>
                         </div>
                         <div className="glass-card" style={{ padding: '2rem', background: 'rgba(234, 88, 12, 0.05)', border: '2px solid rgba(234, 88, 12, 0.2)' }}>
-                            <div style={{ fontSize: '3rem', fontWeight: 800, color: '#EA580C', marginBottom: '0.5rem' }}>3000+</div>
-                            <div style={{ color: 'white', fontSize: '1rem' }}>Words Per Guide</div>
+                            <div style={{ fontSize: '2.2rem', fontWeight: 800, color: '#EA580C', marginBottom: '0.5rem' }}>3000+</div>
+                            <div style={{ color: 'white', fontSize: '0.9rem' }}>Words Per Guide</div>
                         </div>
                         <div className="glass-card" style={{ padding: '2rem', background: 'rgba(234, 88, 12, 0.05)', border: '2px solid rgba(234, 88, 12, 0.2)' }}>
-                            <div style={{ fontSize: '3rem', fontWeight: 800, color: '#EA580C', marginBottom: '0.5rem' }}>100%</div>
-                            <div style={{ color: 'white', fontSize: '1rem' }}>Success Proven</div>
+                            <div style={{ fontSize: '2.2rem', fontWeight: 800, color: '#EA580C', marginBottom: '0.5rem' }}>100%</div>
+                            <div style={{ color: 'white', fontSize: '0.9rem' }}>Success Proven</div>
                         </div>
                     </div>
                 </div>
@@ -228,6 +236,10 @@ const PreparationGuidesPage = ({ onSelectBlog, onBack }) => {
                                         src={blog.image}
                                         alt={blog.title}
                                         style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                                        loading="lazy"
+                                        onError={(e) => {
+                                            e.target.src = 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&q=60&w=500';
+                                        }}
                                     />
                                 </div>
                                 <div className="blog-content">
@@ -263,7 +275,7 @@ const PreparationGuidesPage = ({ onSelectBlog, onBack }) => {
                     border: '2px solid rgba(245, 158, 11, 0.2)'
                 }}>
                     <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
-                        <h2 style={{ color: '#F59E0B', fontSize: '2.5rem', marginBottom: '1rem' }}>
+                        <h2 style={{ color: '#F59E0B', fontSize: '2.2rem', marginBottom: '1rem' }}>
                             Ready-Made Study Plans
                         </h2>
                         <p style={{ color: 'white', fontSize: '1.1rem', lineHeight: '1.7', maxWidth: '800px', margin: '0 auto' }}>
@@ -293,7 +305,7 @@ const PreparationGuidesPage = ({ onSelectBlog, onBack }) => {
                                     {plan.exam}
                                 </div>
 
-                                <h3 style={{ color: plan.color, fontSize: '1.8rem', marginBottom: '1.5rem', fontWeight: 700 }}>
+                                <h3 style={{ color: plan.color, fontSize: '1.8rem', marginBottom: '0.8rem', fontWeight: 700 }}>
                                     {plan.title}
                                 </h3>
 
@@ -318,8 +330,8 @@ const PreparationGuidesPage = ({ onSelectBlog, onBack }) => {
                                                 display: 'flex',
                                                 alignItems: 'center',
                                                 gap: '0.8rem',
-                                                marginBottom: '0.8rem',
-                                                padding: '0.8rem',
+                                                marginBottom: '0.5rem',
+                                                padding: '0.6rem',
                                                 background: 'rgba(255, 255, 255, 0.02)',
                                                 borderRadius: '8px'
                                             }}>
@@ -338,7 +350,7 @@ const PreparationGuidesPage = ({ onSelectBlog, onBack }) => {
                 <div style={{ marginBottom: '5rem' }}>
                     <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
                         <h2 style={{
-                            fontSize: 'clamp(2rem, 4vw, 3.5rem)',
+                            fontSize: 'clamp(1.5rem, 3.5vw, 2.2rem)',
                             marginBottom: '1rem',
                             background: 'linear-gradient(135deg, #FCD34D 0%, #F59E0B 50%, #FCD34D 100%)',
                             WebkitBackgroundClip: 'text',
@@ -381,7 +393,7 @@ const PreparationGuidesPage = ({ onSelectBlog, onBack }) => {
                     border: '2px solid rgba(234, 88, 12, 0.3)'
                 }}>
                     <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
-                        <h2 style={{ color: '#EA580C', fontSize: '2.5rem', marginBottom: '1rem' }}>
+                        <h2 style={{ color: '#EA580C', fontSize: '2.2rem', marginBottom: '1rem' }}>
                             Proven Success Strategies
                         </h2>
                         <p style={{ color: 'white', fontSize: '1.1rem', lineHeight: '1.7', maxWidth: '800px', margin: '0 auto' }}>
@@ -423,7 +435,7 @@ const PreparationGuidesPage = ({ onSelectBlog, onBack }) => {
                     background: 'linear-gradient(135deg, rgba(234, 88, 12, 0.1) 0%, rgba(245, 158, 11, 0.1) 100%)',
                     border: '2px solid #EA580C'
                 }}>
-                    <h2 style={{ color: '#EA580C', fontSize: '2.5rem', marginBottom: '1.5rem' }}>
+                    <h2 style={{ color: '#EA580C', fontSize: '2.2rem', marginBottom: '1.5rem' }}>
                         Start Your Preparation Journey Today
                     </h2>
                     <p style={{ color: 'white', fontSize: '1.2rem', marginBottom: '2.5rem', lineHeight: '1.8', maxWidth: '700px', margin: '0 auto 2.5rem' }}>
@@ -433,8 +445,8 @@ const PreparationGuidesPage = ({ onSelectBlog, onBack }) => {
                         <button onClick={() => window.scrollTo(0, 600)} className="btn btn-primary" style={{ padding: '1.2rem 2.5rem', fontSize: '1.1rem' }}>
                             <BookOpen size={20} /> Explore All Guides
                         </button>
-                        <button onClick={onBack} className="btn btn-secondary" style={{ padding: '1.2rem 2.5rem', fontSize: '1.1rem' }}>
-                            <Home size={20} /> Back to Home
+                        <button onClick={onBack} className="btn btn-secondary" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', padding: '1.2rem 2.5rem', fontSize: '1.1rem' }}>
+                            <ArrowLeft size={20} /> Back
                         </button>
                     </div>
                 </div>

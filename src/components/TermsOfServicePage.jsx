@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Home, FileText, AlertCircle, CheckCircle2, Scale, Shield } from 'lucide-react';
+import { Home, FileText, AlertCircle, CheckCircle2, Scale, Shield, ArrowLeft } from 'lucide-react';
 
 const TermsOfServicePage = ({ onBack }) => {
     useEffect(() => window.scrollTo(0, 0), []);
@@ -12,8 +12,8 @@ const TermsOfServicePage = ({ onBack }) => {
             minHeight: '100vh'
         }}>
             <div className="container">
-                <button onClick={onBack} className="btn btn-secondary" style={{ marginBottom: '3rem' }}>
-                    <Home size={16} /> Back to Home
+                <button onClick={onBack} className="btn btn-secondary" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '3rem' }}>
+                    <ArrowLeft size={18} /> Back
                 </button>
 
                 {/* Header */}
@@ -269,8 +269,8 @@ const TermsOfServicePage = ({ onBack }) => {
 
                 {/* Back Button */}
                 <div style={{ textAlign: 'center', marginTop: '3rem' }}>
-                    <button onClick={onBack} className="btn btn-primary" style={{ padding: '1.2rem 2.5rem', fontSize: '1.1rem' }}>
-                        <Home size={20} /> Back to Home
+                    <button onClick={onBack} className="btn btn-primary" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', margin: '0 auto', padding: '1.2rem 2.5rem', fontSize: '1.1rem' }}>
+                        <ArrowLeft size={20} /> Back
                     </button>
                 </div>
             </div>

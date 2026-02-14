@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Home, FileText, Award, BookOpen, Calendar, CheckCircle2, AlertCircle, Download } from 'lucide-react';
+import { Home, FileText, Award, BookOpen, Calendar, CheckCircle2, AlertCircle, Download, ArrowLeft, ShieldCheck } from 'lucide-react';
 import ExamHub from './ExamHub';
 
 const ExamRequirementsPage = ({ onBack }) => {
@@ -25,8 +25,18 @@ const ExamRequirementsPage = ({ onBack }) => {
         },
         {
             category: "Railway Exams",
-            exams: ["RRB NTPC", "RRB Group D", "RRB JE", "RRB ALP"],
+            exams: ["RRB NTPC", "RRB Group D", "RRB JE", "RRB ALP", "RRB RPF"],
             icon: <Calendar size={32} color="#06B6D4" />
+        },
+        {
+            category: "Defense Exams",
+            exams: ["NDA", "CDS", "AFCAT", "CAPF", "Indian Coast Guard"],
+            icon: <ShieldCheck size={32} color="#EF4444" />
+        },
+        {
+            category: "State PSC Exams",
+            exams: ["UPPSC", "BPSC", "MPPSC", "RPSC", "MPSC"],
+            icon: <Award size={32} color="#8B5CF6" />
         }
     ];
 
@@ -38,8 +48,8 @@ const ExamRequirementsPage = ({ onBack }) => {
             minHeight: '100vh'
         }}>
             <div className="container">
-                <button onClick={onBack} className="btn btn-secondary" style={{ marginBottom: '3rem' }}>
-                    <Home size={16} /> Back to Home
+                <button onClick={onBack} className="btn btn-secondary" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '3rem' }}>
+                    <ArrowLeft size={18} /> Back
                 </button>
 
                 {/* Hero Section */}
@@ -60,12 +70,12 @@ const ExamRequirementsPage = ({ onBack }) => {
                         </span>
                     </div>
 
-                    <h1 className="gradient-text" style={{ fontSize: 'clamp(2.5rem, 6vw, 5rem)', marginBottom: '1.5rem', lineHeight: '1.1' }}>
+                    <h1 className="gradient-text" style={{ fontSize: 'clamp(1.8rem, 4.5vw, 2.8rem)', marginBottom: '1.5rem', lineHeight: '1.1' }}>
                         Exam Requirements 2026
                     </h1>
 
                     <p style={{
-                        fontSize: '1.3rem',
+                        fontSize: '1.1rem',
                         color: 'white',
                         maxWidth: '900px',
                         margin: '0 auto 3rem',
@@ -84,16 +94,16 @@ const ExamRequirementsPage = ({ onBack }) => {
                         margin: '0 auto'
                     }}>
                         <div className="glass-card" style={{ padding: '2rem', background: 'rgba(245, 158, 11, 0.05)', border: '2px solid rgba(245, 158, 11, 0.2)' }}>
-                            <div style={{ fontSize: '3rem', fontWeight: 800, color: '#F59E0B', marginBottom: '0.5rem' }}>50+</div>
-                            <div style={{ color: 'white', fontSize: '1rem' }}>Exams Covered</div>
+                            <div style={{ fontSize: '2.2rem', fontWeight: 800, color: '#F59E0B', marginBottom: '0.5rem' }}>50+</div>
+                            <div style={{ color: 'white', fontSize: '0.9rem' }}>Exams Covered</div>
                         </div>
                         <div className="glass-card" style={{ padding: '2rem', background: 'rgba(245, 158, 11, 0.05)', border: '2px solid rgba(245, 158, 11, 0.2)' }}>
-                            <div style={{ fontSize: '3rem', fontWeight: 800, color: '#F59E0B', marginBottom: '0.5rem' }}>100%</div>
-                            <div style={{ color: 'white', fontSize: '1rem' }}>Accurate Data</div>
+                            <div style={{ fontSize: '2.2rem', fontWeight: 800, color: '#F59E0B', marginBottom: '0.5rem' }}>100%</div>
+                            <div style={{ color: 'white', fontSize: '0.9rem' }}>Accurate Data</div>
                         </div>
                         <div className="glass-card" style={{ padding: '2rem', background: 'rgba(245, 158, 11, 0.05)', border: '2px solid rgba(245, 158, 11, 0.2)' }}>
-                            <div style={{ fontSize: '3rem', fontWeight: 800, color: '#F59E0B', marginBottom: '0.5rem' }}>2026</div>
-                            <div style={{ color: 'white', fontSize: '1rem' }}>Updated Info</div>
+                            <div style={{ fontSize: '2.2rem', fontWeight: 800, color: '#F59E0B', marginBottom: '0.5rem' }}>2026</div>
+                            <div style={{ color: 'white', fontSize: '0.9rem' }}>Updated Info</div>
                         </div>
                     </div>
                 </div>
@@ -101,7 +111,7 @@ const ExamRequirementsPage = ({ onBack }) => {
                 {/* Exam Categories */}
                 <div style={{ marginBottom: '5rem' }}>
                     <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
-                        <h2 className="gradient-text" style={{ fontSize: 'clamp(2rem, 4vw, 3.5rem)', marginBottom: '1rem' }}>
+                        <h2 className="gradient-text" style={{ fontSize: 'clamp(1.5rem, 3.5vw, 2.2rem)', marginBottom: '1rem' }}>
                             Browse by Exam Category
                         </h2>
                         <p style={{ color: 'white', fontSize: '1.1rem', maxWidth: '800px', margin: '0 auto', lineHeight: '1.7' }}>
@@ -152,7 +162,7 @@ const ExamRequirementsPage = ({ onBack }) => {
                     border: '2px solid rgba(245, 158, 11, 0.3)'
                 }}>
                     <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
-                        <h2 style={{ color: '#F59E0B', fontSize: '2.5rem', marginBottom: '1rem' }}>
+                        <h2 style={{ color: '#F59E0B', fontSize: '2.2rem', marginBottom: '1rem' }}>
                             Detailed Exam Requirements
                         </h2>
                         <p style={{ color: 'white', fontSize: '1.1rem', lineHeight: '1.7' }}>
@@ -193,7 +203,7 @@ const ExamRequirementsPage = ({ onBack }) => {
                     background: 'linear-gradient(135deg, rgba(245, 158, 11, 0.1) 0%, rgba(16, 185, 129, 0.1) 100%)',
                     border: '2px solid #F59E0B'
                 }}>
-                    <h2 style={{ color: '#F59E0B', fontSize: '2.5rem', marginBottom: '1.5rem' }}>
+                    <h2 style={{ color: '#F59E0B', fontSize: '2.2rem', marginBottom: '1.5rem' }}>
                         Ready to Check Your Eligibility?
                     </h2>
                     <p style={{ color: 'white', fontSize: '1.2rem', marginBottom: '2.5rem', lineHeight: '1.8', maxWidth: '700px', margin: '0 auto 2.5rem' }}>
@@ -203,8 +213,8 @@ const ExamRequirementsPage = ({ onBack }) => {
                         <button onClick={() => navigate('/eligibility-checker')} className="btn btn-primary" style={{ padding: '1.2rem 2.5rem', fontSize: '1.1rem' }}>
                             <CheckCircle2 size={20} /> Check Eligibility Now
                         </button>
-                        <button onClick={onBack} className="btn btn-secondary" style={{ padding: '1.2rem 2.5rem', fontSize: '1.1rem' }}>
-                            <Home size={20} /> Back to Home
+                        <button onClick={onBack} className="btn btn-secondary" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', padding: '1.2rem 2.5rem', fontSize: '1.1rem' }}>
+                            <ArrowLeft size={20} /> Back
                         </button>
                     </div>
                 </div>

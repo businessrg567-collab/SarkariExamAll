@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Home, CheckCircle2, Award, Users, TrendingUp, BookOpen, Target, FileCheck, Calendar, GraduationCap, Zap, ShieldCheck } from 'lucide-react';
+import { Home, ShieldCheck, CheckCircle2, TrendingUp, Calendar, BookOpen, Target, Zap, ArrowLeft, Award, FileCheck, GraduationCap } from 'lucide-react';
 import EligibilityChecker from './EligibilityChecker';
 
 const EligibilityCheckerPage = ({ onBack }) => {

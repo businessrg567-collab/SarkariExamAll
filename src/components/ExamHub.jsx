@@ -62,6 +62,12 @@ const examHubData = [
                 docs: ['10th Certificate', 'ITI Certificate (if applicable)', 'Caste Certificate', 'Medical Fitness Certificate'],
                 qualification: '10th Pass or ITI',
                 link: '#'
+            },
+            {
+                name: 'RRB JE 2026',
+                docs: ['Diploma/Degree in Engineering', 'Caste Certificate', 'Aadhaar Card', 'Passport Size Photo'],
+                qualification: 'Diploma or Degree in Engineering',
+                link: '#'
             }
         ]
     },
@@ -79,6 +85,12 @@ const examHubData = [
                 docs: ['Graduation Certificate', 'Character Certificate from College', 'Medical Fitness Certificate', 'NOC if employed'],
                 qualification: 'Graduate from recognized university',
                 link: '#'
+            },
+            {
+                name: 'AFCAT 2026',
+                docs: ['Graduation Marksheets', 'Aadhaar Card', 'Commercial Pilot License (if applicable)', 'Recent Photo'],
+                qualification: 'Graduation with 60% marks and Physics/Maths in 12th',
+                link: '#'
             }
         ]
     }
@@ -87,31 +99,31 @@ const examHubData = [
 const ExamHub = () => {
     return (
         <div className="reveal">
-            <div className="grid grid-2" style={{ gap: '2rem' }}>
+            <div className="grid grid-2" style={{ gap: '2rem', maxWidth: '1000px', margin: '0 auto' }}>
                 {examHubData.map((cat, i) => (
-                    <div key={i} className="glass-card" style={{ padding: '2rem' }}>
-                        <h3 className="gradient-text-teal" style={{ marginBottom: '1.5rem' }}>{cat.category}</h3>
+                    <div key={i} className="glass-card" style={{ padding: '1.5rem' }}>
+                        <h3 className="gradient-text-teal" style={{ marginBottom: '1.2rem', fontSize: '1.3rem' }}>{cat.category}</h3>
                         {cat.exams.map((exam, j) => (
-                            <div key={j} style={{ marginBottom: '2rem', paddingBottom: '1rem', borderBottom: j < cat.exams.length - 1 ? '1px solid var(--glass-border)' : 'none' }}>
-                                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
-                                    <h4 style={{ color: 'white', fontSize: '1.1rem' }}>{exam.name}</h4>
-                                    <span className="badge-trust" style={{ margin: 0, fontSize: '0.65rem', padding: '0.3rem 0.6rem' }}>Official</span>
+                            <div key={j} style={{ marginBottom: '1.5rem', paddingBottom: '0.8rem', borderBottom: j < cat.exams.length - 1 ? '1px solid var(--glass-border)' : 'none' }}>
+                                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.8rem' }}>
+                                    <h4 style={{ color: 'white', fontSize: '1rem' }}>{exam.name}</h4>
+                                    <span className="badge-trust" style={{ margin: 0, fontSize: '0.6rem', padding: '0.2rem 0.5rem' }}>Official</span>
                                 </div>
-                                <div style={{ marginTop: '1rem', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem' }}>
+                                <div style={{ marginTop: '0.8rem', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
                                     <div>
-                                        <span style={{ fontSize: '0.75rem', color: 'var(--secondary)', fontWeight: 700, display: 'block', marginBottom: '0.6rem' }}>MANDATORY DOCUMENTS</span>
-                                        <ul style={{ listStyle: 'none', fontSize: '0.85rem', color: 'var(--text-dim)' }}>
+                                        <span style={{ fontSize: '0.7rem', color: 'var(--secondary)', fontWeight: 700, display: 'block', marginBottom: '0.4rem' }}>MANDATORY DOCUMENTS</span>
+                                        <ul style={{ listStyle: 'none', fontSize: '0.8rem', color: 'var(--text-dim)' }}>
                                             {exam.docs.map((doc, k) => (
-                                                <li key={k} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.5rem', marginBottom: '0.4rem' }}>
-                                                    <CheckCircle2 size={14} color="var(--secondary)" style={{ marginTop: '0.2rem', flexShrink: 0 }} />
+                                                <li key={k} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.4rem', marginBottom: '0.3rem' }}>
+                                                    <CheckCircle2 size={12} color="var(--secondary)" style={{ marginTop: '0.2rem', flexShrink: 0 }} />
                                                     <span>{doc}</span>
                                                 </li>
                                             ))}
                                         </ul>
                                     </div>
                                     <div>
-                                        <span style={{ fontSize: '0.75rem', color: 'var(--secondary)', fontWeight: 700, display: 'block', marginBottom: '0.6rem' }}>QUALIFICATION</span>
-                                        <p style={{ fontSize: '0.85rem', color: 'var(--text-dim)', lineHeight: '1.6' }}>{exam.qualification}</p>
+                                        <span style={{ fontSize: '0.7rem', color: 'var(--secondary)', fontWeight: 700, display: 'block', marginBottom: '0.4rem' }}>QUALIFICATION</span>
+                                        <p style={{ fontSize: '0.8rem', color: 'var(--text-dim)', lineHeight: '1.5' }}>{exam.qualification}</p>
                                     </div>
                                 </div>
                             </div>
