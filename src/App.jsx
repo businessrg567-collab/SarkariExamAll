@@ -361,22 +361,23 @@ const ContactPage = ({ onBack }) => {
         <button onClick={onBack} className="btn btn-secondary" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '3rem' }}>
           <ArrowLeft size={18} /> Back
         </button>
-        <div className="grid-responsive">
-          <div>
-            <h1 className="gradient-text-purple" style={{ fontSize: 'clamp(1.8rem, 4.5vw, 2.8rem)', marginBottom: '1rem' }}>Get In Touch</h1>
-            <p style={{ fontSize: '1.1rem', color: 'white', marginBottom: '3rem' }}>
-              Have questions about government exams? Our team is here to help you with personalized guidance.
-            </p>
+        <h1 className="gradient-text-purple" style={{ fontSize: 'clamp(1.8rem, 4.5vw, 2.8rem)', marginBottom: '1rem' }}>Get In Touch</h1>
+        <p style={{ fontSize: '1.1rem', color: 'white', marginBottom: '3rem' }}>
+          Have questions about government exams? Our team is here to help you with personalized guidance.
+        </p>
+        <div style={{ display: 'flex', gap: '2rem', flexWrap: 'wrap' }}>
+          <div style={{ flex: '1 1 500px' }}>
+            <h2 className="gradient-text-purple" style={{ marginBottom: '1.5rem' }}>Send Us a Message</h2>
             <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
               <div>
-                <label style={{ display: 'block', color: 'var(--secondary)', marginBottom: '0.5rem', fontWeight: 600 }}>Your Name</label>
+                <label style={{ display: 'block', color: 'var(--secondary)', marginBottom: '0.5rem', fontWeight: 600 }}>Full Name</label>
                 <input
                   type="text"
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                   required
                   style={{ width: '100%', padding: '1rem', borderRadius: '10px', border: '2px solid var(--glass-border)', background: 'var(--glass)', color: 'white', fontSize: '1rem' }}
-                  placeholder="Enter your full name"
+                  placeholder="Your Name"
                 />
               </div>
               <div>
@@ -387,7 +388,7 @@ const ContactPage = ({ onBack }) => {
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                   required
                   style={{ width: '100%', padding: '1rem', borderRadius: '10px', border: '2px solid var(--glass-border)', background: 'var(--glass)', color: 'white', fontSize: '1rem' }}
-                  placeholder="your.email@example.com"
+                  placeholder="yourname@gmail.com"
                 />
               </div>
               <div>
@@ -422,8 +423,8 @@ const ContactPage = ({ onBack }) => {
               )}
             </form>
           </div>
-          <div>
-            <div className="glass-card" style={{ padding: '2.5rem', marginBottom: '2rem' }}>
+          <div style={{ flex: '1 1 300px' }}>
+            <div className="glass-card" style={{ padding: '2rem', marginBottom: '2rem' }}>
               <h3 style={{ color: 'var(--secondary)', marginBottom: '1.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                 <Mail size={24} /> Email Us
               </h3>
@@ -432,14 +433,14 @@ const ContactPage = ({ onBack }) => {
               <p style={{ color: 'white', marginTop: '1.5rem', marginBottom: '0.5rem' }}>Support:</p>
               <a href="mailto:support@sarkariexamall.com" style={{ color: 'var(--secondary)', textDecoration: 'none', fontSize: '1.1rem' }}>support@sarkariexamall.com</a>
             </div>
-            <div className="glass-card" style={{ padding: '2.5rem', marginBottom: '2rem' }}>
+            <div className="glass-card" style={{ padding: '2rem', marginBottom: '2rem' }}>
               <h3 style={{ color: 'var(--secondary)', marginBottom: '1.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                 <Phone size={24} /> Call Us Helpline
               </h3>
               <p style={{ color: 'white', marginBottom: '0.5rem' }}>Helpline (Mon-Sat, 9 AM - 6 PM):</p>
               <a href="tel:+918077583921" style={{ color: 'var(--secondary)', fontSize: '1rem', fontWeight: 600, textDecoration: 'none' }}>+91 8077583921</a>
             </div>
-            <div className="glass-card" style={{ padding: '2.5rem' }}>
+            <div className="glass-card" style={{ padding: '2rem' }}>
               <h3 style={{ color: 'var(--secondary)', marginBottom: '1.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                 <MessageCircle size={24} /> Connect With Us
               </h3>
@@ -522,7 +523,7 @@ const LocationPage = ({ location, onBack, onHome, onNavigate }) => {
               <ArrowLeft size={18} /> Back
             </button>
           </div>
-          <div className="glass-card" style={{ padding: '3rem', background: 'rgba(15, 23, 42, 0.95)', marginBottom: '3rem' }}>
+          <div className="dedicated-content" style={{ background: 'rgba(15, 23, 42, 0.95)', marginBottom: '3rem' }}>
             <div dangerouslySetInnerHTML={{ __html: location.content }} />
           </div>
           <RelatedLocations currentId={location.id} onNavigate={onNavigate} />
@@ -617,7 +618,7 @@ const RelatedArticles = ({ currentId, category, onNavigate }) => {
   if (related.length === 0) return null;
 
   return (
-    <div style={{ marginTop: '5rem', borderTop: '1px solid var(--glass-border)', paddingTop: '4rem' }}>
+    <div style={{ marginTop: '5rem', borderTop: '1px solid var(--glass-border)', paddingTop: '2.5rem' }}>
       <h3 className="gradient-text-teal" style={{ fontSize: '2rem', marginBottom: '3rem', textAlign: 'center' }}>📖 Continue Your Preparation Journey</h3>
       <div className="blog-grid" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2.5rem' }}>
         {related.map((blog, index) => {
@@ -971,7 +972,7 @@ const App = () => {
 
       <section id="checker" style={{ padding: 'var(--section-padding) 0', background: 'rgba(255,255,255,0.01)' }}>
         <div className="container">
-          <div style={{ display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: '4rem', alignItems: 'center' }}>
+          <div className="grid-responsive">
             <div className="reveal">
               <h2 className="gradient-text-purple">Intelligent Eligibility Matcher</h2>
               <p style={{ margin: '1.5rem 0 2rem', color: 'white', fontSize: '1.05rem', lineHeight: '1.7' }}>
@@ -984,7 +985,7 @@ const App = () => {
                 </button>
               </div>
             </div>
-            <div className="reveal glass-card" style={{ textAlign: 'center', border: 'none', background: 'var(--trust-blue)', padding: '3rem' }}>
+            <div className="reveal glass-card" style={{ textAlign: 'center', border: 'none', background: 'var(--trust-blue)', padding: '2rem' }}>
               <Cpu size={48} color="var(--secondary)" />
               <h3 style={{ marginTop: '1.5rem', color: 'white' }}>AI-Powered Verification System</h3>
               <p style={{ marginTop: '1rem', fontSize: '0.95rem', color: 'white', lineHeight: '1.7' }}>
@@ -1069,10 +1070,11 @@ const App = () => {
       <section className="homepage-newsletter">
         <div className="container">
           <div className="glass-card reveal" style={{
-            padding: '2.5rem',
+            padding: '2rem 1rem',
             textAlign: 'center',
             border: '1px solid var(--secondary)',
             background: 'rgba(139, 92, 246, 0.03)',
+            width: '100%',
             maxWidth: '900px',
             margin: '0 auto'
           }}>

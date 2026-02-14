@@ -109,12 +109,7 @@ const PreparationGuidesPage = ({ onSelectBlog, onBack }) => {
     ];
 
     return (
-        <div style={{
-            paddingTop: '10rem',
-            paddingBottom: '6rem',
-            background: 'var(--primary)',
-            minHeight: '100vh'
-        }}>
+        <div className="page-wrapper">
             <div className="container">
                 <button onClick={onBack} className="btn btn-secondary" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '3rem' }}>
                     <ArrowLeft size={18} /> Back
@@ -153,7 +148,7 @@ const PreparationGuidesPage = ({ onSelectBlog, onBack }) => {
                     <p style={{
                         fontSize: '1.1rem',
                         color: 'white',
-                        maxWidth: '900px',
+                        maxWidth: '100%',
                         margin: '0 auto 3rem',
                         lineHeight: '1.8',
                         opacity: 0.95
@@ -166,7 +161,7 @@ const PreparationGuidesPage = ({ onSelectBlog, onBack }) => {
                         display: 'grid',
                         gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
                         gap: '2rem',
-                        maxWidth: '900px',
+                        maxWidth: '100%',
                         margin: '0 auto'
                     }}>
                         <div className="glass-card" style={{ padding: '2rem', background: 'rgba(234, 88, 12, 0.05)', border: '2px solid rgba(234, 88, 12, 0.2)' }}>
@@ -268,28 +263,28 @@ const PreparationGuidesPage = ({ onSelectBlog, onBack }) => {
                 </div>
 
                 {/* Study Plans */}
-                <div className="glass-card" style={{
-                    padding: '4rem',
+                <div className="dedicated-content" style={{
                     marginBottom: '5rem',
                     background: 'rgba(245, 158, 11, 0.03)',
                     border: '2px solid rgba(245, 158, 11, 0.2)'
                 }}>
                     <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
-                        <h2 style={{ color: '#F59E0B', fontSize: '2.2rem', marginBottom: '1rem' }}>
+                        <h2 style={{ color: '#F59E0B', fontSize: 'clamp(1.8rem, 4.5vw, 2.2rem)', marginBottom: '1rem' }}>
                             Ready-Made Study Plans
                         </h2>
-                        <p style={{ color: 'white', fontSize: '1.1rem', lineHeight: '1.7', maxWidth: '800px', margin: '0 auto' }}>
+                        <p style={{ color: 'white', fontSize: '1.1rem', lineHeight: '1.7', width: '100%', margin: '0 auto' }}>
                             Proven study plans designed by toppers. Choose based on your target exam and available time.
                         </p>
                     </div>
 
                     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '2.5rem' }}>
                         {studyPlans.map((plan, idx) => (
-                            <div key={idx} style={{
-                                padding: '2.5rem',
+                            <div key={idx} className="glass-card" style={{
+                                padding: '2rem 1.5rem',
                                 background: 'rgba(255, 255, 255, 0.02)',
                                 borderRadius: '16px',
-                                border: `2px solid ${plan.color}40`
+                                border: `2px solid ${plan.color}40`,
+                                width: '100%'
                             }}>
                                 <div style={{
                                     display: 'inline-block',
@@ -359,7 +354,7 @@ const PreparationGuidesPage = ({ onSelectBlog, onBack }) => {
                         }}>
                             Expert Preparation Tips
                         </h2>
-                        <p style={{ color: 'white', fontSize: '1.1rem', maxWidth: '800px', margin: '0 auto', lineHeight: '1.7' }}>
+                        <p style={{ color: 'white', fontSize: '1.1rem', width: '100%', margin: '0 auto', lineHeight: '1.7' }}>
                             Time-tested strategies from successful candidates who cracked UPSC, SSC, and Banking exams.
                         </p>
                     </div>
@@ -367,9 +362,10 @@ const PreparationGuidesPage = ({ onSelectBlog, onBack }) => {
                     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '2.5rem' }}>
                         {expertTips.map((tip, idx) => (
                             <div key={idx} className="glass-card" style={{
-                                padding: '2.5rem',
+                                padding: '2rem 1.5rem',
                                 background: 'rgba(234, 88, 12, 0.03)',
-                                border: '2px solid rgba(234, 88, 12, 0.2)'
+                                border: '2px solid rgba(234, 88, 12, 0.2)',
+                                width: '100%'
                             }}>
                                 <div style={{ marginBottom: '1.5rem' }}>
                                     {tip.icon}
@@ -386,32 +382,28 @@ const PreparationGuidesPage = ({ onSelectBlog, onBack }) => {
                 </div>
 
                 {/* Success Strategies */}
-                <div className="glass-card" style={{
-                    padding: '4rem',
+                <div className="dedicated-content" style={{
                     marginBottom: '5rem',
                     background: 'rgba(234, 88, 12, 0.05)',
                     border: '2px solid rgba(234, 88, 12, 0.3)'
                 }}>
                     <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
-                        <h2 style={{ color: '#EA580C', fontSize: '2.2rem', marginBottom: '1rem' }}>
+                        <h2 style={{ color: '#EA580C', fontSize: 'clamp(1.8rem, 4.5vw, 2.2rem)', marginBottom: '1rem' }}>
                             Proven Success Strategies
                         </h2>
-                        <p style={{ color: 'white', fontSize: '1.1rem', lineHeight: '1.7', maxWidth: '800px', margin: '0 auto' }}>
+                        <p style={{ color: 'white', fontSize: '1.1rem', lineHeight: '1.7', width: '100%', margin: '0 auto' }}>
                             These strategies have helped thousands of aspirants achieve their goals. Implement them in your preparation.
                         </p>
                     </div>
 
-                    <div style={{ display: 'grid', gap: '2rem' }}>
+                    <div className="grid-responsive" style={{ gap: '2rem' }}>
                         {successStrategies.map((item, idx) => (
-                            <div key={idx} style={{
-                                padding: '2rem',
+                            <div key={idx} className="glass-card" style={{
+                                padding: '2rem 1.5rem',
                                 background: 'rgba(255, 255, 255, 0.02)',
                                 borderRadius: '12px',
                                 border: '2px solid rgba(234, 88, 12, 0.2)',
-                                display: 'grid',
-                                gridTemplateColumns: '300px 1fr',
-                                gap: '2rem',
-                                alignItems: 'center'
+                                width: '100%'
                             }}>
                                 <div>
                                     <h3 style={{ color: '#EA580C', fontSize: '1.4rem', fontWeight: 700 }}>
@@ -429,16 +421,15 @@ const PreparationGuidesPage = ({ onSelectBlog, onBack }) => {
                 </div>
 
                 {/* CTA Section */}
-                <div className="glass-card" style={{
-                    padding: '4rem',
+                <div className="dedicated-content" style={{
                     textAlign: 'center',
                     background: 'linear-gradient(135deg, rgba(234, 88, 12, 0.1) 0%, rgba(245, 158, 11, 0.1) 100%)',
                     border: '2px solid #EA580C'
                 }}>
-                    <h2 style={{ color: '#EA580C', fontSize: '2.2rem', marginBottom: '1.5rem' }}>
+                    <h2 style={{ color: '#EA580C', fontSize: 'clamp(1.8rem, 4.5vw, 2.2rem)', marginBottom: '1.5rem' }}>
                         Start Your Preparation Journey Today
                     </h2>
-                    <p style={{ color: 'white', fontSize: '1.2rem', marginBottom: '2.5rem', lineHeight: '1.8', maxWidth: '700px', margin: '0 auto 2.5rem' }}>
+                    <p style={{ color: 'white', fontSize: '1.2rem', marginBottom: '2.5rem', lineHeight: '1.8', width: '100%', margin: '0 auto 2.5rem' }}>
                         Access 30+ comprehensive preparation guides written by experts and successful candidates. Every guide is 3000+ words covering complete syllabus, strategy, and resources.
                     </p>
                     <div style={{ display: 'flex', gap: '1.5rem', justifyContent: 'center', flexWrap: 'wrap' }}>

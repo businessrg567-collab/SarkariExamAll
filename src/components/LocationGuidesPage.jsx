@@ -125,12 +125,7 @@ const LocationGuidesPage = ({ onSelectLocation, onBack }) => {
     ];
 
     return (
-        <div style={{
-            paddingTop: '10rem',
-            paddingBottom: '6rem',
-            background: 'var(--primary)',
-            minHeight: '100vh'
-        }}>
+        <div className="page-wrapper">
             <div className="container">
                 <button onClick={onBack} className="btn btn-secondary" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '3rem' }}>
                     <ArrowLeft size={18} /> Back
@@ -161,7 +156,7 @@ const LocationGuidesPage = ({ onSelectLocation, onBack }) => {
                     <p style={{
                         fontSize: '1.1rem',
                         color: 'white',
-                        maxWidth: '900px',
+                        maxWidth: '100%',
                         margin: '0 auto 3rem',
                         lineHeight: '1.8',
                         opacity: 0.95
@@ -174,7 +169,7 @@ const LocationGuidesPage = ({ onSelectLocation, onBack }) => {
                         display: 'grid',
                         gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
                         gap: '2rem',
-                        maxWidth: '900px',
+                        maxWidth: '100%',
                         margin: '0 auto'
                     }}>
                         <div className="glass-card" style={{ padding: '2rem', background: 'rgba(6, 182, 212, 0.05)', border: '2px solid rgba(6, 182, 212, 0.2)' }}>
@@ -205,7 +200,7 @@ const LocationGuidesPage = ({ onSelectLocation, onBack }) => {
                         }}>
                             Explore Cities by Region
                         </h2>
-                        <p style={{ color: 'white', fontSize: '1.1rem', maxWidth: '800px', margin: '0 auto', lineHeight: '1.7' }}>
+                        <p style={{ color: 'white', fontSize: '1.1rem', width: '100%', margin: '0 auto', lineHeight: '1.7' }}>
                             Select your preferred region to explore detailed city guides with exam centers, coaching hubs, and opportunities.
                         </p>
                     </div>
@@ -216,12 +211,11 @@ const LocationGuidesPage = ({ onSelectLocation, onBack }) => {
 
                         return (
                             <div key={region} style={{ marginBottom: '4rem' }}>
-                                <div style={{
+                                <div className="dedicated-content" style={{
                                     display: 'flex',
                                     alignItems: 'center',
                                     gap: '1rem',
                                     marginBottom: '2rem',
-                                    padding: '1rem 2rem',
                                     background: 'rgba(6, 182, 212, 0.05)',
                                     borderRadius: '12px',
                                     border: '2px solid rgba(6, 182, 212, 0.2)'
@@ -303,28 +297,28 @@ const LocationGuidesPage = ({ onSelectLocation, onBack }) => {
                 </div>
 
                 {/* Why Location Matters */}
-                <div className="glass-card" style={{
-                    padding: '4rem',
+                <div className="dedicated-content" style={{
                     marginBottom: '5rem',
                     background: 'rgba(6, 182, 212, 0.03)',
                     border: '2px solid rgba(6, 182, 212, 0.2)'
                 }}>
                     <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
-                        <h2 style={{ color: '#06B6D4', fontSize: '2.2rem', marginBottom: '1rem' }}>
+                        <h2 style={{ color: '#06B6D4', fontSize: 'clamp(1.8rem, 4.5vw, 2.2rem)', marginBottom: '1rem' }}>
                             Why Location Matters for Exam Preparation
                         </h2>
-                        <p style={{ color: 'white', fontSize: '1.1rem', lineHeight: '1.7', maxWidth: '800px', margin: '0 auto' }}>
+                        <p style={{ color: 'white', fontSize: '1.1rem', lineHeight: '1.7', width: '100%', margin: '0 auto' }}>
                             Choosing the right city for preparation can significantly impact your success. Here's why location is crucial.
                         </p>
                     </div>
 
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '2.5rem' }}>
+                    <div className="grid-responsive" style={{ gap: '2.5rem' }}>
                         {examCenterBenefits.map((benefit, idx) => (
-                            <div key={idx} style={{
-                                padding: '2.5rem',
+                            <div key={idx} className="glass-card" style={{
+                                padding: '2rem 1.5rem',
                                 background: 'rgba(255, 255, 255, 0.02)',
                                 borderRadius: '16px',
-                                border: '2px solid rgba(6, 182, 212, 0.2)'
+                                border: '2px solid rgba(6, 182, 212, 0.2)',
+                                width: '100%'
                             }}>
                                 <div style={{ marginBottom: '1.5rem' }}>
                                     {benefit.icon}
@@ -353,20 +347,20 @@ const LocationGuidesPage = ({ onSelectLocation, onBack }) => {
                         }}>
                             Coaching Hubs & Accommodation
                         </h2>
-                        <p style={{ color: 'white', fontSize: '1.1rem', maxWidth: '800px', margin: '0 auto', lineHeight: '1.7' }}>
+                        <p style={{ color: 'white', fontSize: '1.1rem', width: '100%', margin: '0 auto', lineHeight: '1.7' }}>
                             Key information about coaching centers, libraries, and affordable accommodation in major cities.
                         </p>
                     </div>
 
                     <div style={{ display: 'grid', gap: '2rem' }}>
                         {preparationResources.map((resource, idx) => (
-                            <div key={idx} className="glass-card" style={{
-                                padding: '2.5rem',
+                            <div key={idx} className="dedicated-content" style={{
                                 background: 'rgba(6, 182, 212, 0.03)',
-                                border: '2px solid rgba(6, 182, 212, 0.2)'
+                                border: '2px solid rgba(6, 182, 212, 0.2)',
+                                marginBottom: '2rem'
                             }}>
-                                <div style={{ display: 'grid', gridTemplateColumns: '250px 1fr', gap: '3rem', alignItems: 'start' }}>
-                                    <div>
+                                <div className="grid-responsive" style={{ gap: '3rem', alignItems: 'start' }}>
+                                    <div style={{ width: '100%' }}>
                                         <h3 style={{ color: '#06B6D4', fontSize: '2rem', marginBottom: '1rem', fontWeight: 700 }}>
                                             {resource.city}
                                         </h3>
@@ -378,7 +372,8 @@ const LocationGuidesPage = ({ onSelectLocation, onBack }) => {
                                             fontSize: '0.85rem',
                                             fontWeight: 700,
                                             color: '#06B6D4',
-                                            textAlign: 'center'
+                                            textAlign: 'center',
+                                            width: 'fit-content'
                                         }}>
                                             {resource.speciality}
                                         </div>
@@ -416,31 +411,32 @@ const LocationGuidesPage = ({ onSelectLocation, onBack }) => {
                 </div>
 
                 {/* State PSC Information */}
-                <div className="glass-card" style={{
-                    padding: '4rem',
+                <div className="dedicated-content" style={{
                     marginBottom: '5rem',
                     background: 'rgba(245, 158, 11, 0.03)',
                     border: '2px solid rgba(245, 158, 11, 0.2)'
                 }}>
                     <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
-                        <h2 style={{ color: '#F59E0B', fontSize: '2.2rem', marginBottom: '1rem' }}>
+                        <h2 style={{ color: '#F59E0B', fontSize: 'clamp(1.8rem, 4.5vw, 2.2rem)', marginBottom: '1rem' }}>
                             State PSC Opportunities
                         </h2>
-                        <p style={{ color: 'white', fontSize: '1.1rem', lineHeight: '1.7', maxWidth: '800px', margin: '0 auto' }}>
+                        <p style={{ color: 'white', fontSize: '1.1rem', lineHeight: '1.7', width: '100%', margin: '0 auto' }}>
                             Each state conducts its own Public Service Commission exams. Explore opportunities in major states.
                         </p>
                     </div>
 
                     <div style={{ display: 'grid', gap: '2rem' }}>
                         {statePSCInfo.map((psc, idx) => (
-                            <div key={idx} style={{
-                                padding: '2.5rem',
+                            <div key={idx} className="glass-card" style={{
+                                padding: '2rem 1.5rem',
                                 background: 'rgba(255, 255, 255, 0.02)',
                                 borderRadius: '16px',
-                                border: '2px solid rgba(245, 158, 11, 0.2)'
+                                border: '2px solid rgba(245, 158, 11, 0.2)',
+                                marginBottom: '1.5rem',
+                                width: '100%'
                             }}>
-                                <div style={{ display: 'grid', gridTemplateColumns: '300px 1fr 200px', gap: '2rem', alignItems: 'start' }}>
-                                    <div>
+                                <div className="grid-responsive" style={{ gap: '2rem', alignItems: 'start' }}>
+                                    <div style={{ width: '100%' }}>
                                         <h3 style={{ color: '#F59E0B', fontSize: '1.8rem', marginBottom: '0.5rem', fontWeight: 700 }}>
                                             {psc.state}
                                         </h3>
@@ -497,16 +493,15 @@ const LocationGuidesPage = ({ onSelectLocation, onBack }) => {
                 </div>
 
                 {/* CTA Section */}
-                <div className="glass-card" style={{
-                    padding: '4rem',
+                <div className="dedicated-content" style={{
                     textAlign: 'center',
                     background: 'linear-gradient(135deg, rgba(6, 182, 212, 0.1) 0%, rgba(14, 116, 144, 0.1) 100%)',
                     border: '2px solid #06B6D4'
                 }}>
-                    <h2 style={{ color: '#06B6D4', fontSize: '2.2rem', marginBottom: '1.5rem' }}>
+                    <h2 style={{ color: '#06B6D4', fontSize: 'clamp(1.8rem, 4.5vw, 2.2rem)', marginBottom: '1.5rem' }}>
                         Choose Your Preparation Destination
                     </h2>
-                    <p style={{ color: 'white', fontSize: '1.2rem', marginBottom: '2.5rem', lineHeight: '1.8', maxWidth: '700px', margin: '0 auto 2.5rem' }}>
+                    <p style={{ color: 'white', fontSize: '1.2rem', marginBottom: '2.5rem', lineHeight: '1.8', width: '100%', margin: '0 auto 2.5rem' }}>
                         Explore detailed guides for 20 major Indian cities. Find the perfect location for your exam preparation journey with information on coaching hubs, exam centers, and career opportunities.
                     </p>
                     <div style={{ display: 'flex', gap: '1.5rem', justifyContent: 'center', flexWrap: 'wrap' }}>

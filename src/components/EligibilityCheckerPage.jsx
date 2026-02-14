@@ -128,10 +128,7 @@ const EligibilityCheckerPage = ({ onBack }) => {
     ];
 
     return (
-        <div className="page-wrapper" style={{
-            background: 'var(--primary)',
-            minHeight: '100vh'
-        }}>
+        <div className="page-wrapper">
             <div className="container">
                 <button onClick={onBack} className="btn btn-secondary" style={{ marginBottom: '3rem' }}>
                     <Home size={16} /> Back to Home
@@ -162,7 +159,7 @@ const EligibilityCheckerPage = ({ onBack }) => {
                     <p style={{
                         fontSize: '1.3rem',
                         color: 'white',
-                        maxWidth: '900px',
+                        maxWidth: '100%',
                         margin: '0 auto 3rem',
                         lineHeight: '1.8',
                         opacity: 0.95
@@ -175,7 +172,7 @@ const EligibilityCheckerPage = ({ onBack }) => {
                         display: 'grid',
                         gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
                         gap: '2rem',
-                        maxWidth: '900px',
+                        maxWidth: '100%',
                         margin: '0 auto'
                     }}>
                         <div className="glass-card" style={{ padding: '2rem', background: 'rgba(139, 92, 246, 0.05)', border: '2px solid rgba(139, 92, 246, 0.2)' }}>
@@ -194,17 +191,16 @@ const EligibilityCheckerPage = ({ onBack }) => {
                 </div>
 
                 {/* Eligibility Checker Component */}
-                <div id="eligibility-checker-section" className="glass-card mobile-p-1" style={{
-                    padding: '3rem',
+                <div id="eligibility-checker-section" className="dedicated-content" style={{
                     marginBottom: '5rem',
                     background: 'rgba(255, 255, 255, 0.03)',
                     border: '2px solid rgba(139, 92, 246, 0.3)'
                 }}>
                     <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
-                        <h2 style={{ color: '#8B5CF6', fontSize: '2.5rem', marginBottom: '1rem' }}>
+                        <h2 style={{ color: '#8B5CF6', fontSize: 'clamp(1.8rem, 4.5vw, 2.5rem)', marginBottom: '1rem' }}>
                             Check Your Eligibility Now
                         </h2>
-                        <p style={{ color: 'white', fontSize: '1.1rem', lineHeight: '1.7' }}>
+                        <p style={{ color: 'white', fontSize: '1.1rem', lineHeight: '1.7', width: '100%', margin: '0 auto' }}>
                             Enter your details below to get instant results. Our system will show you all exams you qualify for.
                         </p>
                     </div>
@@ -217,12 +213,12 @@ const EligibilityCheckerPage = ({ onBack }) => {
                         <h2 className="gradient-text-purple" style={{ fontSize: 'clamp(2rem, 4vw, 3.5rem)', marginBottom: '1rem' }}>
                             Popular Exam Eligibility Criteria 2026
                         </h2>
-                        <p style={{ color: 'white', fontSize: '1.1rem', maxWidth: '800px', margin: '0 auto', lineHeight: '1.7' }}>
+                        <p style={{ color: 'white', fontSize: '1.1rem', width: '100%', margin: '0 auto', lineHeight: '1.7' }}>
                             Quick reference guide for major government examinations. Always verify with official notification.
                         </p>
                     </div>
 
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '2rem' }}>
+                    <div className="grid-responsive" style={{ gap: '2rem' }}>
                         {eligibilityCriteria.map((exam, idx) => (
                             <div key={idx} className="glass-card" style={{
                                 padding: '2.5rem',
@@ -256,31 +252,31 @@ const EligibilityCheckerPage = ({ onBack }) => {
                 </div>
 
                 {/* Age Relaxation Guide */}
-                <div className="glass-card mobile-p-1" style={{
-                    padding: '3rem',
+                <div className="dedicated-content" style={{
                     marginBottom: '5rem',
                     background: 'rgba(16, 185, 129, 0.03)',
                     border: '2px solid rgba(16, 185, 129, 0.2)'
                 }}>
                     <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
-                        <h2 style={{ color: '#10B981', fontSize: '2.5rem', marginBottom: '1rem' }}>
+                        <h2 style={{ color: '#10B981', fontSize: 'clamp(1.8rem, 4.5vw, 2.5rem)', marginBottom: '1rem' }}>
                             Age Relaxation Benefits
                         </h2>
-                        <p style={{ color: 'white', fontSize: '1.1rem', lineHeight: '1.7', maxWidth: '800px', margin: '0 auto' }}>
+                        <p style={{ color: 'white', fontSize: '1.1rem', lineHeight: '1.7', width: '100%', margin: '0 auto' }}>
                             Government of India provides age relaxation for reserved categories and special cases. Know your benefits!
                         </p>
                     </div>
 
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.5rem' }}>
+                    <div className="grid-responsive" style={{ gap: '1.5rem' }}>
                         {ageRelaxations.map((item, idx) => (
-                            <div key={idx} style={{
+                            <div key={idx} className="glass-card" style={{
                                 padding: '1.5rem',
                                 background: 'rgba(255, 255, 255, 0.02)',
                                 borderRadius: '12px',
                                 border: `2px solid ${item.color}20`,
                                 display: 'flex',
                                 justifyContent: 'space-between',
-                                alignItems: 'center'
+                                alignItems: 'center',
+                                width: '100%'
                             }}>
                                 <div>
                                     <div style={{ color: 'white', fontWeight: 600, fontSize: '1.05rem', marginBottom: '0.3rem' }}>
@@ -324,19 +320,20 @@ const EligibilityCheckerPage = ({ onBack }) => {
                         <h2 className="gradient-text-purple" style={{ fontSize: 'clamp(2rem, 4vw, 3.5rem)', marginBottom: '1rem' }}>
                             Common Eligibility Mistakes to Avoid
                         </h2>
-                        <p style={{ color: 'white', fontSize: '1.1rem', maxWidth: '800px', margin: '0 auto', lineHeight: '1.7' }}>
+                        <p style={{ color: 'white', fontSize: '1.1rem', width: '100%', margin: '0 auto', lineHeight: '1.7' }}>
                             Learn from others' mistakes. These errors have cost thousands of aspirants their dream jobs.
                         </p>
                     </div>
 
-                    <div style={{ display: 'grid', gap: '2rem' }}>
+                    <div className="grid-responsive" style={{ gap: '2rem' }}>
                         {commonMistakes.map((item, idx) => (
                             <div key={idx} className="glass-card" style={{
-                                padding: '2.5rem',
+                                padding: '2rem 1.5rem',
                                 background: 'rgba(239, 68, 68, 0.03)',
-                                border: '2px solid rgba(239, 68, 68, 0.2)'
+                                border: '2px solid rgba(239, 68, 68, 0.2)',
+                                width: '100%'
                             }}>
-                                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '2rem', alignItems: 'start' }}>
+                                <div className="grid-responsive" style={{ gap: '2rem', alignItems: 'start' }}>
                                     <div>
                                         <div style={{
                                             fontSize: '0.75rem',
@@ -389,22 +386,21 @@ const EligibilityCheckerPage = ({ onBack }) => {
                 </div>
 
                 {/* Preparation Tips After Eligibility Confirmation */}
-                <div className="glass-card mobile-p-1" style={{
-                    padding: '3rem',
+                <div className="dedicated-content" style={{
                     marginBottom: '5rem',
                     background: 'rgba(139, 92, 246, 0.05)',
                     border: '2px solid rgba(139, 92, 246, 0.3)'
                 }}>
                     <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
-                        <h2 style={{ color: '#8B5CF6', fontSize: '2.5rem', marginBottom: '1rem' }}>
+                        <h2 style={{ color: '#8B5CF6', fontSize: 'clamp(1.8rem, 4.5vw, 2.5rem)', marginBottom: '1rem' }}>
                             Next Steps After Confirming Eligibility
                         </h2>
-                        <p style={{ color: 'white', fontSize: '1.1rem', lineHeight: '1.7', maxWidth: '800px', margin: '0 auto' }}>
+                        <p style={{ color: 'white', fontSize: '1.1rem', lineHeight: '1.7', width: '100%', margin: '0 auto' }}>
                             You've confirmed you're eligible. Now what? Follow these expert-recommended steps to maximize your success chances.
                         </p>
                     </div>
 
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '2.5rem' }}>
+                    <div className="grid-responsive" style={{ gap: '2.5rem' }}>
                         {preparationTips.map((tip, idx) => (
                             <div key={idx} style={{
                                 padding: '2.5rem',
@@ -427,16 +423,15 @@ const EligibilityCheckerPage = ({ onBack }) => {
                 </div>
 
                 {/* CTA Section */}
-                <div className="glass-card mobile-p-1" style={{
-                    padding: '3rem',
+                <div className="dedicated-content" style={{
                     textAlign: 'center',
                     background: 'linear-gradient(135deg, rgba(139, 92, 246, 0.1) 0%, rgba(16, 185, 129, 0.1) 100%)',
                     border: '2px solid #8B5CF6'
                 }}>
-                    <h2 style={{ color: '#8B5CF6', fontSize: '2.5rem', marginBottom: '1.5rem' }}>
+                    <h2 style={{ color: '#8B5CF6', fontSize: 'clamp(1.8rem, 4.5vw, 2.5rem)', marginBottom: '1.5rem' }}>
                         Ready to Start Your Journey?
                     </h2>
-                    <p style={{ color: 'white', fontSize: '1.2rem', marginBottom: '2.5rem', lineHeight: '1.8', maxWidth: '700px', margin: '0 auto 2.5rem' }}>
+                    <p style={{ color: 'white', fontSize: '1.2rem', marginBottom: '2.5rem', lineHeight: '1.8', width: '100%', margin: '0 auto 2.5rem' }}>
                         Join 5 lakh+ aspirants who trust SarkariExamAll for accurate eligibility information and comprehensive preparation guidance. Your dream government job is just one eligibility check away!
                     </p>
                     <div style={{ display: 'flex', gap: '1.5rem', justifyContent: 'center', flexWrap: 'wrap' }}>

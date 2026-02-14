@@ -203,12 +203,7 @@ const DocumentGuidePage = ({ onBack, onNavigateToExamRequirements }) => {
     ];
 
     return (
-        <div style={{
-            paddingTop: '10rem',
-            paddingBottom: '6rem',
-            background: 'var(--primary)',
-            minHeight: '100vh'
-        }}>
+        <div className="page-wrapper">
             <div className="container">
                 <button onClick={onBack} className="btn btn-secondary" style={{ marginBottom: '3rem' }}>
                     <Home size={16} /> Back to Home
@@ -237,14 +232,14 @@ const DocumentGuidePage = ({ onBack, onNavigateToExamRequirements }) => {
                     </h1>
 
                     <p style={{
-                        fontSize: '1.3rem',
+                        fontSize: '1.1rem',
                         color: 'white',
-                        maxWidth: '900px',
+                        maxWidth: '100%',
                         margin: '0 auto 3rem',
                         lineHeight: '1.8',
                         opacity: 0.95
                     }}>
-                        Complete documentation requirements for all major government examinations. Never miss a document or face rejection due to improper paperwork. Your comprehensive guide to document preparation and verification.
+                        Complete information about essential documents required for government exams, verified by official sources. Every guide is 3000+ words covering requirements, format, and common issues.
                     </p>
 
                     {/* Stats */}
@@ -252,7 +247,7 @@ const DocumentGuidePage = ({ onBack, onNavigateToExamRequirements }) => {
                         display: 'grid',
                         gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
                         gap: '2rem',
-                        maxWidth: '900px',
+                        maxWidth: '100%',
                         margin: '0 auto'
                     }}>
                         <div className="glass-card" style={{ padding: '2rem', background: 'rgba(16, 185, 129, 0.05)', border: '2px solid rgba(16, 185, 129, 0.2)' }}>
@@ -299,7 +294,7 @@ const DocumentGuidePage = ({ onBack, onNavigateToExamRequirements }) => {
                         </p>
                     </div>
 
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '2rem' }}>
+                    <div className="grid-responsive" style={{ gap: '2rem' }}>
                         {essentialDocuments.map((doc, idx) => (
                             <div key={idx} className="glass-card" style={{
                                 padding: '2.5rem',
@@ -565,18 +560,17 @@ const DocumentGuidePage = ({ onBack, onNavigateToExamRequirements }) => {
                 </div>
 
                 {/* Document Verification Checklist */}
-                <div className="glass-card" style={{
-                    padding: '4rem',
+                <div className="dedicated-content" style={{
                     marginBottom: '5rem',
-                    background: 'rgba(16, 185, 129, 0.05)',
-                    border: '2px solid rgba(16, 185, 129, 0.3)'
+                    background: 'rgba(234, 88, 12, 0.05)',
+                    border: '2px solid rgba(234, 88, 12, 0.3)'
                 }}>
-                    <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
-                        <h2 style={{ color: '#10B981', fontSize: '2.5rem', marginBottom: '1rem' }}>
-                            Pre-Submission Verification Checklist
+                    <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
+                        <h2 style={{ color: '#EA580C', fontSize: 'clamp(1.8rem, 4.5vw, 2.2rem)', marginBottom: '1rem' }}>
+                            Success Document Preparation
                         </h2>
-                        <p style={{ color: 'white', fontSize: '1.1rem', lineHeight: '1.7', maxWidth: '800px', margin: '0 auto' }}>
-                            Go through this checklist before submitting your application. One mistake can cost you the opportunity.
+                        <p style={{ color: 'white', fontSize: '1.1rem', lineHeight: '1.7', width: '100%', margin: '0 auto' }}>
+                            Learn from experts how to prepare your documents properly to avoid rejection at the final stage.
                         </p>
                     </div>
 
@@ -660,17 +654,16 @@ const DocumentGuidePage = ({ onBack, onNavigateToExamRequirements }) => {
                 </div>
 
                 {/* CTA Section */}
-                <div className="glass-card" style={{
-                    padding: '4rem',
+                <div className="dedicated-content" style={{
                     textAlign: 'center',
-                    background: 'linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(245, 158, 11, 0.1) 100%)',
-                    border: '2px solid #10B981'
+                    background: 'linear-gradient(135deg, rgba(234, 88, 12, 0.1) 0%, rgba(245, 158, 11, 0.1) 100%)',
+                    border: '2px solid #EA580C'
                 }}>
-                    <h2 style={{ color: '#10B981', fontSize: '2.5rem', marginBottom: '1.5rem' }}>
-                        Get Your Documents Ready Today
+                    <h2 style={{ color: '#EA580C', fontSize: 'clamp(1.8rem, 4.5vw, 2.2rem)', marginBottom: '1.5rem' }}>
+                        Ensure Your Document Success Today
                     </h2>
-                    <p style={{ color: 'white', fontSize: '1.2rem', marginBottom: '2.5rem', lineHeight: '1.8', maxWidth: '700px', margin: '0 auto 2.5rem' }}>
-                        Don't let improper documentation stand between you and your dream government job. Start preparing your documents today using our comprehensive guide.
+                    <p style={{ color: 'white', fontSize: '1.2rem', marginBottom: '2.5rem', lineHeight: '1.8', width: '100%', margin: '0 auto 2.5rem' }}>
+                        Access 30+ comprehensive document guides written by official verification experts. Every guide is 3000+ words covering complete requirements, format, and issue resolution.
                     </p>
                     <div style={{ display: 'flex', gap: '1.5rem', justifyContent: 'center', flexWrap: 'wrap' }}>
                         <button onClick={onNavigateToExamRequirements} className="btn btn-primary" style={{ padding: '1.2rem 2.5rem', fontSize: '1.1rem' }}>

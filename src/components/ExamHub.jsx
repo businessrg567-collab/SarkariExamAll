@@ -99,7 +99,7 @@ const examHubData = [
 const ExamHub = () => {
     return (
         <div className="reveal">
-            <div className="grid grid-2" style={{ gap: '2rem', maxWidth: '1000px', margin: '0 auto' }}>
+            <div className="grid-responsive" style={{ gap: '2rem', width: '100%', margin: '0 auto' }}>
                 {examHubData.map((cat, i) => (
                     <div key={i} className="glass-card" style={{ padding: '1.5rem' }}>
                         <h3 className="gradient-text-teal" style={{ marginBottom: '1.2rem', fontSize: '1.3rem' }}>{cat.category}</h3>
@@ -109,7 +109,7 @@ const ExamHub = () => {
                                     <h4 style={{ color: 'white', fontSize: '1rem' }}>{exam.name}</h4>
                                     <span className="badge-trust" style={{ margin: 0, fontSize: '0.6rem', padding: '0.2rem 0.5rem' }}>Official</span>
                                 </div>
-                                <div style={{ marginTop: '0.8rem', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
+                                <div style={{ marginTop: '0.8rem' }} className="grid-responsive">
                                     <div>
                                         <span style={{ fontSize: '0.7rem', color: 'var(--secondary)', fontWeight: 700, display: 'block', marginBottom: '0.4rem' }}>MANDATORY DOCUMENTS</span>
                                         <ul style={{ listStyle: 'none', fontSize: '0.8rem', color: 'var(--text-dim)' }}>

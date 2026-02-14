@@ -118,19 +118,19 @@ h4 {
 }
 
 h1 {
-  font-size: clamp(22px, 4vw, 36px);
+  font-size: clamp(26px, 5vw, 36px);
 }
 
 h2 {
-  font-size: clamp(18px, 3vw, 28px);
+  font-size: clamp(22px, 4vw, 28px);
 }
 
 h3 {
-  font-size: clamp(16px, 2.5vw, 22px);
+  font-size: clamp(18px, 3vw, 22px);
 }
 
 h4 {
-  font-size: clamp(14px, 2vw, 18px);
+  font-size: clamp(16px, 2.5vw, 18px);
 }
 
 p {
@@ -654,8 +654,8 @@ section {
 
 .article-content p {
   margin-bottom: 2.5rem;
-  line-height: 1.7;
-  font-size: clamp(14px, 2.5vw, 16px);
+  line-height: 1.6;
+  font-size: 17px;
   color: #E5E7EB !important;
   opacity: 1 !important;
   font-weight: 400;
@@ -677,8 +677,8 @@ section {
 
 .article-content li {
   margin-bottom: 1.5rem;
-  line-height: 1.7;
-  font-size: clamp(14px, 2.5vw, 16px);
+  line-height: 1.6;
+  font-size: 17px;
   color: #E5E7EB !important;
   opacity: 1 !important;
   font-weight: 400;
@@ -1026,9 +1026,25 @@ section {
     font-size: 0.7rem;
   }
 
-  /* Section titles mobile */
+  /* Headline Wrap Fix & Responsive Scaling */
+  .hero h1 {
+    font-size: 26px;
+    line-height: 1.25;
+    margin-bottom: 1.5rem;
+    white-space: normal !important;
+    text-overflow: unset !important;
+    overflow: visible !important;
+  }
+
   .section-title h2 {
-    font-size: 1.8rem;
+    font-size: 22px;
+  }
+
+  /* Container Reset */
+  .container {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 16px !important;
   }
 }
 
@@ -1070,16 +1086,21 @@ section {
 
   /* Article content container mobile */
   .article-content {
-    padding: 1rem 0.5rem;
+    padding: 1rem 0;
+    width: 100%;
     max-width: 100%;
     overflow-x: hidden;
   }
 
   /* Dedicated content container mobile */
   .dedicated-content {
-    margin: 1.5rem 0.5rem;
-    padding: 1.5rem 1rem;
-    border-radius: 15px;
+    margin: 1.5rem 0;
+    padding: 2rem 16px;
+    border-radius: 0;
+    width: 100%;
+    max-width: 100%;
+    border-left: none;
+    border-right: none;
   }
 
   /* Smaller table cells for very small screens */

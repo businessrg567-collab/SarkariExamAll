@@ -41,12 +41,7 @@ const ExamRequirementsPage = ({ onBack }) => {
     ];
 
     return (
-        <div style={{
-            paddingTop: '10rem',
-            paddingBottom: '6rem',
-            background: 'var(--primary)',
-            minHeight: '100vh'
-        }}>
+        <div className="page-wrapper">
             <div className="container">
                 <button onClick={onBack} className="btn btn-secondary" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '3rem' }}>
                     <ArrowLeft size={18} /> Back
@@ -77,7 +72,7 @@ const ExamRequirementsPage = ({ onBack }) => {
                     <p style={{
                         fontSize: '1.1rem',
                         color: 'white',
-                        maxWidth: '900px',
+                        maxWidth: '100%',
                         margin: '0 auto 3rem',
                         lineHeight: '1.8',
                         opacity: 0.95
@@ -90,7 +85,7 @@ const ExamRequirementsPage = ({ onBack }) => {
                         display: 'grid',
                         gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
                         gap: '2rem',
-                        maxWidth: '900px',
+                        maxWidth: '100%',
                         margin: '0 auto'
                     }}>
                         <div className="glass-card" style={{ padding: '2rem', background: 'rgba(245, 158, 11, 0.05)', border: '2px solid rgba(245, 158, 11, 0.2)' }}>
@@ -114,18 +109,19 @@ const ExamRequirementsPage = ({ onBack }) => {
                         <h2 className="gradient-text" style={{ fontSize: 'clamp(1.5rem, 3.5vw, 2.2rem)', marginBottom: '1rem' }}>
                             Browse by Exam Category
                         </h2>
-                        <p style={{ color: 'white', fontSize: '1.1rem', maxWidth: '800px', margin: '0 auto', lineHeight: '1.7' }}>
+                        <p style={{ color: 'white', fontSize: '1.1rem', width: '100%', margin: '0 auto', lineHeight: '1.7' }}>
                             Select your exam category to view detailed requirements and eligibility criteria.
                         </p>
                     </div>
 
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem', marginBottom: '5rem' }}>
+                    <div className="grid-responsive" style={{ gap: '2rem', marginBottom: '5rem' }}>
                         {examCategories.map((cat, idx) => (
                             <div key={idx} className="glass-card" style={{
-                                padding: '2.5rem',
+                                padding: '2rem 1.5rem',
                                 background: 'rgba(255, 255, 255, 0.03)',
                                 border: '2px solid rgba(245, 158, 11, 0.2)',
-                                transition: 'all 0.3s ease'
+                                transition: 'all 0.3s ease',
+                                width: '100%'
                             }}>
                                 <div style={{ marginBottom: '1.5rem' }}>
                                     {cat.icon}
