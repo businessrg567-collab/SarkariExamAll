@@ -944,27 +944,24 @@ const App = () => {
 
             {/* Trust Stats Counter */}
             <div style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+              display: 'flex',
+              flexWrap: 'wrap',
               gap: '1rem',
+              justifyContent: 'center',
               marginTop: '2rem',
               marginBottom: '3rem'
             }}>
-              <div className="glass-card" style={{ padding: '1.2rem', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
-                <div className="stats-number" style={{ color: 'var(--secondary)', fontSize: '2.5rem', fontWeight: 800, lineHeight: 1 }}>5L+</div>
-                <div className="stats-label" style={{ fontSize: '1rem', marginTop: '0.5rem', color: 'var(--text-dim)' }}>Active Aspirants</div>
+              <div className="glass-card" style={{ padding: '1.2rem', flex: '1 1 180px', maxWidth: '280px', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
+                <div className="stats-number" style={{ color: 'var(--secondary)', fontSize: '2.2rem', fontWeight: 800, lineHeight: 1 }}>5L+</div>
+                <div className="stats-label" style={{ fontSize: '0.9rem', marginTop: '0.4rem', color: 'var(--text-dim)' }}>Active Aspirants</div>
               </div>
-              <div className="glass-card" style={{ padding: '1.2rem', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
-                <div className="stats-number" style={{ color: '#10B981', fontSize: '2.5rem', fontWeight: 800, lineHeight: 1 }}>50+</div>
-                <div className="stats-label" style={{ fontSize: '1rem', marginTop: '0.5rem', color: 'var(--text-dim)' }}>Exam Bodies</div>
+              <div className="glass-card" style={{ padding: '1.2rem', flex: '1 1 180px', maxWidth: '280px', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
+                <div className="stats-number" style={{ color: '#10B981', fontSize: '2.2rem', fontWeight: 800, lineHeight: 1 }}>50+</div>
+                <div className="stats-label" style={{ fontSize: '0.9rem', marginTop: '0.4rem', color: 'var(--text-dim)' }}>Exam Bodies</div>
               </div>
-              <div className="glass-card" style={{ padding: '1.2rem', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
-                <div className="stats-number" style={{ color: '#8B5CF6', fontSize: '2.5rem', fontWeight: 800, lineHeight: 1 }}>100%</div>
-                <div className="stats-label" style={{ fontSize: '1rem', marginTop: '0.5rem', color: 'var(--text-dim)' }}>Official Data</div>
-              </div>
-              <div className="glass-card" style={{ padding: '1.2rem', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
-                <div className="stats-number" style={{ color: '#F59E0B', fontSize: '2.5rem', fontWeight: 800, lineHeight: 1 }}>24/7</div>
-                <div className="stats-label" style={{ fontSize: '1rem', marginTop: '0.5rem', color: 'var(--text-dim)' }}>Expert Support</div>
+              <div className="glass-card" style={{ padding: '1.2rem', flex: '1 1 100%', maxWidth: '350px', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
+                <div className="stats-number" style={{ color: '#8B5CF6', fontSize: '2.2rem', fontWeight: 800, lineHeight: 1 }}>100%</div>
+                <div className="stats-label" style={{ fontSize: '0.9rem', marginTop: '0.4rem', color: 'var(--text-dim)' }}>Official Data</div>
               </div>
             </div>
 
