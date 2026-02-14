@@ -609,29 +609,61 @@ const LocationsHub = ({ onSelectLocation, onBack }) => {
 };
 
 const RelatedArticles = ({ currentId, category, onNavigate }) => {
-  // Simple suggestion logic: same category, excluding current
-  const related = blogs
-    .filter(b => b.category === category && b.id !== currentId)
-    .slice(0, 6);
+  // Enhanced suggestion logic: same category first, then fill with others up to 6
+  const sameCategory = blogs.filter(b => b.category === category && b.id !== currentId);
+  const others = blogs.filter(b => b.category !== category && b.id !== currentId);
+  const related = [...sameCategory, ...others].slice(0, 6);
 
   if (related.length === 0) return null;
 
   return (
-    <div style={{ marginTop: '4rem', borderTop: '1px solid var(--glass-border)', paddingTop: '3rem' }}>
-      <h3 className="gradient-text-teal" style={{ fontSize: '1.8rem', marginBottom: '2rem' }}>Related Articles</h3>
-      <div className="blog-grid" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))' }}>
-        {related.map(blog => (
-          <div key={blog.id} className="blog-card" onClick={() => onNavigate(blog)} style={{ cursor: 'pointer' }}>
-            <div style={{ height: '180px', overflow: 'hidden', position: 'relative' }}>
-              <img src={blog.image} alt={blog.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} onError={handleImageError} />
+    <div style={{ marginTop: '5rem', borderTop: '1px solid var(--glass-border)', paddingTop: '4rem' }}>
+      <h3 className="gradient-text-teal" style={{ fontSize: '2rem', marginBottom: '3rem', textAlign: 'center' }}>📖 Continue Your Preparation Journey</h3>
+      <div className="blog-grid" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2.5rem' }}>
+        {related.map((blog, index) => {
+          // Different accent styles for variety
+          const presets = [
+            { bg: 'rgba(139, 92, 246, 0.05)', border: 'rgba(139, 92, 246, 0.2)', accent: '#A78BFA', icon: '🎯' },
+            { bg: 'rgba(16, 185, 129, 0.05)', border: 'rgba(16, 185, 129, 0.2)', accent: '#10B981', icon: '📝' },
+            { bg: 'rgba(245, 158, 11, 0.05)', border: 'rgba(245, 158, 11, 0.2)', accent: '#F59E0B', icon: '💼' },
+            { bg: 'rgba(236, 72, 153, 0.05)', border: 'rgba(236, 72, 153, 0.2)', accent: '#EC4899', icon: '🚂' },
+            { bg: 'rgba(59, 130, 246, 0.05)', border: 'rgba(59, 130, 246, 0.2)', accent: '#3B82F6', icon: '📚' },
+            { bg: 'rgba(239, 68, 68, 0.05)', border: 'rgba(239, 68, 68, 0.2)', accent: '#EF4444', icon: '🎖️' }
+          ];
+          const style = presets[index % presets.length];
+
+          return (
+            <div
+              key={blog.id}
+              className="blog-card"
+              onClick={() => onNavigate(blog)}
+              style={{
+                cursor: 'pointer',
+                background: style.bg,
+                border: `1px solid ${style.border}`,
+                display: 'flex',
+                flexDirection: 'column',
+                height: '100%',
+                transition: 'all 0.3s ease'
+              }}
+            >
+              <div style={{ height: '180px', overflow: 'hidden', position: 'relative' }}>
+                <img src={blog.image} alt={blog.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} onError={handleImageError} />
+                <div style={{ position: 'absolute', top: '1rem', right: '1rem', background: 'rgba(15, 23, 42, 0.8)', padding: '0.4rem', borderRadius: '50%', width: '36px', height: '36px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.2rem' }}>
+                  {style.icon}
+                </div>
+              </div>
+              <div className="blog-content" style={{ padding: '1.5rem', flex: 1, display: 'flex', flexDirection: 'column' }}>
+                <span className="blog-cat" style={{ color: style.accent, fontSize: '0.75rem', fontWeight: 700, border: `1px solid ${style.accent}`, padding: '2px 8px', borderRadius: '4px', width: 'fit-content' }}>{blog.category}</span>
+                <h4 style={{ color: 'white', fontSize: '1.15rem', marginBottom: '0.8rem', marginTop: '1rem', lineHeight: '1.4' }}>{blog.title}</h4>
+                <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '0.9rem', marginBottom: '1.5rem', flex: 1 }}>{blog.excerpt.substring(0, 90)}...</p>
+                <span style={{ color: style.accent, fontSize: '0.85rem', fontWeight: 700, display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
+                  Read Complete Guide →
+                </span>
+              </div>
             </div>
-            <div className="blog-content" style={{ padding: '1.5rem' }}>
-              <span className="blog-cat" style={{ fontSize: '0.75rem' }}>{blog.category}</span>
-              <h4 style={{ color: 'white', fontSize: '1.1rem', marginBottom: '0.5rem', lineHeight: '1.4' }}>{blog.title}</h4>
-              <span style={{ color: 'var(--secondary)', fontSize: '0.85rem', fontWeight: 600 }}>Read Guide →</span>
-            </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
     </div>
   );
@@ -711,8 +743,16 @@ const App = () => {
 
     // Check for dynamic routes
     const pathValues = pathname.split('/').filter(Boolean);
+
+    // Support /[slug] (deprecated but kept for compatibility)
     if (pathValues.length === 1 && !['about', 'contact', 'locations', 'success-stories', 'career-counseling', 'partner', 'eligibility-checker', 'document-guide', 'exam-requirements', 'preparation-guides', 'location-guides', 'privacy-policy', 'terms-of-service'].includes(pathValues[0])) {
       const slug = pathValues[0];
+      if (blogs.some(b => b.slug === slug || b.id === slug)) return 'Detail';
+    }
+
+    // Support /blog/[slug] (New preferred structure)
+    if (pathValues.length === 2 && pathValues[0] === 'blog') {
+      const slug = pathValues[1];
       if (blogs.some(b => b.slug === slug || b.id === slug)) return 'Detail';
     }
 
@@ -773,14 +813,24 @@ const App = () => {
     // Extract blog slug or location from URL if present
     const pathValues = location.pathname.split('/').filter(Boolean);
 
+    // Support /[slug]
     if (pathValues.length === 1 && !['about', 'contact', 'locations', 'success-stories', 'career-counseling', 'partner', 'eligibility-checker', 'document-guide', 'exam-requirements', 'preparation-guides', 'location-guides', 'privacy-policy', 'terms-of-service'].includes(pathValues[0])) {
       const slug = pathValues[0];
       const blog = blogs.find(b => (b.slug === slug) || (b.id === slug));
 
       if (blog) {
         setSelectedBlog(blog);
-        // We don't need to force setActiveTab here if getActiveTabFromPath works correctly,
-        // but for safety in case of race conditions or initial load nuances:
+        if (activeTab !== 'Detail') setActiveTab('Detail');
+      }
+    }
+
+    // Support /blog/[slug]
+    if (pathValues.length === 2 && pathValues[0] === 'blog') {
+      const slug = pathValues[1];
+      const blog = blogs.find(b => (b.slug === slug) || (b.id === slug));
+
+      if (blog) {
+        setSelectedBlog(blog);
         if (activeTab !== 'Detail') setActiveTab('Detail');
       }
     }
@@ -812,7 +862,7 @@ const App = () => {
 
     if (tab === 'Detail' && blogOrLocation) {
       setSelectedBlog(blogOrLocation);
-      navigate(`/${blogOrLocation.slug || blogOrLocation.id}`);
+      navigate(`/blog/${blogOrLocation.slug || blogOrLocation.id}`);
     } else if (tab === 'Location' && blogOrLocation) {
       setSelectedLocation(blogOrLocation);
       // Use the explicit slug from locations.js

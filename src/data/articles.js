@@ -120,52 +120,6 @@ const generateLongFormContent = (title, category) => {
         <p style="color: #bfdbfe !important; font-weight: 600;">1. Plan meticulously.<br>2. Practice consistently.<br>3. Stay healthy.<br>4. Believe in yourself.</p>
       </div>
 
-      <div style="margin-top: 5rem;">
-        <h2 style="color: #14B8A6; margin-bottom: 2rem; text-align: center;">📖 Continue Your Preparation Journey</h2>
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-top: 2rem;">
-          <a href="/blog/upsc-cse-2026-notification" style="text-decoration: none; display: block; background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(59, 130, 246, 0.1)); border: 1px solid rgba(139, 92, 246, 0.3); border-radius: 12px; padding: 2rem; transition: all 0.3s ease; cursor: pointer;">
-            <div style="width: 100%; height: 180px; background: linear-gradient(135deg, #8B5CF6, #3B82F6); border-radius: 8px; margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: center; font-size: 3rem;">🎯</div>
-            <h3 style="color: #A78BFA; margin-bottom: 1rem; font-size: 1.2rem;">UPSC CSE 2026 Notification</h3>
-            <p style="color: #D1D5DB; font-size: 0.95rem; line-height: 1.6;">Comprehensive guide to Civil Services Examination 2026 with dates and stages.</p>
-            <span style="color: #10B981; font-weight: 600; margin-top: 1rem; display: inline-block;">Read More →</span>
-          </a>
-          
-          <a href="/blog/ssc-cgl-2026-exam-calendar" style="text-decoration: none; display: block; background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(245, 158, 11, 0.1)); border: 1px solid rgba(16, 185, 129, 0.3); border-radius: 12px; padding: 2rem; transition: all 0.3s ease; cursor: pointer;">
-            <div style="width: 100%; height: 180px; background: linear-gradient(135deg, #10B981, #F59E0B); border-radius: 8px; margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: center; font-size: 3rem;">📝</div>
-            <h3 style="color: #10B981; margin-bottom: 1rem; font-size: 1.2rem;">SSC CGL 2026 Exam Calendar</h3>
-            <p style="color: #D1D5DB; font-size: 0.95rem; line-height: 1.6;">Official SSC exam calendar with Tier-I and Tier-II pattern changes for 2026.</p>
-            <span style="color: #F59E0B; font-weight: 600; margin-top: 1rem; display: inline-block;">Read More →</span>
-          </a>
-          
-          <a href="/blog/ibps-po-2026-eligibility-criteria" style="text-decoration: none; display: block; background: linear-gradient(135deg, rgba(245, 158, 11, 0.1), rgba(239, 68, 68, 0.1)); border: 1px solid rgba(245, 158, 11, 0.3); border-radius: 12px; padding: 2rem; transition: all 0.3s ease; cursor: pointer;">
-            <div style="width: 100%; height: 180px; background: linear-gradient(135deg, #F59E0B, #EF4444); border-radius: 8px; margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: center; font-size: 3rem;">💼</div>
-            <h3 style="color: #F59E0B; margin-bottom: 1rem; font-size: 1.2rem;">IBPS PO 2026 Eligibility</h3>
-            <p style="color: #D1D5DB; font-size: 0.95rem; line-height: 1.6;">Updated age limit, qualification, and EWS reservation norms for PO recruitment.</p>
-            <span style="color: #EF4444; font-weight: 600; margin-top: 1rem; display: inline-block;">Read More →</span>
-          </a>
-
-          <a href="/blog/railway-rrb-ntpc-2026-update" style="text-decoration: none; display: block; background: linear-gradient(135deg, rgba(236, 72, 153, 0.1), rgba(139, 92, 246, 0.1)); border: 1px solid rgba(236, 72, 153, 0.3); border-radius: 12px; padding: 2rem; transition: all 0.3s ease; cursor: pointer;">
-            <div style="width: 100%; height: 180px; background: linear-gradient(135deg, #EC4899, #8B5CF6); border-radius: 8px; margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: center; font-size: 3rem;">🚂</div>
-            <h3 style="color: #EC4899; margin-bottom: 1rem; font-size: 1.2rem;">Railway RRB NTPC 2026</h3>
-            <p style="color: #D1D5DB; font-size: 0.95rem; line-height: 1.6;">Ministry announcement for 1.5 Lakh vacancies with zone-wise breakdown.</p>
-            <span style="color: #A78BFA; font-weight: 600; margin-top: 1rem; display: inline-block;">Read More →</span>
-          </a>
-
-          <a href="/blog/state-psc-2026-syllabus-changes" style="text-decoration: none; display: block; background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(16, 185, 129, 0.1)); border: 1px solid rgba(59, 130, 246, 0.3); border-radius: 12px; padding: 2rem; transition: all 0.3s ease; cursor: pointer;">
-            <div style="width: 100%; height: 180px; background: linear-gradient(135deg, #3B82F6, #10B981); border-radius: 8px; margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: center; font-size: 3rem;">📚</div>
-            <h3 style="color: #3B82F6; margin-bottom: 1rem; font-size: 1.2rem;">State PSC 2026 Syllabus</h3>
-            <p style="color: #D1D5DB; font-size: 0.95rem; line-height: 1.6;">Comparative analysis of UPPSC, BPSC, MPPSC and RAS syllabus updates.</p>
-            <span style="color: #10B981; font-weight: 600; margin-top: 1rem; display: inline-block;">Read More →</span>
-          </a>
-
-          <a href="/blog/defense-exams-nda-cds-2026" style="text-decoration: none; display: block; background: linear-gradient(135deg, rgba(239, 68, 68, 0.1), rgba(245, 158, 11, 0.1)); border: 1px solid rgba(239, 68, 68, 0.3); border-radius: 12px; padding: 2rem; transition: all 0.3s ease; cursor: pointer;">
-            <div style="width: 100%; height: 180px; background: linear-gradient(135deg, #EF4444, #F59E0B); border-radius: 8px; margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: center; font-size: 3rem;">🎖️</div>
-            <h3 style="color: #EF4444; margin-bottom: 1rem; font-size: 1.2rem;">Defense Exams NDA/CDS 2026</h3>
-            <p style="color: #D1D5DB; font-size: 0.95rem; line-height: 1.6;">Complete roadmap for Armed Forces with physical standards and SSB tips.</p>
-            <span style="color: #F59E0B; font-weight: 600; margin-top: 1rem; display: inline-block;">Read More →</span>
-          </a>
-        </div>
-      </div>
     </article>
   `;
 };
