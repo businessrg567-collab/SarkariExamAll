@@ -900,7 +900,7 @@ const App = () => {
               </div>
             </div>
 
-            <h1 className="hero-brand-title" style={{ fontSize: 'clamp(1.8rem, 5vw, 4rem)', fontWeight: 600, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>India's Trusted Exam Platform</h1>
+            <h1 className="hero-brand-title" style={{ fontSize: 'clamp(1.8rem, 5vw, 4rem)', fontWeight: 600 }}>India's Trusted Exam Platform</h1>
             <h2 className="hero-tagline">Official Govt Exam Portal</h2>
 
             <p className="hero-description">
