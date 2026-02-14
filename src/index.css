@@ -35,7 +35,7 @@
   --font-body: 'Inter',
     sans-serif;
 
-  --section-padding: 5rem;
+  --section-padding: 3.5rem;
   --container-width: 1200px;
 }
 
@@ -55,22 +55,22 @@ html {
 }
 
 .page-wrapper {
-  padding-top: 10rem;
-  padding-bottom: 6rem;
+  padding-top: 8rem;
+  padding-bottom: 4rem;
   width: 100%;
 }
 
 .grid-responsive {
   display: grid;
   grid-template-columns: 1.2fr 1fr;
-  gap: 4rem;
+  gap: 2.5rem;
   align-items: start;
 }
 
 @media (max-width: 900px) {
   .page-wrapper {
-    padding-top: 8rem;
-    padding-bottom: 4rem;
+    padding-top: 7rem;
+    padding-bottom: 3.5rem;
   }
 
   .grid-responsive {
@@ -81,7 +81,7 @@ html {
 
 @media (max-width: 600px) {
   .page-wrapper {
-    padding-top: 7rem;
+    padding-top: 6rem;
   }
 }
 
@@ -253,7 +253,7 @@ h2 {
 }
 
 .faq-item {
-  margin-bottom: 1rem;
+  margin-bottom: 0.75rem;
   border: 1px solid var(--glass-border);
   border-radius: 12px;
   background: rgba(255, 255, 255, 0.02);
@@ -1280,7 +1280,7 @@ section {
 
   /* Ensure proper spacing on mobile */
   section {
-    padding: 2rem 0 !important;
+    padding: 1.5rem 0 !important;
   }
 
   .btn {

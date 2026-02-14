@@ -1,15 +1,20 @@
 import React, { useEffect } from 'react';
 import { Home, FileText, AlertCircle, CheckCircle2, Scale, Shield, ArrowLeft } from 'lucide-react';
 
-const TermsOfServicePage = ({ onBack }) => {
+const TermsOfServicePage = ({ onBack, onHome }) => {
     useEffect(() => window.scrollTo(0, 0), []);
 
     return (
         <div className="page-wrapper" style={{ minHeight: '100vh' }}>
             <div className="container">
-                <button onClick={onBack} className="btn btn-secondary" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '3rem' }}>
-                    <ArrowLeft size={18} /> Back
-                </button>
+                <div style={{ display: 'flex', gap: '1rem', marginBottom: '2rem' }}>
+                    <button onClick={onBack} className="btn btn-secondary" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                        <ArrowLeft size={18} /> Back
+                    </button>
+                    <button onClick={onHome} className="btn btn-secondary" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                        <Home size={18} /> Home
+                    </button>
+                </div>
 
                 {/* Header */}
                 <div style={{ textAlign: 'center', marginBottom: '5rem' }}>

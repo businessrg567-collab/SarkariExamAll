@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { Home, ShieldCheck, CheckCircle2, TrendingUp, Calendar, BookOpen, Target, Zap, ArrowLeft, Award, FileCheck, GraduationCap } from 'lucide-react';
 import EligibilityChecker from './EligibilityChecker';
 
-const EligibilityCheckerPage = ({ onBack }) => {
+const EligibilityCheckerPage = ({ onBack, onHome }) => {
     useEffect(() => window.scrollTo(0, 0), []);
 
     const eligibilityCriteria = [

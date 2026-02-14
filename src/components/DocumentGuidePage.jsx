@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { Home, FileText, CheckCircle2, AlertCircle, AlertTriangle, Download, Search, Info, ArrowLeft, Shield, BookOpen, Award, Clock, Upload, FileCheck } from 'lucide-react';
 import ExamHub from './ExamHub';
 
-const DocumentGuidePage = ({ onBack, onNavigateToExamRequirements }) => {
+const DocumentGuidePage = ({ onBack, onHome, onNavigateToExamRequirements }) => {
     useEffect(() => window.scrollTo(0, 0), []);
 
     const essentialDocuments = [

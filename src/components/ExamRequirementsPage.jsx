@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { Home, FileText, Award, BookOpen, Calendar, CheckCircle2, AlertCircle, Download, ArrowLeft, ShieldCheck } from 'lucide-react';
 import ExamHub from './ExamHub';
 
-const ExamRequirementsPage = ({ onBack }) => {
+const ExamRequirementsPage = ({ onBack, onHome }) => {
     const navigate = useNavigate();
     useEffect(() => window.scrollTo(0, 0), []);
 
@@ -43,9 +43,14 @@ const ExamRequirementsPage = ({ onBack }) => {
     return (
         <div className="page-wrapper">
             <div className="container">
-                <button onClick={onBack} className="btn btn-secondary" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '3rem' }}>
-                    <ArrowLeft size={18} /> Back
-                </button>
+                <div style={{ display: 'flex', gap: '1rem', marginBottom: '2rem' }}>
+                    <button onClick={onBack} className="btn btn-secondary" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                        <ArrowLeft size={18} /> Back
+                    </button>
+                    <button onClick={onHome} className="btn btn-secondary" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                        <Home size={18} /> Home
+                    </button>
+                </div>
 
                 {/* Hero Section */}
                 <div style={{ textAlign: 'center', marginBottom: '5rem' }}>

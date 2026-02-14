@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Home, BookOpen, Target, TrendingUp, Award, Clock, Users, Zap, CheckCircle2, Star, Filter, ArrowLeft } from 'lucide-react';
 import { blogs } from '../data/articles';
 
-const PreparationGuidesPage = ({ onSelectBlog, onBack }) => {
+const PreparationGuidesPage = ({ onSelectBlog, onBack, onHome }) => {
     useEffect(() => window.scrollTo(0, 0), []);
 
     const [selectedCategory, setSelectedCategory] = useState('All');
@@ -111,9 +111,14 @@ const PreparationGuidesPage = ({ onSelectBlog, onBack }) => {
     return (
         <div className="page-wrapper">
             <div className="container">
-                <button onClick={onBack} className="btn btn-secondary" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '3rem' }}>
-                    <ArrowLeft size={18} /> Back
-                </button>
+                <div style={{ display: 'flex', gap: '1rem', marginBottom: '2rem' }}>
+                    <button onClick={onBack} className="btn btn-secondary" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                        <ArrowLeft size={18} /> Back
+                    </button>
+                    <button onClick={onHome} className="btn btn-secondary" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                        <Home size={18} /> Home
+                    </button>
+                </div>
 
                 {/* Hero Section */}
                 <div style={{ textAlign: 'center', marginBottom: '5rem' }}>

@@ -535,6 +535,33 @@ const LocationPage = ({ location, onBack, onHome, onNavigate }) => {
   );
 };
 
+const ExamHubPage = ({ onBack, onHome }) => {
+  useEffect(() => window.scrollTo(0, 0), []);
+
+  return (
+    <div className="page-wrapper">
+      <div className="container">
+        <div style={{ display: 'flex', gap: '1rem', marginBottom: '2rem' }}>
+          <button onClick={onBack} className="btn btn-secondary" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+            <ArrowLeft size={18} /> Back
+          </button>
+          <button onClick={onHome} className="btn btn-secondary" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+            <Home size={18} /> Home
+          </button>
+        </div>
+        <div className="section-title" style={{ textAlign: 'center', marginBottom: '3rem' }}>
+          <h1 className="gradient-text-teal">Exam Documentation Hub</h1>
+          <p style={{ color: 'white', marginTop: '1rem', fontSize: '1.1rem' }}>
+            Complete document requirements and qualification criteria for all major 2026 government recruitments.
+          </p>
+          <div className="divider" style={{ margin: '1rem auto' }}></div>
+        </div>
+        <ExamHub />
+      </div>
+    </div>
+  );
+};
+
 const LocationsHub = ({ onSelectLocation, onBack }) => {
   useEffect(() => window.scrollTo(0, 0), []);
 
@@ -703,9 +730,12 @@ const ArticleDetail = ({ blog, onBack, onHome, onNavigate }) => {
             <h1 className="gradient-text-gold" style={{ fontSize: 'clamp(1.4rem, 4vw, 2.2rem)', marginTop: '0.5rem' }}>{blog.title}</h1>
           </div>
         </div>
-        <div style={{ marginBottom: '2rem', textAlign: 'center' }}>
-          <button onClick={onBack} className="btn btn-secondary" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', padding: '0.8rem 2rem' }}>
+        <div style={{ display: 'flex', gap: '1rem', marginBottom: '2rem', justifyContent: 'center' }}>
+          <button onClick={onBack} className="btn btn-secondary" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', padding: '0.8rem 2rem' }}>
             <ArrowLeft size={18} /> Back
+          </button>
+          <button onClick={() => navigateToTab('Home')} className="btn btn-secondary" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', padding: '0.8rem 2rem' }}>
+            <Home size={18} /> Home
           </button>
         </div>
 
@@ -742,6 +772,7 @@ const App = () => {
       '/location-guides': 'LocationGuides',
       '/privacy-policy': 'PrivacyPolicy',
       '/terms-of-service': 'TermsOfService',
+      '/exam-hub': 'ExamHub',
     };
 
     // Check for dynamic routes
@@ -785,6 +816,7 @@ const App = () => {
       'LocationGuides': '/location-guides',
       'PrivacyPolicy': '/privacy-policy',
       'TermsOfService': '/terms-of-service',
+      'ExamHub': '/exam-hub',
     };
     return tabMap[tab] || '/';
   };
@@ -941,7 +973,7 @@ const App = () => {
             </div>
 
             <div className="grid-responsive" style={{ gap: '1rem' }}>
-              <a href="#hub" className="btn btn-primary">
+              <a href="#" onClick={(e) => { e.preventDefault(); navigateToTab('ExamHub'); }} className="btn btn-primary">
                 Document Hub <ChevronRight size={18} />
               </a>
               <a href="#checker" className="btn btn-secondary">
@@ -1151,7 +1183,7 @@ const App = () => {
             <p style={{ color: 'white', marginTop: '0.5rem' }}>Quick answers to common queries from government exam aspirants</p>
             <div className="divider" style={{ margin: '0.5rem auto' }}></div>
           </div>
-          <div className="reveal" style={{ maxWidth: '800px', margin: '3rem auto 0' }}>
+          <div className="reveal" style={{ maxWidth: '800px', margin: '1.5rem auto 0' }}>
             <FAQItem
               question="When will UPSC CSE 2026 notification be released?"
               answer="Historically, the UPSC Civil Services Examination 2026 notification is scheduled for release in mid-February 2026. However, preparation should ideally start 12-18 months in advance. Our portal provides a daily 'Notification Tracker' to ensure you never miss an official update from the commission. Pro Tip: Focus on Current Affairs from June 2025 onwards for the 2026 attempt."
@@ -1256,7 +1288,7 @@ const App = () => {
 
           {/* Desktop Menu */}
           <div className="desktop-menu" style={{ display: 'flex', gap: '2rem', alignItems: 'center' }}>
-            <a href="#hub" onClick={(e) => { e.preventDefault(); setSelectedBlog(null); setSelectedLocation(null); navigateToTab('Home'); }} style={{ color: 'white', textDecoration: 'none', fontWeight: 600, fontSize: '0.95rem' }}>Exam Hub</a>
+            <a href="#" onClick={(e) => { e.preventDefault(); navigateToTab('ExamHub'); }} style={{ color: activeTab === 'ExamHub' ? 'var(--secondary)' : 'white', textDecoration: 'none', fontWeight: 600, fontSize: '0.95rem' }}>Exam Hub</a>
             <a href="#" onClick={(e) => { e.preventDefault(); setSelectedBlog(null); setSelectedLocation(null); navigateToTab('Blog'); }} style={{ color: activeTab === 'Blog' ? 'var(--secondary)' : 'white', textDecoration: 'none', fontWeight: 600, fontSize: '0.95rem' }}>Blog</a>
             <a href="#" onClick={(e) => { e.preventDefault(); setSelectedBlog(null); setSelectedLocation(null); navigateToTab('Locations'); }} style={{ color: activeTab === 'Locations' ? 'var(--secondary)' : 'white', textDecoration: 'none', fontWeight: 600, fontSize: '0.95rem' }}>Top Cities</a>
             <a href="#" onClick={(e) => { e.preventDefault(); navigateToTab('Contact'); }} className="btn btn-secondary" style={{ padding: '0.5rem 1rem', fontSize: '0.85rem' }}>Get In Touch</a>
@@ -1286,7 +1318,7 @@ const App = () => {
             gap: '1.5rem',
             zIndex: 1000
           }}>
-            <a href="#hub" onClick={(e) => { e.preventDefault(); navigateToTab('Home'); setIsMenuOpen(false); }} style={{ color: 'white', textDecoration: 'none', fontSize: '1.2rem', fontWeight: 600 }}>Exam Hub</a>
+            <a href="#" onClick={(e) => { e.preventDefault(); navigateToTab('ExamHub'); setIsMenuOpen(false); }} style={{ color: 'white', textDecoration: 'none', fontSize: '1.2rem', fontWeight: 600 }}>Exam Hub</a>
             <a href="#" onClick={(e) => { e.preventDefault(); navigateToTab('Blog'); setIsMenuOpen(false); }} style={{ color: 'white', textDecoration: 'none', fontSize: '1.2rem', fontWeight: 600 }}>Expert Blog</a>
             <a href="#" onClick={(e) => { e.preventDefault(); navigateToTab('Locations'); setIsMenuOpen(false); }} style={{ color: 'white', textDecoration: 'none', fontSize: '1.2rem', fontWeight: 600 }}>Top Cities</a>
             <a href="#" onClick={(e) => { e.preventDefault(); navigateToTab('Contact'); setIsMenuOpen(false); }} className="btn btn-primary" style={{ justifyContent: 'center' }}>Get In Touch</a>
@@ -1306,13 +1338,14 @@ const App = () => {
         {activeTab === 'Contact' && <ContactPage onBack={handleBack} />}
         {activeTab === 'Locations' && <LocationsHub onSelectLocation={(loc) => navigateToTab('Location', loc)} onBack={handleBack} />}
         {activeTab === 'Location' && selectedLocation && <LocationPage location={selectedLocation} onBack={handleBack} onHome={() => navigateToTab('Home')} onNavigate={(loc) => navigateToTab('Location', loc)} />}
-        {activeTab === 'EligibilityChecker' && <EligibilityCheckerPage onBack={handleBack} />}
-        {activeTab === 'DocumentGuide' && <DocumentGuidePage onBack={handleBack} onNavigateToExamRequirements={() => navigateToTab('ExamRequirements')} />}
-        {activeTab === 'ExamRequirements' && <ExamRequirementsPage onBack={handleBack} />}
-        {activeTab === 'PreparationGuides' && <PreparationGuidesPage onSelectBlog={(blog) => navigateToTab('Detail', blog)} onBack={handleBack} />}
-        {activeTab === 'LocationGuides' && <LocationGuidesPage onSelectLocation={(loc) => navigateToTab('Location', loc)} onBack={handleBack} />}
-        {activeTab === 'PrivacyPolicy' && <PrivacyPolicyPage onBack={handleBack} />}
-        {activeTab === 'TermsOfService' && <TermsOfServicePage onBack={handleBack} />}
+        {activeTab === 'EligibilityChecker' && <EligibilityCheckerPage onBack={handleBack} onHome={() => navigateToTab('Home')} />}
+        {activeTab === 'DocumentGuide' && <DocumentGuidePage onBack={handleBack} onHome={() => navigateToTab('Home')} onNavigateToExamRequirements={() => navigateToTab('ExamRequirements')} />}
+        {activeTab === 'ExamRequirements' && <ExamRequirementsPage onBack={handleBack} onHome={() => navigateToTab('Home')} />}
+        {activeTab === 'PreparationGuides' && <PreparationGuidesPage onSelectBlog={(blog) => navigateToTab('Detail', blog)} onBack={handleBack} onHome={() => navigateToTab('Home')} />}
+        {activeTab === 'LocationGuides' && <LocationGuidesPage onSelectLocation={(loc) => navigateToTab('Location', loc)} onBack={handleBack} onHome={() => navigateToTab('Home')} />}
+        {activeTab === 'PrivacyPolicy' && <PrivacyPolicyPage onBack={handleBack} onHome={() => navigateToTab('Home')} />}
+        {activeTab === 'TermsOfService' && <TermsOfServicePage onBack={handleBack} onHome={() => navigateToTab('Home')} />}
+        {activeTab === 'ExamHub' && <ExamHubPage onBack={handleBack} onHome={() => navigateToTab('Home')} />}
         {activeTab === 'NotFound' && <NotFoundPage />}
       </main>
 
