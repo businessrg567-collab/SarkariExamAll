@@ -550,11 +550,11 @@ const ExamHubPage = ({ onBack, onHome }) => {
           </button>
         </div>
         <div className="section-title" style={{ textAlign: 'center', marginBottom: '3rem' }}>
-          <h1 className="gradient-text-teal">Exam Documentation Hub</h1>
-          <p style={{ color: 'white', marginTop: '1rem', fontSize: '1.1rem' }}>
-            Complete document requirements and qualification criteria for all major 2026 government recruitments.
+          <h1 className="gradient-text-teal" style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', marginBottom: '1rem' }}>Sarkari Exam Hub 2026</h1>
+          <p style={{ color: 'white', marginTop: '1rem', fontSize: '1.2rem', maxWidth: '800px', margin: '1rem auto' }}>
+            Your premium gateway to every government recruitment in India. Access verified document checklists, age criteria, and official qualification standards.
           </p>
-          <div className="divider" style={{ margin: '1rem auto' }}></div>
+          <div className="divider" style={{ margin: '1.5rem auto' }}></div>
         </div>
         <ExamHub />
       </div>
@@ -943,19 +943,28 @@ const App = () => {
             </p>
 
             {/* Trust Stats Counter */}
-            {/* Trust Stats Counter */}
-            <div className="grid-responsive" style={{ gap: '1.5rem', marginTop: '2rem', marginBottom: '3rem' }}>
-              <div className="glass-card" style={{ padding: '1.5rem', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
+            <div style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+              gap: '1rem',
+              marginTop: '2rem',
+              marginBottom: '3rem'
+            }}>
+              <div className="glass-card" style={{ padding: '1.2rem', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
                 <div className="stats-number" style={{ color: 'var(--secondary)', fontSize: '2.5rem', fontWeight: 800, lineHeight: 1 }}>5L+</div>
                 <div className="stats-label" style={{ fontSize: '1rem', marginTop: '0.5rem', color: 'var(--text-dim)' }}>Active Aspirants</div>
               </div>
-              <div className="glass-card" style={{ padding: '1.5rem', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
+              <div className="glass-card" style={{ padding: '1.2rem', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
                 <div className="stats-number" style={{ color: '#10B981', fontSize: '2.5rem', fontWeight: 800, lineHeight: 1 }}>50+</div>
                 <div className="stats-label" style={{ fontSize: '1rem', marginTop: '0.5rem', color: 'var(--text-dim)' }}>Exam Bodies</div>
               </div>
-              <div className="glass-card" style={{ padding: '1.5rem', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
+              <div className="glass-card" style={{ padding: '1.2rem', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
                 <div className="stats-number" style={{ color: '#8B5CF6', fontSize: '2.5rem', fontWeight: 800, lineHeight: 1 }}>100%</div>
                 <div className="stats-label" style={{ fontSize: '1rem', marginTop: '0.5rem', color: 'var(--text-dim)' }}>Official Data</div>
+              </div>
+              <div className="glass-card" style={{ padding: '1.2rem', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
+                <div className="stats-number" style={{ color: '#F59E0B', fontSize: '2.5rem', fontWeight: 800, lineHeight: 1 }}>24/7</div>
+                <div className="stats-label" style={{ fontSize: '1rem', marginTop: '0.5rem', color: 'var(--text-dim)' }}>Expert Support</div>
               </div>
             </div>
 
@@ -1288,6 +1297,7 @@ const App = () => {
 
           {/* Desktop Menu */}
           <div className="desktop-menu" style={{ display: 'flex', gap: '2rem', alignItems: 'center' }}>
+            <a href="#" onClick={(e) => { e.preventDefault(); navigateToTab('Home'); }} style={{ color: activeTab === 'Home' ? 'var(--secondary)' : 'white', textDecoration: 'none', fontWeight: 600, fontSize: '0.95rem' }}>Home</a>
             <a href="#" onClick={(e) => { e.preventDefault(); navigateToTab('ExamHub'); }} style={{ color: activeTab === 'ExamHub' ? 'var(--secondary)' : 'white', textDecoration: 'none', fontWeight: 600, fontSize: '0.95rem' }}>Exam Hub</a>
             <a href="#" onClick={(e) => { e.preventDefault(); setSelectedBlog(null); setSelectedLocation(null); navigateToTab('Blog'); }} style={{ color: activeTab === 'Blog' ? 'var(--secondary)' : 'white', textDecoration: 'none', fontWeight: 600, fontSize: '0.95rem' }}>Blog</a>
             <a href="#" onClick={(e) => { e.preventDefault(); setSelectedBlog(null); setSelectedLocation(null); navigateToTab('Locations'); }} style={{ color: activeTab === 'Locations' ? 'var(--secondary)' : 'white', textDecoration: 'none', fontWeight: 600, fontSize: '0.95rem' }}>Top Cities</a>
@@ -1318,6 +1328,7 @@ const App = () => {
             gap: '1.5rem',
             zIndex: 1000
           }}>
+            <a href="#" onClick={(e) => { e.preventDefault(); navigateToTab('Home'); setIsMenuOpen(false); }} style={{ color: 'white', textDecoration: 'none', fontSize: '1.2rem', fontWeight: 600 }}>Home</a>
             <a href="#" onClick={(e) => { e.preventDefault(); navigateToTab('ExamHub'); setIsMenuOpen(false); }} style={{ color: 'white', textDecoration: 'none', fontSize: '1.2rem', fontWeight: 600 }}>Exam Hub</a>
             <a href="#" onClick={(e) => { e.preventDefault(); navigateToTab('Blog'); setIsMenuOpen(false); }} style={{ color: 'white', textDecoration: 'none', fontSize: '1.2rem', fontWeight: 600 }}>Expert Blog</a>
             <a href="#" onClick={(e) => { e.preventDefault(); navigateToTab('Locations'); setIsMenuOpen(false); }} style={{ color: 'white', textDecoration: 'none', fontSize: '1.2rem', fontWeight: 600 }}>Top Cities</a>
