@@ -31,7 +31,7 @@ Allow: /
 # Disallow: /private/
 
 # Sitemap location (helps with indexing)
-Sitemap: https://sarkariexamall.onrender.com/sitemap.xml
+Sitemap: https://www.sarkariexamall.com/sitemap.xml
 
 # Crawl-delay (optional, helps prevent server overload)
 # Crawl-delay: 1
