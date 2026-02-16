@@ -1,37 +1,4 @@
-# robots.txt for SarkariExamAll - AdSense Optimized
-# This file allows all search engines and AdSense bots to crawl the site
-
-# Allow all bots to access everything
 User-agent: *
 Allow: /
 
-# Specifically allow Googlebot (important for AdSense)
-User-agent: Googlebot
-Allow: /
-
-# Allow Googlebot for Images
-User-agent: Googlebot-Image
-Allow: /
-
-# Allow AdSense bot (MediaPartners-Google)
-User-agent: Mediapartners-Google
-Allow: /
-
-# Allow Google AdSense crawler
-User-agent: AdsBot-Google
-Allow: /
-
-# Allow Google Mobile AdSense crawler
-User-agent: AdsBot-Google-Mobile
-Allow: /
-
-# Disallow only if you have admin or private sections (currently none)
-# User-agent: *
-# Disallow: /admin/
-# Disallow: /private/
-
-# Sitemap location (helps with indexing)
 Sitemap: https://sarkariexamall.com/sitemap.xml
-
-# Crawl-delay (optional, helps prevent server overload)
-# Crawl-delay: 1
