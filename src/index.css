@@ -1229,9 +1229,6 @@ section {
     margin: 0 !important;
   }
 
-  Line 1241: Line 1242:
-  /* Trust tags - horizontal scroll */
-
   /* Trust tags - horizontal scroll */
   .trust-tags {
     display: flex !important;
@@ -1627,6 +1624,22 @@ button,
   border-color: var(--secondary);
   background: rgba(0, 0, 0, 0.3) !important;
   outline: none;
+}
+
+/* Newsletter input+button stacked on small mobile */
+@media (max-width: 480px) {
+  .homepage-newsletter div[style*="display: flex"] {
+    flex-direction: column !important;
+  }
+  .homepage-newsletter .form-input {
+    min-width: 0 !important;
+    width: 100% !important;
+    border-radius: 50px !important;
+  }
+  .homepage-newsletter .btn {
+    width: 100% !important;
+    border-radius: 50px !important;
+  }
 }
 
 /* Mobile Performance Optimizations */

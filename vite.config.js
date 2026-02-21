@@ -4,6 +4,19 @@ import react from '@vitejs/plugin-react'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
+  build: {
+    cssCodeSplit: true,
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          'react-vendor': ['react', 'react-dom', 'react-router-dom'],
+          'gsap-vendor': ['gsap'],
+          'lucide-vendor': ['lucide-react'],
+        }
+      }
+    },
+    chunkSizeWarningLimit: 1000,
+  },
   preview: {
     allowedHosts: [
       'sarkariexamall.onrender.com',
@@ -12,3 +25,4 @@ export default defineConfig({
     ]
   }
 })
+

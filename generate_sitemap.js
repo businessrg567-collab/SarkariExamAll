@@ -1,7 +1,7 @@
 
 const fs = require('fs');
 
-const baseUrl = "https://sarkariexamall.onrender.com";
+const baseUrl = "https://sarkariexamall.com";
 const today = new Date().toISOString().split('T')[0];
 
 const staticPages = [
@@ -101,7 +101,7 @@ articles.forEach(article => {
 locations.forEach(slug => {
     xml += `
   <url>
-    <loc>${baseUrl}/${slug}</loc>
+    <loc>${baseUrl}/locations/${slug}</loc>
     <lastmod>${today}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>

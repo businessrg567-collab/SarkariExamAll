@@ -1262,6 +1262,7 @@ const App = () => {
                       alt={blog.title}
                       style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                       onError={handleImageError}
+                      loading="lazy"
                     />
                   </div>
                   <div className="blog-content">
