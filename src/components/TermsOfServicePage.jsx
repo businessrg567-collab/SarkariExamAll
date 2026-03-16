@@ -52,7 +52,7 @@ const TermsOfServicePage = ({ onBack, onHome }) => {
                             <FileText size={28} /> Agreement to Terms
                         </h2>
                         <p style={{ color: 'white', fontSize: '1.1rem', lineHeight: '1.8', marginBottom: '1rem' }}>
-                            Welcome to SarkariExamAll. These Terms of Service ("Terms") govern your access to and use of our website located at sarkariexamall.onrender.com (the "Website"), operated by SarkariExamAll ("we," "us," or "our").
+                            Welcome to SarkariExamAll. These Terms of Service ("Terms") govern your access to and use of our website located at sarkariexamall.com (the "Website"), operated by SarkariExamAll ("we," "us," or "our").
                         </p>
                         <p style={{ color: 'white', fontSize: '1.1rem', lineHeight: '1.8', marginBottom: '1rem' }}>
                             By accessing or using our Website, you agree to be bound by these Terms. If you do not agree to these Terms, please do not use our Website.
@@ -245,7 +245,7 @@ const TermsOfServicePage = ({ onBack, onHome }) => {
                                 <strong>Phone:</strong> <a href="tel:8077583921" style={{ color: '#8B5CF6', textDecoration: 'underline' }}>8077583921</a>
                             </p>
                             <p style={{ color: 'white', fontSize: '1.05rem' }}>
-                                <strong>Website:</strong> sarkariexamall.onrender.com
+                                <strong>Website:</strong> sarkariexamall.com
                             </p>
                         </div>
                     </section>

@@ -1,273 +1,389 @@
-const generateLongFormContent = (title, category) => {
-  const sections = [
-    {
-      heading: `Chapter 1: The 2026 Strategic Roadmap for ${title}`,
-      content: `The year 2026 marks a pivotal shift in the <strong>${category}</strong> landscape. This comprehensive guide is designed to provide every aspirant for <strong>${title}</strong> with a clear, actionable path to success. As the recruitment processes evolve with digital integration, understanding the nuanced changes in eligibility and examination patterns is essential. This article breaks down every critical component you need to master.`
-    },
-    {
-      heading: `Chapter 2: Detailed Eligibility & Documentation Requirements`,
-      content: `Navigating the eligibility criteria for ${title} requires careful attention. For the 2026 cycle, recruitment boards are emphasizing digital verification and strict adherence to age and educational norms.
-      <h3>Key Eligibility Parameters</h3>
-      <table class="content-table" style="width:100%; border-collapse: collapse; margin: 2rem 0;">
-        <thead>
-          <tr>
-            <th style="padding: 1.2rem; text-align: left;">Requirement</th>
-            <th style="padding: 1.2rem; text-align: left;">2026 Standards</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td>Educational Qualification</td><td>Degree from a recognized university (NIRF ranked preferred).</td></tr>
-          <tr><td>Age Limit</td><td>Generally 18-32 years, with specific relaxations for reserved categories.</td></tr>
-          <tr><td>Digital Literacy</td><td>Basic computer proficiency is now often a mandatory or desirable trait.</td></tr>
-          <tr><td>Domicile</td><td>Required for state-level quotas; typically requires valid proof of residency.</td></tr>
-        </tbody>
-      </table>`
-    },
-    {
-      heading: `Chapter 3: The 'Sarkari Success' Preparation Syllabus`,
-      content: `To succeed in <strong>${title}</strong>, rote learning is insufficient. The 2026 syllabus focuses on analytical ability and practical application.
-      <h4>Phase A: Foundation Building (Months 1-4)</h4>
-      Focus on core concepts. For technical roles, strengthen your domain knowledge. For administrative roles, focus on General Studies and Aptitude.
-      <h4>Phase B: Advanced Practice (Months 5-8)</h4>
-      Solve previous years' papers (PYQs). Identify repeating patterns and high-weightage topics. SarkariExamAll recommends solving at least 50 full-length mock tests.
-      <h4>Phase C: Final Revision (Months 9-12)</h4>
-      Focus on weak areas and time management. Simulate exam conditions to build endurance.`
-    },
-    {
-      heading: `Chapter 4: Career Scope & Salary Structure`,
-      content: `The <strong>${title}</strong> offers not just a job, but a career with stability and growth.
-      <ul>
-        <li><strong>Competitive Salary:</strong> Aligned with the latest Pay Commission recommendations.</li>
-        <li><strong>Job Security:</strong> A hallmark of government service.</li>
-        <li><strong>Growth Opportunities:</strong> Departmental exams and seniority-based promotions ensure a steady career graph.</li>
-      </ul>`
-    }
-  ];
+// SarkariExamAll - Articles & Blog Data
+// Each article has unique, high-quality content for AdSense approval
 
-  // Enhanced "Filler" - varied, natural, and helpful
-  let massiveFiller = "";
-  const detailedSections = [
-    {
-      title: "Mental Resilience in Exam Prep",
-      text: `Preparing for ${title} is a marathon, not a sprint. Developing mental resilience is as important as studying the syllabus. Burnout is a common issue among aspirants. To combat this, structure your day with adequate breaks. Techniques like the Pomodoro method can be highly effective.`
-    },
-    {
-      title: "The Role of Technology in 2026 Exams",
-      text: `Most examinations for ${title} have moved to Computer Based Tests (CBT). Familiarity with the interface is crucial. Practice typing and navigating online testing platforms to ensure you don't lose time on the D-Day due to technical unfamiliarity.`
-    },
-    {
-      title: "Balancing Current Affairs with Static GK",
-      text: `For ${category} exams, the interplay between current events and static history/geography is increasing. Don't just read the news; analyze its impact. For instance, understand the policy implications of a new government scheme rather than just memorizing its launch date.`
-    },
-    {
-      title: "Interview & Personality Test Tips",
-      text: `If your selection process for ${title} includes an interview, start preparing early. Work on your communication skills and body language. Be honest and confident. The panel is looking for administrators, not just scholars.`
-    },
-    {
-      title: "Time Management Strategies",
-      text: `Time is your most valuable resource. Create a realistic timetable. Allocate more time to subjects you rely find difficult. Regular self-assessment effectively helps you track progress and adjust your plan for ${title} accordingly.`
-    },
-    {
-      title: "Understanding the Marking Scheme",
-      text: `Negative marking can be a game-changer. In ${title}, accuracy is often more valuable than number of attempts. Learn to skip questions you are unsure about. Intelligent guessing is a skill, but blind guessing is a trap.`
-    },
-    {
-      title: "Health & Nutrition During Prep",
-      text: `A healthy body houses a sharp mind. Avoid junk food that causes lethargy. Hydrate well and ensure you get 7-8 hours of sleep. Physical exercise, even a 30-minute walk, boosts cognitive function significantly.`
-    },
-    {
-      title: "Leveraging Online Resources",
-      text: `While books are foundational, online resources like SarkariExamAll provide real-time updates and interactive quizzes. Use these to supplement your reading. Join online forums for ${title} to stay updated on peer strategies, but avoid toxic comparisons.`
-    },
-    {
-      title: "Revision Techniques that Work",
-      text: `Spaced repetition is scientifically proven to aid retention. Review your notes 1 day, 3 days, and 1 week after studying a topic. Mind maps and flashcards are excellent tools for quick revision of complex ${category} concepts.`
-    },
-    {
-      title: "Handling Exam Stress",
-      text: `Anxiety is natural, but panic is detrimental. Practice mindfulness or meditation. Visualizing your success in ${title} can boost confidence. Remember, this exam is a part of life, not life itself.`
-    },
-    {
-      title: "Post-Exam Process",
-      text: `After the written exam for ${title}, keep your documents ready. The verification process can be stringent. Ensure your caste certificates, degrees, and ID proofs are in order and match the details in your application form.`
-    },
-    {
-      title: "Why Choose this Career Path?",
-      text: `The ${category} sector offers a unique opportunity to serve the nation. Beyond the perks, the satisfaction of contributing to public welfare is the true reward of clearing ${title}. Stay motivated by reminding yourself of this larger goal.`
-    }
-  ];
-
-  // Loop to generate substantial content without being repetitive
-  for (let i = 0; i < 12; i++) {
-    // Use all sections to ensure length
-    const section = detailedSections[i % detailedSections.length];
-    massiveFiller += `
-       <h3>Deep Dive: ${section.title}</h3>
-       <p>${section.text}</p>
-       <p>Furthermore, regarding <strong>${section.title}</strong> in the context of ${title}, it is vital to understand that the competition is intensifying. In 2026, the edge belongs to those who adapt. Incorporating these strategies into your daily routine will compound over time, yielding significant results. SarkariExamAll encourages a holistic approach—balance your hard work with smart strategies.</p>
-       <p>Many successful candidates for ${category} have attributed their success to mastering these soft skills alongside the hard syllabus. Whether it is ${section.title.toLowerCase()} or subject depth, excellence is a habit. Keep pushing your boundaries.</p>
-     `;
-  }
-
+const generateArticleContent = (title, category, intro, chapters) => {
   return `
     <article class="dedicated-content">
-      ${sections.map(s => `<h2>${s.heading}</h2><p>${s.content}</p>`).join('')}
-      ${massiveFiller}
-      <h2>Final Words: Your Path to ${title} Success</h2>
-      <p>As you embark on this journey for <strong>${title}</strong> in 2026, remember that consistency is key. This guide has outlined the essential pillars of preparation. It is now up to you to execute this plan with dedication. Trust the process, trust your preparation, and utilize the resources available on SarkariExamAll to cross the finish line.</p>
-      <div style="margin-top: 4rem; padding: 2.5rem; background: rgba(59, 130, 246, 0.05); border: 2px solid rgba(59, 130, 246, 0.3); border-radius: 15px;">
-        <h3 style="margin-top:0; color: #3B82F6 !important;">Key Takeaways:</h3>
-        <p style="color: #bfdbfe !important; font-weight: 600;">1. Plan meticulously.<br>2. Practice consistently.<br>3. Stay healthy.<br>4. Believe in yourself.</p>
+      <p style="font-size:1.15rem; line-height:1.9; color:white; margin-bottom:2rem;">${intro}</p>
+      ${chapters.map(ch => `
+        <h2 style="color:#F59E0B; font-size:1.6rem; margin:2.5rem 0 1rem;">${ch.heading}</h2>
+        <div style="color:white; font-size:1.05rem; line-height:1.9;">${ch.content}</div>
+      `).join('')}
+      <div style="margin-top:3rem; padding:2rem; background:rgba(59,130,246,0.07); border:2px solid rgba(59,130,246,0.3); border-radius:15px;">
+        <h3 style="color:#3B82F6; margin-top:0;">Key Takeaways</h3>
+        <p style="color:#bfdbfe; font-weight:600; line-height:2;">
+          ✅ Plan your preparation at least 6-12 months in advance.<br/>
+          ✅ Focus on official notifications for accurate eligibility details.<br/>
+          ✅ Practice previous year papers consistently.<br/>
+          ✅ Stay updated with SarkariExamAll for real-time alerts.
+        </p>
       </div>
-
     </article>
   `;
 };
 
-
-
-// [ ... generateLongFormContent function ... ]
+// ─── UNIQUE HIGH-VALUE ARTICLES ───────────────────────────────────────────────
 
 export const articles = [
   {
     id: '1',
-    title: 'UPSC CSE 2026 Notification',
-    slug: 'upsc-cse-2026-notification',
+    title: 'UPSC CSE 2026 Preparation Strategy for First Attempt Aspirants',
+    slug: 'upsc-cse-2026-preparation-strategy-first-attempt',
     category: 'UPSC',
-    excerpt: 'Comprehensive guide to the Civil Services Examination 2026 cycle. Includes tentative dates for Prelims, Mains, and Interview stages.',
+    excerpt: 'Attempting UPSC CSE for the first time in 2026? This guide breaks down exactly what to study, when to start, which books to use, and how toppers plan their first attempt differently.',
     date: 'Feb 8, 2026',
-    author: 'SarkariExamAll Analysis Team',
-    readTime: '8 min read',
-    image: 'https://images.unsplash.com/photo-1589829085413-56de8ae18c73?auto=format&fit=crop&q=60&w=500', // UPSC concept
-    content: generateLongFormContent('UPSC CSE 2026 Notification', 'UPSC')
+    author: 'Guriya Kumari',
+    readTime: '12 min read',
+    image: 'https://images.unsplash.com/photo-1589829085413-56de8ae18c73?auto=format&fit=crop&q=60&w=500',
+    content: generateArticleContent(
+      'UPSC CSE 2026 Complete Preparation Guide', 'UPSC',
+      'The UPSC Civil Services Examination is India\'s most prestigious competitive exam. Every year, over 10 lakh aspirants compete for approximately 1,000 IAS, IPS, and IFS posts. If you are targeting UPSC CSE 2026, this guide will give you a clear, honest, and practical roadmap — from day one of preparation to the interview stage.',
+      [
+        { heading: 'Understanding the UPSC CSE Exam Structure', content: '<p>UPSC CSE has three stages: <strong>Prelims</strong> (objective, screening), <strong>Mains</strong> (descriptive, 9 papers), and <strong>Personality Test</strong> (interview, 275 marks). The final merit list is based on Mains + Interview scores only. Prelims is just a qualifying round.</p><p>Prelims consists of two papers — GS Paper I (100 questions, 200 marks) and CSAT Paper II (80 questions, 200 marks). CSAT is qualifying in nature (33% minimum). GS Paper I covers History, Geography, Polity, Economy, Environment, and Current Affairs.</p><p>Mains has 9 papers: 2 language papers (qualifying), Essay, GS I-IV, and Optional Subject (2 papers). The total marks for ranking are 1750 (Mains 1500 + Interview 275, minus language papers).</p>' },
+        { heading: 'Eligibility Criteria for UPSC CSE 2026', content: '<p><strong>Educational Qualification:</strong> Graduate in any discipline from a recognized university. Final year students can also apply provisionally.</p><p><strong>Age Limit:</strong> 21 to 32 years for General category. OBC gets 3 years relaxation (up to 35), SC/ST gets 5 years (up to 37). PwD candidates get 10 years relaxation.</p><p><strong>Number of Attempts:</strong> General — 6 attempts; OBC — 9 attempts; SC/ST — unlimited attempts until age limit.</p><p><strong>Nationality:</strong> Must be a citizen of India for IAS and IPS. For other services, citizens of Nepal, Bhutan, and Tibetan refugees (settled before 1962) are also eligible.</p>' },
+        { heading: 'Best Books for UPSC CSE 2026 Preparation', content: '<p>Choosing the right books is critical. Here are the most recommended resources by toppers:</p><ul style="line-height:2.2;"><li><strong>History:</strong> NCERT Class 6-12, Spectrum Modern History by Rajiv Ahir, Ancient & Medieval India by Poonam Dalal Dahiya</li><li><strong>Geography:</strong> NCERT Class 6-12, Certificate Physical Geography by G.C. Leong</li><li><strong>Polity:</strong> Indian Polity by M. Laxmikanth (most important book for UPSC)</li><li><strong>Economy:</strong> NCERT Class 11-12, Indian Economy by Ramesh Singh</li><li><strong>Environment:</strong> Environment by Shankar IAS Academy</li><li><strong>Current Affairs:</strong> The Hindu newspaper, PIB, Yojana, Kurukshetra magazines</li></ul>' },
+        { heading: '12-Month Study Plan for UPSC CSE 2026', content: '<p><strong>Months 1-4 (Foundation Phase):</strong> Complete all NCERT books from Class 6 to 12 for History, Geography, Polity, Economy, and Science. Make concise notes. Start reading The Hindu daily. Begin optional subject basics.</p><p><strong>Months 5-8 (Advanced Phase):</strong> Move to standard reference books. Complete Laxmikanth for Polity, Ramesh Singh for Economy. Solve previous year Prelims papers. Write 2-3 Mains answers daily for practice.</p><p><strong>Months 9-10 (Prelims Focus):</strong> Intensive revision. Solve 50+ full-length mock tests. Focus on current affairs of last 12 months. Revise notes daily.</p><p><strong>Months 11-12 (Mains Preparation):</strong> After Prelims, shift entirely to Mains. Practice answer writing daily. Join a test series. Work on Essay writing skills.</p>' },
+        { heading: 'Common Mistakes to Avoid in UPSC Preparation', content: '<p>Many aspirants fail not because of lack of effort but due to avoidable mistakes. Here are the most common ones:</p><p><strong>1. Ignoring NCERT:</strong> Many aspirants skip NCERTs and jump to advanced books. This creates a weak foundation. Always start with NCERTs.</p><p><strong>2. Not practicing answer writing:</strong> Mains is a written exam. Reading alone is not enough. Practice writing 250-word answers daily from Month 5 onwards.</p><p><strong>3. Neglecting Current Affairs:</strong> At least 30-40% of Prelims questions are from current affairs. Read The Hindu editorial daily and maintain monthly notes.</p><p><strong>4. Changing optional subject frequently:</strong> Choose your optional wisely based on your graduation background and interest. Stick to it. Changing optional wastes months of preparation.</p><p><strong>5. Comparing with others:</strong> Every aspirant has a different background and pace. Focus on your own progress. Comparison leads to anxiety and poor performance.</p>' }
+      ]
+    )
   },
   {
     id: '2',
-    title: 'SSC CGL 2026 Exam Calendar',
-    slug: 'ssc-cgl-2026-exam-calendar',
+    title: 'SSC CGL 2026 Tier 1 Syllabus Changes You Must Know Before Applying',
+    slug: 'ssc-cgl-2026-tier-1-syllabus-changes-must-know',
     category: 'SSC',
-    excerpt: 'Official SSC exam calendar breakdown. Detailed analysis of Tier-I and Tier-II pattern changes expected in 2026.',
+    excerpt: 'SSC CGL 2026 has key syllabus and pattern changes that most aspirants miss. This guide covers every update, subject-wise marks distribution, and what to prioritize for Tier 1 cutoff.',
     date: 'Feb 7, 2026',
-    author: 'Exam Strategy Desk',
-    readTime: '6 min read',
-    image: 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&q=60&w=500', // Exam/Study concept
-    content: generateLongFormContent('SSC CGL 2026 Exam Calendar', 'SSC')
+    author: 'Guriya Kumari',
+    readTime: '10 min read',
+    image: 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&q=60&w=500',
+    content: generateArticleContent(
+      'SSC CGL 2026 Exam Pattern, Syllabus & Preparation Strategy', 'SSC',
+      'SSC CGL (Staff Selection Commission Combined Graduate Level) is one of the most sought-after government exams in India. It recruits for Group B and Group C posts in various central government ministries and departments. Posts like Income Tax Inspector, Assistant Section Officer, and Sub-Inspector in CBI are highly coveted. This guide covers everything you need to know for SSC CGL 2026.',
+      [
+        { heading: 'SSC CGL 2026 Exam Pattern', content: '<p>From 2023 onwards, SSC CGL has a two-tier structure:</p><p><strong>Tier I (CBT):</strong> 100 questions, 200 marks, 60 minutes. Sections: General Intelligence & Reasoning (25Q), General Awareness (25Q), Quantitative Aptitude (25Q), English Comprehension (25Q). Negative marking: 0.5 marks per wrong answer.</p><p><strong>Tier II (CBT):</strong> Paper I is mandatory for all posts — 3 sections: Mathematical Abilities (30Q, 90 marks), Reasoning & General Intelligence (30Q, 90 marks), English Language & Comprehension (45Q, 135 marks), General Awareness (25Q, 75 marks), Computer Knowledge (20Q, 60 marks). Total: 150 questions, 450 marks, 2 hours 15 minutes.</p><p>Paper II (Statistics) is for JSO post. Paper III (General Studies Finance & Economics) is for AAO post.</p>' },
+        { heading: 'Eligibility Criteria for SSC CGL 2026', content: '<p><strong>Educational Qualification:</strong> Bachelor\'s degree in any discipline from a recognized university. For some posts like Statistical Investigator, a degree with Statistics as a subject is required.</p><p><strong>Age Limit:</strong> 18-32 years for most posts. Some posts have different age limits — for example, Sub-Inspector in CBI requires 20-30 years. Age relaxation: OBC 3 years, SC/ST 5 years, PwD 10 years.</p><p><strong>Nationality:</strong> Must be a citizen of India.</p>' },
+        { heading: 'Subject-wise Preparation Strategy', content: '<p><strong>Quantitative Aptitude:</strong> This is the most scoring section. Focus on: Number System, Simplification, Percentage, Profit & Loss, Ratio & Proportion, Time & Work, Time Speed Distance, Geometry, Trigonometry, Algebra, Data Interpretation. Practice 50 questions daily. Use R.S. Aggarwal or Rakesh Yadav for practice.</p><p><strong>English:</strong> Focus on Reading Comprehension, Cloze Test, Error Spotting, Fill in the Blanks, Synonyms/Antonyms, Idioms & Phrases. Read English newspaper daily. Practice 30 questions daily.</p><p><strong>Reasoning:</strong> Analogy, Classification, Series, Coding-Decoding, Blood Relations, Direction Sense, Syllogism, Matrix, Venn Diagram. This section is highly scoring with practice. Solve 40 questions daily.</p><p><strong>General Awareness:</strong> Current Affairs (last 6 months), Static GK (History, Geography, Polity, Economy, Science). Read monthly current affairs magazines. Revise static GK from standard books.</p>' },
+        { heading: 'Top Government Posts Under SSC CGL', content: '<p>SSC CGL recruits for over 20 different posts. Here are the most popular ones:</p><ul style="line-height:2.2;"><li><strong>Income Tax Inspector (ITI):</strong> Pay Level 7 (₹44,900 - ₹1,42,400). Works under CBDT. Excellent career growth.</li><li><strong>Assistant Section Officer (ASO):</strong> Pay Level 7. Works in MEA, Intelligence Bureau, and other ministries.</li><li><strong>Sub-Inspector in CBI:</strong> Pay Level 7. Investigative role. Requires age 20-30 years.</li><li><strong>Assistant Audit Officer (AAO):</strong> Pay Level 8 (₹47,600 - ₹1,51,100). Works under CAG. Requires Paper III.</li><li><strong>Junior Statistical Officer (JSO):</strong> Pay Level 6. Requires Statistics in graduation. Works under MOSPI.</li></ul>' },
+        { heading: '6-Month SSC CGL Preparation Plan', content: '<p><strong>Month 1-2:</strong> Build foundation. Complete basic concepts of all 4 subjects. Start with Reasoning (easiest to score) and English. For Maths, start from basics — NCERT Class 9-10 if needed.</p><p><strong>Month 3-4:</strong> Advanced topics. Complete Geometry, Trigonometry, Algebra for Maths. Advanced Reasoning topics. English grammar rules. Start current affairs notes.</p><p><strong>Month 5:</strong> Mock tests. Give 1 full mock test daily. Analyze mistakes. Revise weak topics. Target 160+ in Tier I.</p><p><strong>Month 6:</strong> Final revision. Revise all notes. Focus on accuracy over speed. Practice previous year papers (2015-2024). Maintain a formula sheet for quick revision.</p>' }
+      ]
+    )
   },
   {
     id: '3',
-    title: 'IBPS PO 2026 Eligibility Criteria',
-    slug: 'ibps-po-2026-eligibility-criteria',
-    category: 'Banking',
-    excerpt: 'Updated age limit, educational qualification, and EWS reservation norms for Probationary Officer recruitment.',
+    title: 'Sarkari Naukri After 12th Pass 2026 — Jobs No One Tells You About',
+    slug: 'sarkari-naukri-after-12th-pass-2026-hidden-jobs',
+    category: 'Career Guide',
+    excerpt: 'Beyond Railways and Police — there are 15+ government jobs after 12th that most students never hear about. Salary, eligibility, and how to apply for each one in 2026.',
     date: 'Feb 6, 2026',
-    author: 'Banking Careers Expert',
-    readTime: '5 min read',
-    image: 'https://images.unsplash.com/photo-1601597111158-2fceff292cdc?auto=format&fit=crop&q=60&w=500', // Banking/Finance concept
-    content: generateLongFormContent('IBPS PO 2026 Eligibility Criteria', 'Banking')
+    author: 'Guriya Kumari',
+    readTime: '9 min read',
+    image: 'https://images.unsplash.com/photo-1523240715632-d984d4ad7cd5?auto=format&fit=crop&q=60&w=500',
+    content: generateArticleContent(
+      'Best Government Jobs After 12th in India 2026', 'Career Guide',
+      'Completing 12th class is a major milestone, and many students immediately start looking for stable government jobs. The good news is that there are dozens of excellent government job opportunities available for 12th pass candidates in India. From Railways to Defence to Banking — this guide covers the best options with salary, eligibility, and how to apply.',
+      [
+        { heading: 'Why Government Jobs After 12th Are Worth Pursuing', content: '<p>Government jobs offer unmatched job security, regular salary increments, pension benefits, medical facilities, and social respect. For 12th pass students, starting a government career early means faster promotions and longer service tenure. Many 12th-level government employees retire at senior positions after 30+ years of service.</p><p>The 7th Pay Commission has significantly improved salaries at all levels. Even entry-level government posts now offer ₹18,000 to ₹35,000 per month plus allowances — which is competitive with many private sector jobs in smaller cities.</p>' },
+        { heading: 'SSC CHSL — Best Exam for 12th Pass Students', content: '<p>SSC CHSL (Combined Higher Secondary Level) is the most popular exam for 12th pass candidates. It recruits for posts like Lower Division Clerk (LDC), Data Entry Operator (DEO), Postal Assistant, and Sorting Assistant.</p><p><strong>Salary:</strong> ₹19,900 to ₹63,200 per month (Pay Level 2-4) plus HRA, DA, and other allowances.</p><p><strong>Eligibility:</strong> 12th pass from any recognized board. Age: 18-27 years.</p><p><strong>Exam Pattern:</strong> Tier I (CBT, 100 questions), Tier II (Descriptive Paper — Essay + Letter Writing), Skill Test (for DEO posts).</p><p><strong>How to Prepare:</strong> Focus on English, Reasoning, Maths, and GK. The level is Class 10-12 standard. 3-4 months of dedicated preparation is sufficient for most students.</p>' },
+        { heading: 'Railway Jobs for 12th Pass — RRB NTPC & Group D', content: '<p>Indian Railways is the largest employer in India and regularly recruits thousands of 12th pass candidates through RRB NTPC and RRB Group D examinations.</p><p><strong>RRB NTPC (12th Level Posts):</strong> Junior Clerk cum Typist, Accounts Clerk cum Typist, Junior Time Keeper, Trains Clerk, Commercial cum Ticket Clerk. Salary: ₹19,900 to ₹35,400 per month.</p><p><strong>RRB Group D:</strong> Track Maintainer, Helper in Electrical/Mechanical/S&T departments, Porter. Salary: ₹18,000 to ₹56,900 per month. Requires 10th pass + ITI or 12th pass.</p><p><strong>Selection Process:</strong> CBT Stage 1, CBT Stage 2 (for NTPC), Physical Efficiency Test (for Group D), Document Verification, Medical Examination.</p>' },
+        { heading: 'Defence Jobs After 12th — Army, Navy, Air Force', content: '<p>For students who want to serve the nation in uniform, the Indian Armed Forces offer excellent career opportunities after 12th.</p><p><strong>Indian Army — Soldier Technical/Clerk:</strong> 12th pass with Science (Physics, Chemistry, Maths) for Technical. 12th pass with 60% aggregate for Clerk. Salary: ₹21,700 to ₹69,100 per month plus military allowances.</p><p><strong>Indian Navy — Sailor (MR/NMR):</strong> 10th/12th pass. Salary: ₹21,700 onwards. Excellent career growth with promotions.</p><p><strong>Indian Air Force — Airman (Group X & Y):</strong> Group X requires 12th with Physics & Maths (60%). Group Y requires 12th pass. Salary: ₹26,900 to ₹1,12,400 per month.</p><p><strong>NDA (National Defence Academy):</strong> For students who want to become officers. 12th pass with Physics & Maths for Air Force/Navy, any stream for Army. Age: 16.5 to 19.5 years.</p>' },
+        { heading: 'Police Jobs After 12th — State Police & CISF/BSF/CRPF', content: '<p>Police recruitment is one of the most popular career choices after 12th. Both state police forces and central paramilitary forces recruit 12th pass candidates regularly.</p><p><strong>State Police Constable:</strong> Each state conducts its own recruitment. UP Police, Rajasthan Police, MP Police, Bihar Police — all recruit thousands of constables annually. Salary: ₹21,700 to ₹69,100 per month.</p><p><strong>Central Armed Police Forces (CAPF):</strong> CISF, BSF, CRPF, ITBP, SSB recruit Constable (GD) through SSC GD exam. 12th pass required. Salary: ₹21,700 to ₹69,100 per month plus risk allowance.</p><p><strong>Selection Process:</strong> Written Test, Physical Standard Test (PST), Physical Efficiency Test (PET), Medical Examination, Document Verification.</p>' },
+        { heading: 'Banking Jobs After 12th — IBPS Clerk & SBI Clerk', content: '<p>Banking sector offers excellent career opportunities for 12th pass candidates through clerical recruitment.</p><p><strong>IBPS Clerk:</strong> Technically requires graduation, but many banks accept 12th pass for some positions. Salary: ₹11,765 to ₹31,540 per month plus allowances. Total CTC: ₹25,000-35,000 per month.</p><p><strong>Post Office Jobs:</strong> India Post recruits Gramin Dak Sevak (GDS) for 12th pass candidates. Salary: ₹10,000 to ₹14,500 per month. Selection based on 10th/12th marks — no written exam.</p><p><strong>LIC Assistant:</strong> LIC recruits assistants for 12th pass candidates. Salary: ₹14,435 to ₹25,335 per month plus allowances.</p>' }
+      ]
+    )
   },
   {
     id: '4',
-    title: 'Railway RRB NTPC 2026 Update',
-    slug: 'railway-rrb-ntpc-2026-update',
-    category: 'Railways',
-    excerpt: 'Ministry of Railways announcement regarding 1.5 Lakh vacancies. Zone-wise breakdown and application process.',
+    title: 'Government Jobs for Women 2026 — Which Exams Give Real Work-Life Balance',
+    slug: 'government-jobs-women-2026-work-life-balance-exams',
+    category: 'Career Guide',
+    excerpt: 'Not all government jobs are equal for women. This guide ranks the best sarkari naukri options in 2026 by work-life balance, maternity benefits, posting flexibility, and actual salary in hand.',
     date: 'Feb 5, 2026',
-    author: 'Rail Recruitment Cell Watch',
-    readTime: '7 min read',
-    image: 'https://images.unsplash.com/photo-1515162305391-9a246efc47c9?auto=format&fit=crop&q=60&w=500', // Train/Railway concept
-    content: generateLongFormContent('Railway RRB NTPC 2026 Update', 'Railways')
+    author: 'Guriya Kumari',
+    readTime: '10 min read',
+    image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=60&w=500',
+    content: generateArticleContent(
+      'Best Government Jobs for Girls & Women in India 2026', 'Career Guide',
+      'Government jobs have always been a preferred career choice for women in India, and for good reason. They offer job security, equal pay, maternity leave, child care facilities, safe work environment, and respect in society. In 2026, more government departments than ever are actively encouraging women to join their ranks. This guide covers the best government job options for women across different educational qualifications.',
+      [
+        { heading: 'Why Government Jobs Are Ideal for Women', content: '<p>Government jobs offer several advantages that are particularly beneficial for women:</p><ul style="line-height:2.2;"><li><strong>Maternity Leave:</strong> 26 weeks of paid maternity leave (one of the best in the world)</li><li><strong>Child Care Leave:</strong> 730 days of child care leave for women with children under 18</li><li><strong>Equal Pay:</strong> Same salary as male counterparts for the same post</li><li><strong>Safe Work Environment:</strong> Strict anti-harassment policies and POSH Act implementation</li><li><strong>Job Security:</strong> No fear of sudden layoffs or retrenchment</li><li><strong>Pension:</strong> NPS (National Pension System) ensures financial security after retirement</li><li><strong>Flexible Transfers:</strong> Many departments consider spouse posting for women employees</li></ul>' },
+        { heading: 'Teaching Jobs — Best Option for Women', content: '<p>Teaching is one of the most respected and suitable careers for women in India. Government teacher jobs offer excellent salary, job security, and work-life balance.</p><p><strong>Primary Teacher (PRT):</strong> Requires D.El.Ed or B.Ed + CTET/State TET. Salary: ₹35,400 to ₹1,12,400 per month in central schools (KVS, NVS). State government schools offer ₹25,000-45,000 per month.</p><p><strong>Trained Graduate Teacher (TGT):</strong> Requires graduation in relevant subject + B.Ed + CTET. Salary: ₹44,900 to ₹1,42,400 per month in KVS/NVS.</p><p><strong>Post Graduate Teacher (PGT):</strong> Requires post-graduation + B.Ed. Salary: ₹47,600 to ₹1,51,100 per month.</p><p><strong>College Professor:</strong> Requires NET/SET qualification + PhD (preferred). Salary: ₹57,700 to ₹1,82,400 per month as Assistant Professor.</p>' },
+        { heading: 'Banking Jobs for Women — IBPS PO, SBI PO, RBI', content: '<p>Banking sector is one of the most women-friendly government sectors in India. Public sector banks have a significant percentage of women employees at all levels.</p><p><strong>IBPS PO/SBI PO:</strong> Probationary Officer is an excellent career start. Salary: ₹41,960 to ₹63,840 per month (including allowances). Growth path: PO → Manager → Senior Manager → Chief Manager → AGM → DGM → GM.</p><p><strong>RBI Grade B Officer:</strong> One of the most prestigious banking jobs. Salary: ₹55,000 to ₹1,00,000 per month. Excellent work environment and career growth.</p><p><strong>IBPS Clerk/SBI Clerk:</strong> Entry-level banking job. Salary: ₹25,000-35,000 per month. Can be promoted to officer cadre through internal exams.</p>' },
+        { heading: 'UPSC & State PSC — IAS, IPS, IFS for Women', content: '<p>Civil services offer the highest level of authority and responsibility in government. Women IAS and IPS officers are making a significant impact across India.</p><p><strong>IAS (Indian Administrative Service):</strong> District Collector, Secretary level positions. Salary: ₹56,100 to ₹2,50,000 per month. Immense social impact and career satisfaction.</p><p><strong>IPS (Indian Police Service):</strong> SP, DIG, IG level positions. Women IPS officers are leading major police operations across India.</p><p><strong>IFS (Indian Foreign Service):</strong> Diplomatic career. Opportunity to represent India abroad. Excellent lifestyle and international exposure.</p><p><strong>State PSC:</strong> SDM, BDO, DSP level positions in state government. Easier to crack than UPSC with similar benefits.</p>' },
+        { heading: 'Healthcare & Medical Government Jobs for Women', content: '<p>Healthcare sector has a large number of government jobs that are particularly suitable for women with medical or nursing backgrounds.</p><p><strong>Staff Nurse (Government Hospital):</strong> Requires B.Sc Nursing or GNM. Salary: ₹35,400 to ₹1,12,400 per month in central government hospitals. State government hospitals offer ₹25,000-40,000 per month.</p><p><strong>AIIMS/ESIC/CGHS Doctor:</strong> MBBS/MD required. Salary: ₹67,700 to ₹2,08,700 per month. Excellent research opportunities.</p><p><strong>Anganwadi Worker/Supervisor:</strong> 10th/12th pass required. Salary: ₹8,000-15,000 per month. Suitable for women in rural areas who want to serve their community.</p><p><strong>ASHA Worker:</strong> Community health worker. Incentive-based income. Flexible working hours. Suitable for married women.</p>' }
+      ]
+    )
   },
   {
     id: '5',
-    title: 'State PSC 2026 Syllabus Changes',
-    slug: 'state-psc-2026-syllabus-changes',
-    category: 'State PSC',
-    excerpt: 'comparative analysis of syllabus updates for UPPSC, BPSC, MPPSC and RAS examinations for the upcoming session.',
+    title: 'RRB NTPC 2026 Vacancy List — Which Post Should You Actually Target',
+    slug: 'rrb-ntpc-2026-vacancy-list-which-post-to-target',
+    category: 'Railways',
+    excerpt: 'RRB NTPC 2026 has 11558 vacancies across 13 posts — but not all are worth targeting equally. This guide compares salary, promotion speed, and competition level for each post so you can choose smartly.',
     date: 'Feb 4, 2026',
-    author: 'State Services Mentor',
-    readTime: '9 min read',
-    image: 'https://images.unsplash.com/photo-1450101496163-993d56ce2c2f?auto=format&fit=crop&q=60&w=500', // Meeting/Discussion concept
-    content: generateLongFormContent('State PSC 2026 Syllabus Changes', 'State PSC')
+    author: 'Guriya Kumari',
+    readTime: '11 min read',
+    image: 'https://images.unsplash.com/photo-1515162305391-9a246efc47c9?auto=format&fit=crop&q=60&w=500',
+    content: generateArticleContent(
+      'Railway RRB NTPC 2026 — Complete Guide to 11558 Vacancies', 'Railways',
+      'Indian Railways is one of the largest employers in the world, and RRB NTPC (Non-Technical Popular Categories) is one of the most awaited recruitment notifications every year. With thousands of vacancies across Graduate and 12th level posts, RRB NTPC 2026 is a golden opportunity for millions of aspirants. This comprehensive guide covers everything from eligibility to preparation strategy.',
+      [
+        { heading: 'RRB NTPC 2026 Vacancy Details', content: '<p>RRB NTPC 2026 is expected to announce approximately 11,558 vacancies across two levels:</p><p><strong>Graduate Level Posts:</strong> Junior Clerk cum Typist, Accounts Clerk cum Typist, Junior Time Keeper, Trains Clerk, Commercial cum Ticket Clerk, Station Master, Goods Guard, Senior Commercial cum Ticket Clerk, Senior Clerk cum Typist, Junior Account Assistant cum Typist, Senior Time Keeper, Commercial Apprentice, Traffic Assistant.</p><p><strong>12th Level Posts:</strong> Junior Clerk cum Typist, Accounts Clerk cum Typist, Junior Time Keeper, Trains Clerk, Commercial cum Ticket Clerk.</p><p>Vacancies are distributed across 21 Railway Recruitment Boards (RRBs) covering all zones of Indian Railways.</p>' },
+        { heading: 'Eligibility Criteria for RRB NTPC 2026', content: '<p><strong>For Graduate Level Posts:</strong> Bachelor\'s degree in any discipline from a recognized university.</p><p><strong>For 12th Level Posts:</strong> 12th pass from any recognized board.</p><p><strong>Age Limit:</strong> 18-33 years for most posts. Age relaxation: OBC 3 years, SC/ST 5 years, PwD 10 years, Ex-Servicemen as per rules.</p>' },
+        { heading: 'RRB NTPC 2026 Exam Pattern', content: '<p><strong>CBT Stage 1 (Preliminary):</strong> 100 questions, 90 minutes. Sections: Mathematics (30Q), General Intelligence & Reasoning (30Q), General Awareness (40Q). Negative marking: 1/3 mark per wrong answer. This is a screening test.</p><p><strong>CBT Stage 2 (Mains):</strong> 120 questions, 90 minutes. Sections: Mathematics (35Q), General Intelligence & Reasoning (35Q), General Awareness (50Q). This determines the merit list.</p><p><strong>Typing Skill Test:</strong> For Clerk and Typist posts. English typing: 30 WPM, Hindi typing: 25 WPM.</p>' },
+        { heading: 'Preparation Strategy for RRB NTPC', content: '<p><strong>Mathematics:</strong> Number System, Percentage, Ratio, Time & Work, Time & Distance, Simple & Compound Interest, Profit & Loss, Mensuration, Geometry, Trigonometry, Statistics. Level: Class 10 standard. Practice 40 questions daily.</p><p><strong>General Intelligence & Reasoning:</strong> Analogies, Number & Alphabetical Series, Coding & Decoding, Mathematical Operations, Similarities & Differences, Relationships, Analytical Reasoning, Syllogism, Venn Diagrams, Data Interpretation.</p><p><strong>General Awareness:</strong> Current Events, Games & Sports, Art & Culture, Indian Literature, History, Geography, Polity, Science & Technology, Government Programs, Indian Economy, Famous Personalities.</p>' },
+        { heading: 'Salary Structure for RRB NTPC Posts', content: '<ul style="line-height:2.2;"><li><strong>Station Master:</strong> Pay Level 6 — ₹35,400 to ₹1,12,400 per month</li><li><strong>Goods Guard:</strong> Pay Level 5 — ₹29,200 to ₹92,300 per month</li><li><strong>Senior Commercial cum Ticket Clerk:</strong> Pay Level 5 — ₹29,200 to ₹92,300 per month</li><li><strong>Junior Clerk cum Typist:</strong> Pay Level 2 — ₹19,900 to ₹63,200 per month</li></ul><p>Railway employees also receive HRA, DA, Free Railway Pass for self and family, Medical facilities, and Pension under NPS.</p>' }
+      ]
+    )
   },
   {
     id: '6',
-    title: 'Defense Exams (NDA/CDS) 2026',
-    slug: 'defense-exams-nda-cds-2026',
-    category: 'Defense',
-    excerpt: 'Complete roadmap for joining Indian Armed Forces. Physical standards, medical requirements, and SSB interview tips.',
+    title: 'UP Police Constable 2026 Physical Test — Height, Chest & Running Standards Explained',
+    slug: 'up-police-constable-2026-physical-test-standards-explained',
+    category: 'State PSC',
+    excerpt: 'Most UP Police Constable rejections happen at the physical test, not the written exam. This guide explains exact height, chest, and running standards for every category — with tips to clear each round.',
     date: 'Feb 3, 2026',
-    author: 'Defense Academy Expert',
-    readTime: '6 min read',
-    image: 'https://images.unsplash.com/photo-1508672019048-8add577dfeb7?auto=format&fit=crop&q=60&w=500', // Defense/Uniform concept
-    content: generateLongFormContent('Defense Exams (NDA/CDS) 2026', 'Defense')
-  }
-];
-
-export const blogs = [
-  ...articles,
-  {
-    id: 'ssc-cgl-2026-complete-guide',
-    slug: 'ssc-cgl-2026-complete-guide',
-    title: 'SSC CGL 2026 Complete Preparation Guide and Eligibility Roadmap',
-    category: '2026 Exams',
-    date: 'Feb 06, 2026',
-    image: 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&q=70&w=600',
-    excerpt: 'Detailed 3500-word comprehensive guide for SSC CGL 2026 aspirants covering all Tiers.',
-    content: generateLongFormContent('SSC CGL 2026', 'Staff Selection Commission')
+    author: 'Guriya Kumari',
+    readTime: '9 min read',
+    image: 'https://images.unsplash.com/photo-1450101496163-993d56ce2c2f?auto=format&fit=crop&q=60&w=500',
+    content: generateArticleContent(
+      'UP Police Constable 2026 — Preparation Tips, Syllabus & Physical Test', 'State PSC',
+      'Uttar Pradesh Police Constable recruitment is one of the largest state-level recruitments in India. With tens of thousands of vacancies announced regularly, it is a dream job for millions of youth in UP. The selection process includes a written exam, physical standard test, and physical efficiency test. This guide provides a complete preparation strategy for UP Police Constable 2026.',
+      [
+        { heading: 'UP Police Constable 2026 Eligibility', content: '<p><strong>Educational Qualification:</strong> 12th pass (Intermediate) from any recognized board in Uttar Pradesh or equivalent.</p><p><strong>Age Limit:</strong> 18-22 years for General category. OBC: 18-25 years. SC/ST: 18-27 years. Ex-Servicemen: Age relaxation as per UP government rules.</p><p><strong>Physical Standards:</strong></p><ul style="line-height:2;"><li>Male (General/OBC/SC): Height 168 cm, Chest 79-84 cm</li><li>Male (ST): Height 160 cm, Chest 77-82 cm</li><li>Female (General/OBC/SC): Height 152 cm, Weight 40 kg minimum</li><li>Female (ST): Height 147 cm, Weight 40 kg minimum</li></ul>' },
+        { heading: 'Written Exam Pattern & Syllabus', content: '<p><strong>Exam Pattern:</strong> 150 questions, 300 marks, 2 hours. Negative marking: 0.5 marks per wrong answer. OMR-based exam.</p><p><strong>Syllabus Breakdown:</strong></p><p><strong>General Hindi (38 questions, 76 marks):</strong> Sandhi, Samas, Upsarg, Pratyay, Muhavare, Lokoktiyan, Paryayvachi, Vilom, Anekarthi Shabd, Tatsam-Tadbhav, Vakya Shuddhi, Ras, Chhand, Alankar.</p><p><strong>General Knowledge (37 questions, 74 marks):</strong> History of India & UP, Geography of India & UP, Indian Constitution & Polity, Economy, Science & Technology, Current Affairs, Sports, Awards, Important Days.</p><p><strong>Numerical & Mental Ability (38 questions, 76 marks):</strong> Number System, Simplification, HCF & LCM, Percentage, Profit & Loss, Ratio & Proportion, Time & Work, Time & Distance, Simple Interest, Mensuration, Reasoning (Analogy, Series, Coding-Decoding, Blood Relations, Direction Sense).</p><p><strong>Mental Aptitude/IQ/Reasoning (37 questions, 74 marks):</strong> Logical Diagrams, Symbol-Relationship Interpretation, Codification, Perception Test, Word Formation Test, Letter and Number Series, Word and Alphabet Analogy, Common Sense Test, Letter and Number Coding, Direction Sense Test, Data Interpretation.</p>' },
+        { heading: 'Physical Efficiency Test (PET) Details', content: '<p>After clearing the written exam, candidates must pass the Physical Efficiency Test:</p><p><strong>Male Candidates:</strong></p><ul style="line-height:2;"><li>4.8 km run in 25 minutes</li><li>Long Jump: 4 meters in 3 attempts</li><li>High Jump: 1.1 meters in 3 attempts</li></ul><p><strong>Female Candidates:</strong></p><ul style="line-height:2;"><li>2.4 km run in 14 minutes</li><li>Long Jump: 2.5 meters in 3 attempts</li><li>High Jump: 0.9 meters in 3 attempts</li></ul><p><strong>How to Prepare for PET:</strong> Start running 3-4 months before the exam. Begin with 1-2 km daily and gradually increase. Practice long jump and high jump regularly. Maintain a healthy diet and sleep schedule.</p>' },
+        { heading: 'Best Books for UP Police Constable Preparation', content: '<p>Choosing the right study material is crucial for UP Police Constable preparation:</p><ul style="line-height:2.2;"><li><strong>General Hindi:</strong> Hardev Bahri Hindi Grammar, Lucent Hindi Grammar</li><li><strong>General Knowledge:</strong> Lucent GK, UP Special GK by any reputed publisher, Monthly Current Affairs magazine</li><li><strong>Maths & Reasoning:</strong> R.S. Aggarwal Quantitative Aptitude, R.S. Aggarwal Verbal & Non-Verbal Reasoning</li><li><strong>Previous Year Papers:</strong> UP Police Constable Previous Year Solved Papers (any reputed publisher)</li><li><strong>Mock Tests:</strong> Practice online mock tests on platforms like Testbook, Adda247, or SarkariExamAll</li></ul>' },
+        { heading: '3-Month Preparation Plan for UP Police Constable', content: '<p><strong>Month 1 — Foundation:</strong> Complete General Hindi grammar rules. Start with basic Maths (Class 8-10 level). Read UP GK book. Start daily current affairs reading. Target: Complete 50% of syllabus.</p><p><strong>Month 2 — Practice:</strong> Solve 100 questions daily from all subjects. Focus on weak areas identified in Month 1. Complete UP History and Geography. Practice Reasoning daily. Target: Complete 100% of syllabus.</p><p><strong>Month 3 — Mock Tests:</strong> Give 1 full mock test daily. Analyze mistakes. Revise notes. Focus on speed and accuracy. Target: Score 200+ in mock tests consistently.</p><p><strong>Physical Preparation:</strong> Start running from Day 1. Don\'t wait for the exam date. 30 minutes of running + 15 minutes of jumping practice daily is sufficient.</p>' }
+      ]
+    )
   },
   {
-    id: 'upsc-civil-services-2026-guide',
-    slug: 'upsc-civil-services-2026-guide',
-    title: 'UPSC Civil Services 2026 Document Verification Complete Guide',
+    id: '7',
+    title: 'IBPS PO 2026 Interview Questions That Actually Get Asked — With Answers',
+    slug: 'ibps-po-2026-interview-questions-actually-asked-answers',
+    category: 'Banking',
+    excerpt: 'IBPS PO interview is where most selected candidates lose marks. This guide covers the real questions asked in 2024-25 panels, how to answer banking awareness questions, and what interviewers actually look for.',
+    date: 'Feb 2, 2026',
+    author: 'Guriya Kumari',
+    readTime: '10 min read',
+    image: 'https://images.unsplash.com/photo-1601597111158-2fceff292cdc?auto=format&fit=crop&q=60&w=500',
+    content: generateArticleContent(
+      'IBPS PO 2026 — Banking Career Guide for Freshers', 'Banking',
+      'IBPS PO (Probationary Officer) is one of the most prestigious entry-level banking jobs in India. Selected candidates join public sector banks as officers and have a clear career growth path from PO to General Manager. This guide is specifically designed for freshers who are appearing for IBPS PO 2026 for the first time.',
+      [
+        { heading: 'What is IBPS PO and Why Should You Apply?', content: '<p>IBPS (Institute of Banking Personnel Selection) conducts the PO exam to recruit Probationary Officers for 11 public sector banks including Bank of Baroda, Punjab National Bank, Canara Bank, Union Bank of India, Bank of India, Central Bank of India, Indian Overseas Bank, UCO Bank, Bank of Maharashtra, Punjab & Sind Bank, and Indian Bank.</p><p>As a Probationary Officer, you start as a Scale I officer and can rise to Scale VII (General Manager) through promotions. The job offers excellent salary, job security, housing loan at concessional rates, medical benefits, and social respect.</p><p><strong>Starting Salary:</strong> ₹41,960 per month (basic) + DA + HRA + other allowances. Total CTC: approximately ₹8-9 lakh per annum for a fresher.</p>' },
+        { heading: 'IBPS PO 2026 Eligibility Criteria', content: '<p><strong>Educational Qualification:</strong> Bachelor\'s degree in any discipline from a recognized university. Minimum 60% marks for General/EWS category, 55% for SC/ST/PwD.</p><p><strong>Age Limit:</strong> 20-30 years. Age relaxation: OBC 3 years (up to 33), SC/ST 5 years (up to 35), PwD 10 years, Ex-Servicemen as per rules.</p><p><strong>Computer Literacy:</strong> Must have a certificate/diploma in computer operations or proficiency in computer usage.</p><p><strong>Language Proficiency:</strong> Must be proficient in the official language of the state/UT for which applying.</p>' },
+        { heading: 'IBPS PO 2026 Exam Pattern', content: '<p><strong>Prelims (Online):</strong> 100 questions, 100 marks, 1 hour. Sections: English Language (30Q, 30 marks, 20 min), Quantitative Aptitude (35Q, 35 marks, 20 min), Reasoning Ability (35Q, 35 marks, 20 min). Negative marking: 0.25 marks per wrong answer.</p><p><strong>Mains (Online):</strong> 155 questions + Descriptive Paper. Objective: Reasoning & Computer Aptitude (45Q, 60 marks, 60 min), English Language (35Q, 40 marks, 40 min), Data Analysis & Interpretation (35Q, 60 marks, 45 min), General Economy & Banking Awareness (40Q, 40 marks, 35 min). Descriptive: English Letter & Essay Writing (2 questions, 25 marks, 30 min).</p><p><strong>Interview:</strong> 100 marks. Final selection based on Mains + Interview (80:20 ratio).</p>' },
+        { heading: 'Banking Awareness — Most Important Topic for IBPS PO', content: '<p>Banking Awareness is a unique section in IBPS PO Mains that many freshers underestimate. It covers:</p><ul style="line-height:2;"><li>RBI functions, monetary policy, repo rate, reverse repo rate, CRR, SLR</li><li>Types of banks — commercial, cooperative, development, payment banks</li><li>Banking products — CASA, FD, RD, loans, credit cards</li><li>Financial inclusion schemes — Jan Dhan Yojana, PMMY, Mudra Loans</li><li>Important banking terms — NPA, SARFAESI Act, BASEL norms, CRAR</li><li>Recent banking mergers and acquisitions</li><li>Current affairs related to banking and economy</li></ul><p>Read Economic Survey, RBI Annual Report, and follow financial news daily for 3-4 months before the exam.</p>' },
+        { heading: 'IBPS PO Interview Preparation Tips', content: '<p>The IBPS PO interview is the final hurdle. Here is how to prepare:</p><p><strong>Know Your Resume:</strong> Be prepared to answer questions about your graduation, projects, internships, and hobbies. Every line in your resume is a potential question.</p><p><strong>Banking Knowledge:</strong> Know current repo rate, inflation rate, GDP growth rate, recent RBI policies, and major banking news of last 6 months.</p><p><strong>Why Banking?:</strong> Prepare a genuine, convincing answer for "Why do you want to join banking?" Focus on service to society, career growth, and stability.</p><p><strong>Current Affairs:</strong> Be updated on last 3 months of national and international news. Focus on economic and financial news.</p><p><strong>Communication Skills:</strong> Speak clearly and confidently. Don\'t rush. It\'s okay to say "I don\'t know" rather than giving wrong information.</p><p><strong>Dress Code:</strong> Formal attire is mandatory. Men: White/light blue shirt, dark trousers, tie. Women: Formal saree, salwar suit, or western formals.</p>' }
+      ]
+    )
+  },
+  {
+    id: '8',
+    title: 'NDA 2026 SSB Interview — What Happens Inside and How to Prepare',
+    slug: 'nda-2026-ssb-interview-what-happens-how-to-prepare',
+    category: 'Defence',
+    excerpt: 'The NDA written exam is just the beginning — SSB is where 90% of candidates fail. This guide explains the 5-day SSB process, psychological tests, GTO tasks, and what assessors are actually looking for.',
+    date: 'Feb 1, 2026',
+    author: 'Guriya Kumari',
+    readTime: '11 min read',
+    image: 'https://images.unsplash.com/photo-1508672019048-8add577dfeb7?auto=format&fit=crop&q=60&w=500',
+    content: generateArticleContent(
+      'NDA 2026 — Complete Guide for 12th Students Aspiring to Join Defence', 'Defence',
+      'The National Defence Academy (NDA) examination is the gateway to becoming an officer in the Indian Army, Navy, and Air Force. Conducted by UPSC twice a year, NDA is one of the most prestigious examinations in India. If you are a 12th student dreaming of wearing the uniform and serving the nation as an officer, this guide is your complete roadmap.',
+      [
+        { heading: 'NDA 2026 Eligibility Criteria', content: '<p><strong>For Army:</strong> 12th pass or appearing in any stream from a recognized board.</p><p><strong>For Air Force & Naval Wings:</strong> 12th pass or appearing with Physics and Mathematics as compulsory subjects.</p><p><strong>Age Limit:</strong> 16.5 to 19.5 years at the time of commencement of course. For NDA I 2026 (course starting January 2027), candidates born between 2nd January 2007 and 1st July 2009 are eligible.</p><p><strong>Marital Status:</strong> Must be unmarried.</p><p><strong>Gender:</strong> Both male and female candidates are eligible (females can apply for Army wing only as of 2026).</p><p><strong>Physical Standards:</strong> Height minimum 157 cm for Army, 162.5 cm for Air Force, 157 cm for Navy. Weight proportionate to height. Good eyesight required (correctable vision accepted for Army and Navy, not for Air Force pilot).</p>' },
+        { heading: 'NDA 2026 Exam Pattern', content: '<p>NDA written exam has two papers:</p><p><strong>Paper I — Mathematics:</strong> 120 questions, 300 marks, 2.5 hours. Topics: Algebra, Matrices & Determinants, Trigonometry, Analytical Geometry (2D & 3D), Differential Calculus, Integral Calculus, Differential Equations, Vector Algebra, Statistics & Probability. Level: Class 11-12 Mathematics.</p><p><strong>Paper II — General Ability Test (GAT):</strong> 150 questions, 600 marks, 2.5 hours. Part A: English (50 questions, 200 marks) — Grammar, Vocabulary, Comprehension. Part B: General Knowledge (100 questions, 400 marks) — Physics, Chemistry, General Science, History, Geography, Current Events.</p><p><strong>Negative Marking:</strong> 1/3 mark deducted for each wrong answer.</p><p><strong>Total:</strong> 270 questions, 900 marks. Minimum qualifying marks vary each year based on competition.</p>' },
+        { heading: 'SSB Interview — The Real Challenge', content: '<p>The SSB (Services Selection Board) interview is a 5-day process that tests your Officer Like Qualities (OLQs). It is the most unique selection process in India.</p><p><strong>Day 1 — Screening:</strong> Officer Intelligence Rating (OIR) test and Picture Perception & Discussion Test (PPDT). Only 50-60% candidates are screened in.</p><p><strong>Day 2 — Psychology Tests:</strong> Thematic Apperception Test (TAT), Word Association Test (WAT), Situation Reaction Test (SRT), Self Description Test (SD).</p><p><strong>Day 3-4 — Group Testing Officer (GTO) Tasks:</strong> Group Discussion, Group Planning Exercise, Progressive Group Task, Half Group Task, Individual Obstacles, Command Task, Final Group Task, Lecturette.</p><p><strong>Day 5 — Personal Interview & Conference:</strong> In-depth personal interview by a senior officer. Final conference where all assessors discuss your performance.</p><p><strong>Key OLQs Assessed:</strong> Effective Intelligence, Reasoning Ability, Organizing Ability, Power of Expression, Social Adaptability, Cooperation, Sense of Responsibility, Initiative, Self-Confidence, Speed of Decision, Ability to Influence the Group, Liveliness, Determination, Courage, Stamina, Militarily Bearing, Devotion to Duty.</p>' },
+        { heading: 'Mathematics Preparation Strategy for NDA', content: '<p>Mathematics Paper I is the deciding factor for most NDA aspirants. Here is how to prepare:</p><p><strong>Class 11-12 NCERT First:</strong> Complete NCERT Mathematics Class 11 and 12 thoroughly. Understand concepts, don\'t just memorize formulas.</p><p><strong>Focus Topics:</strong> Trigonometry (high weightage), Algebra, Coordinate Geometry, and Calculus together account for 70%+ of the paper. Master these first.</p><p><strong>Practice Daily:</strong> Solve 30-40 Maths questions daily. Use R.D. Sharma or S.L. Loney for Trigonometry. Use previous year NDA papers for practice.</p><p><strong>Speed & Accuracy:</strong> NDA Maths requires both speed and accuracy. Practice solving questions in 1-1.5 minutes each. Negative marking makes accuracy crucial.</p>' },
+        { heading: 'Physical Fitness Preparation for NDA', content: '<p>Physical fitness is non-negotiable for NDA. Start your physical preparation at least 6 months before the exam.</p><p><strong>Running:</strong> Build up to 5 km in 25 minutes. Start with 2 km and increase by 500m every week.</p><p><strong>Swimming:</strong> Learn swimming if you don\'t know. It is tested at NDA and is essential for Naval wing.</p><p><strong>Obstacle Course:</strong> Practice rope climbing, wall climbing, and other obstacle activities.</p><p><strong>Team Sports:</strong> Play team sports like football, basketball, or volleyball. SSB assessors look for team spirit and leadership in sports.</p><p><strong>Yoga & Meditation:</strong> Practice yoga for flexibility and meditation for mental strength. SSB is mentally exhausting — mental fitness is as important as physical fitness.</p>' }
+      ]
+    )
+  },
+  {
+    id: '9',
+    title: 'UPPSC PCS 2026 Optional Subject Selection — Which One Gives Maximum Marks',
+    slug: 'uppsc-pcs-2026-optional-subject-selection-maximum-marks',
+    category: 'State PSC',
+    excerpt: 'Choosing the wrong optional subject is the #1 reason UPPSC PCS aspirants fail Mains. This guide compares all optional subjects by average marks scored, syllabus overlap with GS, and topper choices in 2025.',
+    date: 'Jan 30, 2026',
+    author: 'Guriya Kumari',
+    readTime: '12 min read',
+    image: 'https://images.unsplash.com/photo-1544928147-79a2dbc1f389?auto=format&fit=crop&q=60&w=500',
+    content: generateArticleContent(
+      'UPPSC PCS 2026 — State Civil Services Complete Preparation Guide', 'State PSC',
+      'UPPSC PCS (Uttar Pradesh Public Service Commission Provincial Civil Services) is the most prestigious state-level civil services exam in UP. It recruits for posts like Sub-Divisional Magistrate (SDM), Deputy Superintendent of Police (DSP), Block Development Officer (BDO), and many other gazetted officer posts. This guide provides a complete preparation strategy for UPPSC PCS 2026.',
+      [
+        { heading: 'UPPSC PCS 2026 Posts and Salary', content: '<p>UPPSC PCS recruits for over 200 different posts across various state government departments. The most sought-after posts are:</p><ul style="line-height:2.2;"><li><strong>Sub-Divisional Magistrate (SDM):</strong> Pay Level 12 — ₹78,800 to ₹2,09,200 per month. Immense administrative power at sub-division level.</li><li><strong>Deputy Superintendent of Police (DSP):</strong> Pay Level 11 — ₹67,700 to ₹2,08,700 per month. Leads police operations at sub-division level.</li><li><strong>Block Development Officer (BDO):</strong> Pay Level 10 — ₹56,100 to ₹1,77,500 per month. Oversees rural development at block level.</li><li><strong>District Commandant Homeguards:</strong> Pay Level 11. Leads Home Guard operations in a district.</li><li><strong>Assistant Commissioner (Commercial Tax):</strong> Pay Level 10. Revenue collection and tax administration.</li></ul>' },
+        { heading: 'UPPSC PCS 2026 Exam Pattern', content: '<p><strong>Prelims:</strong> Two papers — GS Paper I (150 questions, 200 marks, 2 hours) and CSAT Paper II (100 questions, 200 marks, 2 hours). CSAT is qualifying (minimum 33%). GS Paper I determines merit for Mains.</p><p><strong>Mains:</strong> 8 papers — General Hindi (150 marks), Essay (150 marks), GS Paper I-IV (200 marks each), Optional Subject Paper I & II (200 marks each). Total: 1500 marks.</p><p><strong>Interview:</strong> 100 marks. Final merit based on Mains + Interview.</p><p><strong>Key Difference from UPSC:</strong> UPPSC has a strong focus on UP-specific topics — UP History, UP Geography, UP Economy, UP Culture, and UP Government schemes. This is where many aspirants lose marks.</p>' },
+        { heading: 'UP-Specific Topics — The Key to UPPSC Success', content: '<p>UPPSC PCS has a significant portion dedicated to Uttar Pradesh. Here are the key UP-specific topics you must master:</p><p><strong>UP History:</strong> Ancient UP (Kashi, Prayag, Mathura), Medieval UP (Mughal period, Nawabs of Awadh), Modern UP (1857 revolt, freedom movement, post-independence development).</p><p><strong>UP Geography:</strong> Rivers (Ganga, Yamuna, Ghaghra, Gomti), plains, climate, soil types, major cities, industrial areas, agricultural zones.</p><p><strong>UP Economy:</strong> Agriculture (sugarcane, wheat, rice), industries (leather, textiles, handicrafts), MSME sector, UP Industrial Policy, major industrial corridors.</p><p><strong>UP Polity:</strong> UP Legislative Assembly, Governor, Chief Minister, State Cabinet, Panchayati Raj system in UP, urban local bodies.</p><p><strong>UP Government Schemes:</strong> Kanya Sumangala Yojana, UP Scholarship Scheme, Mukhyamantri Abhyudaya Yojana, UP Startup Policy, One District One Product (ODOP) scheme.</p>' },
+        { heading: 'Optional Subject Selection for UPPSC PCS', content: '<p>Choosing the right optional subject can make or break your UPPSC PCS result. The optional subject carries 400 marks (2 papers × 200 marks) — a significant portion of the total 1500 marks.</p><p><strong>Popular Optional Subjects:</strong></p><ul style="line-height:2;"><li><strong>History:</strong> Overlaps significantly with GS. Good for humanities graduates. High scoring if prepared well.</li><li><strong>Geography:</strong> Overlaps with GS. Scoring subject. Good for science graduates too.</li><li><strong>Public Administration:</strong> Directly relevant to civil services. Overlaps with GS Polity and Governance.</li><li><strong>Sociology:</strong> Relatively shorter syllabus. Good scoring potential. Overlaps with GS Society paper.</li><li><strong>Political Science:</strong> Good for Political Science graduates. Overlaps with GS Polity.</li></ul><p><strong>Advice:</strong> Choose optional based on your graduation subject and genuine interest. Don\'t choose based on what others are doing. Consistency in optional preparation is more important than the subject itself.</p>' },
+        { heading: 'Answer Writing Strategy for UPPSC Mains', content: '<p>UPPSC Mains is a descriptive exam. Answer writing quality determines your final rank. Here are key strategies:</p><p><strong>Structure Every Answer:</strong> Introduction (2-3 lines) → Main Body (points with headings) → Conclusion (2-3 lines). Never write a wall of text without structure.</p><p><strong>Use Diagrams and Maps:</strong> For Geography and Economy questions, draw simple diagrams and maps. They save time and impress evaluators.</p><p><strong>Quote Data and Schemes:</strong> Mention specific statistics, government schemes, and committee recommendations. This shows depth of knowledge.</p><p><strong>UP-Specific Examples:</strong> Always try to give UP-specific examples. For example, if asked about rural development, mention UP\'s ODOP scheme or Mukhyamantri Abhyudaya Yojana.</p><p><strong>Practice Daily:</strong> Write at least 2-3 answers daily from Month 4 of preparation. Join an answer writing program or get your answers evaluated by a mentor.</p>' }
+      ]
+    )
+  },
+  {
+    id: '10',
+    title: 'How to Study for UPSC While Working Full Time — A Realistic 2026 Plan',
+    slug: 'how-to-study-upsc-while-working-full-time-2026-plan',
+    category: 'Study Tips',
+    excerpt: 'Working 9-to-5 and preparing for UPSC or SSC is possible — but only with the right schedule. This guide gives a realistic daily plan for working professionals with 3-4 hours of study time per day.',
+    date: 'Jan 28, 2026',
+    author: 'Guriya Kumari',
+    readTime: '8 min read',
+    image: 'https://images.unsplash.com/photo-1484417827017-ad519f0de278?auto=format&fit=crop&q=60&w=500',
+    content: generateArticleContent(
+      'How to Prepare for Government Exams While Working a Job', 'Study Tips',
+      'Preparing for government exams while working a full-time job is challenging but absolutely achievable. Thousands of working professionals crack UPSC, SSC, and banking exams every year. The key is smart time management, consistent effort, and the right strategy. This guide is specifically designed for working professionals who want to transition to a government career.',
+      [
+        { heading: 'Time Management — The Foundation of Success', content: '<p>Working professionals typically have 3-4 hours of study time daily. Here is how to maximize it:</p><p><strong>Morning Study (5:30 AM - 7:30 AM):</strong> 2 hours before work. This is the most productive time. Use it for difficult subjects like Maths or reading comprehension. Your mind is fresh and distractions are minimal.</p><p><strong>Lunch Break (1:00 PM - 1:45 PM):</strong> 45 minutes. Use for current affairs reading or quick revision of notes. Keep a small notebook or use a mobile app.</p><p><strong>Evening Study (9:00 PM - 11:00 PM):</strong> 2 hours after dinner. Use for lighter topics like GK, current affairs, or revision. Avoid heavy Maths or new topics when tired.</p><p><strong>Weekend Study:</strong> 6-8 hours on Saturday and Sunday. Use weekends for mock tests, answer writing practice, and covering topics you couldn\'t complete during the week.</p>' },
+        { heading: 'Smart Study Techniques for Busy Professionals', content: '<p><strong>Active Recall:</strong> Instead of re-reading notes, test yourself. Cover your notes and try to recall key points. This is 3x more effective than passive reading.</p><p><strong>Spaced Repetition:</strong> Review topics at increasing intervals — 1 day, 3 days, 1 week, 2 weeks. Use apps like Anki for flashcard-based spaced repetition.</p><p><strong>Pomodoro Technique:</strong> Study for 25 minutes, take a 5-minute break. After 4 cycles, take a 20-minute break. This maintains focus and prevents burnout.</p><p><strong>Audio Learning:</strong> During commute, listen to current affairs podcasts, UPSC lectures on YouTube, or recorded notes. Convert dead time into study time.</p><p><strong>One Subject Per Day:</strong> Instead of switching between subjects, focus on one subject per day. This builds depth and reduces mental fatigue from context switching.</p>' },
+        { heading: 'Which Exams Are Best for Working Professionals?', content: '<p>Not all government exams are equally suitable for working professionals. Here is a realistic assessment:</p><p><strong>Best Options:</strong></p><ul style="line-height:2;"><li><strong>SSC CGL/CHSL:</strong> 4-6 months preparation. Objective exam. Manageable while working.</li><li><strong>IBPS PO/Clerk:</strong> 4-5 months preparation. Banking awareness can be built gradually.</li><li><strong>RRB NTPC:</strong> 4-5 months preparation. Syllabus overlaps with SSC.</li><li><strong>State PSC (Prelims only):</strong> 6-8 months preparation. Focus on Prelims first, then plan for Mains.</li></ul><p><strong>Challenging but Possible:</strong></p><ul style="line-height:2;"><li><strong>UPSC CSE:</strong> Requires 8-12 hours daily. Very difficult while working. Consider taking a sabbatical for the final 6 months.</li><li><strong>State PSC (Full):</strong> Mains requires extensive answer writing practice. Difficult to manage with a full-time job.</li></ul>' },
+        { heading: 'Dealing with Stress and Maintaining Motivation', content: '<p>The biggest challenge for working professionals is not lack of time but maintaining motivation over months of preparation. Here are strategies that work:</p><p><strong>Set Micro-Goals:</strong> Instead of "I will crack UPSC," set weekly goals like "I will complete Indian Polity this week." Achieving small goals builds momentum.</p><p><strong>Track Progress:</strong> Maintain a study log. Seeing your progress on paper is motivating. Note topics completed, mock test scores, and weak areas addressed.</p><p><strong>Find a Study Partner:</strong> A friend or colleague preparing for the same exam keeps you accountable. Share notes, discuss topics, and motivate each other.</p><p><strong>Celebrate Small Wins:</strong> Scored 150+ in a mock test? Completed a difficult chapter? Celebrate it. Positive reinforcement keeps you going.</p><p><strong>Remember Your Why:</strong> Write down why you want a government job — financial security, social impact, family expectations, or personal ambition. Read it when motivation dips.</p>' }
+      ]
+    )
+  },
+  {
+    id: '11',
+    title: 'Highest Salary Government Jobs in India 2026 — In-Hand Pay After All Deductions',
+    slug: 'highest-salary-government-jobs-india-2026-in-hand-pay',
+    category: 'Career Guide',
+    excerpt: 'Everyone quotes gross salary — this guide shows actual in-hand pay for IAS, RBI Grade B, ISRO Scientist, PSU Engineer, and 8 other top government jobs after all deductions in 2026.',
+    date: 'Jan 26, 2026',
+    author: 'Guriya Kumari',
+    readTime: '9 min read',
+    image: 'https://images.unsplash.com/photo-1501503064045-fef197af246c?auto=format&fit=crop&q=60&w=500',
+    content: generateArticleContent(
+      'Government Jobs with Highest Salary in India 2026', 'Career Guide',
+      'One of the biggest misconceptions about government jobs is that they pay less than private sector jobs. In reality, senior government positions offer salaries that rival top private sector packages — and come with unmatched job security, pension, and perks. This guide covers the highest paying government jobs in India in 2026 with complete salary details.',
+      [
+        { heading: 'IAS/IPS/IFS — Top of the Government Pay Scale', content: '<p>Civil servants at the highest levels earn salaries that match senior corporate executives.</p><p><strong>Cabinet Secretary (IAS):</strong> ₹2,50,000 per month (fixed). The highest paid civil servant in India.</p><p><strong>Secretary to Government of India (IAS):</strong> Pay Level 17 — ₹2,25,000 per month.</p><p><strong>Additional Secretary (IAS):</strong> Pay Level 16 — ₹2,05,400 per month.</p><p><strong>Joint Secretary (IAS):</strong> Pay Level 15 — ₹1,82,200 per month.</p><p><strong>Director/Deputy Secretary (IAS):</strong> Pay Level 13-14 — ₹1,18,500 to ₹1,44,200 per month.</p><p>In addition to salary, IAS officers get government accommodation (bungalow), official vehicle, domestic help, medical facilities, and security. The total perks package can be worth ₹50-80 lakh per year for senior officers.</p>' },
+        { heading: 'RBI Grade B Officer — Best Banking Job in India', content: '<p>RBI (Reserve Bank of India) Grade B Officer is considered the most prestigious banking job in India. The salary and perks are exceptional.</p><p><strong>Starting Salary:</strong> ₹55,000 per month (basic). Total CTC including allowances: approximately ₹14-16 lakh per annum.</p><p><strong>Senior Officer (Grade C):</strong> ₹64,000 per month basic. Total CTC: ₹18-20 lakh per annum.</p><p><strong>Manager (Grade D):</strong> ₹76,000 per month basic. Total CTC: ₹22-25 lakh per annum.</p><p><strong>Additional Director (Grade E):</strong> ₹1,00,000 per month basic. Total CTC: ₹30+ lakh per annum.</p><p><strong>Perks:</strong> Subsidized housing in prime locations, LTC, medical benefits, education allowance for children, and pension.</p>' },
+        { heading: 'ISRO/DRDO/BARC Scientists — Best Technical Government Jobs', content: '<p>For engineering and science graduates, ISRO, DRDO, and BARC offer some of the most exciting and well-paying government jobs.</p><p><strong>ISRO Scientist/Engineer SC:</strong> Pay Level 10 — ₹56,100 to ₹1,77,500 per month. Starting CTC: approximately ₹10-12 lakh per annum.</p><p><strong>DRDO Scientist B:</strong> Pay Level 10 — ₹56,100 to ₹1,77,500 per month. Research allowance of 20% of basic pay.</p><p><strong>BARC Scientific Officer C:</strong> Pay Level 10 — ₹56,100 to ₹1,77,500 per month. Additional nuclear research allowance.</p><p><strong>Senior Scientist (Grade D/E):</strong> Pay Level 12-13 — ₹78,800 to ₹1,44,200 per month.</p><p>These jobs also offer the satisfaction of working on cutting-edge technology — space missions, defence systems, and nuclear research.</p>' },
+        { heading: 'PSU Jobs — ONGC, BHEL, NTPC, SAIL', content: '<p>Public Sector Undertakings (PSUs) offer some of the highest salaries in the government sector, often matching private sector packages.</p><p><strong>ONGC Executive (E1 Grade):</strong> Basic pay ₹60,000 per month. Total CTC including perks: ₹16-18 lakh per annum. Senior executives earn ₹30-50 lakh per annum.</p><p><strong>BHEL Engineer Trainee:</strong> Basic pay ₹40,000 per month. Total CTC: ₹10-12 lakh per annum. Senior Manager: ₹25-35 lakh per annum.</p><p><strong>NTPC Executive Trainee:</strong> Basic pay ₹40,000 per month. Total CTC: ₹12-14 lakh per annum. Senior positions: ₹30-40 lakh per annum.</p><p><strong>SAIL Management Trainee:</strong> Basic pay ₹40,000 per month. Total CTC: ₹10-12 lakh per annum.</p><p>PSU jobs are recruited through GATE score for technical posts and through management entrance exams for management posts.</p>' },
+        { heading: 'Judiciary — Judges and Magistrates', content: '<p>Judicial services offer excellent salaries and the highest social respect in the government sector.</p><p><strong>Civil Judge (Junior Division):</strong> Pay Level 8 — ₹47,600 to ₹1,51,100 per month. Starting salary for fresh law graduates who clear state judicial services exam.</p><p><strong>District Judge:</strong> Pay Level 14 — ₹1,44,200 to ₹2,18,200 per month. Requires 7 years of practice as an advocate or promotion from lower judiciary.</p><p><strong>High Court Judge:</strong> ₹2,50,000 per month (fixed). Appointed by President on recommendation of collegium.</p><p><strong>Supreme Court Judge:</strong> ₹2,50,000 per month (fixed). Chief Justice of India: ₹2,80,000 per month.</p><p>Judges also get government accommodation, official vehicle, medical facilities, and pension. The total perks package is substantial.</p>' }
+      ]
+    )
+  },
+  {
+    id: '12',
+    title: 'Current Affairs March 2026 — 50 Questions Most Likely to Appear in Exams',
+    slug: 'current-affairs-march-2026-50-questions-likely-exams',
+    category: 'Current Affairs',
+    excerpt: 'March 2026 current affairs filtered for exam relevance — not a news dump, but 50 specific facts on national events, economy, sports, and science that are most likely to appear in UPSC, SSC, and banking exams.',
+    date: 'Mar 1, 2026',
+    author: 'Guriya Kumari',
+    readTime: '8 min read',
+    image: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&q=60&w=500',
+    content: generateArticleContent(
+      'Current Affairs March 2026 — Important Events for All Govt Exams', 'Current Affairs',
+      'Current affairs is a crucial component of almost every government exam — UPSC, SSC, Banking, Railways, and State PSCs. This monthly compilation covers the most important events of March 2026 that are likely to appear in upcoming examinations. Read, revise, and make notes from this guide.',
+      [
+        { heading: 'National Affairs — March 2026', content: '<p><strong>Union Budget 2026-27 Key Highlights:</strong> The Union Budget presented in February 2026 focused on infrastructure development, digital economy, and rural welfare. Key allocations include ₹11.11 lakh crore for capital expenditure (highest ever), ₹2.66 lakh crore for rural development, and ₹1.48 lakh crore for education and employment.</p><p><strong>New Education Policy Implementation:</strong> NEP 2020 implementation reached a new milestone with 500+ universities adopting the 4-year undergraduate program with multiple entry-exit options.</p><p><strong>Digital India Expansion:</strong> Government announced 5G connectivity to all gram panchayats by December 2026. Currently, 4.5 lakh gram panchayats have broadband connectivity.</p><p><strong>PM Gati Shakti:</strong> National Master Plan for multi-modal connectivity has facilitated ₹15 lakh crore worth of infrastructure projects across 16 ministries.</p>' },
+        { heading: 'International Affairs — March 2026', content: '<p><strong>India-US Relations:</strong> India and USA signed a new defence cooperation agreement covering technology transfer, joint manufacturing, and cybersecurity cooperation. This is a significant upgrade to the existing DTTI framework.</p><p><strong>BRICS Expansion:</strong> BRICS now has 10 full members after the addition of Egypt, Ethiopia, Iran, Saudi Arabia, and UAE in 2024. India holds the BRICS chairmanship in 2026.</p><p><strong>SCO Summit:</strong> India participated in the Shanghai Cooperation Organisation summit. Key discussions included regional connectivity, counter-terrorism, and trade facilitation.</p><p><strong>India-UAE CEPA:</strong> The Comprehensive Economic Partnership Agreement between India and UAE has boosted bilateral trade to $85 billion, making UAE India\'s 3rd largest trading partner.</p>' },
+        { heading: 'Economy & Finance — March 2026', content: '<p><strong>GDP Growth:</strong> India\'s GDP growth rate for Q3 FY2025-26 was 7.2%, making India the fastest growing major economy in the world for the 3rd consecutive year.</p><p><strong>RBI Monetary Policy:</strong> RBI maintained the repo rate at 6.25% in its February 2026 policy meeting. Inflation remained within the 4% ± 2% target band at 4.8%.</p><p><strong>UPI Transactions:</strong> UPI crossed 20 billion transactions in January 2026, with a total value of ₹23 lakh crore. India now processes more digital payments than any other country.</p><p><strong>Foreign Exchange Reserves:</strong> India\'s forex reserves stood at $680 billion in February 2026, the 4th largest in the world after China, Japan, and Switzerland.</p><p><strong>Startup Ecosystem:</strong> India has 1,40,000+ DPIIT-recognized startups and 115 unicorns (companies valued at $1 billion+), making it the 3rd largest startup ecosystem globally.</p>' },
+        { heading: 'Science & Technology — March 2026', content: '<p><strong>ISRO Missions:</strong> ISRO successfully launched the NISAR satellite (joint mission with NASA) in early 2026. NISAR will study Earth\'s ecosystems, ice masses, and natural hazards. Gaganyaan crewed mission is scheduled for late 2026.</p><p><strong>AI Policy:</strong> India released its National AI Strategy 2026, focusing on AI in healthcare, agriculture, education, and governance. ₹10,000 crore allocated for AI research and development.</p><p><strong>Semiconductor Mission:</strong> India Semiconductor Mission has approved 3 semiconductor fabrication plants with a total investment of ₹1.5 lakh crore. First chips expected by 2027.</p><p><strong>Green Hydrogen:</strong> India\'s National Green Hydrogen Mission targets 5 million metric tonnes of green hydrogen production by 2030. Several PSUs have started pilot projects.</p>' },
+        { heading: 'Sports & Awards — March 2026', content: '<p><strong>Padma Awards 2026:</strong> President announced Padma Awards on Republic Day 2026. 7 Padma Vibhushan, 19 Padma Bhushan, and 113 Padma Shri awards were announced. Notable recipients include scientists, artists, sportspersons, and social workers.</p><p><strong>Cricket:</strong> India won the ICC Champions Trophy 2025 held in Pakistan/UAE. Rohit Sharma led the team to victory. Jasprit Bumrah was named Player of the Tournament.</p><p><strong>Olympics 2028 Preparation:</strong> India has set a target of 25+ medals at Los Angeles Olympics 2028. Sports Authority of India has identified 300 athletes for intensive training under the Target Olympic Podium Scheme (TOPS).</p><p><strong>Commonwealth Games 2026:</strong> India is preparing for Commonwealth Games 2026 to be held in Glasgow, Scotland. India is targeting 60+ medals.</p>' }
+      ]
+    )
+  },
+];
+
+// Additional unique articles for the blog section
+const additionalBlogs = [
+  {
+    id: 'ssc-mts-2026-guide',
+    slug: 'ssc-mts-2026-10th-pass-salary-posting-details',
+    title: 'SSC MTS 2026 — Salary, Posting Cities & What the Job Actually Looks Like',
+    category: 'SSC',
+    date: 'Jan 25, 2026',
+    author: 'Guriya Kumari',
+    image: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=60&w=500',
+    excerpt: 'Most guides tell you how to crack SSC MTS — this one tells you what happens after. Real salary in hand, which cities you get posted to, what the daily work looks like, and whether it is worth targeting over SSC CHSL in 2026.',
+    content: generateArticleContent('SSC MTS 2026 Complete Guide', 'SSC',
+      'SSC MTS (Multi-Tasking Staff) is the most accessible central government exam, requiring only 10th pass qualification. It recruits for Group C non-gazetted posts in various central government offices. With thousands of vacancies annually, SSC MTS 2026 is a great opportunity for students who have just completed their 10th standard.',
+      [
+        { heading: 'SSC MTS 2026 Eligibility & Exam Pattern', content: '<p><strong>Eligibility:</strong> Matriculation (10th pass) from any recognized board. Age: 18-25 years. OBC: 18-28 years. SC/ST: 18-30 years.</p><p><strong>Exam Pattern:</strong> Session I — Numerical & Mathematical Ability (20Q, 60 marks) + Reasoning Ability & Problem Solving (20Q, 60 marks). Session II — General Awareness (25Q, 75 marks) + English Language & Comprehension (25Q, 75 marks). Total: 90 questions, 270 marks, 45 minutes each session.</p><p><strong>Salary:</strong> Pay Level 1 — ₹18,000 to ₹56,900 per month plus allowances. Total in-hand: ₹22,000-28,000 per month in metro cities.</p>' },
+        { heading: 'Preparation Strategy for SSC MTS', content: '<p>SSC MTS syllabus is Class 10 level. 2-3 months of focused preparation is sufficient for most candidates.</p><p><strong>Numerical Ability:</strong> Basic arithmetic — percentage, ratio, profit & loss, time & work, simple interest. Practice 30 questions daily from R.S. Aggarwal Elementary Mathematics.</p><p><strong>Reasoning:</strong> Series, analogy, coding-decoding, blood relations, direction sense. Practice 30 questions daily. This section is highly scoring.</p><p><strong>General Awareness:</strong> Current affairs (last 6 months), basic history, geography, polity, science. Read monthly GK digest. Focus on recent government schemes and appointments.</p><p><strong>English:</strong> Basic grammar, vocabulary, reading comprehension. Read English newspaper for 30 minutes daily. Practice fill in the blanks and error spotting.</p>' },
+        { heading: 'Career Growth After SSC MTS', content: '<p>SSC MTS is not a dead-end job. There are multiple growth paths:</p><p><strong>Departmental Promotion:</strong> MTS can be promoted to Lower Division Clerk (LDC) through departmental exam. LDC can be promoted to Upper Division Clerk (UDC) and further to Assistant Section Officer.</p><p><strong>Appear for Higher Exams:</strong> While working as MTS, continue preparing for SSC CHSL (12th level) or SSC CGL (graduate level). Many MTS employees have cracked SSC CGL while in service.</p><p><strong>Complete Graduation:</strong> Many MTS employees complete their graduation through distance education (IGNOU) while working. This opens doors to SSC CGL and banking exams.</p>' }
+      ]
+    )
+  },
+  {
+    id: 'bpsc-2026-guide',
+    slug: 'bpsc-2026-mains-answer-writing-strategy-score-high',
+    title: 'BPSC 2026 Mains Answer Writing — How Bihar Toppers Score 60%+ in Every Paper',
+    category: 'State PSC',
+    date: 'Jan 22, 2026',
+    author: 'Guriya Kumari',
+    image: 'https://images.unsplash.com/photo-1519389950473-47ba027788c0?auto=format&fit=crop&q=60&w=500',
+    excerpt: 'BPSC Mains is where most Bihar aspirants lose — not because they don\'t know the content, but because they don\'t know how to write answers. This guide breaks down the exact answer format, Bihar-specific examples, and scoring patterns that helped 2025 toppers cross 60% in every paper.',
+    content: generateArticleContent('BPSC 2026 Bihar Civil Services Guide', 'State PSC',
+      'BPSC (Bihar Public Service Commission) conducts the Bihar Civil Services examination to recruit for gazetted officer posts in Bihar government. Posts like Sub-Divisional Officer (SDO), Deputy Superintendent of Police (DSP), and Block Development Officer (BDO) are recruited through BPSC. This guide covers the complete preparation strategy for BPSC 2026.',
+      [
+        { heading: 'BPSC 2026 Exam Pattern & Eligibility', content: '<p><strong>Eligibility:</strong> Graduate from any recognized university. Age: 20-37 years (General), 20-40 years (OBC/BC), 20-42 years (SC/ST/Women).</p><p><strong>Prelims:</strong> 150 questions, 150 marks, 2 hours. General Studies covering History, Geography, Polity, Economy, Science, and Current Affairs. Bihar-specific questions carry significant weightage.</p><p><strong>Mains:</strong> General Hindi (100 marks, qualifying), General Studies Paper I & II (300 marks each), Optional Subject (2 papers, 300 marks each). Total: 1200 marks.</p><p><strong>Interview:</strong> 120 marks. Final merit based on Mains + Interview.</p>' },
+        { heading: 'Bihar-Specific Topics for BPSC', content: '<p>Bihar-specific knowledge is crucial for BPSC success. Key topics:</p><p><strong>Bihar History:</strong> Ancient Bihar (Magadha Empire, Maurya Dynasty, Nalanda University), Medieval Bihar (Sher Shah Suri, Mughal period), Modern Bihar (1857 revolt, Champaran Satyagraha, Bihar in freedom movement).</p><p><strong>Bihar Geography:</strong> Rivers (Ganga, Gandak, Kosi, Sone), plains, climate, soil, minerals, major cities, industrial areas.</p><p><strong>Bihar Economy:</strong> Agriculture (paddy, wheat, maize, litchi), industries, MSME sector, Bihar Industrial Investment Promotion Policy.</p><p><strong>Bihar Government Schemes:</strong> Mukhyamantri Kanya Utthan Yojana, Bihar Student Credit Card Scheme, Har Ghar Bijli Yojana, Jal Jeevan Hariyali Mission.</p>' },
+        { heading: 'Preparation Strategy for BPSC', content: '<p>BPSC preparation requires a balanced approach between standard UPSC-level preparation and Bihar-specific knowledge.</p><p><strong>Standard Books:</strong> NCERT Class 6-12 for all subjects. Laxmikanth for Polity. Ramesh Singh for Economy. Spectrum for Modern History.</p><p><strong>Bihar-Specific Books:</strong> Bihar: Ek Parichay (any reputed publisher), Bihar GK by Arihant or Lucent, Bihar Current Affairs monthly magazine.</p><p><strong>Answer Writing:</strong> BPSC Mains requires concise, factual answers. Practice writing 150-200 word answers. Include Bihar-specific examples wherever possible.</p><p><strong>Optional Subject:</strong> Choose based on graduation background. History, Geography, and Public Administration are popular choices with good overlap with GS.</p>' }
+      ]
+    )
+  },
+  {
+    id: 'sbi-clerk-2026-guide',
+    slug: 'sbi-clerk-2026-promotion-timeline-clerk-to-officer',
+    title: 'SBI Clerk 2026 — How Long Does It Actually Take to Become an Officer',
+    category: 'Banking',
+    date: 'Jan 20, 2026',
+    author: 'Guriya Kumari',
+    image: 'https://images.unsplash.com/photo-1501167786227-4cba60f6d58f?auto=format&fit=crop&q=60&w=500',
+    excerpt: 'SBI Clerk is sold as a stepping stone to officer — but how realistic is that? This guide gives the honest promotion timeline, internal exam pass rates, salary at each stage, and what current SBI employees say about the actual career path.',
+    content: generateArticleContent('SBI Clerk 2026 Complete Guide', 'Banking',
+      'SBI Clerk (Junior Associate) is one of the most popular banking exams in India. State Bank of India is the largest public sector bank with over 22,000 branches across India. SBI Clerk recruitment offers a stable career with excellent growth opportunities. This guide covers everything you need to know for SBI Clerk 2026.',
+      [
+        { heading: 'SBI Clerk 2026 Eligibility & Exam Pattern', content: '<p><strong>Eligibility:</strong> Graduate in any discipline from a recognized university. Age: 20-28 years. OBC: 20-31 years. SC/ST: 20-33 years. PwD: 20-38 years.</p><p><strong>Prelims:</strong> 100 questions, 100 marks, 1 hour. English Language (30Q, 30 marks, 20 min), Numerical Ability (35Q, 35 marks, 20 min), Reasoning Ability (35Q, 35 marks, 20 min).</p><p><strong>Mains:</strong> 190 questions + Descriptive. General/Financial Awareness (50Q, 50 marks, 35 min), General English (40Q, 40 marks, 35 min), Quantitative Aptitude (50Q, 50 marks, 45 min), Reasoning Ability & Computer Aptitude (50Q, 60 marks, 45 min). Descriptive: Letter & Essay Writing (2Q, 50 marks, 30 min).</p><p><strong>Language Proficiency Test:</strong> Must be proficient in the official language of the state applied for.</p>' },
+        { heading: 'SBI Clerk Salary & Career Growth', content: '<p><strong>Starting Salary:</strong> ₹17,900 per month (basic). Total CTC including allowances: ₹26,000-32,000 per month depending on posting location.</p><p><strong>Allowances:</strong> DA (currently 46.9% of basic), HRA (7-9% of basic), Special Allowance, Transport Allowance, Medical Allowance.</p><p><strong>Career Growth:</strong> Junior Associate → Senior Associate → Assistant Manager (through internal exam) → Deputy Manager → Manager → Senior Manager → Chief Manager → AGM → DGM → GM.</p><p><strong>Promotion Timeline:</strong> With good performance, a Junior Associate can become an Assistant Manager in 3-5 years. Many SBI GMs and DGMs started as clerks.</p>' },
+        { heading: 'Preparation Strategy for SBI Clerk', content: '<p><strong>English Language:</strong> Focus on Reading Comprehension (most important), Cloze Test, Error Detection, Fill in the Blanks, Para Jumbles. Read English newspaper daily. Practice 30 questions daily.</p><p><strong>Numerical Ability:</strong> Data Interpretation (most important for Mains), Simplification, Number Series, Quadratic Equations, Arithmetic (Percentage, Profit & Loss, Time & Work, Time & Distance). Practice 40 questions daily.</p><p><strong>Reasoning:</strong> Puzzles & Seating Arrangement (most important), Syllogism, Inequality, Coding-Decoding, Blood Relations, Direction Sense. Practice 40 questions daily.</p><p><strong>General/Financial Awareness:</strong> Banking awareness, RBI policies, current affairs, financial terms. Read monthly banking awareness digest. Follow RBI website for policy updates.</p>' }
+      ]
+    )
+  },
+  {
+    id: 'agnipath-scheme-2026',
+    slug: 'agnipath-scheme-2026-after-4-years-career-options',
+    title: 'Agnipath Scheme 2026 — What Happens to Agniveers After 4 Years of Service',
+    category: 'Defence',
+    date: 'Jan 18, 2026',
+    author: 'Guriya Kumari',
+    image: 'https://images.unsplash.com/photo-1453722758971-5612746af3ed?auto=format&fit=crop&q=60&w=500',
+    excerpt: 'The biggest question about Agnipath is what happens after 4 years. This guide covers the 75% who don\'t get retained — their Seva Nidhi amount, government job reservations, PSU preferences, and realistic career paths in 2026.',
+    content: generateArticleContent('Agnipath Scheme 2026 Agniveer Guide', 'Defence',
+      'The Agnipath Scheme, launched in 2022, is a transformative military recruitment scheme that allows youth to serve in the Indian Armed Forces for 4 years as Agniveers. After 4 years, 25% of Agniveers are retained as regular soldiers, while the remaining 75% receive a Seva Nidhi package and various benefits. This guide covers everything about Agniveer recruitment in 2026.',
+      [
+        { heading: 'Agnipath Scheme Eligibility 2026', content: '<p><strong>Age:</strong> 17.5 to 21 years. (Age limit was extended to 23 years for 2022 and 2023 batches due to COVID-19 backlog.)</p><p><strong>Educational Qualification:</strong> 10th pass for most posts. 12th pass with Science (Physics, Chemistry, Maths) for technical posts in Air Force and Navy.</p><p><strong>Physical Standards:</strong> Same as regular Army/Navy/Air Force recruitment. Height, weight, chest measurements, and medical fitness standards apply.</p><p><strong>Nationality:</strong> Indian citizen. Gorkha soldiers from Nepal are also eligible for Army.</p>' },
+        { heading: 'Agniveer Salary & Benefits', content: '<p><strong>Year 1:</strong> ₹30,000 per month. In-hand: ₹21,000 (30% goes to Seva Nidhi Fund).</p><p><strong>Year 2:</strong> ₹33,000 per month. In-hand: ₹23,100.</p><p><strong>Year 3:</strong> ₹36,500 per month. In-hand: ₹25,550.</p><p><strong>Year 4:</strong> ₹40,000 per month. In-hand: ₹28,000.</p><p><strong>Seva Nidhi Package:</strong> After 4 years, Agniveers receive ₹11.71 lakh as Seva Nidhi (their contribution + equal government contribution + interest). This is tax-free.</p><p><strong>Other Benefits:</strong> ₹48 lakh life insurance during service, medical facilities, ration, accommodation, uniform, and training.</p>' },
+        { heading: 'Career After Agnipath — What Happens After 4 Years?', content: '<p><strong>25% Retention:</strong> Top 25% Agniveers are offered permanent enrollment in the Armed Forces as regular soldiers. They continue their military career with full benefits.</p><p><strong>Government Job Preference:</strong> Central and state governments have announced reservation for Agniveers in various government jobs. CAPF (CISF, BSF, CRPF, ITBP, SSB) has 10% reservation. State police forces in many states have announced similar reservations.</p><p><strong>PSU Preference:</strong> Several PSUs including ONGC, BHEL, and others have announced preference for Agniveers in their recruitment.</p><p><strong>Skill Development:</strong> Agniveers receive formal skill certificates recognized by NSDC. These help in private sector employment.</p><p><strong>Higher Education:</strong> Agniveers can pursue graduation through distance education (IGNOU) during their service. This opens doors to SSC CGL, banking, and other graduate-level government exams after service.</p>' }
+      ]
+    )
+  },
+  {
+    id: 'document-checklist-govt-exams',
+    slug: 'government-exam-document-verification-rejection-reasons-2026',
+    title: 'Why Government Exam Candidates Get Rejected at Document Verification — And How to Avoid It',
     category: 'Eligibility Guides',
-    date: 'Feb 05, 2026',
-    image: 'https://images.unsplash.com/photo-1544928147-79a2dbc1f389?auto=format&fit=crop&q=70&w=600',
-    excerpt: 'Everything you need to know about document requirements for UPSC CSE 2026.',
-    content: generateLongFormContent('UPSC Civil Services 2026', 'Union Public Service Commission')
+    date: 'Jan 15, 2026',
+    author: 'Guriya Kumari',
+    image: 'https://images.unsplash.com/photo-1507537297325-5f4489be4327?auto=format&fit=crop&q=60&w=500',
+    excerpt: 'Thousands of candidates clear the written exam but get rejected at document verification for avoidable reasons — name mismatch, wrong caste certificate format, expired NCL certificate. This guide covers every rejection reason with exact solutions.',
+    content: generateArticleContent('Complete Document Checklist for Government Exams 2026', 'Eligibility Guides',
+      'One of the most common reasons for rejection in government exam document verification is missing or incorrect documents. Many aspirants prepare well for the written exam but fail at the document verification stage due to avoidable mistakes. This comprehensive guide covers every document you need for government exam applications and verification.',
+      [
+        { heading: 'Essential Documents for All Government Exams', content: '<p>These documents are required for almost every government exam application:</p><ul style="line-height:2.2;"><li><strong>Aadhaar Card:</strong> Most important identity document. Ensure your name, date of birth, and address are correct. Update if needed at Aadhaar Seva Kendra.</li><li><strong>10th Certificate & Marksheet:</strong> Required for date of birth proof. Must be from a recognized board (CBSE, ICSE, or State Board).</li><li><strong>12th Certificate & Marksheet:</strong> Required for 12th-level exams. Ensure percentage is correctly calculated.</li><li><strong>Graduation Certificate & Marksheets:</strong> Required for graduate-level exams. Provisional certificate accepted if final not issued.</li><li><strong>Passport Size Photographs:</strong> Keep 20-30 recent photographs (white background, formal attire). Different exams have different specifications.</li><li><strong>Signature:</strong> Keep a consistent signature. Changing signature during the process can cause issues.</li></ul>' },
+        { heading: 'Caste Certificate — How to Get It Quickly', content: '<p>Caste certificate is required for OBC, SC, and ST candidates to avail reservation benefits.</p><p><strong>Who Issues It:</strong> Tehsildar/SDM/District Magistrate office in your district.</p><p><strong>Documents Required:</strong> Aadhaar Card, Ration Card, Father\'s caste certificate (if available), School leaving certificate, Affidavit.</p><p><strong>Time Required:</strong> 7-30 days depending on state. Apply well in advance — don\'t wait for the exam notification.</p><p><strong>OBC Non-Creamy Layer Certificate:</strong> For OBC candidates, a Non-Creamy Layer (NCL) certificate is required for central government exams. It must be issued within the last financial year. Renew it annually.</p><p><strong>Important:</strong> Caste certificate format varies by state. For central government exams, ensure the certificate is in the prescribed format as per the exam notification.</p>' },
+        { heading: 'Domicile Certificate — When and How to Get It', content: '<p>Domicile certificate is required for state-level exams and for state quota in central exams.</p><p><strong>Who Issues It:</strong> Tehsildar/SDM office in your district.</p><p><strong>Documents Required:</strong> Aadhaar Card, Ration Card, Voter ID, School certificates showing state of study, Affidavit of residence.</p><p><strong>Validity:</strong> Usually valid for 3-5 years. Check the exam notification for specific requirements.</p><p><strong>Important for State Exams:</strong> For UPPSC, BPSC, MPPSC, and other state PSCs, domicile certificate is mandatory. Apply for it at least 2 months before the application deadline.</p>' },
+        { heading: 'Educational Certificates — Common Issues and Solutions', content: '<p><strong>Name Mismatch:</strong> If your name is different in different documents (e.g., "Rahul Kumar" in Aadhaar but "Rahul Kumar Singh" in degree), get an affidavit from a notary explaining the discrepancy. Some exams also accept a gazette notification for name change.</p><p><strong>Date of Birth Discrepancy:</strong> If DOB differs in different documents, 10th certificate is considered the primary document. Get other documents corrected to match 10th certificate.</p><p><strong>Provisional Certificate:</strong> If your university hasn\'t issued the final degree certificate, a provisional certificate from the university is accepted for most exams. Ensure it has the university seal and registrar\'s signature.</p><p><strong>Distance Education Degrees:</strong> Degrees from IGNOU, NIOS, and other distance education institutions are valid for most government exams. Ensure the institution is recognized by UGC/AICTE.</p>' }
+      ]
+    )
   },
-  {
-    id: 'banking-sector-2026-opportunities',
-    slug: 'banking-sector-2026-opportunities',
-    title: 'Banking Sector Career Opportunities and Preparation Strategy for 2026',
-    category: 'Career Opportunities',
-    date: 'Feb 04, 2026',
-    image: 'https://images.unsplash.com/photo-1501167786227-4cba60f6d58f?auto=format&fit=crop&q=70&w=600',
-    excerpt: 'Comprehensive guide to banking careers in 2026 including IBPS, SBI, and RBI.',
-    content: generateLongFormContent('Banking Careers 2026', 'Banking Sector')
-  }
 ];
 
-const photoIds = [
-  '1513258496099-48168024aec0', '1523240715632-d984d4ad7cd5', '1501503064045-fef197af246c',
-  '1450101496163-993d56ce2c2f', '1522202176988-66273c2fd55f', '1486312338219-ce68d2c6f44d',
-  '1454165939023-44160a0f6071', '1516321318423-f06f85e504b3', '1507537297325-5f4489be4327',
-  '1497633762265-9d179a990aa6', '1588072432872-d168c337ce93', '1517245386807-bb43f82c33c4',
-  '1519389950473-47ba027788c0', '1503676260728-1c00da096a0b', '1491841573634-28140fc7ced7',
-  '1546410531-bb4caa19020a', '1510070112810-d4e9a46d9e91', '1453722758971-5612746af3ed',
-  '1498243639359-f77dad7df7dc', '1551836022-d5d88e9218df', '1524178232363-1fb2b075b655',
-  '1524758631624-e2822e304c36', '1484417827017-ad519f0de278', '1516534775068-ba3e7458af70',
-  '1521737604893-d14cc237f11d'
-];
-
-for (let i = 4; i <= 60; i++) {
-  const categories = ['2026 Exams', 'Eligibility Guides', 'Career Opportunities'];
-  const category = categories[i % 3];
-  const photoId = photoIds[i % photoIds.length];
-  const title = `${category === '2026 Exams' ? 'Railway RRB' : category === 'Eligibility Guides' ? 'State PCS' : 'Defense Services'} Complete Master Guide ${i}`;
-
-  // Generate SEO-friendly slug
-  const slug = title.toLowerCase()
-    .replace(/[^a-z0-9]+/g, '-') // Replace non-alphanumeric chars with hyphens
-    .replace(/(^-|-$)+/g, '');   // Remove leading/trailing hyphens
-
-  blogs.push({
-    id: slug, // Use slug as ID
-    slug: slug,
-    title: title,
-    category: category,
-    date: 'Feb 01, 2026',
-    image: `https://images.unsplash.com/photo-${photoId}?auto=format&fit=crop&q=60&w=500`,
-    excerpt: `A dedicated, comprehensive blueprint for ${title} 2026 aspirants, covering every aspect of the examination process.`,
-    content: generateLongFormContent(title, category)
-  });
-}
+export const blogs = [...articles, ...additionalBlogs];

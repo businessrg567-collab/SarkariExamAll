@@ -17,6 +17,10 @@ import ExamRequirementsPage from './components/ExamRequirementsPage';
 import NotFoundPage from './components/NotFoundPage';
 import PrivacyPolicyPage from './components/PrivacyPolicyPage';
 import TermsOfServicePage from './components/TermsOfServicePage';
+import DisclaimerPage from './components/DisclaimerPage';
+import AuthorPage from './components/AuthorPage';
+import HomepageTools from './components/HomepageTools';
+import FounderPage from './components/FounderPage';
 import { blogs } from './data/articles';
 import { locations } from './data/locations';
 
@@ -43,54 +47,7 @@ const FAQItem = ({ question, answer }) => {
 
 // UNIQUE PAGE DESIGNS - Each page has distinct layout and styling
 
-const AboutPage = ({ onBack }) => {
-  useEffect(() => window.scrollTo(0, 0), []);
-  return (
-    <div className="page-wrapper" style={{ background: 'linear-gradient(135deg, var(--primary) 0%, var(--primary-deep) 100%)' }}>
-      <div className="container">
-        <button onClick={onBack} className="btn btn-secondary" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '3rem' }}>
-          <ArrowLeft size={18} /> Back
-        </button>
-        <div className="grid-responsive" style={{ gap: '3rem', alignItems: 'start' }}>
-          <div>
-            <h1 className="gradient-text-gold" style={{ fontSize: 'clamp(1.8rem, 4.5vw, 2.8rem)', marginBottom: '2rem' }}>About SarkariExamAll</h1>
-            <p style={{ fontSize: '1.2rem', lineHeight: '1.8', color: 'white', marginBottom: '2rem' }}>
-              India's premier educational portal dedicated to helping government job aspirants achieve their career goals since 2020.
-            </p>
-            <div className="grid-responsive" style={{ gap: '1.5rem', marginTop: '3rem' }}>
-              <div className="glass-card" style={{ padding: '2rem', flex: 1, textAlign: 'center' }}>
-                <h3 style={{ fontSize: '2.2rem', color: 'var(--secondary)', marginBottom: '0.5rem' }}>100K+</h3>
-                <p style={{ color: 'white' }}>Students Served</p>
-              </div>
-              <div className="glass-card" style={{ padding: '2rem', flex: 1, textAlign: 'center' }}>
-                <h3 style={{ fontSize: '2.2rem', color: 'var(--secondary)', marginBottom: '0.5rem' }}>50+</h3>
-                <p style={{ color: 'white' }}>Exams Covered</p>
-              </div>
-            </div>
-          </div>
-          <div className="glass-card" style={{ padding: '3rem' }}>
-            <h2 style={{ color: 'var(--secondary)', marginBottom: '1.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-              <Target size={24} /> Our Mission
-            </h2>
-            <p style={{ color: 'white', lineHeight: '1.8', marginBottom: '2rem' }}>
-              To provide accurate, timely, and comprehensive information about government examinations, eligibility criteria, and preparation strategies. We believe that every aspirant deserves access to reliable guidance regardless of their geographical or economic background.
-            </p>
-            <h2 style={{ color: 'var(--secondary)', marginBottom: '1.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-              <GraduationCap size={24} /> What We Offer
-            </h2>
-            <ul style={{ color: 'white', lineHeight: '2', listStyle: 'none' }}>
-              <li style={{ display: 'flex', gap: '0.5rem', marginBottom: '0.5rem' }}><CheckCircle2 size={20} color="var(--secondary)" /> Detailed exam guides and preparation strategies</li>
-              <li style={{ display: 'flex', gap: '0.5rem', marginBottom: '0.5rem' }}><CheckCircle2 size={20} color="var(--secondary)" /> Interactive eligibility checkers</li>
-              <li style={{ display: 'flex', gap: '0.5rem', marginBottom: '0.5rem' }}><CheckCircle2 size={20} color="var(--secondary)" /> Comprehensive document requirements</li>
-              <li style={{ display: 'flex', gap: '0.5rem', marginBottom: '0.5rem' }}><CheckCircle2 size={20} color="var(--secondary)" /> Regular updates on notifications</li>
-              <li style={{ display: 'flex', gap: '0.5rem', marginBottom: '0.5rem' }}><CheckCircle2 size={20} color="var(--secondary)" /> Expert-written 3000-word blog articles</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-};
+import AboutPage from './components/AboutPage';
 
 const SuccessStoriesPage = ({ onBack }) => {
   useEffect(() => window.scrollTo(0, 0), []);
@@ -127,7 +84,7 @@ const SuccessStoriesPage = ({ onBack }) => {
   ];
 
   return (
-    <div className="page-wrapper" style={{ background: 'linear-gradient(135deg, #0F172A 0%, #1E293B 100%)' }}>
+    <div className="page-wrapper">
       <div className="container">
         <button onClick={onBack} className="btn btn-secondary" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '3rem' }}>
           <ArrowLeft size={18} /> Back
@@ -135,7 +92,7 @@ const SuccessStoriesPage = ({ onBack }) => {
 
         <div style={{ textAlign: 'center', marginBottom: '5rem' }}>
           <h1 className="gradient-text-gold" style={{ fontSize: 'clamp(1.8rem, 4.5vw, 2.8rem)', marginBottom: '1rem' }}>Success Stories</h1>
-          <p style={{ fontSize: '1.2rem', color: 'white', maxWidth: '800px', margin: '0 auto', lineHeight: '1.8' }}>
+          <p style={{ fontSize: '1.1rem', color: 'var(--text-body)', maxWidth: '800px', margin: '0 auto', lineHeight: '1.8' }}>
             Real aspirants, real success. Read how thousands of students cracked their dream government exams with SarkariExamAll's guidance.
           </p>
         </div>
@@ -257,7 +214,7 @@ const PartnerPage = ({ onBack }) => {
   useEffect(() => window.scrollTo(0, 0), []);
 
   return (
-    <div className="page-wrapper" style={{ background: 'linear-gradient(135deg, #1E293B 0%, #0F172A 100%)' }}>
+    <div className="page-wrapper">
       <div className="container">
         <button onClick={onBack} className="btn btn-secondary" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '3rem' }}>
           <ArrowLeft size={18} /> Back
@@ -265,7 +222,7 @@ const PartnerPage = ({ onBack }) => {
 
         <div style={{ textAlign: 'center', marginBottom: '5rem' }}>
           <h1 className="gradient-text-teal" style={{ fontSize: 'clamp(1.8rem, 4.5vw, 2.8rem)', marginBottom: '1rem' }}>Partner With Us</h1>
-          <p style={{ fontSize: '1.2rem', color: 'white', maxWidth: '900px', margin: '0 auto', lineHeight: '1.8' }}>
+          <p style={{ fontSize: '1.1rem', color: 'var(--text-body)', maxWidth: '900px', margin: '0 auto', lineHeight: '1.8' }}>
             Join India's fastest-growing government exam preparation platform. Collaborate with SarkariExamAll to reach millions of aspirants and grow your educational business.
           </p>
         </div>
@@ -716,7 +673,7 @@ const ArticleDetail = ({ blog, onBack, onHome, onNavigate }) => {
         </button>
       </div>
       <div className="article-content">
-        <div style={{ position: 'relative', height: '400px', borderRadius: '20px', overflow: 'hidden', marginBottom: '3rem', background: '#1E293B' }}>
+        <div style={{ position: 'relative', height: '400px', borderRadius: '20px', overflow: 'hidden', marginBottom: '3rem', background: '#0D1120' }}>
           <img
             src={blog.image.replace('w=350', 'w=1000').replace('w=400', 'w=1000')}
             alt={blog.title}
@@ -741,6 +698,17 @@ const ArticleDetail = ({ blog, onBack, onHome, onNavigate }) => {
 
         <div className="dedicated-content" style={{ marginBottom: '3rem' }}>
           <div style={{ color: 'white' }} dangerouslySetInnerHTML={{ __html: blog.content }} />
+        </div>
+
+        {/* Author Box */}
+        <div className="glass-card" style={{ padding: '2rem', marginBottom: '3rem', display: 'flex', gap: '1.5rem', alignItems: 'flex-start', flexWrap: 'wrap', border: '1px solid rgba(245,158,11,0.3)', background: 'rgba(245,158,11,0.03)' }}>
+          <div style={{ width: '80px', height: '80px', borderRadius: '50%', background: 'linear-gradient(135deg, #8B5CF6, #F59E0B)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '2rem', flexShrink: 0 }}>👩‍💼</div>
+          <div style={{ flex: 1 }}>
+            <div style={{ fontSize: '0.75rem', color: '#10B981', fontWeight: 700, marginBottom: '0.3rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Written By</div>
+            <h4 style={{ color: '#F59E0B', fontSize: '1.2rem', margin: '0 0 0.3rem' }}>Guriya Kumari</h4>
+            <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '0.9rem', margin: '0 0 0.8rem', lineHeight: '1.6' }}>Senior Govt Exam Research Analyst · 3+ Years Experience · Graduate, University of Lucknow</p>
+            <p style={{ color: 'white', fontSize: '0.95rem', lineHeight: '1.7', margin: 0 }}>Guriya has helped 5 lakh+ aspirants navigate government exam preparation through her in-depth research and practical guides on SarkariExamAll.</p>
+          </div>
         </div>
 
         <RelatedArticles currentId={blog.id} category={blog.category} onNavigate={onNavigate} />
@@ -773,13 +741,16 @@ const App = () => {
       '/privacy-policy': 'PrivacyPolicy',
       '/terms-of-service': 'TermsOfService',
       '/exam-hub': 'ExamHub',
+      '/disclaimer': 'Disclaimer',
+      '/author': 'Author',
+      '/founder': 'Founder',
     };
 
     // Check for dynamic routes
     const pathValues = pathname.split('/').filter(Boolean);
 
     // Support /[slug] (deprecated but kept for compatibility)
-    if (pathValues.length === 1 && !['about', 'contact', 'locations', 'success-stories', 'career-counseling', 'partner', 'eligibility-checker', 'document-guide', 'exam-requirements', 'preparation-guides', 'location-guides', 'privacy-policy', 'terms-of-service'].includes(pathValues[0])) {
+    if (pathValues.length === 1 && !['about', 'contact', 'locations', 'success-stories', 'career-counseling', 'partner', 'eligibility-checker', 'document-guide', 'exam-requirements', 'preparation-guides', 'location-guides', 'privacy-policy', 'terms-of-service', 'disclaimer', 'author', 'founder'].includes(pathValues[0])) {
       const slug = pathValues[0];
       if (blogs.some(b => b.slug === slug || b.id === slug)) return 'Detail';
     }
@@ -817,6 +788,9 @@ const App = () => {
       'PrivacyPolicy': '/privacy-policy',
       'TermsOfService': '/terms-of-service',
       'ExamHub': '/exam-hub',
+      'Disclaimer': '/disclaimer',
+      'Author': '/author',
+      'Founder': '/founder',
     };
     return tabMap[tab] || '/';
   };
@@ -849,7 +823,7 @@ const App = () => {
     const pathValues = location.pathname.split('/').filter(Boolean);
 
     // Support /[slug]
-    if (pathValues.length === 1 && !['about', 'contact', 'locations', 'success-stories', 'career-counseling', 'partner', 'eligibility-checker', 'document-guide', 'exam-requirements', 'preparation-guides', 'location-guides', 'privacy-policy', 'terms-of-service'].includes(pathValues[0])) {
+    if (pathValues.length === 1 && !['about', 'contact', 'locations', 'success-stories', 'career-counseling', 'partner', 'eligibility-checker', 'document-guide', 'exam-requirements', 'preparation-guides', 'location-guides', 'privacy-policy', 'terms-of-service', 'disclaimer', 'author', 'founder'].includes(pathValues[0])) {
       const slug = pathValues[0];
       const blog = blogs.find(b => (b.slug === slug) || (b.id === slug));
 
@@ -1053,7 +1027,7 @@ const App = () => {
           <div className="blog-grid">
             {blogs.slice(0, 3).map((blog) => (
               <div key={blog.id} className="blog-card reveal" onClick={() => navigateToTab('Detail', blog)}>
-                <div style={{ height: '200px', overflow: 'hidden', background: '#1E293B' }}>
+                <div style={{ height: '200px', overflow: 'hidden', background: '#0D1120' }}>
                   <img
                     src={blog.image}
                     alt={blog.title}
@@ -1075,6 +1049,32 @@ const App = () => {
         </div>
       </section>
 
+      {/* Career Guides Section */}
+      <section style={{ padding: 'var(--section-padding) 0', background: 'rgba(139,92,246,0.03)' }}>
+        <div className="container">
+          <div className="section-title reveal" style={{ textAlign: 'center', marginBottom: '3rem' }}>
+            <h2 className="gradient-text-purple">Popular Career Guides</h2>
+            <p style={{ color: 'white', marginTop: '0.5rem' }}>Comprehensive guides for every type of aspirant — from 10th pass to graduates</p>
+            <div className="divider" style={{ margin: '1rem auto' }}></div>
+          </div>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.5rem' }}>
+            {blogs.filter(b => ['Career Guide', 'Study Tips', 'Current Affairs'].includes(b.category)).slice(0, 4).map((blog) => (
+              <div key={blog.id} className="glass-card reveal" onClick={() => navigateToTab('Detail', blog)} style={{ cursor: 'pointer', padding: '1.5rem', border: '1px solid rgba(139,92,246,0.2)', transition: 'all 0.3s ease' }}>
+                <span style={{ fontSize: '0.75rem', color: '#8B5CF6', fontWeight: 700, background: 'rgba(139,92,246,0.1)', padding: '0.3rem 0.8rem', borderRadius: '12px', display: 'inline-block', marginBottom: '1rem' }}>{blog.category}</span>
+                <h4 style={{ color: 'white', fontSize: '1.05rem', lineHeight: '1.5', marginBottom: '0.8rem' }}>{blog.title}</h4>
+                <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '0.88rem', lineHeight: '1.6', marginBottom: '1rem' }}>{blog.excerpt.substring(0, 100)}...</p>
+                <span style={{ color: '#8B5CF6', fontSize: '0.85rem', fontWeight: 600 }}>Read Full Guide →</span>
+              </div>
+            ))}
+          </div>
+          <div style={{ textAlign: 'center', marginTop: '2rem' }}>
+            <button onClick={() => navigateToTab('PreparationGuides')} className="btn btn-secondary">
+              <BookOpen size={18} /> View All Preparation Guides
+            </button>
+          </div>
+        </div>
+      </section>
+
       <section style={{ padding: 'var(--section-padding) 0', background: 'rgba(255,255,255,0.02)' }}>
         <div className="container">
           <div className="section-title reveal" style={{ textAlign: 'center', marginBottom: '3rem' }}>
@@ -1085,7 +1085,7 @@ const App = () => {
           <div className="grid grid-3 reveal">
             {locations.slice(0, 6).map((location) => (
               <div key={location.id} className="glass-card" style={{ padding: '0', overflow: 'hidden', cursor: 'pointer' }} onClick={() => navigateToTab('Location', location)}>
-                <div style={{ height: '240px', overflow: 'hidden', background: '#1E293B' }}>
+                <div style={{ height: '240px', overflow: 'hidden', background: '#0D1120' }}>
                   <img
                     src={location.image}
                     alt={location.name}
@@ -1182,11 +1182,57 @@ const App = () => {
         </div>
       </section>
 
+      <section style={{ padding: 'var(--section-padding) 0', background: 'rgba(255,255,255,0.02)' }}>
+        <div className="container">
+          <div className="section-title reveal" style={{ textAlign: 'center', marginBottom: '3rem' }}>
+            <h2 className="gradient-text-gold">About SarkariExamAll — India's Trusted Exam Portal</h2>
+            <div className="divider" style={{ margin: '1rem auto' }}></div>
+          </div>
+          <div className="glass-card reveal" style={{ padding: '2.5rem', maxWidth: '1000px', margin: '0 auto' }}>
+            <p style={{ color: 'white', fontSize: '1.05rem', lineHeight: '1.9', marginBottom: '1.5rem' }}>
+              SarkariExamAll is India's dedicated educational portal for government job aspirants. Founded with the mission to democratize access to accurate, comprehensive, and timely information about government examinations, we have been serving millions of aspirants across India since 2020.
+            </p>
+            <p style={{ color: 'white', fontSize: '1.05rem', lineHeight: '1.9', marginBottom: '1.5rem' }}>
+              Every year, over 2 crore students appear for various government examinations in India — UPSC Civil Services, SSC CGL, IBPS PO, RRB NTPC, State PSC exams, and hundreds of other recruitments. Yet, a large number of these aspirants — especially those from small towns, villages, and economically weaker sections — lack access to reliable guidance. They often miss application deadlines, apply for exams they are not eligible for, or prepare without a proper strategy.
+            </p>
+            <p style={{ color: 'white', fontSize: '1.05rem', lineHeight: '1.9', marginBottom: '1.5rem' }}>
+              SarkariExamAll was created to solve this problem. Our team of experienced researchers, former government employees, and exam experts work tirelessly to provide:
+            </p>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1rem', marginBottom: '1.5rem' }}>
+              {[
+                { icon: '📋', title: 'Verified Exam Notifications', desc: 'Every notification is cross-checked with official government sources before publishing.' },
+                { icon: '✅', title: 'Eligibility Checker Tool', desc: 'Our AI-powered tool instantly matches you with exams you are eligible for based on age and qualification.' },
+                { icon: '📚', title: '3000+ Word Expert Guides', desc: 'In-depth preparation guides written by successful candidates and exam experts.' },
+                { icon: '📄', title: 'Document Checklists', desc: 'Complete document requirements for every major government exam to avoid rejection at verification.' },
+                { icon: '🗺️', title: 'City-wise Exam Centers', desc: 'Location-specific guides covering exam centers, coaching institutes, and preparation resources.' },
+                { icon: '🎯', title: 'Career Counseling', desc: 'Personalized guidance to help you choose the right exam based on your qualification and goals.' },
+              ].map((item, i) => (
+                <div key={i} style={{ display: 'flex', gap: '1rem', padding: '1rem', background: 'rgba(255,255,255,0.03)', borderRadius: '10px', border: '1px solid rgba(255,255,255,0.08)' }}>
+                  <span style={{ fontSize: '1.5rem', flexShrink: 0 }}>{item.icon}</span>
+                  <div>
+                    <div style={{ color: '#F59E0B', fontWeight: 700, fontSize: '0.95rem', marginBottom: '0.3rem' }}>{item.title}</div>
+                    <div style={{ color: 'rgba(255,255,255,0.75)', fontSize: '0.88rem', lineHeight: '1.6' }}>{item.desc}</div>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <p style={{ color: 'white', fontSize: '1.05rem', lineHeight: '1.9', marginBottom: '1.5rem' }}>
+              Our content is written by <strong style={{ color: '#F59E0B' }}>Guriya Kumari</strong>, a Senior Govt Exam Research Analyst with 3+ years of experience in government examination research and career counseling. Guriya holds a B.A. in Political Science from the University of Lucknow and has personally helped thousands of aspirants navigate the complex landscape of Sarkari Naukri through her detailed, practical guides.
+            </p>
+            <p style={{ color: 'white', fontSize: '1.05rem', lineHeight: '1.9', marginBottom: '1.5rem' }}>
+              We cover all major government examinations including UPSC Civil Services, SSC CGL, SSC CHSL, SSC MTS, IBPS PO, IBPS Clerk, SBI PO, SBI Clerk, RBI Grade B, RRB NTPC, RRB Group D, NDA, CDS, AFCAT, UPPSC PCS, BPSC, MPPSC, RPSC, and hundreds of other central and state government recruitments.
+            </p>
+            <p style={{ color: 'white', fontSize: '1.05rem', lineHeight: '1.9' }}>
+              Whether you are a fresh graduate exploring government job options, a working professional planning a career switch, or a student who just completed 10th or 12th — SarkariExamAll has the resources, tools, and guidance you need to achieve your government job dream. Join 5 lakh+ aspirants who trust SarkariExamAll as their go-to platform for Sarkari Naukri preparation.
+            </p>
+          </div>
+        </div>
+      </section>
+
       <section style={{ padding: 'var(--section-padding) 0', background: 'rgba(255,255,255,0.01)' }}>
         <div className="container">
           <div className="section-title reveal" style={{ textAlign: 'center' }}>
-            <h2 className="gradient-text-purple">Frequently Asked Questions</h2>
-            <p style={{ color: 'white', marginTop: '0.5rem' }}>Quick answers to common queries from government exam aspirants</p>
+            <h2 className="gradient-text-purple">Frequently Asked Questions</h2>            <p style={{ color: 'white', marginTop: '0.5rem' }}>Quick answers to common queries from government exam aspirants</p>
             <div className="divider" style={{ margin: '0.5rem auto' }}></div>
           </div>
           <div className="reveal" style={{ maxWidth: '800px', margin: '1.5rem auto 0' }}>
@@ -1210,6 +1256,18 @@ const App = () => {
               question="Which government exam is the easiest to crack in 2026?"
               answer="No exam is truly 'easy' due to the competition, but exams like SSC MTS, State Police Recruitments, and RRB Group D are generally considered more accessible due to their qualification requirements and syllabus depth. However, we recommend choosing an exam based on your interest and strength rather than perceived difficulty. Use our 'Expert Blog' to compare syllabi and make an informed choice."
             />          </div>
+        </div>
+      </section>
+
+      {/* ── FREE TOOLS FOR ASPIRANTS ── */}
+      <section style={{ padding: 'var(--section-padding) 0', background: 'rgba(16,185,129,0.02)' }}>
+        <div className="container">
+          <div className="section-title reveal" style={{ textAlign: 'center', marginBottom: '3rem' }}>
+            <h2 className="gradient-text-teal">Free Tools for Aspirants</h2>
+            <p style={{ color: 'white', marginTop: '0.5rem' }}>Smart interactive tools to plan, calculate and track your government exam journey</p>
+            <div className="divider" style={{ margin: '1rem auto' }}></div>
+          </div>
+          <HomepageTools />
         </div>
       </section>
     </>
@@ -1256,7 +1314,7 @@ const App = () => {
             {filteredBlogs.length > 0 ? (
               filteredBlogs.map((blog) => (
                 <div key={blog.id} className="blog-card reveal" onClick={() => navigateToTab('Detail', blog)}>
-                  <div style={{ height: '220px', overflow: 'hidden', background: '#1E293B' }}>
+                  <div style={{ height: '220px', overflow: 'hidden', background: '#0D1120' }}>
                     <img
                       src={blog.image}
                       alt={blog.title}
@@ -1299,6 +1357,7 @@ const App = () => {
             <a href="#" onClick={(e) => { e.preventDefault(); navigateToTab('ExamHub'); }} style={{ color: activeTab === 'ExamHub' ? 'var(--secondary)' : 'white', textDecoration: 'none', fontWeight: 600, fontSize: '0.95rem' }}>Exam Hub</a>
             <a href="#" onClick={(e) => { e.preventDefault(); setSelectedBlog(null); setSelectedLocation(null); navigateToTab('Blog'); }} style={{ color: activeTab === 'Blog' ? 'var(--secondary)' : 'white', textDecoration: 'none', fontWeight: 600, fontSize: '0.95rem' }}>Blog</a>
             <a href="#" onClick={(e) => { e.preventDefault(); setSelectedBlog(null); setSelectedLocation(null); navigateToTab('Locations'); }} style={{ color: activeTab === 'Locations' ? 'var(--secondary)' : 'white', textDecoration: 'none', fontWeight: 600, fontSize: '0.95rem' }}>Top Cities</a>
+            <a href="#" onClick={(e) => { e.preventDefault(); navigateToTab('About'); }} style={{ color: activeTab === 'About' ? 'var(--secondary)' : 'white', textDecoration: 'none', fontWeight: 600, fontSize: '0.95rem' }}>About</a>
             <a href="#" onClick={(e) => { e.preventDefault(); navigateToTab('Contact'); }} className="btn btn-secondary" style={{ padding: '0.5rem 1rem', fontSize: '0.85rem' }}>Get In Touch</a>
           </div>
 
@@ -1317,9 +1376,9 @@ const App = () => {
             top: '100%',
             left: 0,
             width: '100%',
-            background: 'rgba(15, 23, 42, 0.98)',
-            backdropFilter: 'blur(20px)',
-            borderBottom: '1px solid var(--glass-border)',
+            background: 'rgba(8, 11, 20, 0.98)',
+            backdropFilter: 'blur(24px)',
+            borderBottom: '1px solid rgba(255, 255, 255, 0.07)',
             padding: '2rem',
             display: 'flex',
             flexDirection: 'column',
@@ -1330,6 +1389,7 @@ const App = () => {
             <a href="#" onClick={(e) => { e.preventDefault(); navigateToTab('ExamHub'); setIsMenuOpen(false); }} style={{ color: 'white', textDecoration: 'none', fontSize: '1.2rem', fontWeight: 600 }}>Exam Hub</a>
             <a href="#" onClick={(e) => { e.preventDefault(); navigateToTab('Blog'); setIsMenuOpen(false); }} style={{ color: 'white', textDecoration: 'none', fontSize: '1.2rem', fontWeight: 600 }}>Expert Blog</a>
             <a href="#" onClick={(e) => { e.preventDefault(); navigateToTab('Locations'); setIsMenuOpen(false); }} style={{ color: 'white', textDecoration: 'none', fontSize: '1.2rem', fontWeight: 600 }}>Top Cities</a>
+            <a href="#" onClick={(e) => { e.preventDefault(); navigateToTab('About'); setIsMenuOpen(false); }} style={{ color: 'white', textDecoration: 'none', fontSize: '1.2rem', fontWeight: 600 }}>About</a>
             <a href="#" onClick={(e) => { e.preventDefault(); navigateToTab('Contact'); setIsMenuOpen(false); }} className="btn btn-primary" style={{ justifyContent: 'center' }}>Get In Touch</a>
           </div>
         )}
@@ -1340,7 +1400,7 @@ const App = () => {
         {activeTab === 'Home' && renderHome()}
         {activeTab === 'Blog' && renderBlog()}
         {activeTab === 'Detail' && selectedBlog && <ArticleDetail blog={selectedBlog} onBack={handleBack} onHome={() => navigateToTab('Home')} onNavigate={(blog) => navigateToTab('Detail', blog)} />}
-        {activeTab === 'About' && <AboutPage onBack={handleBack} />}
+        {activeTab === 'About' && <AboutPage onBack={handleBack} onNavigateToAuthor={() => navigateToTab('Author')} />}
         {activeTab === 'Success' && <SuccessStoriesPage onBack={handleBack} />}
         {activeTab === 'Counseling' && <CareerCounselingPage onBack={handleBack} />}
         {activeTab === 'Partner' && <PartnerPage onBack={handleBack} />}
@@ -1355,6 +1415,9 @@ const App = () => {
         {activeTab === 'PrivacyPolicy' && <PrivacyPolicyPage onBack={handleBack} onHome={() => navigateToTab('Home')} />}
         {activeTab === 'TermsOfService' && <TermsOfServicePage onBack={handleBack} onHome={() => navigateToTab('Home')} />}
         {activeTab === 'ExamHub' && <ExamHubPage onBack={handleBack} onHome={() => navigateToTab('Home')} />}
+        {activeTab === 'Disclaimer' && <DisclaimerPage onBack={handleBack} onHome={() => navigateToTab('Home')} />}
+        {activeTab === 'Author' && <AuthorPage onBack={handleBack} onHome={() => navigateToTab('Home')} onSelectBlog={(blog) => navigateToTab('Detail', blog)} />}
+        {activeTab === 'Founder' && <FounderPage onBack={handleBack} onHome={() => navigateToTab('Home')} onContact={() => navigateToTab('Contact')} />}
         {activeTab === 'NotFound' && <NotFoundPage />}
       </main>
 
@@ -1370,10 +1433,13 @@ const App = () => {
               <p style={{ color: 'var(--text-dim)', fontSize: '0.9rem', lineHeight: '1.6', marginBottom: '1.5rem' }}>
                 India's #1 trusted platform for government exam preparation, eligibility checks, and real-time result updates.
               </p>
-              <div style={{ display: 'flex', gap: '1rem', color: 'var(--secondary)' }}>
-                <Twitter size={20} style={{ cursor: 'pointer' }} />
-                <Instagram size={20} style={{ cursor: 'pointer' }} />
-                <Mail size={20} style={{ cursor: 'pointer' }} />
+              <div style={{ display: 'flex', gap: '0.8rem', marginTop: '0.5rem' }}>
+                <a href="https://www.instagram.com/radhikata_/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" style={{ color: 'var(--secondary)', display: 'flex', alignItems: 'center', justifyContent: 'center', width: '38px', height: '38px', borderRadius: '50%', background: 'rgba(245,158,11,0.1)', border: '1px solid rgba(245,158,11,0.3)', textDecoration: 'none' }}>
+                  <Instagram size={18} />
+                </a>
+                <a href="https://www.linkedin.com/in/radhika-gupta-3a2555391" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" style={{ color: 'var(--secondary)', display: 'flex', alignItems: 'center', justifyContent: 'center', width: '38px', height: '38px', borderRadius: '50%', background: 'rgba(245,158,11,0.1)', border: '1px solid rgba(245,158,11,0.3)', textDecoration: 'none' }}>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+                </a>
               </div>
             </div>
 
@@ -1386,6 +1452,9 @@ const App = () => {
                 <li><a href="#" onClick={(e) => { e.preventDefault(); navigateToTab('Contact'); }}>Contact</a></li>
                 <li><a href="#" onClick={(e) => { e.preventDefault(); navigateToTab('PrivacyPolicy'); }}>Privacy Policy</a></li>
                 <li><a href="#" onClick={(e) => { e.preventDefault(); navigateToTab('TermsOfService'); }}>Terms of Service</a></li>
+                <li><a href="#" onClick={(e) => { e.preventDefault(); navigateToTab('Disclaimer'); }}>Disclaimer</a></li>
+                <li><a href="#" onClick={(e) => { e.preventDefault(); navigateToTab('Author'); }}>About Author</a></li>
+                <li><a href="#" onClick={(e) => { e.preventDefault(); navigateToTab('Founder'); }}>Meet the Founder</a></li>
               </ul>
             </div>
 

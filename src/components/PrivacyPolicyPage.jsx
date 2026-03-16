@@ -52,7 +52,7 @@ const PrivacyPolicyPage = ({ onBack, onHome }) => {
                             <FileText size={28} /> Introduction
                         </h2>
                         <p style={{ color: 'white', fontSize: '1.1rem', lineHeight: '1.8', marginBottom: '1rem' }}>
-                            Welcome to SarkariExamAll ("we," "our," or "us"). We are committed to protecting your privacy and ensuring transparency about how we collect, use, and protect your information. This Privacy Policy explains our practices regarding data collection and usage when you visit our website at sarkariexamall.onrender.com (the "Website").
+                            Welcome to SarkariExamAll ("we," "our," or "us"). We are committed to protecting your privacy and ensuring transparency about how we collect, use, and protect your information. This Privacy Policy explains our practices regarding data collection and usage when you visit our website at sarkariexamall.com (the "Website").
                         </p>
                         <p style={{ color: 'white', fontSize: '1.1rem', lineHeight: '1.8' }}>
                             By using our Website, you agree to the collection and use of information in accordance with this policy.
@@ -223,7 +223,7 @@ const PrivacyPolicyPage = ({ onBack, onHome }) => {
                                 <strong>Phone:</strong> <a href="tel:8077583921" style={{ color: '#10B981', textDecoration: 'underline' }}>8077583921</a>
                             </p>
                             <p style={{ color: 'white', fontSize: '1.05rem' }}>
-                                <strong>Website:</strong> sarkariexamall.onrender.com
+                                <strong>Website:</strong> sarkariexamall.com
                             </p>
                         </div>
                     </section>

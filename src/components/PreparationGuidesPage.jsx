@@ -7,7 +7,7 @@ const PreparationGuidesPage = ({ onSelectBlog, onBack, onHome }) => {
 
     const [selectedCategory, setSelectedCategory] = useState('All');
 
-    const categories = ['All', 'UPSC', 'SSC', 'Banking', 'Railways', 'State PSC', 'Defence'];
+    const categories = ['All', 'UPSC', 'SSC', 'Banking', 'Railways', 'State PSC', 'Defence', 'Career Guide', 'Study Tips', 'Current Affairs', 'Eligibility Guides'];
 
     const filteredBlogs = selectedCategory === 'All'
         ? blogs
