@@ -1003,6 +1003,37 @@ section {
     grid-template-columns: 1fr;
   }
 
+  /* Stats grid - 2 columns on mobile for better fit */
+  .grid-2.stats-grid,
+  div[style*="repeat(auto-fit, minmax(150px, 1fr))"] {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 1rem !important;
+  }
+
+  /* Features grid on AboutPage - stack on mobile */
+  .features-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.2rem !important;
+  }
+
+  /* Founder avatar - smaller on mobile */
+  .glass-card img[alt*="Radhika"],
+  .glass-card img[alt*="Founder"] {
+    width: 100px !important;
+    height: 100px !important;
+  }
+
+  /* Credential chips - wrap properly */
+  .glass-card div[style*="flex-wrap"] span {
+    font-size: 0.75rem !important;
+    padding: 0.3rem 0.7rem !important;
+  }
+
+  .grid-2,
+  .grid-3 {
+    grid-template-columns: 1fr;
+  }
+
   /* Blog grid mobile - Horizontal Swipe */
   .blog-grid {
     display: flex !important;
@@ -1187,6 +1218,36 @@ section {
     padding: 1.5rem 1rem;
   }
 
+  /* Office location - extra small mobile */
+  .location-grid .glass-card {
+    padding: 1rem !important;
+  }
+
+  .location-grid h3 {
+    font-size: 1rem !important;
+  }
+
+  .location-grid p {
+    font-size: 0.9rem !important;
+  }
+
+  /* Map height smaller on very small screens */
+  .location-grid iframe {
+    min-height: 250px !important;
+  }
+
+  /* Contact buttons - full width on small mobile */
+  a[href^="tel"],
+  a[href^="mailto"] {
+    width: 100% !important;
+    justify-content: center !important;
+  }
+
+  /* Stats grid - single column on very small screens */
+  div[style*="repeat(auto-fit, minmax(150px, 1fr))"] {
+    grid-template-columns: 1fr !important;
+  }
+
   /* Article content container mobile */
   .article-content {
     padding: 1rem 0;
@@ -1345,6 +1406,71 @@ section {
     flex-shrink: 0 !important;
     scroll-snap-align: start;
     white-space: nowrap;
+  }
+
+  /* Hide scrollbars but keep functionality */
+  .hero-stats::-webkit-scrollbar,
+  .trust-tags::-webkit-scrollbar {
+    display: none;
+  }
+
+  .hero-stats,
+  .trust-tags {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  /* Office Location Section - Mobile Optimized */
+  .location-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+  }
+
+  /* Office location cards - better mobile spacing */
+  .location-grid .glass-card {
+    padding: 1.2rem !important;
+  }
+
+  /* Map container - proper mobile height */
+  .location-grid iframe {
+    min-height: 300px !important;
+    border-radius: 12px;
+  }
+
+  /* Map overlay info - smaller on mobile */
+  .location-grid iframe + div {
+    padding: 0.8rem !important;
+    bottom: 0.5rem !important;
+    left: 0.5rem !important;
+    right: 0.5rem !important;
+  }
+
+  .location-grid iframe + div span {
+    font-size: 0.85rem !important;
+  }
+
+  .location-grid iframe + div a {
+    padding: 0.4rem 0.8rem !important;
+    font-size: 0.8rem !important;
+  }
+
+  /* Founder/Owner section - mobile friendly */
+  .glass-card h2 {
+    font-size: 1.4rem !important;
+  }
+
+  .glass-card h3 {
+    font-size: 1.1rem !important;
+  }
+
+  /* Social links - stack on mobile */
+  .glass-card a[href*="instagram"],
+  .glass-card a[href*="linkedin"],
+  .glass-card a[href*="mailto"] {
+    width: 100% !important;
+    justify-content: center !important;
+    padding: 0.7rem 1rem !important;
+    font-size: 0.9rem !important;
   }
 
   /* Hide scrollbars but keep functionality */
