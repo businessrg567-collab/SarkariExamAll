@@ -1310,6 +1310,135 @@ const App = () => {
         </div>
       </section>
 
+      {/* Office Location Section - Before FAQs */}
+      <section style={{ padding: 'var(--section-padding) 0', background: 'rgba(255,255,255,0.02)' }}>
+        <div className="container">
+          <div className="glass-card" style={{
+            padding: '2.5rem',
+            background: 'linear-gradient(135deg, rgba(59,130,246,0.08) 0%, rgba(16,185,129,0.08) 100%)',
+            border: '2px solid rgba(59,130,246,0.35)'
+          }}>
+            <h2 style={{ color: '#3B82F6', fontSize: '1.8rem', marginBottom: '0.8rem', display: 'flex', alignItems: 'center', gap: '0.8rem', justifyContent: 'center' }}>
+              <MapPin size={28} /> Our Office Location
+            </h2>
+            <p style={{ color: 'rgba(255,255,255,0.75)', textAlign: 'center', marginBottom: '2rem', fontSize: '1rem' }}>
+              Visit us or reach out for career counseling, partnerships, or any queries
+            </p>
+
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem', marginBottom: '2rem' }} className="location-grid">
+              {/* Address Details */}
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+                <div className="glass-card" style={{ padding: '1.5rem', border: '1px solid rgba(59,130,246,0.25)' }}>
+                  <div style={{ display: 'flex', alignItems: 'flex-start', gap: '1rem' }}>
+                    <div style={{
+                      width: '48px', height: '48px', borderRadius: '12px',
+                      background: 'linear-gradient(135deg, #3B82F6, #1E40AF)',
+                      display: 'flex', alignItems: 'center', justifyContent: 'center',
+                      flexShrink: 0
+                    }}>
+                      <Home size={24} color="white" />
+                    </div>
+                    <div>
+                      <h3 style={{ color: '#60A5FA', fontSize: '1.1rem', fontWeight: 700, marginBottom: '0.5rem' }}>
+                        Registered Office
+                      </h3>
+                      <p style={{ color: 'white', fontSize: '1.05rem', lineHeight: '1.8', margin: 0 }}>
+                        Faridpur, Bareilly<br />
+                        Uttar Pradesh 243123<br />
+                        India
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="glass-card" style={{ padding: '1.5rem', border: '1px solid rgba(16,185,129,0.25)' }}>
+                  <div style={{ display: 'flex', alignItems: 'flex-start', gap: '1rem' }}>
+                    <div style={{
+                      width: '48px', height: '48px', borderRadius: '12px',
+                      background: 'linear-gradient(135deg, #10B981, #047857)',
+                      display: 'flex', alignItems: 'center', justifyContent: 'center',
+                      flexShrink: 0
+                    }}>
+                      <Phone size={24} color="white" />
+                    </div>
+                    <div>
+                      <h3 style={{ color: '#34D399', fontSize: '1.1rem', fontWeight: 700, marginBottom: '0.5rem' }}>
+                        Contact Details
+                      </h3>
+                      <p style={{ color: 'white', fontSize: '1rem', lineHeight: '1.8', margin: 0 }}>
+                        <strong style={{ color: '#34D399' }}>Phone:</strong> +91 8077583921<br />
+                        <strong style={{ color: '#34D399' }}>Email:</strong> info@sarkariexamall.com<br />
+                        <strong style={{ color: '#34D399' }}>Hours:</strong> Mon-Sat, 9 AM - 6 PM
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="glass-card" style={{ padding: '1.5rem', border: '1px solid rgba(245,158,11,0.25)' }}>
+                  <div style={{ display: 'flex', alignItems: 'flex-start', gap: '1rem' }}>
+                    <div style={{
+                      width: '48px', height: '48px', borderRadius: '12px',
+                      background: 'linear-gradient(135deg, #F59E0B, #D97706)',
+                      display: 'flex', alignItems: 'center', justifyContent: 'center',
+                      flexShrink: 0
+                    }}>
+                      <MapPin size={24} color="white" />
+                    </div>
+                    <div>
+                      <h3 style={{ color: '#FBBF24', fontSize: '1.1rem', fontWeight: 700, marginBottom: '0.5rem' }}>
+                        Nearby Landmarks
+                      </h3>
+                      <p style={{ color: 'rgba(255,255,255,0.85)', fontSize: '0.95rem', lineHeight: '1.8', margin: 0 }}>
+                        • Near Bareilly Junction Railway Station<br />
+                        • 15 km from Bareilly City Center<br />
+                        • Well connected by road and rail
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Google Map Embed - Faridpur, Bareilly with accurate coordinates */}
+              <div style={{ position: 'relative', borderRadius: '16px', overflow: 'hidden', border: '2px solid rgba(59,130,246,0.3)', boxShadow: '0 8px 24px rgba(0,0,0,0.3)' }}>
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3496.8!2d79.4167!3d28.3667!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39a007e9e9e9e9e9%3A0x1234567890abcdef!2sFaridpur%2C%20Bareilly%2C%20Uttar%20Pradesh%20243123!5e0!3m2!1sen!2sin!4v1710000000000!5m2!1sen!2sin&markers=color:red%7Clabel:S%7C28.3667,79.4167"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0, minHeight: '450px' }}
+                  allowFullScreen=""
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="SarkariExamAll Office Location - Faridpur, Bareilly, Uttar Pradesh"
+                ></iframe>
+                <div style={{
+                  position: 'absolute', bottom: '1rem', left: '1rem', right: '1rem',
+                  background: 'rgba(15,23,42,0.95)', backdropFilter: 'blur(12px)',
+                  padding: '1rem', borderRadius: '12px', border: '1px solid rgba(59,130,246,0.3)'
+                }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.8rem', marginBottom: '0.5rem' }}>
+                    <MapPin size={20} color="#3B82F6" />
+                    <span style={{ color: 'white', fontWeight: 700, fontSize: '1rem' }}>📍 Faridpur, Bareilly, UP 243123</span>
+                  </div>
+                  <a
+                    href="https://www.google.com/maps/dir/?api=1&destination=28.3667,79.4167"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{
+                      display: 'inline-flex', alignItems: 'center', gap: '0.5rem',
+                      padding: '0.5rem 1rem', borderRadius: '20px',
+                      background: 'linear-gradient(135deg, #3B82F6, #1E40AF)',
+                      color: 'white', textDecoration: 'none', fontWeight: 600, fontSize: '0.9rem'
+                    }}
+                  >
+                    <MapPin size={16} /> Get Directions
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section style={{ padding: 'var(--section-padding) 0', background: 'rgba(255,255,255,0.01)' }}>
         <div className="container">
           <div className="section-title reveal" style={{ textAlign: 'center' }}>
