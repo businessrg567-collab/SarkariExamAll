@@ -965,6 +965,87 @@ const App = () => {
         </div>
       </header>
 
+      {/* ── FOUNDER HIGHLIGHT BOX ── */}
+      <section style={{ padding: '3rem 0', background: 'linear-gradient(135deg, rgba(245,158,11,0.08) 0%, rgba(139,92,246,0.05) 100%)' }}>
+        <div className="container">
+          <div className="glass-card reveal" style={{ 
+            padding: '2.5rem', 
+            background: 'rgba(15, 23, 42, 0.95)', 
+            border: '2px solid rgba(245,158,11,0.3)',
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '2rem',
+            alignItems: 'center',
+            textAlign: 'center'
+          }}>
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1.5rem' }}>
+              <img 
+                src="/radhika.jpg" 
+                alt="Radhika Gupta - Founder" 
+                style={{ 
+                  width: '120px', 
+                  height: '120px', 
+                  borderRadius: '50%', 
+                  objectFit: 'cover',
+                  border: '3px solid var(--secondary)',
+                  boxShadow: '0 8px 32px rgba(245,158,11,0.3)'
+                }}
+                onError={(e) => { e.target.src = 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400'; }}
+              />
+              <div>
+                <h3 className="gradient-text-gold" style={{ fontSize: '1.8rem', marginBottom: '0.5rem' }}>Meet Our Founder</h3>
+                <h4 style={{ color: 'white', fontSize: '1.3rem', marginBottom: '1rem' }}>Radhika Gupta</h4>
+                <p style={{ color: 'rgba(255,255,255,0.85)', fontSize: '1.05rem', lineHeight: '1.8', maxWidth: '800px', margin: '0 auto' }}>
+                  Radhika Gupta is the visionary founder of SarkariExamAll.com, dedicated to empowering millions of government job aspirants across India. With her expertise in digital education and passion for helping students achieve their dreams, she has built India's most trusted exam preparation platform.
+                </p>
+                <p style={{ color: 'rgba(255,255,255,0.75)', fontSize: '1rem', lineHeight: '1.7', maxWidth: '800px', margin: '1rem auto 0' }}>
+                  Previously, Radhika worked at <strong style={{ color: 'var(--secondary)' }}>WebNovaCrew.com</strong>, where she gained valuable experience in building scalable digital platforms. Her commitment to quality content and user-first approach has made SarkariExamAll the go-to resource for 5 lakh+ aspirants.
+                </p>
+              </div>
+            </div>
+            <div style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap', justifyContent: 'center' }}>
+              <a 
+                href="https://www.linkedin.com/in/radhika-gupta-3a2555391" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="btn btn-secondary"
+                style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}
+              >
+                <ExternalLink size={18} /> LinkedIn
+              </a>
+              <a 
+                href="https://instagram.com/radhikata_" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="btn btn-secondary"
+                style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}
+              >
+                <Instagram size={18} /> Instagram
+              </a>
+              <button 
+                onClick={() => navigateToTab('Founder')} 
+                className="btn btn-primary"
+                style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}
+              >
+                Read Full Story <ArrowRight size={18} />
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── FREE TOOLS FOR ASPIRANTS ── */}
+      <section style={{ padding: 'var(--section-padding) 0', background: 'rgba(16,185,129,0.02)' }}>
+        <div className="container">
+          <div className="section-title reveal" style={{ textAlign: 'center', marginBottom: '3rem' }}>
+            <h2 className="gradient-text-teal">Free Tools for Aspirants</h2>
+            <p style={{ color: 'white', marginTop: '0.5rem' }}>Smart interactive tools to plan, calculate and track your government exam journey</p>
+            <div className="divider" style={{ margin: '1rem auto' }}></div>
+          </div>
+          <HomepageTools />
+        </div>
+      </section>
+
       <section id="hub" style={{ padding: '2rem 0 4rem 0' }}>
         <div className="container">
           <div className="section-title reveal" style={{ marginBottom: '3rem' }}>
@@ -1259,17 +1340,6 @@ const App = () => {
         </div>
       </section>
 
-      {/* ── FREE TOOLS FOR ASPIRANTS ── */}
-      <section style={{ padding: 'var(--section-padding) 0', background: 'rgba(16,185,129,0.02)' }}>
-        <div className="container">
-          <div className="section-title reveal" style={{ textAlign: 'center', marginBottom: '3rem' }}>
-            <h2 className="gradient-text-teal">Free Tools for Aspirants</h2>
-            <p style={{ color: 'white', marginTop: '0.5rem' }}>Smart interactive tools to plan, calculate and track your government exam journey</p>
-            <div className="divider" style={{ margin: '1rem auto' }}></div>
-          </div>
-          <HomepageTools />
-        </div>
-      </section>
     </>
   );
 

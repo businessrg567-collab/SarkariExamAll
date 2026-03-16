@@ -209,6 +209,9 @@ const AboutPage = ({ onBack, onNavigateToAuthor }) => {
               <p style={{ color: 'rgba(255,255,255,0.85)', fontSize: '1rem', lineHeight: '1.85', marginBottom: '1.2rem' }}>
                 Radhika Gupta is the founder and owner of SarkariExamAll. With a passion for making government job information accessible to every aspirant in India, she built this platform from the ground up in 2020. Her vision was simple — no student should miss a government job opportunity just because they didn't have access to the right information.
               </p>
+              <p style={{ color: 'rgba(255,255,255,0.85)', fontSize: '1rem', lineHeight: '1.85', marginBottom: '1.2rem' }}>
+                Before founding SarkariExamAll, Radhika worked at <strong style={{ color: '#F59E0B' }}>WebNovaCrew.com</strong>, where she gained valuable experience in building scalable digital platforms and understanding user needs. This experience helped her create a platform that truly serves the aspirant community.
+              </p>
               <p style={{ color: 'rgba(255,255,255,0.85)', fontSize: '1rem', lineHeight: '1.85', marginBottom: '2rem' }}>
                 Under her leadership, SarkariExamAll has grown into a trusted portal serving 5 lakh+ aspirants monthly. Radhika personally oversees all content quality, ensuring every article, guide, and tool on the platform is accurate, practical, and genuinely helpful for students from all backgrounds.
               </p>
