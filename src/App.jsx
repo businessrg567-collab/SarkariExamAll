@@ -1138,8 +1138,8 @@ const App = () => {
             <p style={{ color: 'white', marginTop: '0.5rem' }}>Comprehensive guides for every type of aspirant — from 10th pass to graduates</p>
             <div className="divider" style={{ margin: '1rem auto' }}></div>
           </div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.5rem' }}>
-            {blogs.filter(b => ['Career Guide', 'Study Tips', 'Current Affairs'].includes(b.category)).slice(0, 4).map((blog) => (
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1.5rem' }} className="career-guides-grid">
+            {blogs.filter(b => ['Career Guide', 'Study Tips', 'Current Affairs'].includes(b.category)).slice(0, 6).map((blog) => (
               <div key={blog.id} className="glass-card reveal" onClick={() => navigateToTab('Detail', blog)} style={{ cursor: 'pointer', padding: '1.5rem', border: '1px solid rgba(139,92,246,0.2)', transition: 'all 0.3s ease' }}>
                 <span style={{ fontSize: '0.75rem', color: '#8B5CF6', fontWeight: 700, background: 'rgba(139,92,246,0.1)', padding: '0.3rem 0.8rem', borderRadius: '12px', display: 'inline-block', marginBottom: '1rem' }}>{blog.category}</span>
                 <h4 style={{ color: 'white', fontSize: '1.05rem', lineHeight: '1.5', marginBottom: '0.8rem' }}>{blog.title}</h4>
