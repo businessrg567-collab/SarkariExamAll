@@ -112,7 +112,7 @@ const FounderPage = ({ onBack, onHome, onContact }) => {
                 width: '100%', 
                 height: '100%', 
                 objectFit: 'cover', 
-                objectPosition: 'center center', 
+                objectPosition: 'top center', 
                 display: 'block',
                 imageRendering: 'high-quality'
               }}
@@ -416,7 +416,7 @@ const FounderPage = ({ onBack, onHome, onContact }) => {
                 width: '100%', 
                 height: '100%', 
                 objectFit: 'cover', 
-                objectPosition: 'center center', 
+                objectPosition: 'top center', 
                 display: 'block',
                 imageRendering: 'high-quality'
               }}
