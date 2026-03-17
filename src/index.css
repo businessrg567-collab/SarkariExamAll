@@ -2476,3 +2476,106 @@ img {
 .loc-table-wrap tr:hover td {
   background: rgba(255, 255, 255, 0.04);
 }
+
+/* ── MOBILE FIXES: Social buttons + Career guides grid ── */
+
+/* Career guides grid: 3-col → 1-col on mobile */
+@media (max-width: 768px) {
+  .career-guides-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* Social buttons in founder section: fix wrapping/circular issue on mobile */
+@media (max-width: 600px) {
+  /* Force social button rows to stack cleanly */
+  .glass-card div[style*="display: flex"][style*="flexWrap: wrap"],
+  .glass-card div[style*="display: flex"][style*="flex-wrap: wrap"] {
+    gap: 0.75rem !important;
+  }
+
+  /* Social link buttons — full width pill on small screens */
+  .glass-card a[href*="instagram"],
+  .glass-card a[href*="linkedin"],
+  .glass-card a[href*="wa.me"],
+  .glass-card a[href*="mailto"] {
+    width: 100% !important;
+    justify-content: center !important;
+    padding: 0.85rem 1rem !important;
+    font-size: 0.9rem !important;
+    border-radius: 14px !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Founder section buttons on home page */
+  section a[href*="instagram"],
+  section a[href*="linkedin"],
+  section a[href*="wa.me"] {
+    min-width: 0 !important;
+    flex: 1 1 calc(50% - 0.5rem) !important;
+    justify-content: center !important;
+    padding: 0.75rem 0.5rem !important;
+    font-size: 0.85rem !important;
+    border-radius: 12px !important;
+    text-align: center !important;
+  }
+
+  /* "Read Full Story" button — full width */
+  section .btn.btn-primary[style*="alignItems"] {
+    flex: 1 1 100% !important;
+    justify-content: center !important;
+  }
+}
+
+/* Extra small screens */
+@media (max-width: 400px) {
+  section a[href*="instagram"],
+  section a[href*="linkedin"],
+  section a[href*="wa.me"] {
+    flex: 1 1 100% !important;
+    border-radius: 12px !important;
+  }
+}
+
+/* Founder social buttons row — home page */
+.founder-social-btns {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+@media (max-width: 600px) {
+  .founder-social-btns {
+    gap: 0.6rem;
+  }
+
+  .founder-social-btns a,
+  .founder-social-btns button {
+    flex: 1 1 calc(50% - 0.6rem) !important;
+    min-width: 0 !important;
+    justify-content: center !important;
+    padding: 0.75rem 0.5rem !important;
+    font-size: 0.82rem !important;
+    border-radius: 12px !important;
+    text-align: center !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
+
+  /* "Read Full Story" takes full width */
+  .founder-social-btns button {
+    flex: 1 1 100% !important;
+  }
+}
+
+@media (max-width: 380px) {
+  .founder-social-btns a,
+  .founder-social-btns button {
+    flex: 1 1 100% !important;
+    font-size: 0.88rem !important;
+    padding: 0.8rem 1rem !important;
+    border-radius: 12px !important;
+  }
+}
