@@ -972,66 +972,99 @@ const App = () => {
             padding: '2.5rem', 
             background: 'rgba(15, 23, 42, 0.95)', 
             border: '2px solid rgba(245,158,11,0.3)',
-            display: 'flex',
-            flexDirection: 'column',
-            gap: '2rem',
-            alignItems: 'center',
-            textAlign: 'center'
           }}>
-            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1.5rem' }}>
-              <img 
-                src="/radhika.jpg" 
-                alt="Radhika Gupta - Founder" 
-                style={{ 
-                  width: '120px', 
-                  height: '120px', 
-                  borderRadius: '50%', 
-                  objectFit: 'cover',
-                  objectPosition: 'center center',
-                  border: '3px solid var(--secondary)',
-                  boxShadow: '0 8px 32px rgba(245,158,11,0.3)',
-                  imageRendering: 'high-quality'
-                }}
-                loading="eager"
-                onError={(e) => { e.target.onerror = null; e.target.parentNode.innerHTML = '<div style="width:120px;height:120px;border-radius:50%;background:linear-gradient(135deg,#F59E0B,#8B5CF6);display:flex;align-items:center;justify-content:center;font-size:3rem;border:3px solid var(--secondary)">👩‍💻</div>'; }}
-              />
-              <div>
-                <h3 className="gradient-text-gold" style={{ fontSize: '1.8rem', marginBottom: '0.5rem' }}>Meet Our Founder</h3>
-                <h4 style={{ color: 'white', fontSize: '1.3rem', marginBottom: '1rem' }}>Radhika Gupta</h4>
-                <p style={{ color: 'rgba(255,255,255,0.85)', fontSize: '1.05rem', lineHeight: '1.8', maxWidth: '800px', margin: '0 auto' }}>
-                  Radhika Gupta is the visionary founder of SarkariExamAll.com, dedicated to empowering millions of government job aspirants across India. With her expertise in digital education and passion for helping students achieve their dreams, she has built India's most trusted exam preparation platform.
-                </p>
-                <p style={{ color: 'rgba(255,255,255,0.75)', fontSize: '1rem', lineHeight: '1.7', maxWidth: '800px', margin: '1rem auto 0' }}>
-                  Previously, Radhika worked at <strong style={{ color: 'var(--secondary)' }}>WebNovaCrew.com</strong>, where she gained valuable experience in building scalable digital platforms. Her commitment to quality content and user-first approach has made SarkariExamAll the go-to resource for 5 lakh+ aspirants.
+            {/* Top: Photo + Name + Title */}
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1rem', marginBottom: '1.5rem' }}>
+              <div style={{
+                width: '130px', height: '130px', borderRadius: '50%',
+                background: 'linear-gradient(135deg, #F59E0B, #8B5CF6)',
+                border: '4px solid rgba(245,158,11,0.6)',
+                overflow: 'hidden', flexShrink: 0,
+                boxShadow: '0 8px 32px rgba(245,158,11,0.35)'
+              }}>
+                <img 
+                  src="/radhika.jpg" 
+                  alt="Radhika Gupta - Founder SarkariExamAll" 
+                  style={{ 
+                    width: '100%', height: '100%',
+                    objectFit: 'cover', objectPosition: 'center center',
+                    display: 'block'
+                  }}
+                  loading="eager"
+                  onError={(e) => { 
+                    e.target.style.display = 'none';
+                    e.target.parentNode.style.display = 'flex';
+                    e.target.parentNode.style.alignItems = 'center';
+                    e.target.parentNode.style.justifyContent = 'center';
+                    e.target.parentNode.style.fontSize = '3.5rem';
+                    e.target.parentNode.innerHTML = '👩‍💻';
+                  }}
+                />
+              </div>
+
+              <div style={{ textAlign: 'center' }}>
+                <div style={{
+                  display: 'inline-flex', alignItems: 'center', gap: '0.5rem',
+                  padding: '0.3rem 1rem', background: 'rgba(16,185,129,0.1)',
+                  border: '1px solid #10B981', borderRadius: '20px', marginBottom: '0.6rem'
+                }}>
+                  <span style={{ fontSize: '0.72rem', fontWeight: 700, color: '#10B981', letterSpacing: '0.05em' }}>FOUNDER & OWNER — SARKARIEXAMALL</span>
+                </div>
+                <h3 style={{ 
+                  fontSize: 'clamp(1.6rem, 4vw, 2.2rem)', fontWeight: 800, color: 'white', marginBottom: '0.3rem'
+                }}>Radhika Gupta</h3>
+                <p style={{ color: '#F59E0B', fontSize: '1rem', fontWeight: 600, margin: 0 }}>
+                  Entrepreneur · Govt Exam Research Expert · Career Counselor · Lucknow, UP
                 </p>
               </div>
             </div>
-            <div style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap', justifyContent: 'center' }}>
-              <a 
-                href="https://www.linkedin.com/in/radhika-gupta-3a2555391" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="btn btn-secondary"
-                style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}
-              >
-                <ExternalLink size={18} /> LinkedIn
-              </a>
-              <a 
-                href="https://instagram.com/radhikata_" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="btn btn-secondary"
-                style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}
-              >
-                <Instagram size={18} /> Instagram
-              </a>
-              <button 
-                onClick={() => navigateToTab('Founder')} 
-                className="btn btn-primary"
-                style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}
-              >
-                Read Full Story <ArrowRight size={18} />
-              </button>
+
+            {/* Bio Text */}
+            <div style={{ maxWidth: '820px', margin: '0 auto', textAlign: 'center' }}>
+              <p style={{ color: 'rgba(255,255,255,0.88)', fontSize: '1.05rem', lineHeight: '1.85', marginBottom: '1rem' }}>
+                Radhika Gupta built SarkariExamAll from a simple observation — millions of students in India work incredibly hard for government jobs, but fail not because of lack of effort, but because of lack of the right information at the right time. She decided to fix that.
+              </p>
+              <p style={{ color: 'rgba(255,255,255,0.75)', fontSize: '1rem', lineHeight: '1.8', marginBottom: '1.5rem' }}>
+                Previously at <strong style={{ color: 'var(--secondary)' }}>WebNovaCrew.com</strong>, she gained deep expertise in building scalable digital platforms. Today, SarkariExamAll serves <strong style={{ color: '#F59E0B' }}>5 lakh+ aspirants monthly</strong> with verified exam notifications, eligibility checkers, expert guides, and free tools — all in one place.
+              </p>
+
+              {/* Credential chips */}
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.7rem', justifyContent: 'center', marginBottom: '2rem' }}>
+                {['Govt Exam Research Expert', '3+ Years Experience', 'Career Counselor', '5L+ Students Helped', 'SarkariExamAll Founder'].map((tag, i) => (
+                  <span key={i} style={{
+                    padding: '0.35rem 0.9rem', background: 'rgba(245,158,11,0.1)',
+                    border: '1px solid rgba(245,158,11,0.35)', borderRadius: '20px',
+                    color: '#FCD34D', fontSize: '0.82rem', fontWeight: 600
+                  }}>{tag}</span>
+                ))}
+              </div>
+
+              {/* Buttons */}
+              <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', justifyContent: 'center' }}>
+                <a 
+                  href="https://www.linkedin.com/in/radhika-gupta-3a2555391" 
+                  target="_blank" rel="noopener noreferrer"
+                  className="btn btn-secondary"
+                  style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}
+                >
+                  <ExternalLink size={18} /> LinkedIn
+                </a>
+                <a 
+                  href="https://instagram.com/radhikata_" 
+                  target="_blank" rel="noopener noreferrer"
+                  className="btn btn-secondary"
+                  style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}
+                >
+                  <Instagram size={18} /> Instagram
+                </a>
+                <button 
+                  onClick={() => navigateToTab('Founder')} 
+                  className="btn btn-primary"
+                  style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}
+                >
+                  Read Full Story <ArrowRight size={18} />
+                </button>
+              </div>
             </div>
           </div>
         </div>
