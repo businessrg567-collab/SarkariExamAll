@@ -977,7 +977,7 @@ const App = () => {
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1rem', marginBottom: '1.5rem' }}>
               <div style={{
                 width: '130px', height: '130px', borderRadius: '50%',
-                background: 'linear-gradient(135deg, #F59E0B, #8B5CF6)',
+                background: '#111827',
                 border: '4px solid rgba(245,158,11,0.6)',
                 overflow: 'hidden', flexShrink: 0,
                 boxShadow: '0 8px 32px rgba(245,158,11,0.35)'
@@ -986,11 +986,11 @@ const App = () => {
                   src="/radhika.jpg" 
                   alt="Radhika Gupta - Founder SarkariExamAll" 
                   style={{ 
-                    width: '100%', height: '100%',
-                    objectFit: 'cover', objectPosition: 'center 15%',
+                    width: '110%', height: '110%',
+                    objectFit: 'cover', objectPosition: 'center 10%',
                     display: 'block',
-                    transform: 'scale(1.18)',
-                    transformOrigin: 'center 20%'
+                    marginLeft: '-5%',
+                    marginTop: '-5%'
                   }}
                   loading="eager"
                   onError={(e) => { 

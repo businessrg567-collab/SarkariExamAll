@@ -179,7 +179,7 @@ const AboutPage = ({ onBack, onNavigateToAuthor }) => {
             {/* Avatar */}
             <div style={{
               width: '120px', height: '120px', borderRadius: '50%',
-              background: 'linear-gradient(135deg, #F59E0B, #8B5CF6)',
+              background: '#111827',
               border: '4px solid rgba(245,158,11,0.5)', flexShrink: 0,
               overflow: 'hidden'
             }}>
@@ -187,13 +187,13 @@ const AboutPage = ({ onBack, onNavigateToAuthor }) => {
                 src="/radhika.jpg"
                 alt="Radhika Gupta - Founder SarkariExamAll"
                 style={{ 
-                  width: '100%', 
-                  height: '100%', 
+                  width: '110%', 
+                  height: '110%', 
                   objectFit: 'cover', 
-                  objectPosition: 'center 15%', 
+                  objectPosition: 'center 10%', 
                   display: 'block',
-                  transform: 'scale(1.18)',
-                  transformOrigin: 'center 20%'
+                  marginLeft: '-5%',
+                  marginTop: '-5%'
                 }}
                 loading="eager"
                 onError={e => { e.target.style.display='none'; e.target.parentNode.style.display='flex'; e.target.parentNode.style.alignItems='center'; e.target.parentNode.style.justifyContent='center'; e.target.parentNode.style.fontSize='3rem'; e.target.parentNode.innerHTML='👩‍💻'; }}
