@@ -987,10 +987,13 @@ const App = () => {
                   height: '120px', 
                   borderRadius: '50%', 
                   objectFit: 'cover',
+                  objectPosition: 'center center',
                   border: '3px solid var(--secondary)',
-                  boxShadow: '0 8px 32px rgba(245,158,11,0.3)'
+                  boxShadow: '0 8px 32px rgba(245,158,11,0.3)',
+                  imageRendering: 'high-quality'
                 }}
-                onError={(e) => { e.target.src = 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400'; }}
+                loading="eager"
+                onError={(e) => { e.target.onerror = null; e.target.parentNode.innerHTML = '<div style="width:120px;height:120px;border-radius:50%;background:linear-gradient(135deg,#F59E0B,#8B5CF6);display:flex;align-items:center;justify-content:center;font-size:3rem;border:3px solid var(--secondary)">👩‍💻</div>'; }}
               />
               <div>
                 <h3 className="gradient-text-gold" style={{ fontSize: '1.8rem', marginBottom: '0.5rem' }}>Meet Our Founder</h3>

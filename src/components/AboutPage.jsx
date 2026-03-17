@@ -186,7 +186,15 @@ const AboutPage = ({ onBack, onNavigateToAuthor }) => {
               <img
                 src="/radhika.jpg"
                 alt="Radhika Gupta - Founder SarkariExamAll"
-                style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center top', display: 'block' }}
+                style={{ 
+                  width: '100%', 
+                  height: '100%', 
+                  objectFit: 'cover', 
+                  objectPosition: 'center center', 
+                  display: 'block',
+                  imageRendering: 'high-quality'
+                }}
+                loading="eager"
                 onError={e => { e.target.style.display='none'; e.target.parentNode.style.display='flex'; e.target.parentNode.style.alignItems='center'; e.target.parentNode.style.justifyContent='center'; e.target.parentNode.style.fontSize='3rem'; e.target.parentNode.innerHTML='👩‍💻'; }}
               />
             </div>
