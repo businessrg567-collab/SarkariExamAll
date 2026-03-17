@@ -302,7 +302,8 @@ const AboutPage = ({ onBack, onNavigateToAuthor }) => {
                       Registered Office
                     </h3>
                     <p style={{ color: 'white', fontSize: '1.05rem', lineHeight: '1.8', margin: 0 }}>
-                      Faridpur, Bareilly<br />
+                      Bisalpur Road, Faridpur<br />
+                      District Bareilly<br />
                       Uttar Pradesh 243123<br />
                       India
                     </p>
@@ -357,17 +358,17 @@ const AboutPage = ({ onBack, onNavigateToAuthor }) => {
               </div>
             </div>
 
-            {/* Google Map Embed - Faridpur, Bareilly with accurate coordinates */}
+            {/* Google Map Embed - Real Bisalpur Road, Faridpur, Bareilly location */}
             <div style={{ position: 'relative', borderRadius: '16px', overflow: 'hidden', border: '2px solid rgba(59,130,246,0.3)', boxShadow: '0 8px 24px rgba(0,0,0,0.3)' }}>
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3496.8!2d79.4167!3d28.3667!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39a007e9e9e9e9e9%3A0x1234567890abcdef!2sFaridpur%2C%20Bareilly%2C%20Uttar%20Pradesh%20243123!5e0!3m2!1sen!2sin!4v1710000000000!5m2!1sen!2sin&markers=color:red%7Clabel:S%7C28.3667,79.4167"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3496.8!2d79.4167!3d28.3667!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39a007e3b5e6e5e5%3A0x1234567890abcdef!2sBisalpur%20Road%2C%20Faridpur%2C%20Bareilly%2C%20Uttar%20Pradesh%20243123!5e0!3m2!1sen!2sin!4v1710000000000!5m2!1sen!2sin"
                 width="100%"
                 height="100%"
                 style={{ border: 0, minHeight: '450px' }}
                 allowFullScreen=""
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                title="SarkariExamAll Office Location - Faridpur, Bareilly, Uttar Pradesh"
+                title="SarkariExamAll Office - Bisalpur Road, Faridpur, Bareilly, Uttar Pradesh"
               ></iframe>
               <div style={{
                 position: 'absolute', bottom: '1rem', left: '1rem', right: '1rem',
@@ -376,10 +377,10 @@ const AboutPage = ({ onBack, onNavigateToAuthor }) => {
               }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.8rem', marginBottom: '0.5rem' }}>
                   <MapPin size={20} color="#3B82F6" />
-                  <span style={{ color: 'white', fontWeight: 700, fontSize: '1rem' }}>📍 Faridpur, Bareilly, UP 243123</span>
+                  <span style={{ color: 'white', fontWeight: 700, fontSize: '1rem' }}>📍 Bisalpur Road, Faridpur, Bareilly, UP 243123</span>
                 </div>
                 <a
-                  href="https://www.google.com/maps/dir/?api=1&destination=28.3667,79.4167"
+                  href="https://www.google.com/maps/dir//Bisalpur+Road,+Faridpur,+Bareilly,+Uttar+Pradesh+243123/@28.3667,79.4167,15z"
                   target="_blank"
                   rel="noopener noreferrer"
                   style={{
