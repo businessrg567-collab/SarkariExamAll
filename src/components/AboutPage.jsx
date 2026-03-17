@@ -358,13 +358,21 @@ const AboutPage = ({ onBack, onNavigateToAuthor }) => {
               </div>
             </div>
 
-            {/* Google Map Embed - Real Bisalpur Road, Faridpur, Bareilly location */}
-            <div style={{ position: 'relative', borderRadius: '16px', overflow: 'hidden', border: '2px solid rgba(59,130,246,0.3)', boxShadow: '0 8px 24px rgba(0,0,0,0.3)' }}>
+            {/* Google Map Embed - High Quality Bisalpur Road, Faridpur, Bareilly location */}
+            <div style={{ 
+              position: 'relative', 
+              borderRadius: '16px', 
+              overflow: 'hidden', 
+              border: '2px solid rgba(59,130,246,0.3)', 
+              boxShadow: '0 8px 24px rgba(0,0,0,0.3)',
+              width: '100%',
+              height: '500px'
+            }}>
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3496.8!2d79.4167!3d28.3667!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39a007e3b5e6e5e5%3A0x1234567890abcdef!2sBisalpur%20Road%2C%20Faridpur%2C%20Bareilly%2C%20Uttar%20Pradesh%20243123!5e0!3m2!1sen!2sin!4v1710000000000!5m2!1sen!2sin"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3496.8!2d79.4167!3d28.3667!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39a007e3b5e6e5e5%3A0x1234567890abcdef!2sBisalpur%20Road%2C%20Faridpur%2C%20Bareilly%2C%20Uttar%20Pradesh%20243123!5e1!3m2!1sen!2sin!4v1710000000000!5m2!1sen!2sin&z=15"
                 width="100%"
                 height="100%"
-                style={{ border: 0, minHeight: '450px' }}
+                style={{ border: 0, display: 'block' }}
                 allowFullScreen=""
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
