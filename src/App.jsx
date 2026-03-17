@@ -987,8 +987,10 @@ const App = () => {
                   alt="Radhika Gupta - Founder SarkariExamAll" 
                   style={{ 
                     width: '100%', height: '100%',
-                    objectFit: 'cover', objectPosition: 'top center',
-                    display: 'block'
+                    objectFit: 'cover', objectPosition: 'center 15%',
+                    display: 'block',
+                    transform: 'scale(1.18)',
+                    transformOrigin: 'center 20%'
                   }}
                   loading="eager"
                   onError={(e) => { 

@@ -190,9 +190,10 @@ const AboutPage = ({ onBack, onNavigateToAuthor }) => {
                   width: '100%', 
                   height: '100%', 
                   objectFit: 'cover', 
-                  objectPosition: 'top center', 
+                  objectPosition: 'center 15%', 
                   display: 'block',
-                  imageRendering: 'high-quality'
+                  transform: 'scale(1.18)',
+                  transformOrigin: 'center 20%'
                 }}
                 loading="eager"
                 onError={e => { e.target.style.display='none'; e.target.parentNode.style.display='flex'; e.target.parentNode.style.alignItems='center'; e.target.parentNode.style.justifyContent='center'; e.target.parentNode.style.fontSize='3rem'; e.target.parentNode.innerHTML='👩‍💻'; }}
