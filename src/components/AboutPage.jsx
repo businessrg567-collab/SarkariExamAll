@@ -177,24 +177,10 @@ const AboutPage = ({ onBack, onNavigateToAuthor }) => {
 
           <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1.5rem', textAlign: 'center' }}>
             {/* Avatar */}
-            <div style={{
-              width: '120px', height: '120px', borderRadius: '50%',
-              background: '#111827',
-              border: '4px solid rgba(245,158,11,0.5)', flexShrink: 0,
-              overflow: 'hidden'
-            }}>
+            <div className="founder-avatar founder-avatar-md">
               <img
                 src="/radhika.jpg"
                 alt="Radhika Gupta - Founder SarkariExamAll"
-                style={{ 
-                  width: '110%', 
-                  height: '110%', 
-                  objectFit: 'cover', 
-                  objectPosition: 'center 10%', 
-                  display: 'block',
-                  marginLeft: '-5%',
-                  marginTop: '-5%'
-                }}
                 loading="eager"
                 onError={e => { e.target.style.display='none'; e.target.parentNode.style.display='flex'; e.target.parentNode.style.alignItems='center'; e.target.parentNode.style.justifyContent='center'; e.target.parentNode.style.fontSize='3rem'; e.target.parentNode.innerHTML='👩‍💻'; }}
               />

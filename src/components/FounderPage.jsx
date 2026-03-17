@@ -99,24 +99,10 @@ const FounderPage = ({ onBack, onHome, onContact }) => {
           background: 'linear-gradient(135deg, rgba(245,158,11,0.07) 0%, rgba(236,72,153,0.05) 100%)',
           border: '2px solid rgba(245,158,11,0.3)'
         }}>
-          <div style={{
-            width: '130px', height: '130px', borderRadius: '50%', margin: '0 auto 1.5rem',
-            background: '#111827',
-            border: '4px solid rgba(245,158,11,0.5)',
-            overflow: 'hidden', flexShrink: 0
-          }}>
+          <div className="founder-avatar founder-avatar-lg" style={{ margin: '0 auto 1.5rem' }}>
             <img
               src="/radhika.jpg"
               alt="Radhika Gupta - Founder SarkariExamAll"
-              style={{ 
-                width: '110%', 
-                height: '110%', 
-                objectFit: 'cover', 
-                objectPosition: 'center 10%', 
-                display: 'block',
-                marginLeft: '-5%',
-                marginTop: '-5%'
-              }}
               loading="eager"
               onError={e => { e.target.style.display='none'; e.target.parentNode.style.display='flex'; e.target.parentNode.style.alignItems='center'; e.target.parentNode.style.justifyContent='center'; e.target.parentNode.style.fontSize='3.5rem'; e.target.parentNode.innerHTML='👩‍💻'; }}
             />
@@ -405,23 +391,10 @@ const FounderPage = ({ onBack, onHome, onContact }) => {
           border: '2px solid rgba(245,158,11,0.3)',
           background: 'linear-gradient(135deg, rgba(245,158,11,0.05) 0%, rgba(236,72,153,0.04) 100%)'
         }}>
-          <div style={{
-            width: '80px', height: '80px', borderRadius: '50%', margin: '0 auto 1rem',
-            background: '#111827',
-            border: '3px solid rgba(245,158,11,0.5)', overflow: 'hidden'
-          }}>
+          <div className="founder-avatar founder-avatar-sm" style={{ margin: '0 auto 1rem' }}>
             <img
               src="/radhika.jpg"
               alt="Radhika Gupta"
-              style={{ 
-                width: '110%', 
-                height: '110%', 
-                objectFit: 'cover', 
-                objectPosition: 'center 10%', 
-                display: 'block',
-                marginLeft: '-5%',
-                marginTop: '-5%'
-              }}
               loading="eager"
               onError={e => { e.target.style.display='none'; e.target.parentNode.innerHTML='👩‍💻'; e.target.parentNode.style.display='flex'; e.target.parentNode.style.alignItems='center'; e.target.parentNode.style.justifyContent='center'; e.target.parentNode.style.fontSize='2.5rem'; }}
             />

@@ -975,23 +975,10 @@ const App = () => {
           }}>
             {/* Top: Photo + Name + Title */}
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1rem', marginBottom: '1.5rem' }}>
-              <div style={{
-                width: '130px', height: '130px', borderRadius: '50%',
-                background: '#111827',
-                border: '4px solid rgba(245,158,11,0.6)',
-                overflow: 'hidden', flexShrink: 0,
-                boxShadow: '0 8px 32px rgba(245,158,11,0.35)'
-              }}>
+              <div className="founder-avatar founder-avatar-lg">
                 <img 
                   src="/radhika.jpg" 
                   alt="Radhika Gupta - Founder SarkariExamAll" 
-                  style={{ 
-                    width: '110%', height: '110%',
-                    objectFit: 'cover', objectPosition: 'center 10%',
-                    display: 'block',
-                    marginLeft: '-5%',
-                    marginTop: '-5%'
-                  }}
                   loading="eager"
                   onError={(e) => { 
                     e.target.style.display = 'none';
